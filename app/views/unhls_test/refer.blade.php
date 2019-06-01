@@ -57,22 +57,51 @@
                     {{ Form::label('sample_obtainer', 'Sample Collected by') }}
                     {{Form::text('sample-obtainer', Input::old('sample_obtainer'), array('class' => 'form-control'))}}
                     {{ Form::label('cadre-obtainer', 'Cadre') }}
-                    {{Form::text('cadre-obtainer', Input::old('cadre_obtainer'), array('class' => 'form-control'))}}
+                    {{Form::text('cadre-obtainer', Input::old('cadre_obtainer'), array('class' => 'form-control'))}} 
                 </div>
                 <div class="form-group">
                     {{ Form::label('sample-date', 'Date sample recieved in Lab') }}
                     {{Form::text('sample-date', Input::old('sample_date'), array('class' => 'form-control standard-datepicker'))}}
+                    
+                </div>  
+                <!-- <div class="form-group">
                     {{ Form::label('sample-time', 'Time Sample Recieved in Lab') }}
                     {{Form::text('sample-time', Input::old('sample_time'), array('class' => 'form-control', 'placeholder' => 'HH:MM'))}}
-                </div> 
+                </div> -->
                 <div class="form-group">
+                                                <label for="sample-time">Time Sample Received in Lab</label>
+                                                <input class="form-control"
+                                                    data-format="YYYY-MM-DD HH:mm"
+                                                    data-template="DD / MM / YYYY HH : mm"
+                                                    name="sample-time"
+                                                    type="text"
+                                                    id="reception-date"
+                                                    value="{{$sampleTime}}">
+                                            </div>  
+              
+
+
+                <!-- <div class="form-group">
                      {{ Form::label('time-dispatch', trans('messages.time-dispatch')) }}
                      {{Form::text('time-dispatch', Input::old('time-dispatch'), array('class' => 'form-control', 'placeholder' => 'HH:MM'))}} 
-                </div>
+                </div> -->
+
+                <div class="form-group">
+                                                <label for="time-dispatch">Time of Sample dispatch:</label>
+                                                <input class="form-control"
+                                                    data-format="YYYY-MM-DD HH:mm"
+                                                    data-template="DD / MM / YYYY HH : mm"
+                                                    name="time-dispatch"
+                                                    type="text"
+                                                    id="collection-date"
+                                                    value="{{$sampleTime}}">
+                                            </div>  
+
                 <div class="form-group">
                         {{ Form::label('storage-condition', trans("messages.storage-condition")) }}
                         {{ Form::select('storage-condition', [' ' => '--- Select storage type ---','1' => 'Cold Chain','2' => 'Room Temp', '3' => 'Other'], null,
                                      array('class' => 'form-control')) }}
+                                     
                 </div>
                 <div class = "form-group" id ="other_storage" style="display:none"> <!--TODO avoid the inline css -->
                     {{Form::text('storage-condition', Input::old('storage_condition'), array('class' => 'form-control', 'placeholder' => 'Other (Specify)'))}}
@@ -104,10 +133,51 @@
                     {{ Form::label('refer-reason', trans('messages.reasons-for-referral')) }}
                     {{ Form::select('referral-reason', array(0 => '')+$referralReason->lists('reason', 'id'),
                         Input::old('referral-reason'), array('class' => 'form-control')) }}
+                    
+                </div> 
+
+
+                <!-- <div class="form-group">
+                {{ Form::label('specimen_types', trans('messages.reasons-for-referral')) }}
+                <div class="form-pane panel panel-default">
+                    <div class="container-fluid">
+                        <?php 
+                            $cnt = 0;
+                            $zebra = "";
+                        ?>
+                        @foreach($specimentypes as $key=>$value)
+                            {{ ($cnt%4==0)?"<div class='row $zebra'>":"" }}
+                            <?php
+                                $cnt++;
+                                $zebra = (((int)$cnt/4)%2==1?"row-striped":"");
+                            ?>
+                            <div class="col-md-3">
+                                <label  class="checkbox">
+                                    <input type="checkbox" name="specimentypes[]" value="{{ $value->id}}" />{{$value->reason}}
+                                </label>
+                            </div>
+                            {{ ($cnt%4==0)?"</div>":"" }}
+                        @endforeach
+                        </div>
+                    </div>
+                </div>
+ -->
+
+
+
+
+
+
+
+
+
+
+                <div class="form-group">
                     {{ Form::label('priority-specimen', trans("messages.priority-of-specimen")) }}
                     {{Form::text('priority-specimen', Input::old('prioritySpecimen'),
                         array('class' => 'form-control'))}}
                 </div>
+
                 <div class="form-group">
                     {{ Form::label('facility', Lang::choice("messages.destination-facility",1)) }}
                     {{ Form::select('facility_id', array(0 => '')+$facilities->lists('name', 'id'), Input::old('facility_id'),

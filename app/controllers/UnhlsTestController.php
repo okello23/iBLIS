@@ -995,16 +995,23 @@ class UnhlsTestController extends \BaseController {
 	 */
 	public function showRefer($testid)
 	{
+		$now = new DateTime();
+		//$collectionDate = $now->format('Y-m-d H:i');
+		$sampleTime = $now->format('Y-m-d H:i');
+		$receptionDate = $now->format('Y-m-d H:i');
 		$test = UnhlsTest::find($testid);
 		
 		$facilities = UNHLSFacility::all();
 		//Referral facilities
 		$referralReason = ReferralReason::all();
+		$specimentypes = ReferralReason::get();
 		return View::make('unhls_test.refer')
-			
-			->with('test',$test)
-			->with('facilities', $facilities)
-			->with('referralReason', $referralReason);
+				->with('sampleTime', $sampleTime)			
+				->with('receptionDate', $receptionDate)			
+				->with('test',$test)
+				->with('facilities', $facilities)
+				->with('specimentypes',$specimentypes)
+				->with('referralReason', $referralReason);
 
 	}
 
@@ -1024,6 +1031,8 @@ class UnhlsTestController extends \BaseController {
 			);
 		$validator = Validator::make(Input::all(), $rules);
 		$specimenId = Input::get('specimen_id');
+
+		print_r(Input::all());
 
 		if ($validator->fails())
 		{

@@ -81,6 +81,9 @@ Route::group(array("before" => "auth"), function()
         "uses" => "UnhlsPatientController@search"
     ));
 
+    // refered sample
+
+
 
     //POC routes start here
     Route::resource('poc', 'PocController');
@@ -195,7 +198,12 @@ Route::group(array("before" => "auth"), function()
         Route::resource('instrument', 'InstrumentController');
         Route::resource('ward', 'WardController');
         Route::resource('clinicians', 'CliniciansController');
-        Route::resource('testnamemapping', 'TestNameMappingController');
+        Route::resource('testnamemapping', 'TestNameMappingController'); 
+
+
+        Route::resource('referedsamples', 'CliniciansController');
+
+
 
         Route::get("/measurenamemapping/create/{test_type_id}", array(
             "as"   => "measurenamemapping.create",
