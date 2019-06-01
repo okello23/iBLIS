@@ -30,15 +30,6 @@ class UnhlsPatient extends Eloquent
         return $this->hasMany('UnhlsVisit');
     }
 
-
-    public static function getAllPatients(){
-    	$sql = "select * from unhls_patients";
-    	$patients = DB::select($sql);
-
-    	return $patients;
-    }
-
-    
 	/**
 	 * Patient Age 
 	 *
@@ -52,9 +43,7 @@ class UnhlsPatient extends Eloquent
 
 		$dateOfBirth = new DateTime($this->dob);
 		$interval = $dateOfBirth->diff($at);
-		
 
-		
 		$age = "";
 
 		switch ($format) {
@@ -63,31 +52,18 @@ class UnhlsPatient extends Eloquent
 				$age = $seconds/(365*24*60*60);
 				break;
 			case 'Y':
-			    
 				$age = $interval->y;break;
 			case 'YY':
-			    
 				$age = $interval->y ." years ";break;
 			default:
 				if($interval->y == 0){
-					
-					
-					if($interval->format('%a') > 31){
-						$age = $interval->format('%m months');
-					}else{
-						$age = $interval->format('%a days');
-					 }
+					$age = $interval->format('%a days');
 				}
 				elseif($interval->y > 0 && $interval->y <= 2){
-				
 					$age = $interval->format('%m') + 12 * $interval->format('%y')." months";
 				}
 				else{
-					
 					$age=$interval->y." years ";
-
-					$seconds = ($interval->days * 24 * 3600) + ($interval->h * 3600) + ($interval->i * 60) + ($interval->s);
-				    $age = round($seconds/(365*24*60*60))." years ";
 				}
 				
 				break;
@@ -96,28 +72,6 @@ class UnhlsPatient extends Eloquent
 		return $age;
 	}
 
-	public function newAge($dateOfBirth){
-
-		$new_age = "";
-		$at = new DateTime('now');
-
-		$dateOfBirth = new DateTime($dateOfBirth);
-		$interval = $dateOfBirth->diff($at);
-
-		$days = $interval->format('%a');
-
-		if($days < 30){
-			$new_age = $days . " days";
-
-		}elseif ($days >= 30 && $days < 365) {
-			$months = round($days/12);
-			$new_age = $months . " month(s)";
-		}else{
-			$years = round($days/365);
-			$new_age = $years . " year(s)";
-		}
-		return $new_age;
-	}
 	/**
 	* Get patient's gender
 	*
@@ -146,7 +100,6 @@ class UnhlsPatient extends Eloquent
 	{
 		return UnhlsPatient::where('patient_number', '=', $searchText)
 						->orWhere('name', 'LIKE', '%'.$searchText.'%')
-						->orWhere('ulin', 'LIKE', '%'.$searchText.'%')
 						->orWhere('external_patient_number', '=', $searchText);
 	}
 	/**
@@ -171,6 +124,7 @@ class UnhlsPatient extends Eloquent
 		$facilityCode ='';
 		$facilityCode = $this->getFacilityCode();
 		$registrationDate = strtotime($this->created_at);
+
 		if ($format == 'Jinja_SOP') {
 			$lastPatientRegistration = UnhlsPatient::orderBy('id','DESC')->first()->created_at;
 			$monthOfLastEntry = date('m',strtotime($lastPatientRegistration));
@@ -182,43 +136,20 @@ class UnhlsPatient extends Eloquent
 
 			$year = date('y', $registrationDate);
 			$month = date('m', $registrationDate);
-			$autoNum = DB::table('uuids')->max('id')+1;
+			$autoNum = str_pad(DB::table('uuids')->max('id')+1, 4, "0", STR_PAD_LEFT);
 			return $autoNum.'/'.$month.'/'.$year;
 
-		}elseif ($format == 'Mityana_SOP') {
-			$lastPatientRegistration = UnhlsPatient::orderBy('id','DESC')->first()->created_at;
-			$monthOfLastEntry = date('m',strtotime($lastPatientRegistration));
-			$monthNow = date('m');
-
-			if ($monthOfLastEntry != $monthNow) {
-				Artisan::call('reset:ulin');
-			}
-
-			$year = date('y', $registrationDate);
-			$month = date('m', $registrationDate);
-			$autoNum = DB::table('uuids')->max('id')+1;
-
-
-			$name = preg_split("/\s+/", trim($this->name));
-			$initials = null;
-
-			foreach ($name as $n){
-				$initials .= $n[0];
-
-			}
-			return $initials.'/'.$month.'/'.$autoNum.'/'.$year;
-			// MG/12/220/17
 		}else{
 			$yearMonth = date('ym', $registrationDate);
-			$autoNum = DB::table('uuids')->max('id')+1;
-			$name = preg_split("/\s+/", trim($this->name));
-			$initials = null;
+			$autoNum = str_pad( DB::table('uuids')->max('id')+1, 4, "0", STR_PAD_LEFT);
+			$name = preg_split("/\s+/", $this->name);
+			$initials = '';
 
 			foreach ($name as $n){
-				$initials .= $n[0];
+				$initials .= $n{0};
 
 			}
-			return $facilityCode.'/'.$yearMonth.'/'.$autoNum.'/'.$initials;
+			return $facilityCode.'-'.$yearMonth.'-'.$autoNum.'-'.$initials;
 		}
     }
 }

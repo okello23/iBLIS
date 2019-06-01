@@ -291,7 +291,6 @@ $(function(){
 
         // fetch relevant list of antibiotics for organism
         organismAntibioticsUrl = $(e.relatedTarget).data('antibiotics-url');
-        see = $(e.relatedTarget).data('zone-diameter');
         var antibiotics;
         $.ajax({
             type: 'GET',
@@ -565,7 +564,7 @@ $(function(){
         if (testTypeCategoryId != 0 && specimenTypeId != 0) {
             $.ajax({
                 type: 'POST',
-                url: "/load_test_list",
+                url: "/unhls_test/testlist",
                 data: {
                     test_category_id: testTypeCategoryId,
                     specimen_type_id: specimenTypeId
@@ -587,7 +586,7 @@ $(function(){
         if (testTypeCategoryId != 0 && specimenTypeId != 0) {
             $.ajax({
                 type: 'POST',
-                url: "/load_test_list",
+                url: "/unhls_test/testlist",
                 data: {
                     test_category_id: testTypeCategoryId,
                     specimen_type_id: specimenTypeId
@@ -598,6 +597,25 @@ $(function(){
                 }
             });
         }
+    });
+
+    /**
+     *Fetch tests for selected Lab category when requesting
+     */
+    $('.lab-section').on('change', function() {
+        // todo: this code is almost the same as below, make a reusable one
+        var testTypeCategoryId = $('.lab-section').val();
+        $.ajax({
+            type: 'POST',
+            url: "/visit/testlist",
+            data: {
+                test_category_id: testTypeCategoryId
+            },
+            success: function(testTypes){
+                $('.test-type-list').empty();
+                $('.test-type-list').append(testTypes);
+            }
+        });
     });
 
     /**
@@ -678,19 +696,6 @@ $(function(){
     /**
 	 * formatting date and time text/input fields as dropdown selection
 	 */
-    $(function(){
-        $('#dob').combodate({
-            format: 'YYYY-MM-DD',
-            template: 'D / MMM / YYYY',
-            //min year
-            minYear: '1916',
-            maxYear: new Date().getFullYear()
-        });
-    });
-
-    $(function(){
-        $('#datetime12').combodate();
-    });
 
     /**
      *Convert Age to date and visa viz
@@ -716,41 +721,37 @@ $(function(){
         var now_s = date_now.getTime();
         var age = $("#age").val();
         var units = $("#id_age_units").val();
-        var age_s=0;
         if(units=='M'){
-             age = age/12;
-             age_s = age*365*24*3600*1000;
-        }else if (units=='D') {
-            
-            age_s = age*24*3600*1000;
-        }else{
-            age_s = age*365*24*3600*1000;
+            var age = age/12;
         }
-         
+        var age_s = age*365*24*3600*1000;
         var dob_s = now_s-age_s;
 
         var dob = new Date(dob_s);
-        //dob.setMonth(0, 1);
-        $("#dob").combodate('setValue', dob);
+        if (units=='Y') {
+            dob.setMonth(0, 1);
+        }
+        $("#dob").val(dob.getFullYear() + "-" + ("0"+(dob.getMonth()+1)).slice(-2) + "-" + ("0" + dob.getDate()).slice(-2));
     }
 
+    $('#dob').datepicker({
+        dateFormat: "yy-mm-dd",
+        maxDate: '+0d',
+        yearRange: '1910:2050',
+        changeMonth: true,
+        changeYear: true
+    });
+
     function set_age(){
-        var date_now = new Date();
-        var now_s = date_now.getTime();
 
         var dob = new Date($("#dob").val());
         var dob_s = dob.getTime();
         var yrs = (now_s-dob_s)/(365*24*3600*1000) || 0;
-        var fraction_of_a_month_in_a_year=(30/365)||2;
-
-        if(yrs<1 && yrs >= fraction_of_a_month_in_a_year){//Age in Months
+        if(yrs<1){
             var mths = yrs*12;
             $("#age").val(round1(mths));
             $("#id_age_units").val("M");
-        }else if(yrs<fraction_of_a_month_in_a_year){//Age in Days
-            
-            $("#id_age_units").val("D");
-        }else{//Age in Years
+        }else{
             $("#age").val(round1(yrs));
             $("#id_age_units").val("Y");
         }
@@ -1271,7 +1272,11 @@ $(function(){
 
 	function UIComponents(){
 		/* Datepicker */
-		$( '.standard-datepicker').datepicker({ dateFormat: "yy-mm-dd" });
+        $( '.standard-datepicker').datepicker({ dateFormat: "yy-mm-dd" });
+		$( '.month-datepicker').datepicker({
+            maxDate: 0,
+            dateFormat: "yy-mm",
+        });
 	}
 
 	function editUserProfile()

@@ -15,43 +15,22 @@ class UnhlsPatientController extends \BaseController {
 	 */
 	public function index()
 		{
-		
-		$patients = UnhlsPatient::getAllPatients();
-		/*if (count($patients) == 0) {
+		$search = Input::get('search');
+
+		$patients = UnhlsPatient::search($search)->orderBy('id', 'desc')->paginate(Config::get('kblis.page-items'))->appends(Input::except('_token'));
+
+		if (count($patients) == 0) {
 		 	Session::flash('message', trans('messages.no-match'));
-		}*/
-		//$clinicianUI = AdhocConfig::where('name','Clinician_UI')->first()->activateClinicianUI();
+		}
+		$clinicianUI = AdhocConfig::where('name','Clinician_UI')->first()->activateClinicianUI();
 
-		
 
-		$patient_helper=UnhlsPatient::find(1);
 		// Load the view and pass the patients
 		return View::make('unhls_patient.index')
 				->with('patients', $patients)
-				->with('patient_helper',$patient_helper);
-				
-				
-	}
-
-	public function live()
-		{
-		
-		$patients = UnhlsPatient::all();
-		/*if (count($patients) == 0) {
-		 	Session::flash('message', trans('messages.no-match'));
-		}*/
-		$clinicianUI = AdhocConfig::where('name','Clinician_UI')->first()->activateClinicianUI();
-
-		
-
-		return compact('patients');		
-		// Load the view and pass the patients
-		/**return View::make('unhls_patient.index')
-				->with('patients', $patients)
 				->with('clinicianUI', $clinicianUI)
-				->withInput(Input::all());*/
+				->withInput(Input::all());
 	}
-
 
 	/**
 	 * Show the form for creating a new resource.
@@ -61,8 +40,7 @@ class UnhlsPatientController extends \BaseController {
 	public function create()
 	{
 		//Create Patient
-		$ulinFormat = AdhocConfig::where('name','ULIN')->first()->getULINFormat();
-		return View::make('unhls_patient.create')->with('ulinFormat', $ulinFormat);
+		return View::make('unhls_patient.create');
 	}
 
 		/**
@@ -77,8 +55,6 @@ class UnhlsPatientController extends \BaseController {
 			'name'       => 'required',
 			'gender' => 'required',
 			'dob' => 'required' ,
-			'village_residence' => 'required',
-			'phone_number' => 'required'
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -102,23 +78,13 @@ class UnhlsPatientController extends \BaseController {
 			$patient->created_by = Auth::user()->id;
 
 			try{
-				$patient->save();
-				if (Input::get('ulin')!= '') {
-					$patient->ulin = Input::get('ulin');
-				}else{
-					$patient->ulin = $patient->getUlin();
-				}
+				$patient->ulin = $patient->getUlin();
 				$patient->save();
 				$uuid = new UuidGenerator; 
 				$uuid->save();
-			
-			  /*
-				$url = Session::get('SOURCE_URL');
-				return Redirect::to($url)
-				->with('message', 'Successfully created patient with ULIN:  '.$patient->ulin.'!');
-				**/
-				//Show the view and pass the $patient to it
-		return View::make('unhls_patient.show')->with('patient', $patient);
+			$url = Session::get('SOURCE_URL');
+			return Redirect::to($url)
+			->with('message', 'Successfully created patient with ULIN:  '.$patient->ulin.'!');
 			}catch(QueryException $e){
 				Log::error($e);
 				echo $e->getMessage();
@@ -169,9 +135,7 @@ class UnhlsPatientController extends \BaseController {
 		$rules = array(
 			'name'       => 'required',
 			'gender' => 'required',
-			'dob' => 'required',
-			'village_residence' => 'required',
-			'phone_number' => 'required'
+			'dob' => 'required'
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -188,7 +152,6 @@ class UnhlsPatientController extends \BaseController {
 			$patient->name = Input::get('name');
 			$patient->gender = Input::get('gender');
 			$patient->dob = Input::get('dob');
-
 			$patient->village_residence = Input::get('village_residence');
 			$patient->village_workplace = Input::get('village_workplace');
 			$patient->occupation = Input::get('occupation');
@@ -205,7 +168,7 @@ class UnhlsPatientController extends \BaseController {
 
 		}
 	}
-	
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -250,16 +213,5 @@ class UnhlsPatientController extends \BaseController {
 	public function search()
 	{
         return UnhlsPatient::search(Input::get('text'))->take(Config::get('kblis.limit-items'))->get()->toJson();
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function createEid()
-	{
-		//Create Patient
-		return View::make('unhls_patient.eidCreate');
 	}
 }

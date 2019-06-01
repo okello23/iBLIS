@@ -21,8 +21,15 @@ class DailyGramStainResultCount extends Eloquent
     /**
      *
      */
-    public function gramStainRange()
+    public function measureRange()
     {
-      return $this->belongsTo('GramStainRange');
+      return $this->belongsTo('MeasureRange');
+    }
+    /**
+     *
+     */
+    public function interpretation()
+    {
+      // return $this->belongsTo('not clear');
     }
 }

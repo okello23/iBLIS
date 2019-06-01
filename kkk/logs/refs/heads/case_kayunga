@@ -1,0 +1,9 @@
+0000000000000000000000000000000000000000 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1500964766 +0300	branch: Created from HEAD
+846894e17b97e9c18a8148c20b96cfe1228b8f0e 9accd522d4e7499890ff731afb5c5d4f792f5399 ereng <aereng@gmail.com> 1500972929 +0300	commit: fix for OPD not appearing on report
+9accd522d4e7499890ff731afb5c5d4f792f5399 4511da8d463f3dafd2a5da9196ade98131ce0a38 ereng <aereng@gmail.com> 1500976178 +0300	commit: made username editable
+4511da8d463f3dafd2a5da9196ade98131ce0a38 af665f4234ce011f5904c6cedf5fea8def95aa3c ereng <aereng@gmail.com> 1500977055 +0300	commit: reduce header size
+af665f4234ce011f5904c6cedf5fea8def95aa3c 76d72897eb24f0a5dccbea05496d3cb9f1bcd519 ereng <aereng@gmail.com> 1500983159 +0300	commit: added report SN
+76d72897eb24f0a5dccbea05496d3cb9f1bcd519 06adeaf33d02bf68d3c0a1238631aec544ab5980 ereng <aereng@gmail.com> 1500985019 +0300	commit: removed place holder
+06adeaf33d02bf68d3c0a1238631aec544ab5980 1e4ebfc769fc9627b6d33b4079999147a5c1a419 ereng <aereng@gmail.com> 1501055548 +0300	commit: display adjustments
+1e4ebfc769fc9627b6d33b4079999147a5c1a419 e902818dfddd97f9f4d6e81ec0ef2ab1effce0cf ereng <aereng@gmail.com> 1501056052 +0300	commit (merge): Merge branch 'case_kayunga' of github.com:geoflen/iBLIS_UGANDA into case_kayunga
+e902818dfddd97f9f4d6e81ec0ef2ab1effce0cf f5127df8003a55c81e1d8468aac153c1d595aa0a ereng <aereng@gmail.com> 1501147402 +0300	commit: report aesthetics improved

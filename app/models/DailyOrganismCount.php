@@ -21,7 +21,7 @@ class DailyOrganismCount extends Eloquent
     /**
      *
      */
-    public function organism()
+    public function organisms()
     {
       return $this->belongsTo('Organism');
     }

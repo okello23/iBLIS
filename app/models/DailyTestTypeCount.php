@@ -23,14 +23,6 @@ class DailyTestTypeCount extends Eloquent
     {
       return $this->hasMany('DailyAlphanumericCount');
     }
-    public function dailyGramStainResultCount()
-    {
-      return $this->hasMany('DailyGramStainResultCount');
-    }
-    public function dailyOrganismCount()
-    {
-      return $this->hasMany('DailyOrganismCount');
-    }
     public function dailyHIVCount()
     {
       return $this->hasMany('DailyHIVCount');
