@@ -15,23 +15,23 @@ class UnhlsPatientController extends \BaseController {
 	 */
 	public function index()
 		{
-		
-		$patients = UnhlsPatient::getAllPatients();
-		/*if (count($patients) == 0) {
+		$search = Input::get('search');
+
+		$patients = UnhlsPatient::search($search)->orderBy('id', 'desc')->paginate(Config::get('kblis.page-items'))->appends(Input::except('_token'));
+
+		if (count($patients) == 0) {
 		 	Session::flash('message', trans('messages.no-match'));
-		}*/
-		//$clinicianUI = AdhocConfig::where('name','Clinician_UI')->first()->activateClinicianUI();
+		}
+		$clinicianUI = AdhocConfig::where('name','Clinician_UI')->first()->activateClinicianUI();
 
-		
 
-		$patient_helper=UnhlsPatient::find(1);
 		// Load the view and pass the patients
 		return View::make('unhls_patient.index')
 				->with('patients', $patients)
-				->with('patient_helper',$patient_helper);
-				
-				
+				->with('clinicianUI', $clinicianUI)
+				->withInput(Input::all());
 	}
+
 
 	public function live()
 		{
@@ -62,7 +62,8 @@ class UnhlsPatientController extends \BaseController {
 	{
 		//Create Patient
 		$ulinFormat = AdhocConfig::where('name','ULIN')->first()->getULINFormat();
-		return View::make('unhls_patient.create')->with('ulinFormat', $ulinFormat);
+		return View::make('unhls_patient.create')
+						->with('ulinFormat', $ulinFormat);
 	}
 
 		/**
@@ -77,8 +78,7 @@ class UnhlsPatientController extends \BaseController {
 			'name'       => 'required',
 			'gender' => 'required',
 			'dob' => 'required' ,
-			'village_residence' => 'required',
-			'phone_number' => 'required'
+			'nationality' => 'required' ,
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -86,12 +86,15 @@ class UnhlsPatientController extends \BaseController {
 
 			return Redirect::back()->withErrors($validator)->withInput(Input::all());
 		} else {
+
+			$nation = ['0' => 'National', '1' => 'Refugee', '2' => 'Foreigner'];
 			// store
 			$patient = new UnhlsPatient;
 			$patient->patient_number = Input::get('patient_number');
 			$patient->nin = Input::get('nin');
 			$patient->name = Input::get('name');
 			$patient->gender = Input::get('gender');
+			$patient->nationality = $nation[Input::get('nationality')];
 			$patient->dob = Input::get('dob');
 			$patient->village_residence = Input::get('village_residence');
 			$patient->village_workplace = Input::get('village_workplace');
@@ -118,7 +121,9 @@ class UnhlsPatientController extends \BaseController {
 				->with('message', 'Successfully created patient with ULIN:  '.$patient->ulin.'!');
 				**/
 				//Show the view and pass the $patient to it
-		return View::make('unhls_patient.show')->with('patient', $patient);
+		return Redirect::to('/unhls_test/create/'.$patient->id);						
+
+
 			}catch(QueryException $e){
 				Log::error($e);
 				echo $e->getMessage();
@@ -187,8 +192,8 @@ class UnhlsPatientController extends \BaseController {
 			$patient->nin = Input::get('nin');
 			$patient->name = Input::get('name');
 			$patient->gender = Input::get('gender');
+			$patient->nationality = Input::get('nationality');
 			$patient->dob = Input::get('dob');
-
 			$patient->village_residence = Input::get('village_residence');
 			$patient->village_workplace = Input::get('village_workplace');
 			$patient->occupation = Input::get('occupation');

@@ -60,6 +60,12 @@
                     <div>{{ Form::radio("gender", '1', false) }}
                     	<span class="input-tag">{{trans('messages.female')}}</span></div>
                 </div>
+                <div class="form-group">
+					{{ Form::label('nationality', trans('Nationality')) }}
+					{{ Form::select('nationality', [' ' => '--- Select Nationality ---',
+					'2' => trans('National'),'1' => trans('Refugee'),'0' => trans('Foreigner')], null,
+						array('class' => 'form-control')) }}
+				</div>
 				<div class="form-group">
 					{{ Form::label('address', trans('messages.physical-address')) }}
 					{{ Form::text('address', Input::old('address'), array('class' => 'form-control')) }}

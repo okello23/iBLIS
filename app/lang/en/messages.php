@@ -44,6 +44,7 @@ return array(
     'photo' => 'Photo',
     'role' => 'Role|Roles',
     'save' => 'Save',
+    'save-request' => 'Save and Request',
     'submit' => 'Submit',
     'save-all' => 'Save All',
     'type' => 'Type',
@@ -331,6 +332,7 @@ return array(
     'fetch-test-data-title' => 'Fetch Test data from associated equipment.',
     'first-select-patient' => 'First select a patient below',
     'in-patient' => 'In Patient',
+    'refferrals' => 'Refferral',
     'interpretation' => 'Interpretation',
     'lab-receipt-date' => 'Receipt Date',
     'list-tests' => 'Test Requests',
@@ -350,7 +352,7 @@ return array(
     'start-test' => 'Analysis',
     'start-test-title' => 'Start Test',
     'started' => 'Test Started',
-    'success-creating-test' => 'Successfully created test!',
+    'success-creating-test' => 'Successfully created test! with ULIN:',
     'test' => 'Test|Tests|Test-Request',
     'test-unhls' => 'Test|List of All Test Requests', //Unhls  terminology
     'test-catalog' => 'Test Catalog',
@@ -374,6 +376,7 @@ return array(
     'visit-number' => 'Visit No.',
     'visit-lab-number' => 'Visit Lab No.',//This number is issued at each patient visit in the Lab
     'visit-type' => 'Visit Type',
+    'sample-source' => 'Sample Source',
     'visit-test-details' => 'View List of Tests',
 
 

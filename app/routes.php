@@ -45,11 +45,12 @@ Route::group(array("before" => "auth"), function()
         "as" => "user.home",
         "uses" => "UserController@homeAction"
         ));
-
+    // Loads the counts on the dashbor
     Route::any('/dashboard', array(
-        "as" => "user.dashboard",
-        "uses" => "UserController@dashboard"
+        "as" => "dashboard.index",
+        "uses" => "DashboardController@index"
         ));
+
     Route::group(array("before" => "checkPerms:manage_users"), function() {
         Route::resource('user', 'UserController');
         Route::get("/user/{id}/delete", array(
@@ -81,6 +82,8 @@ Route::group(array("before" => "auth"), function()
         "uses" => "UnhlsPatientController@search"
     ));
 
+    // specimens and patients information
+    Route::resource('unhls_specimens', 'UnhlsSpecimenController');
 
     //POC routes start here
     Route::resource('poc', 'PocController');
@@ -194,6 +197,7 @@ Route::group(array("before" => "auth"), function()
     {
         Route::resource('instrument', 'InstrumentController');
         Route::resource('ward', 'WardController');
+        Route::resource('referral', 'ReferralController');
         Route::resource('clinicians', 'CliniciansController');
         Route::resource('testnamemapping', 'TestNameMappingController');
 

@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row less-gutter">
                     <div class="col-md-11">
-						<span class="glyphicon glyphicon-adjust"></span>{{trans('messages.new-test')}}
+						<span class="ion-erlenmeyer-flask"></span>{{trans('Recieve Specimen')}}
                     </div>
                     <div class="col-md-1">
                         <a class="btn btn-sm btn-primary pull-right" href="#" onclick="window.history.back();return false;"
@@ -37,60 +37,107 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<h3 class="panel-title">{{trans("messages.patient-details")}}</h3>
-								</div>
-								<div class="panel-body inline-display-details">
-									<span><strong>{{trans("messages.patient-number")}}</strong> {{ $patient->patient_number }}</span>
-							<!--		<span><strong>{{ trans('messages.nin') }}</strong> {{ $patient->nin }}</span> -->
-									<span><strong>{{ Lang::choice('messages.name',1) }}</strong> {{ $patient->name }}</span>
-									<span><strong>{{trans("messages.age")}}</strong> {{ $patient->getAge() }}</span>
-									<span><strong>{{trans("messages.gender")}}</strong>
-										{{ $patient->gender==0?trans("messages.male"):trans("messages.female") }}</span>
-								</div>
-							</div>
+							
 							<div class="form-group">
 							<div class="panel panel-info">
 								<div class="panel-heading">
-									<h3 class="panel-title">{{"Clinical Information and Sample Information"}}</h3>
+									<h3 class="panel-title">{{"Patient Information and Sample Information"}}</h3>
 								</div>
 									<div class="panel-body inline-display-details">
-									<div class="col-md-12">
+
+									<div class="col-md-6">
 										<div class="form-group">
-											{{ Form::hidden('patient_id', $patient->id) }}
-											{{ Form::label('visit_type', trans("messages.visit-type")) }}
-											{{ Form::select('visit_type', [' ' => '--- Select visit type ---',
-											'0' => trans("messages.out-patient"),'1' => trans("messages.in-patient"),'2' => trans("messages.refferrals")], null,
-												 array('class' => 'form-control')) }}
-										</div>
-										<!-- <div class="form-group">
-											{{ Form::label('ward_id','Ward/Clinic/Health Unit') }}
-											{{ Form::select('ward_id', [' ' => '- -'], Input::get('ward_id'),
-											array('class' => 'form-control','id'=>'ward_dropdown_id','name'=>'ward_dropdown')) }}
-										</div> -->
-										<div class="form-group">
-											{{ Form::label('ward_id','Ward/Clinic/Health Unit') }}
-											{{ Form::select('ward_id', $ward, Input::get('ward_id'),
+											{{ Form::label('patient_number', trans('messages.patient-number')) }}
+											{{ Form::text('patient_number', Input::old('patient_number'),
 											array('class' => 'form-control')) }}
 										</div>
 										<div class="form-group">
-												{{ Form::label('bed_no','Bed No:', array('text-align' => 'right')) }}
-												{{ Form::text('bed_no', Input::old('bed_no'), array('class' => 'form-control')) }}
+											{{ Form::label('name', trans('messages.names'), array('class' => 'required')) }}
+											{{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
+										
 										</div>
 										<div class="form-group">
-												{{ Form::label('facility','Facility Name:') }}
-												{{ Form::select('facility', $facilities, Input::get('facility'), array('class' => 'form-control')) }}
+											{{ Form::label('nin', trans('messages.national-id')) }}
+											{{ Form::text('nin', Input::old('nin'), array('class' => 'form-control')) }}
 										</div>
 										<div class="form-group">
-												{{ Form::label('facility_lab_number','Facility Lab No:', array('text-align' => 'right')) }}
-												{{ Form::text('facility_lab_number', Input::old('facility_lab_number'), array('class' => 'form-control')) }}
-										</div>
-										<div class="form-group">
-											{{ Form::label('clinical_notes','Clinical Notes' ) }}
-											{{ Form::textarea('clinical_notes', Input::old('clinical_notes'), array('class' => 'form-control', 'rows' => '2')) }}
+											{{ Form::label('ulin', trans('messages.ulin'), array('class' => 'required')) }}
+										@if($ulinFormat == 'Manual')
+											{{ Form::text('ulin', Input::old('ulin'),array('class' => 'form-control')) }}
+										@else
+											{{ Form::text('ulin', '',
+											array('class' => 'form-control', 'readonly' =>'true', 'placeholder' => 'Auto generated upon succesfull save!')) }}
+										@endif
 										</div>
 									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="age">Age</label>
+											<input type="text" name="age" id="age" class="form-control input-sm" size="8">
+											<select name="age_units" id="id_age_units" class="form-control input-sm">
+												<option value="Y">Years</option>
+												<option value="M">Months</option>
+												<option value="D">Days</option>
+											</select>
+										</div>
+									
+									 	<div class="form-group">
+											<label class= 'required' for="dob">Date Of Birth</label>
+											<input type="text" name="dob" id="dob" class="form-control input-sm" size="11">
+										</div>
+										<div class="form-group">
+											{{ Form::label('gender', trans('messages.sex'), array('class' => 'required')) }}
+											<div>{{ Form::radio('gender', '0', true) }}
+											<span class="input-tag">{{trans('messages.male')}}</span></div>
+											<div>{{ Form::radio("gender", '1', false) }}
+												<span class="input-tag">{{trans('messages.female')}}</span>
+											</div>
+										</div>
+										<div class="form-group">
+											{{ Form::label('village_residence', trans('messages.residence-village')) }}
+											{{ Form::text('village_residence', Input::old('village_residence'), array('class' => 'form-control')) }}
+										</div>	
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											{{ Form::label('visit_type', trans("messages.visit-type")) }}
+											{{ Form::select('visit_type', [' ' => '--- Select visit type ---','2' => trans("messages.out-patient"),'1' => trans("messages.in-patient")], null,
+											    array('class' => 'form-control','id' => 'visit_type_dropdown_id')) }}
+										</div>
+										<div class="form-group">
+											{{ Form::label('ward_id','Ward/Clinic/Health Unit') }}
+											{{ Form::select('ward_id', [' ' => '--- ---'], Input::get('ward_id'),
+										    	array('class' => 'form-control','id'=>'ward_dropdown_id','name'=>'ward_dropdown')) }}
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											{{ Form::label('nationality', trans('Nationality')) }}
+											{{ Form::text('nationality', Input::old('nationality'), array('class' => 'form-control')) }}
+										</div>
+										<div class="form-group">
+											{{ Form::label('phone_number', trans('messages.phone-number')) }}
+											{{ Form::text('phone_number', Input::old('phone_number'), array('class' => 'form-control')) }}
+										</div>
+									</div>
+
+
+									<div class="col-md-6">
+										<div class="form-group">
+											{{ Form::label('bed_no','Bed No:', array('text-align' => 'right')) }}
+											{{ Form::text('bed_no', Input::old('bed_no'), array('class' => 'form-control')) }}
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											{{ Form::label('clinical_notes','Clinical Notes') }}
+											{{ Form::textarea('clinical_notes', Input::old('clinical_notes'),['class' => 'form-control','rows'=>'2', 'placeholder' => 'clinical notes']) }}
+										</div>
+									</div>
+
+
 									<div class="col-md-6">
 										<div class="form-group">
 											{{ Form::label('previous_therapy','Previous Therapy') }}

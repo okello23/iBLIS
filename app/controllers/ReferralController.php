@@ -5,7 +5,7 @@ use Illuminate\Database\QueryException;
 /**
  * Contains wards
  */
-class WardController extends \BaseController {
+class ReferralController extends \BaseController {
 
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class WardController extends \BaseController {
     public function index()
     {
         //List all wards
-        $ward = Ward::orderBy('name', 'ASC')->get();
+        $referral = Facility::orderBy('name', 'ASC')->get();
         //Load the view and pass the wards
-        return View::make('ward.index')->with('ward',$ward);
+        return View::make('referral.index')->with('referral',$referral);
     }
 
     /**

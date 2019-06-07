@@ -9,7 +9,11 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		//
-	}
+		
+	   Eloquent::unguard();
+
+        DB::unprepared(file_get_contents(base_path() . "/app/database/seeds/facilities.sql"));
+        echo "bulk facilities seeded!\n";
+    }
 
 }

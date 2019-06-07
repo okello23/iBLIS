@@ -148,6 +148,14 @@ class CreatekBLIStables extends Migration {
             $table->softDeletes();
         });
 
+        Schema::create('facilities', function(Blueprint $table)
+        {
+            $table->increments('id')->unsigned();
+            $table->string('name', 500);
+
+            $table->timestamps();
+        });
+
         Schema::create('measure_ranges', function(Blueprint $table)
         {
             $table->increments('id')->unsigned();
@@ -249,14 +257,6 @@ class CreatekBLIStables extends Migration {
 			$table->increments('id')->unsigned();
 			$table->string("reason", 100);
 		});
-
-        Schema::create('facilities', function(Blueprint $table)
-        {
-            $table->increments('id')->unsigned();
-            $table->string('name', 500);
-
-            $table->timestamps();
-        });
 
         Schema::create('referrals', function(Blueprint $table)
         {

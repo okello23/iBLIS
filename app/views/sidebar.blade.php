@@ -105,7 +105,7 @@
 							<h4 class="panel_heading panel_heading_first">Dashboard</h4>
 							<ul>
 								<li>
-									<div><a href="{{ URL::route('user.dashboard')}}">
+									<div><a href="{{ URL::route('dashboard.index')}}">
 										<span class="glyphicon glyphicon-tag"></span>
 										Dashboard</a>
 									</div>
@@ -129,7 +129,7 @@
 											<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.register-new-patient', 1)}}</a>
 									</div>
 								</li>
-																<li>
+								<li>
 									<div>
 										<a href="{{ URL::route('poc.create') }}">
 											<span class="glyphicon glyphicon-tag"></span> {{"Register EID patient"}}</a>
@@ -141,7 +141,14 @@
 											<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.view-patients', 1)}}</a>
 									</div>
 								</li>
-
+<!-- 
+								<li>
+									<div>
+										<a href="{{ URL::route('unhls_specimens.create') }}">
+											<span class="ion-erlenmeyer-flask"></span> {{ 'Recieve Specimen' }}</a>
+									</div>
+								</li>
+ -->
 							</ul>
 
 						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px; width: 215px; display: none;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 620px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
@@ -247,6 +254,10 @@
 									<a href="{{URL::route("ward.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> Health Units</a>
 								</li>
+								<!-- <li>
+									<a href="{{URL::route("referral.index")}}">
+									<span class="glyphicon glyphicon-tag"></span> Manage Referrals</a>
+								</li> -->
 								<li>
 									<a href="{{URL::route("instrument.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> {{trans('messages.instrument')}}</a>

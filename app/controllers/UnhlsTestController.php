@@ -478,6 +478,7 @@ class UnhlsTestController extends \BaseController {
 		$categories = ['Select Lab Section']+TestCategory::lists('name', 'id');
 		$wards = ['Select Sample Origin']+Ward::lists('name', 'id');
 		$clinicians = ['Select clinician']+Clinician::lists('name', 'id');
+		$facilities = ['Select facility']+Facility::where('active', '=', 1)->lists('name', 'id');
 
 		// sample collection default details
 		$now = new DateTime();
@@ -504,6 +505,7 @@ class UnhlsTestController extends \BaseController {
 					->with('patient', $patient)
 					->with('testCategory', $categories)
 					->with('ward', $wards)
+					->with('facilities', $facilities)
 					->with('clinicians',$clinicians);
 	}
 
@@ -543,7 +545,7 @@ class UnhlsTestController extends \BaseController {
 			'clinician'=>'required',
 			//'current_therapy'=>'required',
 			//'previous_therapy'=>'required',
-			'clinical_notes'=>'required'
+			// 'clinical_notes'=>'required'
 
 		);
 		$validator = Validator::make(Input::all(), $rules);
@@ -554,7 +556,7 @@ class UnhlsTestController extends \BaseController {
 				array(Input::get('patient_id')))->withInput()->withErrors($validator);
 		} else {
 
-			$visitType = ['2' => 'Out-patient','1' => 'In-patient'];
+			$visitType = ['0' => 'Out-patient','1' => 'In-patient','2' => 'Referral'];
 			$activeTest = array();
 
 			/*
@@ -565,6 +567,8 @@ class UnhlsTestController extends \BaseController {
 			$visit->visit_lab_number = Input::get('visit_lab_number');
 			$visit->patient_id = Input::get('patient_id');
 			$visit->visit_type = $visitType[Input::get('visit_type')];
+			$visit->facility_id = Input::get('facility');
+			$visit->facility_lab_number = Input::get('facility_lab_number');
 			
 			$visit->ward_id = Input::get('ward_dropdown');
 			$visit->bed_no = Input::get('bed_no');
@@ -623,8 +627,8 @@ class UnhlsTestController extends \BaseController {
 			//$url = Session::get('SOURCE_URL');
 			$url="/unhls_test";
 
-			return Redirect::to($url)->with('message', 'messages.success-creating-test')
-					->with('activeTest', $activeTest);
+			return Redirect::to($url)->with('message', 'Successfully created test with ULIN:' .$test->visit->patient->ulin.'!')
+								->with('activeTest', $activeTest);
 		}
 	}
 
