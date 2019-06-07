@@ -46,6 +46,20 @@
                                 </div>
 
                                 <div class="form-group">
+                                    
+                                {{ Form::label('equipment_code', 'Equipment Code:', ['class' => 'col-md-2 control-label']) }}
+                                <div class="col-md-3">
+{{ Form::text('equipment_code',Input::old('equipment_id'), array('class' => 'form-control')) }}
+    </div>
+</div>
+<div class="form-group">
+
+{{ Form::label('equipment_type', 'Equipment Type:', ['class' => 'col-md-2 control-label']) }}
+<div class="col-md-3">
+{{ Form::select('equipment_type', array(null => 'Select')+$equipment_types, Input::old('equipment_id'), array('class' => 'form-control', 'id' => 'equipment_id', 'required'=>'required')) }}</div>
+                                </div>
+
+                                <div class="form-group">
                                 {{ Form::label('model', 'Model', ['class' => 'col-md-2 control-label']) }}
                                   <div class="col-md-3">
                                         {{ Form::text('model',null,['class' => 'form-control','placeholder' => 'Model', 'required' => 'true']) }}

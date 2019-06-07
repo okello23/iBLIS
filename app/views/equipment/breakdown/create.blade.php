@@ -61,12 +61,7 @@
 				<div class="panel panel-warning">
 
 					<div class="form-group">
-						{{  Form::label('equipment_code', 'Equipment Code:',['class'=>'col-lg-2 control-label']) }}
-						{{ Form::text('equipment_code',Input::old('equipment_id'), array('class' => 'form-control col-sm-4')) }}
-
-
-						{{  Form::label('equipment_type', 'Equipment Type', array('class'=>'col-lg-2')) }}
-						{{ Form::select('equipment_type', array(null => 'Select')+UNHLSEquipmentInventory::lists('name','id'), Input::old('equipment_id'), array('class' => 'form-control col-sm-4', 'id' => 'equipment_id', 'required'=>'required')) }}
+						
 
 						{{  Form::label('equipment_id', 'Equipment Name', array('class'=>'col-lg-2')) }}
 						{{ Form::select('equipment_id', array(null => 'Select')+UNHLSEquipmentInventory::lists('name','id'), Input::old('equipment_id'), array('class' => 'form-control col-sm-4', 'id' => 'equipment_id', 'required'=>'required')) }}

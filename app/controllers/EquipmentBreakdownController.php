@@ -65,8 +65,6 @@ class EquipmentBreakdownController extends \BaseController {
 				$item->year_id = \Config::get('constants.FIN_YEAR_ID');
 
 				$item->equipment_id = Input::get('equipment_id');
-				$item->equipment_code = Input::get('equipment_code');
-				$item->equipment_type = Input::get('equipment_type');
 				$item->problem = Input::get('problem');
 				$item->reporting_officer = Input::get('reporting_officer');
 				$item->reporting_officer_email = Input::get('reporting_officer_email');

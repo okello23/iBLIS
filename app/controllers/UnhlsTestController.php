@@ -856,7 +856,13 @@ class UnhlsTestController extends \BaseController {
 		$test->test_status_id = UnhlsTest::COMPLETED;
 		$test->tested_by = Auth::user()->id;
 		$test->time_completed = date('Y-m-d H:i:s');
-
+		$test_device = Input::get('testing_device_name');
+		$test_device = Input::get('testing_device');
+		$test_device_id = Input::get('testing_device');
+		if($test_device_id != '' && $test_device_id != 1000){
+			$equipment = UNHLSEquipmentInventory::find($test_device_id);
+			$test_device = $equipment->name;
+		}
 		if ($test->testType->name == 'Gram Staining') {
 			$results = '';
 			foreach ($test->gramStainResults as $gramStainResult) {

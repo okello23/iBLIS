@@ -236,6 +236,16 @@
                             {{ Form::textarea('interpretation', $test->interpretation, 
                                 array('class' => 'form-control result-interpretation', 'rows' => '2')) }}
                         </div>
+                        <div class="form-group">
+                            {{ Form::label('Test_Device', 'Testing Device') }}
+
+                            {{ Form::select('testing_device', array('' => 'Select')+array(null => 'Select')+UNHLSEquipmentInventory::lists('name','id')+array(1000=>'other'), Input::old('testing_device'), array('class' => 'form-control', 'id' => 'testing_device', 'required'=>'required')) }}
+                        </div>
+                        <div class="form-group hidden" id="device_name">
+                            {{ Form::label('testing_device_name', 'Other Device') }}
+                            {{ Form::text('testing_device_name', Input::old('testing_device_name'), 
+                                array('class' => 'form-control result-interpretation', 'rows' => '2')) }}
+                        </div>
                         <div class="form-group actions-row">
                             {{ Form::button('<span class="glyphicon glyphicon-save">
                                 </span> '.trans('messages.save-test-results'),

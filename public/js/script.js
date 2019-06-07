@@ -1055,7 +1055,7 @@ $(function(){
 
 		/*Dynamic loading of select list options*/
 		$('#section_id').change(function(){
-			$.get("/reports/dropdown",
+			$.get("/reports/dropdown2",
 				{ option: $(this).val() },
 				function(data) {
 					var test_type = $('#test_type');
@@ -1225,10 +1225,17 @@ $(function(){
 				'name', 'new-measures['+measureID+'][agemax][]');
 			$('.measurevalue.new-measure-'+measureID+' select.gender').attr(
 				'name', 'new-measures['+measureID+'][gender][]');
+
 			$('.measurevalue.new-measure-'+measureID+' input.rangemin').attr(
 				'name', 'new-measures['+measureID+'][rangemin][]');
 			$('.measurevalue.new-measure-'+measureID+' input.rangemax').attr(
 				'name', 'new-measures['+measureID+'][rangemax][]');
+
+            $('.measurevalue.new-measure-'+measureID+' input.flagmin').attr(
+                'name', 'new-measures['+measureID+'][flagmin][]');
+            $('.measurevalue.new-measure-'+measureID+' input.flagmax').attr(
+                'name', 'new-measures['+measureID+'][flagmax][]');
+
 			$('.measurevalue.new-measure-'+measureID+' input.interpretation').attr(
 				'name', 'new-measures['+measureID+'][interpretation][]');
 			$('.measurevalue.new-measure-'+measureID+' input.measurerangeid').attr(
@@ -1255,6 +1262,12 @@ $(function(){
 				'name', 'measures['+measureID+'][rangemin][]');
 			$('.measurevalue.'+measureID+' input.rangemax').attr(
 				'name', 'measures['+measureID+'][rangemax][]');
+
+            $('.measurevalue.'+measureID+' input.flagmin').attr(
+                'name', 'measures['+measureID+'][flagmin][]');
+            $('.measurevalue.'+measureID+' input.flagemax').attr(
+                'name', 'measures['+measureID+'][flagmax][]');
+
 			$('.measurevalue.'+measureID+' input.interpretation').attr(
 				'name', 'measures['+measureID+'][interpretation][]');
 			$('.measurevalue.'+measureID+' input.measurerangeid').attr(
@@ -1341,6 +1354,16 @@ $(function(){
             	return JSON.parse(localStorage.getItem('.search-table'));
         	}
    		});
+
+        $("#testing_device").change(function(){
+            if(this.value == 1000){
+                $("#device_name").removeClass('hidden');
+            }else{
+                $("#device_name").val('');
+                $("#device_name").addClass('hidden');
+            }
+          
+        });
 	});
 
 	//Make sure all input fields are entered before submission

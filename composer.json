@@ -27,6 +27,10 @@
 			"app/tests/TestCase.php",
 			"app/api"
 		],
+		"files": [
+			"app/includes/generalfunctions.php",
+			"app/includes/generallists.php"
+        ],
 		"psr-4": {
 			"KBLIS\\Instrumentation\\": "app/kblis/instrumentation",
 			"KBLIS\\Plugins\\": "app/kblis/plugins"
