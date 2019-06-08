@@ -30,8 +30,7 @@
 				<p class="view"><strong>{{ Lang::choice('messages.measure',1) }}</strong>
 					{{ implode(", ", $testtype->measures->lists('name')) }}</p>
 				<p class="view-striped"><strong>{{trans('messages.turnaround-time')}}</strong>
-					{{ $testtype->targetTAT }} {{$testtype->targetTAT_unit}}</p>
-
+					{{ $testtype->targetTAT }}</p>
 				<p class="view"><strong>{{trans('messages.prevalence-threshold')}}</strong>
 					{{ $testtype->prevalence_threshold }}</p>
 				<p class="view-striped"><strong>{{trans('messages.date-created')}}</strong>

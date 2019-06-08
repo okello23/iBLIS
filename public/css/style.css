@@ -281,7 +281,7 @@ h5 {
   color: #999;
 }
 .icon-list li:hover {
-  background: red;
+  background: #f0f7fc;
 }
 .icon-list li:hover span,
 .icon-list li:hover code {
@@ -803,8 +803,8 @@ fieldset[disabled] .btn-inverse.active {
 }
 /* Tooltip */
 .tooltip > .tooltip-inner {
-    background-color: #040404;
-    color: #FFFFFF;
+    background-color: #040404; 
+    color: #FFFFFF; 
     padding: 15px;
     font-size: 14px;
   }
@@ -3699,10 +3699,10 @@ a.list-group-item-danger:hover {
 .mfp-zoom-in.mfp-removing.mfp-bg {
   opacity: 0;
 }
-/*
-
+/* 
+	
 	====== Move-from-top effect ======
-
+	
 	*/
 .mfp-move-from-top .mfp-content {
   vertical-align: top;
@@ -3730,10 +3730,10 @@ a.list-group-item-danger:hover {
 .mfp-move-from-top.mfp-removing.mfp-bg {
   opacity: 0;
 }
-/*
-
+/* 
+	
 	====== 3d unfold ======
-
+	
 	*/
 .mfp-3d-unfold .mfp-content {
   perspective: 2000px;
@@ -3762,10 +3762,10 @@ a.list-group-item-danger:hover {
 .mfp-3d-unfold.mfp-removing.mfp-bg {
   opacity: 0;
 }
-/*
-
+/* 
+	
 	====== Zoom-out effect ======
-
+	
 	*/
 .mfp-zoom-out .mfp-with-anim {
   opacity: 0;

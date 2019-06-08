@@ -5,7 +5,7 @@
 				<li>
 					<a href="{{ URL::route('user.home')}}"><span class="ion-home"></span> <span class="nav_title">Main Menu</span></a>
 				</li>
-
+				
 				<li class="nav_trigger">
 					<a href="#">
 						<span class="ion-stats-bars"></span>
@@ -115,9 +115,9 @@
 						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px; width: 215px; display: none;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 620px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
 					</div>
 				</li>
-
+				
 				<li class="nav_trigger">
-					<a href="#"><span class="ion-person"></span><span class="nav_title">Patient Information</span>
+					<a href="{{ URL::route('unhls_patient.index') }}"><span class="ion-person"></span><span class="nav_title">Patient Information</span>
 					</a>
 					<div class="sub_panel" style="left: -220px;">
 						<div class="side_inner ps-ready ps-container" style="height: 620px;">
@@ -129,12 +129,15 @@
 											<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.register-new-patient', 1)}}</a>
 									</div>
 								</li>
+<<<<<<< HEAD
 								<li>
 									<div>
 										<a href="{{ URL::route('poc.create') }}">
 											<span class="glyphicon glyphicon-tag"></span> {{"Register EID patient"}}</a>
 									</div>
 								</li>
+=======
+>>>>>>> case_butabika
 								<li>
 									<div>
 										<a href="{{ URL::route('unhls_patient.index') }}">
@@ -153,6 +156,10 @@
 
 						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px; width: 215px; display: none;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 620px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
 					</div>
+				</li>
+				<li>
+					<a href="{{ URL::route('visit.index') }}"><span class="ion-person"></span><span class="nav_title">Visits</span>
+					</a>
 				</li>
 				<li class="nav_trigger">
 					<a href="#">
@@ -178,54 +185,39 @@
 											<!--<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.test-unhls', 2)}}</a>-->
 											<span class="glyphicon glyphicon-tag"></span> List of All Tests</a>
 									</div>
-								</li>
+								</li> 
 								<li>
 									<div>
-										<a href="{{URL::route('test.completed')}}">
+										<a href="{{URL::route('unhls_test.completed')}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Completed Tests')}}
 										</a>
 									</div>
 								</li>
 																<li>
 									<div>
-										<a href="{{URL::route('test.notrecieved')}}">
+										<a href="{{URL::route('unhls_test.notrecieved')}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Samples Not Recieved')}}
 										</a>
 									</div>
 								</li>
 																<li>
 									<div>
-										<a href="{{URL::route('test.pending')}}">
+										<a href="{{URL::route('unhls_test.pending')}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Pending Tests')}}
 										</a>
 									</div>
 								</li>
 																<li>
 									<div>
-										<a href="{{URL::route('test.started')}}">
+										<a href="{{URL::route('unhls_test.started')}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Tests Started')}}
 										</a>
 									</div>
 								</li>
-								<li>
+																<li>
 									<div>
-										<a href="{{URL::route('test.verified')}}">
-											<span class="glyphicon glyphicon-tag" ></span>Reviewed Tests
-										</a>
-									</div>
-								</li>
-								<li>
-									<div>
-										<a href="{{URL::route('unhls_test.importPoc')}}">
-											<span class="glyphicon glyphicon-tag" ></span>{{trans('Import POC results')}}
-										</a>
-									</div>
-								</li>
-
-								<li>
-									<div>
-										<a href="{{URL::route('poc.download')}}">
-											<span class="glyphicon glyphicon-tag" ></span>{{trans('Download POC Data')}}
+										<a href="{{URL::route('unhls_test.verified')}}">
+											<span class="glyphicon glyphicon-tag" ></span>{{trans('Verified Tests')}}
 										</a>
 									</div>
 								</li>
@@ -246,10 +238,6 @@
 						<div class="side_inner ps-ready ps-container" style="height:620px;">
 							<h4 class="panel_heading panel_heading_first">Lab Configuration</h4>
 							<ul>
-								<li>
-									<a href="{{URL::route("clinicians.index")}}">
-									<span class="glyphicon glyphicon-tag"></span> Clinicians</a>
-								</li>
 								<li>
 									<a href="{{URL::route("ward.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> Health Units</a>
@@ -274,12 +262,16 @@
 									<a href="{{ URL::route("blisclient.index") }}">
 									<span class="glyphicon glyphicon-tag"></span>{{ trans('messages.interfaced-equipment')}}</a>
 								</li>
+								<li>
+									<a href="{{ URL::route("resetulin.create") }}">
+									<span class="glyphicon glyphicon-tag"></span>{{'Reset ULIN' }}</a>
+								</li>
 							</ul>
 						</div>
 					</div>
 				</li>
 			@endif
-
+				
 			@if(Entrust::can('manage_test_catalog'))
 				<li class="nav_trigger">
 					<a href="#">
@@ -434,7 +426,7 @@
 					</div>
 				</li>
 			@endif
-
+				
 				<li class="nav_trigger">
 					<a href="#">
 						<span class="ion-ios-folder"></span>
@@ -469,3 +461,5 @@
 			</ul>
 		</nav>
 @show
+
+

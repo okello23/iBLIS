@@ -29,9 +29,8 @@
                 {{ HTML::ul($errors->all()) }}
             </div>
         @endif
-        {{ Form::open(array('route' => 'refer_action')) }}
-            {{ Form::hidden('specimen_id', $test->specimen->id) }}
-            {{ Form::hidden('test_id', $test->id) }}
+        {{ Form::open(array('route' => 'unhls_test.referAction')) }}
+            {{ Form::hidden('specimen_id', $unhlsspecimen->id) }}
             <div class="panel-body">
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -40,8 +39,8 @@
                     <div class="panel-body inline-display-details">
                         <span><strong>{{trans("messages.national-id")}}</strong> </span>
                         <span><strong>{{trans("messages.ulin")}}</strong> </span>
-                        <span><strong>{{trans("messages.specimen-id")}}</strong> {{$test->specimen->id}}</span>
-                        <span><strong>{{trans("messages.specimen-type-title")}}</strong> {{$test->specimen->specimenType->name}}</span>    
+                        <span><strong>{{trans("messages.specimen-id")}}</strong> {{$unhlsspecimen->id}}</span>
+                        <span><strong>{{trans("messages.specimen-type-title")}}</strong> {{$unhlsspecimen->specimenType->name}}</span>    
                         <span><strong>{{ Lang::choice('messages.date-specimen-collected',1) }}</strong> </span>
                        
                         <span><strong>{{trans("messages.time-specimen-collected")}}</strong>
@@ -89,17 +88,17 @@
                 </div>
                 <div class="display-details">
                     <p><strong>{{ Lang::choice('messages.test-type',1) }}</strong>
-                        {{$test->testType->name}}</p>
-                    
+                        {{$unhlsspecimen->test->testType->name}}</p> <!-- query failing unhls -->
+                    </p>
                 </div>
                 <br>
-                <!--div class="form-group">
+                <div class="form-group">
                     {{ Form::label('referral-type', trans('messages.referral-type')) }}
                     <div>{{ Form::radio('referral-status', '0', true) }}<span class='input-tag'>
                         {{trans('messages.vertical')}}</span></div>
                     <div>{{ Form::radio('referral-status', '1', false) }}<span class='input-tag'>
                         {{trans('messages.horizontal')}}</span></div>
-                </div-->
+                </div>
                 <div class="form-group">
                     {{ Form::label('refer-reason', trans('messages.reasons-for-referral')) }}
                     {{ Form::select('referral-reason', array(0 => '')+$referralReason->lists('reason', 'id'),

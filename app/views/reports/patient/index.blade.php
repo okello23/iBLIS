@@ -6,7 +6,6 @@
 		  <li class="active">{{ Lang::choice('messages.report', 2) }}</li>
 		</ol>
 	</div>
-	<!--
 	{{ Form::open(array('route' => array('reports.patient.index'), 'class'=>'form-inline', 'role'=>'form', 'method'=>'POST')) }}
 		<div class="form-group">
 
@@ -14,11 +13,10 @@
             {{ Form::text('search', Input::get('search'), array('class' => 'form-control test-search')) }}
 		</div>
 		<div class="form-group">
-			{{ Form::button("<span class='glyphicon glyphicon-search'></span> ".trans('messages.search'),
+			{{ Form::button("<span class='glyphicon glyphicon-search'></span> ".trans('messages.search'), 
 		        array('class' => 'btn btn-primary', 'id' => 'filter', 'type' => 'submit')) }}
 		</div>
 	{{ Form::close() }}
--->
 	<br>
 <div class="panel panel-primary">
 	<div class="panel-heading ">
@@ -30,8 +28,7 @@
 	    @if(Session::has('message'))
 			<div class="alert alert-info">{{ trans(Session::get('message')) }}</div>
 		@endif
-	    <table id="reports_patients_table" class="row-border hover table table-bordered table-condensed table-striped">
-
+	    <table class="table table-striped table-hover table-condensed">
 			<thead>
 				<tr>
 					<th>{{ trans('messages.patient-id') }}</th>
@@ -47,26 +44,29 @@
 			<tbody>
 			@forelse($patients as $key => $patient)
 				<tr>
-					<td>{{ $patient->ulin }}</td>
-					<td>{{ empty($patient->external_patient_number)?$patient->patient_number:
-						$patient->external_patient_number }}
-					</td>
+					<td>{{ $patient->patient_number }}</td>
+					<td>{{ $patient->external_patient_number }}</td>
 					@if(Entrust::can('view_names'))
 						<td>{{ $patient->name }}</td>
 					@endif
-					<td>{{ ($patient->gender == 0)? 'Male':'Female' }}</td>
-					<td>{{ $patient_helper->newAge($patient->dob) }}</td>
+					<td>{{ $patient->getGender() }}</td>
+					<td>{{ $patient->getAge() }}</td>
 					<td>
 					<!-- show the patient report(uses the show method found at GET /patient/{id} -->
-						<a class="btn btn-sm btn-info" href="{{ URL::to('patientvisits/' . $patient->id) }}" >
+						<a class="btn btn-sm btn-info" href="{{ URL::to('patientreport/' . $patient->id) }}" >
 							<span class="glyphicon glyphicon-eye-open"></span>
-							{{trans('messages.view-visits')}}
+							{{trans('messages.view-report')}}
 						</a>
 					</td>
 				</tr>
-			@endforeach 
+			@empty
+				<tr>
+					<td colspan="5">{{trans('messages.no-records-found')}}</td>
+				</tr>
+			@endforelse
 			</tbody>
 		</table>
+		{{$patients->links()}}
 	</div>
 
 </div>

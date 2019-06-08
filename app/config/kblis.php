@@ -9,7 +9,7 @@ return array(
 	*/
 
 	'name' => 'A-LIS',
-
+	
 	/*
 	|--------------------------------------------------------------------------
 	|	Application Version
@@ -37,8 +37,8 @@ return array(
 	|
 	*/
 
-	'organization' => 'Laboratory Information Management System',
-
+	'organization' => 'BUTABIKA NATIONAL REFERRAL MENTAL HOSPITAL',
+	
 
 
 	/*
@@ -47,7 +47,8 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	*/
-	'address-info' => 'Plot 39/43 Kampala Road, P.O. BOX 29, Entebbe <br> Tel: +256 773 547 114, +256 753 385 163 <br> Email: info.ebhl@gmail.com <br><br>',
+	'address-info' => 'P.O. BOX 7017, KAMPALA, UGANDA.<br>
+                    GENERAL OFFICE: +256-414-504388<br>',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -56,37 +57,13 @@ return array(
 	|
 	*/
 
-	'organization-logo' => '/i/coat_of_arms_of_uganda.png',
+	// 'organization-logo' => '/i/coat_of_arms_of_uganda.png',
 	'organization-logo' => '/i/coat_of_arms.png',
 	'uganda-logo' => '/i/uganda.png',
 	'cdc-logo' => '/i/cdc.png',
 	'aslm-logo' => '/i/aslm.png',
-	'aslmlogo'	=> '/i/aslmlogo.png',
-
-	/*
-	|--------------------------------------------------------------------------
-	| Laboratory Report Name
-	|--------------------------------------------------------------------------
-	|
-	*/
-	'report-name'=>'LABORATORY REPORT',
-
-	/*
-	|--------------------------------------------------------------------------
-	| Final Laboratory Report Name
-	|--------------------------------------------------------------------------
-	|
-	*/
-	'final-report-name'=>'FINAL LABORATORY REPORT',
-
-	/*
-	|--------------------------------------------------------------------------
-	| Final Laboratory Report Name
-	|--------------------------------------------------------------------------
-	|
-	*/
-	'interim-report-name'=>'Interim LABORATORY REPORT',
-
+	'aslmlogo'	=> '/i/aslmlogo.png',	
+	
 	/*
 	|--------------------------------------------------------------------------
 	|	Pagination: Items to show per page
@@ -101,7 +78,7 @@ return array(
 	|	Sanitas inbound results URL
 	*/
 	'sanitas-url' => 'localhost',
-
+	
 	/*
 	|--------------------------------------------------------------------------
 	|	Limit: Maximum number of items to return (Use in patient search)

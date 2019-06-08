@@ -10,15 +10,15 @@ class Bbincidence extends Eloquent
 	 */
 	use SoftDeletingTrait;
 	protected $dates = ['deleted_at'];
-
+    	
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
 	protected $table = 'unhls_bbincidences';
-
-
+	
+	
 	/**
 	 * Facility relationship
 	 */
@@ -26,7 +26,7 @@ class Bbincidence extends Eloquent
 	{
 		return $this->belongsTo('UNHLSFacility', 'facility_id', 'id');
 	}
-
+	
 	/**
 	 * User relationship
 	 */
@@ -34,18 +34,15 @@ class Bbincidence extends Eloquent
 	{
 		return $this->belongsTo('User', 'createdby', 'id');
 	}
-
+	
 	/**
 	 * Nature relationship
 	 */
 	public function bbnature()
 	{
 		return $this->belongsToMany('BbincidenceNature', 'unhls_bbincidences_nature', 'bbincidence_id', 'nature_id');
-
-		$bbnaturecount = Bbincidence::with( 'bbincidence_id', 'nature_id' )->where( 'bbincidence_id','=', 'bbincidence_id' )->first();
-		$sum = $bbnaturecount[ 'nature_id'];
 	}
-
+	
 	/**
 	 * Cause relationship
 	 */
@@ -53,7 +50,7 @@ class Bbincidence extends Eloquent
 	{
 		return $this->belongsToMany('BbincidenceCause', 'unhls_bbincidences_cause', 'bbincidence_id', 'cause_id');
 	}
-
+	
 	/**
 	 * Action relationship
 	 */
@@ -66,7 +63,7 @@ class Bbincidence extends Eloquent
 	* Search for bbincidencinces meeting given criteria
 	*
 	* @param String $searchText
-	* @return Collection
+	* @return Collection 
 	*/
 	public static function search($searchText)
 	{
@@ -91,7 +88,7 @@ class Bbincidence extends Eloquent
 				->orWhere('serial_no', 'LIKE', '%'.$searchText.'%');
 			});
 	}
-
+	
 	/**
 	* Filter bbincidencinces by dates
 	*/
@@ -120,12 +117,6 @@ class Bbincidence extends Eloquent
 		return DB::table('unhls_bbnatures')->where('class','=',$option)->select('priority','class','name', DB::raw('count(unhls_bbincidences_nature.created_at) as total'))->leftjoin('unhls_bbincidences_nature','unhls_bbincidences_nature.nature_id','=','unhls_bbnatures.id')
 					->groupBy('priority','class','name')
              		->get();
-	}
-	public static function incidentsum($option)
-	{
-		return DB::table('unhls_bbincidences_nature')->where('class','=',$option)->select('bbincidence_id','nature_id', DB::raw('count(unhls_bbincidences_nature.created_at) as total'))->leftjoin('unhls_bbincidences_nature','unhls_bbincidences_nature.nature_id','=','unhls_bbnatures.id')
-					->groupBy('bbincidence_id')
-								->get();
 	}
 
 	public static function countbbincidentreferralstatus()
@@ -171,20 +162,20 @@ class Bbincidence extends Eloquent
 	public static function countbbincidents_all()
 	{
 		//return BbincidenceNatureIntermediate::get();
-
+		
 		$startdate = date('Y-m-01');
 		$today = date('Y-m-d');
 
-		return BbincidenceNatureIntermediate::join('unhls_bbincidences', 'unhls_bbincidences.id', '=',
+		return BbincidenceNatureIntermediate::join('unhls_bbincidences', 'unhls_bbincidences.id', '=', 
 			'unhls_bbincidences_nature.bbincidence_id')->whereBetween('unhls_bbincidences.occurrence_date', array($startdate,$today))->get();
 	}
 
 	public static function bbincidents_monthly_natures()
 	{
-
+		
 		$startdate = date('Y-m-01');
 		$today = date('Y-m-d');
-
+		
 
 		return BbincidenceNatureIntermediate::
 		join('unhls_bbincidences', 'unhls_bbincidences.id', '=', 'unhls_bbincidences_nature.bbincidence_id')
@@ -196,20 +187,20 @@ class Bbincidence extends Eloquent
 
 	public static function countbbincidents_major()
 	{
-
+		
 		$startdate = date('Y-m-01');
 		$today = date('Y-m-d');
+		
 
-
-		return BbincidenceNatureIntermediate::join('unhls_bbincidences', 'unhls_bbincidences.id', '=',
-			'unhls_bbincidences_nature.bbincidence_id')->join('unhls_bbnatures', 'unhls_bbnatures.id', '=',
+		return BbincidenceNatureIntermediate::join('unhls_bbincidences', 'unhls_bbincidences.id', '=', 
+			'unhls_bbincidences_nature.bbincidence_id')->join('unhls_bbnatures', 'unhls_bbnatures.id', '=', 
 			'unhls_bbincidences_nature.nature_id')->where('unhls_bbnatures.priority', '=', 'Major')->whereBetween('unhls_bbincidences.occurrence_date', array($startdate,$today))->get();
 	}
 
 	/*public static function countbbincidents_major()
 	{
-		return BbincidenceNatureIntermediate::join(BbincidenceNature,
-			function($join){$join->on('BbincidenceNatureIntermediate.nature_id', '=',
+		return BbincidenceNatureIntermediate::join(BbincidenceNature, 
+			function($join){$join->on('BbincidenceNatureIntermediate.nature_id', '=', 
 				'BbincidenceNature.id');})->where('BbincidenceNature.priority', '=', 'Major')->get();
 	}*/
 
@@ -218,8 +209,8 @@ class Bbincidence extends Eloquent
 		$startdate = date('Y-m-01');
 		$today = date('Y-m-d');
 
-		return BbincidenceNatureIntermediate::join('unhls_bbincidences', 'unhls_bbincidences.id', '=',
-			'unhls_bbincidences_nature.bbincidence_id')->join('unhls_bbnatures', 'unhls_bbnatures.id', '=',
+		return BbincidenceNatureIntermediate::join('unhls_bbincidences', 'unhls_bbincidences.id', '=', 
+			'unhls_bbincidences_nature.bbincidence_id')->join('unhls_bbnatures', 'unhls_bbnatures.id', '=', 
 			'unhls_bbincidences_nature.nature_id')->where('unhls_bbnatures.priority', '=', 'Minor')->whereBetween('unhls_bbincidences.occurrence_date', array($startdate,$today))->get();
 	}
 }

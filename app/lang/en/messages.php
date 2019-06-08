@@ -11,8 +11,6 @@ return array(
 
     'actions' => 'Actions',
     'add-another' => 'Add Another',
-    'approve'=>'Approve',
-    'approved'=>'Tests Approved',
     'back' => 'Previous Page',
     'both' => 'Both',
     'cancel' => 'Cancel',
@@ -113,7 +111,6 @@ return array(
     'patient-unhls' => 'Patient Information',
     'patient-details' => 'Patient Details',
     'patient-id' => 'Patient ID',
-    'patient-contact'=>'Contact',
     //'patient-search-button' => 'Go!', UNHLS Terminology
     'patient-search-button' => 'View!',
     'patient-number' => 'Patient OPD/IPD Number.',
@@ -144,7 +141,6 @@ return array(
     'new-specimen-type' => 'New Specimen Type',
     'reject' => 'Reject',
     'reject-explained-to' => 'Person Talked To',
-    'import-results-title' => 'Import PoC Results',
     'reject-title' => 'Reject Specimen',
     'rejection-reason' => 'Reason',
     'rejection-reason-title' => 'Rejection Reason',
@@ -324,7 +320,7 @@ return array(
 
     'all' => 'All',
     'create-new-test' => 'Create New Test',
-    'comments' => 'Comment on Sample Suitability',
+    'comments' => 'Comments',
     'completed' => 'Test Completed',
     'completed-tests' => 'Completed Tests',
     'date-ordered' => 'Date Ordered',
@@ -366,19 +362,21 @@ return array(
     'unknown' => 'Unknown',
     'update-test-results' => 'Update Test Results',
     'verification-pending' => 'Verification Pending',
-    'verified-by' => 'Reviewed By',
-    'verified' => 'Test Reviewed',
-    'verify' => 'Review',
-    'verify-title' => 'Review Test Results',
+    'verified-by' => 'Verified By',
+    'verified' => 'Test Verified',
+    'verify' => 'Verify',
+    'verify-title' => 'Verify Test Results',
     'view-details' => 'View',
     'view-details-title' => 'View Test Details',
     'patient-lab-number' => 'Lab No.',
     'visit-number' => 'Visit No.',
-    'visit-lab-number' => 'Visit Lab No.',//This number is issued at each patient visit in the Lab
     'visit-type' => 'Visit Type',
+<<<<<<< HEAD
     'sample-source' => 'Sample Source',
     'visit-test-details' => 'View List of Tests',
 
+=======
+>>>>>>> case_butabika
 
     /** 
      *   Tests search panel
@@ -394,7 +392,6 @@ return array(
      *   Tests Results
      */
     'edit-test-results' => 'Edit Test Results',
-    'recall-test-results' => 'Recall Test Results',
     'enter-results' => 'Enter Results',
     'enter-results-title' => 'Enter Test Results',
     'enter-test-results' => 'Enter Test Results',
@@ -438,8 +435,7 @@ return array(
     'include-pending-tests' => 'Include Pending Tests',
     'include-range-visualization' => 'Include Range Visualization',
     'no-records-found' => 'No records found.',
-    'patient-report' => 'Report',
-    'report-date'=>'Report Date',
+    'patient-report' => 'Patient Report',
     'positivity-rates' => 'Positivity Rates',
     'report' => 'Report|Reports',
     'print' => 'Print',
@@ -448,12 +444,7 @@ return array(
     'results-entry-date' => 'Results Entry Date',
     'test-results-values' => 'Test Results',
     'view-report' => 'View Report',
-    'recall-report' => 'Recall Report',
-    'recall-test' => 'Recall Test',
-    'view-final-report'=>'View Final Report',
-    'view-interim-report'=>'View Interim Report',
     'view-visit-report' => 'View Visit Report',
-    'view-visits' => 'View Visits',
     'view-test-report' => 'View Test Report',
     'test-records'  =>  'Test Records',
     'patient-records' =>    'Patient Records',
@@ -796,8 +787,5 @@ return array(
     'equipment-maintenance'=> 'Equipment maintenance',         
     'supplier-list'=> 'Supplier List',    
     'add'=> 'Add',
-
-    //
-    'ward-type'=>'Type of unit location',
 
 );

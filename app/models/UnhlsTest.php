@@ -22,11 +22,8 @@ class UnhlsTest extends Eloquent
 	// when a specimen is at the analytic stage, it's rejected only for that particular test
 	const REJECTED = 6;
 	// todo: consider how to consider it's pending, completed and verified statuses without confusion
-	
-	const APPROVED = 7;//The final phase of a test. This means that all tests for this patient's visit are ready to be officially handed over
-
-	const REFERRED_IN = 8;//Changed the flags. 
-	const REFERRED_OUT = 9;//Changed the flags.
+	const REFERRED_IN = 7;
+	const REFERRED_OUT = 8;
 
 
 	/**
@@ -42,30 +39,6 @@ class UnhlsTest extends Eloquent
 		return $this->belongsTo('UnhlsVisit', 'visit_id');
 	}	
 
-	/**
-	*
-	*
-	*/
-	public function therapy()
-	{
-		return $this->belongsTo('Therapy','visit_id');
-	}
-
-	
-
-   /**
-	*
-	*
-	*/
-	public function clinician()
-	{
-		return $this->belongsTo('Clinician','clinician_id');
-	}
-
-	public function getClinician()
-	{
-		return Clinician::find($this->clinician_id);
-	}
 	/**
 	 * Test Type relationship
 	 */
@@ -120,14 +93,6 @@ class UnhlsTest extends Eloquent
 	public function verifiedBy()
 	{
 		return $this->belongsTo('User', 'verified_by', 'id');
-	}
-
-	/**
-	 * User (verified) relationship
-	 */
-	public function approvedBy()
-	{
-		return $this->belongsTo('User', 'approved_by', 'id');
 	}
 
 	/**
@@ -227,19 +192,6 @@ class UnhlsTest extends Eloquent
 	public function isVerified()
 	{
 		if($this->test_status_id == UnhlsTest::VERIFIED)
-			return true;
-		else 
-			return false;
-	}
-
-	/**
-	 * Helper function: check if the Test status is VERIFIED
-	 *
-	 * @return boolean
-	 */
-	public function isApproved()
-	{
-		if($this->test_status_id == UnhlsTest::APPROVED)
 			return true;
 		else 
 			return false;
@@ -575,30 +527,6 @@ class UnhlsTest extends Eloquent
 				}
 			});
 		}
-
-		$tests = $tests->orderBy('time_created', 'DESC');
-
-		return $tests;
-	}
-
-	/**
-	* Search for tests meeting the given criteria
-	*
-	* @param String $id: visit ID
-	* @return Collection 
-	*/
-	public static function searchByVisit($id = NULL)
-	{
-
-		$tests = UnhlsTest::with('visit', 'visit.patient', 'testType', 'specimen', 
-			'testStatus', 'testStatus.testPhase')
-			->WhereHas('visit',  function($q) use ($id)
-			{
-				$q->where(function($q) use ($id){
-					$q->where('id', '=', $id );
-				});
-			});
-		
 
 		$tests = $tests->orderBy('time_created', 'DESC');
 
@@ -1179,6 +1107,4 @@ class UnhlsTest extends Eloquent
     {
       return ($this->testType->name == 'HIV') ? true : false;
     }
-
-   
 }

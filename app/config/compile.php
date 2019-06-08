@@ -13,11 +13,6 @@ return array(
 	|
 	*/
 
-	'vendor/laravel/framework/src/Illuminate/Support/Collection.php',
-	'vendor/laravel/framework/src/Illuminate/Database/*',
-    'vendor/zizaco/entrust/src/Entrust/*.php',
-    'app/library/HelperClass.php',
-
 
 
 );

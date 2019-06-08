@@ -19,6 +19,4 @@ class Referral extends Eloquent
     	return $this->belongsTo('UNHLSFacility');
     }
 
-    
-
 }

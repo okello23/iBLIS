@@ -1,0 +1,8 @@
+0000000000000000000000000000000000000000 f5127df8003a55c81e1d8468aac153c1d595aa0a ereng <aereng@gmail.com> 1501147456 +0300	branch: Created from HEAD
+f5127df8003a55c81e1d8468aac153c1d595aa0a ad0c87b679b59ad197d66a59def4f8279532eeae ereng <aereng@gmail.com> 1501147507 +0300	merge visit_crude: Merge made by the 'recursive' strategy.
+ad0c87b679b59ad197d66a59def4f8279532eeae f4e1508d79b68151a3c168c68e87ca3dde7cdcb9 ereng <aereng@gmail.com> 1501148029 +0300	commit: element causing havoc
+f4e1508d79b68151a3c168c68e87ca3dde7cdcb9 6fbf1b28d9f3f2bee78c74d7e08c63359752e851 ereng <aereng@gmail.com> 1501157182 +0300	commit: add status column on to the visit table
+6fbf1b28d9f3f2bee78c74d7e08c63359752e851 49a2bb3bad55a67acc266b02f47f6853c7e98106 ereng <aereng@gmail.com> 1501180612 +0300	commit: - back end visit search introduced
+49a2bb3bad55a67acc266b02f47f6853c7e98106 0850f490767bb4fed8b392257a80ac37bab1969e ereng <aereng@gmail.com> 1501256936 +0300	commit: visit mumbo jambo
+0850f490767bb4fed8b392257a80ac37bab1969e e710c0fb56a1e4489aace915a0c78de8748bd3dc ereng <aereng@gmail.com> 1501417758 +0300	commit: wip
+e710c0fb56a1e4489aace915a0c78de8748bd3dc 5fcb4b37a30b494e369b340e63edfa2ea5ea1713 ereng <aereng@gmail.com> 1501424936 +0300	commit: working towards reusing code

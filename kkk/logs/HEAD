@@ -1,0 +1,397 @@
+0000000000000000000000000000000000000000 ae5c494fe22ce6de7f364d332116878d654eabab ereng <aereng@gmail.com> 1476164469 +0300	clone: from git@github.com:geoflen/iBLIS_UGANDA.git
+ae5c494fe22ce6de7f364d332116878d654eabab 8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 ereng <aereng@gmail.com> 1476164871 +0300	checkout: moving from master to develop
+8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 ae5c494fe22ce6de7f364d332116878d654eabab ereng <aereng@gmail.com> 1476171073 +0300	checkout: moving from develop to master
+ae5c494fe22ce6de7f364d332116878d654eabab ae5c494fe22ce6de7f364d332116878d654eabab ereng <aereng@gmail.com> 1476171281 +0300	checkout: moving from master to microbiology_11_10_16
+ae5c494fe22ce6de7f364d332116878d654eabab cb6f0dea1ea5274e178cf28856ddfadc085bdc4e ereng <aereng@gmail.com> 1476270886 +0300	commit: I think it crowds the log file unneccearily
+cb6f0dea1ea5274e178cf28856ddfadc085bdc4e 2d4e8c245b969216221d3352391b321d878e62ed ereng <aereng@gmail.com> 1476270911 +0300	commit: not applicable here, should be made configurable and conditions put in the model
+2d4e8c245b969216221d3352391b321d878e62ed 8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 ereng <aereng@gmail.com> 1476270998 +0300	checkout: moving from microbiology_11_10_16 to develop
+8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 2d4e8c245b969216221d3352391b321d878e62ed ereng <aereng@gmail.com> 1476271942 +0300	checkout: moving from develop to microbiology_11_10_16
+2d4e8c245b969216221d3352391b321d878e62ed 8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 ereng <aereng@gmail.com> 1476272209 +0300	checkout: moving from microbiology_11_10_16 to develop
+8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 2d4e8c245b969216221d3352391b321d878e62ed ereng <aereng@gmail.com> 1476427021 +0300	checkout: moving from develop to microbiology_11_10_16
+2d4e8c245b969216221d3352391b321d878e62ed 633cb8e9aa2ca53f095a003fea2ee42ec0a962c1 ereng <aereng@gmail.com> 1477384870 +0300	commit: microbiology: updated migrations, seeding, models, controllers... and bits of front end, next complete front end
+633cb8e9aa2ca53f095a003fea2ee42ec0a962c1 a0c5dd6c5921e969eb8f09aea7eea51948392063 ereng <aereng@gmail.com> 1478163031 +0300	commit: microbiology: 1.0 functional UI, something to review #2
+a0c5dd6c5921e969eb8f09aea7eea51948392063 a944144a41a921336c3315958c9d88df17a2f7a6 ereng <aereng@gmail.com> 1479117286 +0300	commit: microbiology: set culture and sensitivity analysis process to completed #2
+a944144a41a921336c3315958c9d88df17a2f7a6 99bda924c95aab54308df2b64b104c92104becc2 ereng <aereng@gmail.com> 1479301386 +0300	commit: ui fix
+99bda924c95aab54308df2b64b104c92104becc2 8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 ereng <aereng@gmail.com> 1479301404 +0300	checkout: moving from microbiology_11_10_16 to develop
+8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 ereng <aereng@gmail.com> 1479474387 +0300	checkout: moving from develop to develop
+8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 99bda924c95aab54308df2b64b104c92104becc2 ereng <aereng@gmail.com> 1479474397 +0300	checkout: moving from develop to microbiology_11_10_16
+99bda924c95aab54308df2b64b104c92104becc2 c4fb035555e2f83e3197744c8d3d8b66dd763bc1 ereng <aereng@gmail.com> 1479481099 +0300	commit: microbiology: installation of pdf vendor Barryvdh\Snappy #2
+c4fb035555e2f83e3197744c8d3d8b66dd763bc1 fda60a4b8e786ec887b91f1a3ce7d9f20ca1e52d ereng <aereng@gmail.com> 1479799513 +0300	commit: microbiology: change of pdf vendor barryvdh/laravel-dompdf - is faster #2
+fda60a4b8e786ec887b91f1a3ce7d9f20ca1e52d f98751387c1def1abd7965a9719832ddfbc73394 ereng <aereng@gmail.com> 1480412415 +0300	commit: seeding: make sputum a special case specimen for AST, microbiology: report v1 #2
+f98751387c1def1abd7965a9719832ddfbc73394 8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 ereng <aereng@gmail.com> 1480485440 +0300	checkout: moving from microbiology_11_10_16 to develop
+8ed8bedf0bb1d81f39b476c1f5ffc24a79c111e7 30642c1d640c80dfaaa533ecf2ea739c7b5bb256 ereng <aereng@gmail.com> 1480492875 +0300	commit (merge): Merge branch 'microbiology_11_10_16' into develop
+30642c1d640c80dfaaa533ecf2ea739c7b5bb256 cdaf64cc0dbdb3845cf00802042fec4e015b2193 ereng <aereng@gmail.com> 1480494467 +0300	commit (merge): Merge branch 'develop' of github.com:geoflen/iBLIS_UGANDA into develop
+cdaf64cc0dbdb3845cf00802042fec4e015b2193 d2e36bc718e07b8405067d62d2a4e990fd538485 ereng <aereng@gmail.com> 1480931293 +0300	commit: microbiology: try just symbols for #2
+d2e36bc718e07b8405067d62d2a4e990fd538485 748f966de2529c876802b59d672f7983012fc550 ereng <aereng@gmail.com> 1480931407 +0300	commit: microbiology: insert report functionality in to work flow... buggy #2
+748f966de2529c876802b59d672f7983012fc550 f8424904e5cb66ebc87eca0013e6e5423629ecf0 ereng <aereng@gmail.com> 1481099545 +0300	commit: rrt: improving request report
+f8424904e5cb66ebc87eca0013e6e5423629ecf0 fe492fd474f864fb0e890c860a0379b256cc9fc0 ereng <aereng@gmail.com> 1483344952 +0300	commit: fix #4
+fe492fd474f864fb0e890c860a0379b256cc9fc0 244a337ccb176ba2deee7f0878c3a318660df5aa ereng <aereng@gmail.com> 1483345013 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+244a337ccb176ba2deee7f0878c3a318660df5aa 63613c3f99eb87d656420447a5b2901e83ec56be ereng <aereng@gmail.com> 1483345783 +0300	commit: empty update fields fixes#6
+63613c3f99eb87d656420447a5b2901e83ec56be c833dffdf9241fa94d1e1215d64ccdbc946b3ea3 ereng <aereng@gmail.com> 1483349668 +0300	commit: assigned specimentypes to the new tests(seeded) fixes#5
+c833dffdf9241fa94d1e1215d64ccdbc946b3ea3 63613c3f99eb87d656420447a5b2901e83ec56be ereng <aereng@gmail.com> 1483349797 +0300	reset: moving to HEAD~1
+63613c3f99eb87d656420447a5b2901e83ec56be 19a9ac9bb7cfa02dbcc43bd9d1f1a1f1a1d30382 ereng <aereng@gmail.com> 1483355167 +0300	commit: assigned specimentypes to the new tests(seeded) fixes#5
+19a9ac9bb7cfa02dbcc43bd9d1f1a1f1a1d30382 e6392fd382acf64ad5b9b46cacb4c3d713f38fbe ereng <aereng@gmail.com> 1483459770 +0300	commit: signature
+e6392fd382acf64ad5b9b46cacb4c3d713f38fbe 7b6ece3513fe27a9f6690eba031e76582150ea40 ereng <aereng@gmail.com> 1483603651 +0300	commit: restrict organism column width
+7b6ece3513fe27a9f6690eba031e76582150ea40 afdb720acf154add5af355421d91afaf719a4ec4 ereng <aereng@gmail.com> 1484131835 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+afdb720acf154add5af355421d91afaf719a4ec4 3b648d11fbe1e657b25b3aa550fd9a32f05c25c4 ereng <aereng@gmail.com> 1484313499 +0300	commit: to edit worksheet logic was missing
+3b648d11fbe1e657b25b3aa550fd9a32f05c25c4 f35c865f68ed8ba89a0da7dbb3aa1a77e848b708 ereng <aereng@gmail.com> 1484496488 +0300	commit: microbiology:improve ui
+f35c865f68ed8ba89a0da7dbb3aa1a77e848b708 b4a0ae928120e1d97fba0b85f14dfff45d22bce6 ereng <aereng@gmail.com> 1484496543 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+b4a0ae928120e1d97fba0b85f14dfff45d22bce6 8e493b2f60af4f07d4fa60c445bf630783452f1a ereng <aereng@gmail.com> 1484545223 +0300	pull origin develop: Fast-forward
+8e493b2f60af4f07d4fa60c445bf630783452f1a 941fc97e0a090135d51912e9a768bf8bbcc295ba ereng <aereng@gmail.com> 1484556787 +0300	commit: it seems unhls_test_results is not used anymore, removed this, I stand tobe corrected fixes #7
+941fc97e0a090135d51912e9a768bf8bbcc295ba 0ad9effaea231ad391829d39ff0fbe7cad901cc0 ereng <aereng@gmail.com> 1484557092 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+0ad9effaea231ad391829d39ff0fbe7cad901cc0 ae5c494fe22ce6de7f364d332116878d654eabab ereng <aereng@gmail.com> 1485257538 +0300	checkout: moving from develop to master
+ae5c494fe22ce6de7f364d332116878d654eabab 0ad9effaea231ad391829d39ff0fbe7cad901cc0 ereng <aereng@gmail.com> 1485257595 +0300	checkout: moving from master to develop
+0ad9effaea231ad391829d39ff0fbe7cad901cc0 33e48edf1c18c06b0a52203392392fbfe07cbae4 ereng <aereng@gmail.com> 1485496426 +0300	commit: remove duplicate DrugSusceptibility class
+33e48edf1c18c06b0a52203392392fbfe07cbae4 4d9a493621e0e9e44441ee8cfc6c2f1822206a34 ereng <aereng@gmail.com> 1485496713 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+4d9a493621e0e9e44441ee8cfc6c2f1822206a34 b482f1dfd621fb6902abb5eb385d3fccb5aaf8ba ereng <aereng@gmail.com> 1485503489 +0300	commit: temporary fix: using available model, can be undone #8
+b482f1dfd621fb6902abb5eb385d3fccb5aaf8ba e827f7c18c3050bc0dff8eb2783a9a89d46e1c53 ereng <aereng@gmail.com> 1485793056 +0300	commit: changed unhls_patients back to patients #9
+e827f7c18c3050bc0dff8eb2783a9a89d46e1c53 19935b2a2c6f6fd667c4cab938fb843dce661260 ereng <aereng@gmail.com> 1485793895 +0300	commit: Class UnhlsSpecimen is unavailable, using Specimen #10
+19935b2a2c6f6fd667c4cab938fb843dce661260 20d2b9e347ea40d5f4744ab61ee8a52cf19e949b ereng <aereng@gmail.com> 1485846354 +0300	commit: using ReportController #12
+20d2b9e347ea40d5f4744ab61ee8a52cf19e949b 3ac3da491f93188b3d88b31eed941b2a99491dfd ereng <aereng@gmail.com> 1485847039 +0300	commit: naming issues #9
+3ac3da491f93188b3d88b31eed941b2a99491dfd 2819571290da3b97403417899ca7db2891d90f2c ereng <aereng@gmail.com> 1485852483 +0300	commit: missing fields: when creating patients
+2819571290da3b97403417899ca7db2891d90f2c 5d125864e5727e8a69b80897469dd87863dbd475 ereng <aereng@gmail.com> 1486452743 +0300	commit: removing duplicates + random fixes
+5d125864e5727e8a69b80897469dd87863dbd475 1e520a10c1a73b6153e9ebc6e9d2f009aa33d536 ereng <aereng@gmail.com> 1486457469 +0300	commit: route and link fixes for culture
+1e520a10c1a73b6153e9ebc6e9d2f009aa33d536 496239a0e8286a47f2ecbbc29bce7ccbf5cad79d ereng <aereng@gmail.com> 1486557686 +0300	commit: put arragement where it was just before, so out of ideas
+496239a0e8286a47f2ecbbc29bce7ccbf5cad79d 5d31d9223211163b87822af2ab40781d1a21706c ereng <aereng@gmail.com> 1486559340 +0300	commit: remove dummies
+5d31d9223211163b87822af2ab40781d1a21706c f62f35553051bd99c4abf5d1f64163b1ab3b664f ereng <aereng@gmail.com> 1487577452 +0300	commit: broken line
+f62f35553051bd99c4abf5d1f64163b1ab3b664f f62f35553051bd99c4abf5d1f64163b1ab3b664f ereng <aereng@gmail.com> 1487578199 +0300	checkout: moving from develop to reintroduce_travis_ci
+f62f35553051bd99c4abf5d1f64163b1ab3b664f 836b201ef20a22446a8f5c09bfa9dd8c205a6728 ereng <aereng@gmail.com> 1487670433 +0300	commit: merging unhls facility migrations #21
+836b201ef20a22446a8f5c09bfa9dd8c205a6728 f62f35553051bd99c4abf5d1f64163b1ab3b664f ereng <aereng@gmail.com> 1488786092 +0300	checkout: moving from reintroduce_travis_ci to develop
+f62f35553051bd99c4abf5d1f64163b1ab3b664f 8234d0d230506137a94c67ec2c234ff846f1938f ereng <aereng@gmail.com> 1488786529 +0300	pull origin develop: Fast-forward
+8234d0d230506137a94c67ec2c234ff846f1938f 718b593cec2aba3df8e3f5307833fd9c41096257 ereng <aereng@gmail.com> 1488879279 +0300	commit: fix migration failing
+718b593cec2aba3df8e3f5307833fd9c41096257 82e39ac0912e779aa1ece6901e8848c235ff10ac ereng <aereng@gmail.com> 1488963971 +0300	commit: my bad
+82e39ac0912e779aa1ece6901e8848c235ff10ac d00380ea250a1d9d89c91d931322a8875668d5ee ereng <aereng@gmail.com> 1488964062 +0300	commit: #23
+d00380ea250a1d9d89c91d931322a8875668d5ee f808c14bb178e3678eb44e5655e168d2aec65bae ereng <aereng@gmail.com> 1488971277 +0300	commit: redandant route use one delete the other #23
+f808c14bb178e3678eb44e5655e168d2aec65bae 519a43b809269514edf921507ed224b77354d4e8 ereng <aereng@gmail.com> 1488971285 +0300	commit: start test failing #23
+519a43b809269514edf921507ed224b77354d4e8 7ffede42a5b02d59b1864579ca9cdf2d7a8af4b4 ereng <aereng@gmail.com> 1488972454 +0300	commit: redandant route use one delete the other #23
+7ffede42a5b02d59b1864579ca9cdf2d7a8af4b4 6d7b6b8d692dbeecfe4b0aaebdb491b6b179338a ereng <aereng@gmail.com> 1488972454 +0300	commit: start test failing #23
+6d7b6b8d692dbeecfe4b0aaebdb491b6b179338a cf9b562f148c6f65add480126ed34723f350b52c ereng <aereng@gmail.com> 1489298374 +0300	commit: disabling direct collection of sample
+cf9b562f148c6f65add480126ed34723f350b52c 97470b2a3c426cd69d17940a5c62cbc63191c083 ereng <aereng@gmail.com> 1489298499 +0300	commit: saving results failing #25
+97470b2a3c426cd69d17940a5c62cbc63191c083 7089741d8448d6e327f1091cdab579dfb94fbcbe ereng <aereng@gmail.com> 1489298722 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+7089741d8448d6e327f1091cdab579dfb94fbcbe fa8d6bf800120d81a5e923be888f9a3b5bbfb04f ereng <aereng@gmail.com> 1489300699 +0300	commit: one of those things
+fa8d6bf800120d81a5e923be888f9a3b5bbfb04f 1151d648ab6e624617626162c3aa3b943c2ae188 ereng <aereng@gmail.com> 1489323433 +0300	commit: not applicable + causing unneccesary havoc #25
+1151d648ab6e624617626162c3aa3b943c2ae188 4294a35534b042711d799254ac8a80c49833700d ereng <aereng@gmail.com> 1489995256 +0300	commit: remove duplicate specimen model
+4294a35534b042711d799254ac8a80c49833700d b8c98c12731a70211e16f4769221daa8f5238db1 ereng <aereng@gmail.com> 1490002242 +0300	commit: remove duplicate accept route
+b8c98c12731a70211e16f4769221daa8f5238db1 3fb4e613af523c2c5732f4d82c73022569552c18 ereng <aereng@gmail.com> 1490261014 +0300	commit: accept specimen cum capture specimen collection details
+3fb4e613af523c2c5732f4d82c73022569552c18 76649114db5a86db4c5ffe776cb0bd016d01a902 ereng <aereng@gmail.com> 1490261320 +0300	commit: some small
+76649114db5a86db4c5ffe776cb0bd016d01a902 624b637257b18d4598736d1fae65776bef8d4ce8 ereng <aereng@gmail.com> 1490271537 +0300	commit: dont change buttons ... someone may decide to cancel instead of submitting
+624b637257b18d4598736d1fae65776bef8d4ce8 58bb8ca32bb29801ead44594e7751c084da34158 ereng <aereng@gmail.com> 1490860958 +0300	commit: Removing the cultures table and Culture model
+58bb8ca32bb29801ead44594e7751c084da34158 31f542e145fd5696d7d270a6108448552d104053 ereng <aereng@gmail.com> 1490960599 +0300	pull origin develop: Fast-forward
+31f542e145fd5696d7d270a6108448552d104053 65239f480b4fa7b82ef0528d53eecac34797dd5f ereng <aereng@gmail.com> 1490969483 +0300	commit: report fix
+65239f480b4fa7b82ef0528d53eecac34797dd5f 324075e06e082dee00b8aa17ff9cb9feffffc942 ereng <aereng@gmail.com> 1491032579 +0300	commit: use existent specimen model
+324075e06e082dee00b8aa17ff9cb9feffffc942 4cdbb7430c549b7d3d85117889896f733ca9a5f3 ereng <aereng@gmail.com> 1491032621 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+4cdbb7430c549b7d3d85117889896f733ca9a5f3 017831d824b88f002db43bc8eebc47a757c10f0a ereng <aereng@gmail.com> 1491036572 +0300	commit: UI fixes
+017831d824b88f002db43bc8eebc47a757c10f0a 4ef0d1fa380254a09f53ca2201518f59f6e99145 ereng <aereng@gmail.com> 1491378172 +0300	commit: Instrument interfacing controller
+4ef0d1fa380254a09f53ca2201518f59f6e99145 3c43b05445507b4027b063e6c24f713a6ffecc3e ereng <aereng@gmail.com> 1491469067 +0300	commit: ASML-Logo positioning
+3c43b05445507b4027b063e6c24f713a6ffecc3e e80834dacbf274493c3fa12e95e2cd9e967e7362 ereng <aereng@gmail.com> 1491473708 +0300	commit: Seed admin
+e80834dacbf274493c3fa12e95e2cd9e967e7362 e80834dacbf274493c3fa12e95e2cd9e967e7362 ereng <aereng@gmail.com> 1491473891 +0300	checkout: moving from develop to microbiology_06_04_17
+e80834dacbf274493c3fa12e95e2cd9e967e7362 e80834dacbf274493c3fa12e95e2cd9e967e7362 ereng <aereng@gmail.com> 1491476198 +0300	checkout: moving from microbiology_06_04_17 to develop
+e80834dacbf274493c3fa12e95e2cd9e967e7362 e42eb32606647682875412a9cb67864f24ade19f ereng <aereng@gmail.com> 1491477458 +0300	commit: ASLM
+e42eb32606647682875412a9cb67864f24ade19f 5eb166459b1a307f69b9ceb24f198d337706a34c ereng <aereng@gmail.com> 1491477928 +0300	commit: ASLM
+5eb166459b1a307f69b9ceb24f198d337706a34c e80834dacbf274493c3fa12e95e2cd9e967e7362 ereng <aereng@gmail.com> 1491548202 +0300	checkout: moving from develop to microbiology_06_04_17
+e80834dacbf274493c3fa12e95e2cd9e967e7362 399e4d643303d618605e60cfd3fbe0b0dd3353f9 ereng <aereng@gmail.com> 1491564052 +0300	commit: Microbiology special changes
+399e4d643303d618605e60cfd3fbe0b0dd3353f9 c9419066646ae86f79f5cdbfa1817d275899d8fa ereng <aereng@gmail.com> 1491592045 +0300	commit: remove bottom scroll bar
+c9419066646ae86f79f5cdbfa1817d275899d8fa 06c85aedb2496f798c5da440a6191ee47be4e6d1 ereng <aereng@gmail.com> 1491975383 +0300	commit: Introducing dialogs in culture data entry to ease usage
+06c85aedb2496f798c5da440a6191ee47be4e6d1 ba92350903500f6fa1ae072c4d6aec1dbb50746c ereng <aereng@gmail.com> 1491990049 +0300	commit: adding more relevanance in microviology seed
+ba92350903500f6fa1ae072c4d6aec1dbb50746c 90bfb57d0aef8c6c0113f0cb8bf78cb8809a1a96 ereng <aereng@gmail.com> 1492599694 +0300	commit: should have gone long ago
+90bfb57d0aef8c6c0113f0cb8bf78cb8809a1a96 45c7f201c45b2bc57f059145ef3ba5b309aceb61 ereng <aereng@gmail.com> 1492599708 +0300	commit: aking test requests specimen centered
+45c7f201c45b2bc57f059145ef3ba5b309aceb61 d81b97000b30b46a518f657a720fa37e5d8ece45 ereng <aereng@gmail.com> 1492600000 +0300	commit: part of the previous commit
+d81b97000b30b46a518f657a720fa37e5d8ece45 bd64cbb7961ca4fd1c067a9f6cc2bb74fa937e4d ereng <aereng@gmail.com> 1492670917 +0300	commit: specimen is already accepted at "request"
+bd64cbb7961ca4fd1c067a9f6cc2bb74fa937e4d 5eb166459b1a307f69b9ceb24f198d337706a34c ereng <aereng@gmail.com> 1492686567 +0300	checkout: moving from microbiology_06_04_17 to develop
+5eb166459b1a307f69b9ceb24f198d337706a34c 7bb7d60a5c8ad165f70b04b92b0ee8c6ea6ca815 ereng <aereng@gmail.com> 1492686586 +0300	pull origin develop: Fast-forward
+7bb7d60a5c8ad165f70b04b92b0ee8c6ea6ca815 bd64cbb7961ca4fd1c067a9f6cc2bb74fa937e4d ereng <aereng@gmail.com> 1492686623 +0300	checkout: moving from develop to microbiology_06_04_17
+bd64cbb7961ca4fd1c067a9f6cc2bb74fa937e4d 794d6bbae23007c3fddb3b994cc71076287b53dc ereng <aereng@gmail.com> 1492686631 +0300	merge develop: Merge made by the 'recursive' strategy.
+794d6bbae23007c3fddb3b994cc71076287b53dc 7bb7d60a5c8ad165f70b04b92b0ee8c6ea6ca815 ereng <aereng@gmail.com> 1492687396 +0300	checkout: moving from microbiology_06_04_17 to develop
+7bb7d60a5c8ad165f70b04b92b0ee8c6ea6ca815 794d6bbae23007c3fddb3b994cc71076287b53dc ereng <aereng@gmail.com> 1492687420 +0300	merge microbiology_06_04_17: Fast-forward
+794d6bbae23007c3fddb3b994cc71076287b53dc 5ba448fdba188042f84c0393b4d42000ce62e77c ereng <aereng@gmail.com> 1492691776 +0300	commit: export to .doc export fix
+5ba448fdba188042f84c0393b4d42000ce62e77c 21ff7863c28036daa83ec60b29e60037c061af32 ereng <aereng@gmail.com> 1492693208 +0300	commit: improve identification of culture test
+21ff7863c28036daa83ec60b29e60037c061af32 3b3f932c746de4656c4d668658a4aa579827d7a8 ereng <aereng@gmail.com> 1492769425 +0300	commit: Introducing pre analytic and analytic rejection of specimens
+3b3f932c746de4656c4d668658a4aa579827d7a8 836b201ef20a22446a8f5c09bfa9dd8c205a6728 ereng <aereng@gmail.com> 1492770960 +0300	checkout: moving from develop to reintroduce_travis_ci
+836b201ef20a22446a8f5c09bfa9dd8c205a6728 906b8417e32740ddb9cfb4ab696c3c0310b34a23 ereng <aereng@gmail.com> 1492774870 +0300	commit: Fixing failing migration and seeding tests
+906b8417e32740ddb9cfb4ab696c3c0310b34a23 836b201ef20a22446a8f5c09bfa9dd8c205a6728 ereng <aereng@gmail.com> 1492775198 +0300	reset: moving to HEAD~1
+836b201ef20a22446a8f5c09bfa9dd8c205a6728 0bb745eb34b6b50edfed90c27d657ec5a37552da ereng <aereng@gmail.com> 1492775272 +0300	commit: `SET FOREIGN_KEY_CHECKS` presents a problem for phpunit tests, no production yet... removing it
+0bb745eb34b6b50edfed90c27d657ec5a37552da c91af18f1831bc19cb472c4e2542f7d69abb628d ereng <aereng@gmail.com> 1492775328 +0300	commit: Fixing failing migration and seeding tests
+c91af18f1831bc19cb472c4e2542f7d69abb628d 825095a45634068da0eccb0f63b33a447a77a669 ereng <aereng@gmail.com> 1492775453 +0300	commit: These tests dont make sense anymore, need to have only valid things if it can be had,
+825095a45634068da0eccb0f63b33a447a77a669 2cd9211ec0de1cc8a87be724463a5abec8981f3a ereng <aereng@gmail.com> 1492775840 +0300	commit (merge): Merge branch 'develop' into reintroduce_travis_ci
+2cd9211ec0de1cc8a87be724463a5abec8981f3a 491567ca45a7fe6e693f62665d3baf16ca5546eb ereng <aereng@gmail.com> 1492776071 +0300	commit: small fixes for phpunit tests
+491567ca45a7fe6e693f62665d3baf16ca5546eb 3b3f932c746de4656c4d668658a4aa579827d7a8 ereng <aereng@gmail.com> 1492776110 +0300	checkout: moving from reintroduce_travis_ci to develop
+3b3f932c746de4656c4d668658a4aa579827d7a8 491567ca45a7fe6e693f62665d3baf16ca5546eb ereng <aereng@gmail.com> 1492776139 +0300	merge reintroduce_travis_ci: Fast-forward
+491567ca45a7fe6e693f62665d3baf16ca5546eb 9c898ed9c493341b7aa823f6b5005647ea6454ac ereng <aereng@gmail.com> 1493019152 +0300	commit: deployment seeder set (starting point)
+9c898ed9c493341b7aa823f6b5005647ea6454ac 170c384de07bd5c5d228b55fa81e7ca5035a85c5 ereng <aereng@gmail.com> 1493019563 +0300	commit: cleaning up just...
+170c384de07bd5c5d228b55fa81e7ca5035a85c5 170c384de07bd5c5d228b55fa81e7ca5035a85c5 ereng <aereng@gmail.com> 1493021600 +0300	checkout: moving from develop to microbiology-2017-04-24
+170c384de07bd5c5d228b55fa81e7ca5035a85c5 07f22256a2dbce2f0eab5f3acee25e9bcf31ac11 ereng <aereng@gmail.com> 1493189890 +0300	commit: return labels on buttons for microbiology
+07f22256a2dbce2f0eab5f3acee25e9bcf31ac11 ae5c494fe22ce6de7f364d332116878d654eabab ereng <aereng@gmail.com> 1493189900 +0300	checkout: moving from microbiology-2017-04-24 to master
+ae5c494fe22ce6de7f364d332116878d654eabab c6534aa36bdb1881d31ca1688acfaa810c19e908 ereng <aereng@gmail.com> 1493189932 +0300	pull origin master: Fast-forward
+c6534aa36bdb1881d31ca1688acfaa810c19e908 170c384de07bd5c5d228b55fa81e7ca5035a85c5 ereng <aereng@gmail.com> 1493196642 +0300	checkout: moving from master to develop
+170c384de07bd5c5d228b55fa81e7ca5035a85c5 0721b4fe0888b7dcf795eda005195c26ce1211a1 ereng <aereng@gmail.com> 1493196737 +0300	commit: to have fractions of a year, will need to improve it for sure
+0721b4fe0888b7dcf795eda005195c26ce1211a1 c3227cac8489be125cd9e683bee6f2ec0f374fee ereng <aereng@gmail.com> 1493196754 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+c3227cac8489be125cd9e683bee6f2ec0f374fee 42f049f585e79c87ef4e33e12c0f95d8ebb4a520 ereng <aereng@gmail.com> 1493198402 +0300	commit: full heamogram default seeding
+42f049f585e79c87ef4e33e12c0f95d8ebb4a520 40bd5d3599c28d0c9fcba4c85873d69e79df1851 ereng <aereng@gmail.com> 1493200670 +0300	commit: this should go... eventually, its relevant just getting in the way
+40bd5d3599c28d0c9fcba4c85873d69e79df1851 4d6a8e2f318c7bf71a19294b92a00b100923b5f3 ereng <aereng@gmail.com> 1493202714 +0300	commit: fix for failing home page for newly created accounts
+4d6a8e2f318c7bf71a19294b92a00b100923b5f3 37c433113eff8e46c252c191a875b04ca808e2d9 ereng <aereng@gmail.com> 1493204174 +0300	commit: remove redandant"patient" code
+37c433113eff8e46c252c191a875b04ca808e2d9 e9c56a6e0ac6ca452326c4c4d6b94271758f2c46 ereng <aereng@gmail.com> 1493205194 +0300	pull origin: Fast-forward
+e9c56a6e0ac6ca452326c4c4d6b94271758f2c46 5c781b8c88325b32592ed9f0cc3314eb8934ca4b ereng <aereng@gmail.com> 1493278116 +0300	commit: added wards
+5c781b8c88325b32592ed9f0cc3314eb8934ca4b a7d14521f6ad36ce76df662a734e7f5be3348d7a ereng <aereng@gmail.com> 1493290081 +0300	commit: testtype creatation returning blank page, quick fix
+a7d14521f6ad36ce76df662a734e7f5be3348d7a e245e8eb580d81e853926508deaf704b272b28c4 ereng <aereng@gmail.com> 1493299236 +0300	commit: Test Request enhancements
+e245e8eb580d81e853926508deaf704b272b28c4 e31c7b86504c93d480c9aadb7224e3259a5a3f6c ereng <aereng@gmail.com> 1493363760 +0300	commit: - disabled the restriction of orderable
+e31c7b86504c93d480c9aadb7224e3259a5a3f6c ae1e8dc0c4536a19617ecf4b65c634a0245ea4a1 ereng <aereng@gmail.com> 1493366602 +0300	commit: yet another change in the brand
+ae1e8dc0c4536a19617ecf4b65c634a0245ea4a1 9b15efee825aab96b6cacfab7ff7e48186d75f3e ereng <aereng@gmail.com> 1493392702 +0300	commit: tests list latest first(as a by the way)
+9b15efee825aab96b6cacfab7ff7e48186d75f3e f28edf6e28b0c0eb828d8bdeb0f619c0e05267e8 ereng <aereng@gmail.com> 1493726040 +0300	commit: - disabled the restriction of orderable
+f28edf6e28b0c0eb828d8bdeb0f619c0e05267e8 07f22256a2dbce2f0eab5f3acee25e9bcf31ac11 ereng <aereng@gmail.com> 1493740703 +0300	checkout: moving from develop to microbiology-2017-04-24
+07f22256a2dbce2f0eab5f3acee25e9bcf31ac11 836a4dbaa36e99c8d85afe97f69c6eda04eaea7b ereng <aereng@gmail.com> 1493740743 +0300	merge develop: Merge made by the 'recursive' strategy.
+836a4dbaa36e99c8d85afe97f69c6eda04eaea7b f28edf6e28b0c0eb828d8bdeb0f619c0e05267e8 ereng <aereng@gmail.com> 1493800901 +0300	checkout: moving from microbiology-2017-04-24 to develop
+f28edf6e28b0c0eb828d8bdeb0f619c0e05267e8 e744b915b1cb0cea6fd2ccc3c9e1a99af9b2cd91 ereng <aereng@gmail.com> 1493876910 +0300	commit: Returning sample collection details
+e744b915b1cb0cea6fd2ccc3c9e1a99af9b2cd91 fbef08ca09d4fd42ff8576d32ddafa18fe00865e ereng <aereng@gmail.com> 1493987757 +0300	commit: jst a tiny lil fix.
+fbef08ca09d4fd42ff8576d32ddafa18fe00865e 86b0a936422f408d915f5a16cceeda4449e8ac60 ereng <aereng@gmail.com> 1494158058 +0300	commit: canceling tests on the list of request,
+86b0a936422f408d915f5a16cceeda4449e8ac60 39ad526b60cdaf7d9414739edca12cafeee200d0 ereng <aereng@gmail.com> 1494612181 +0300	commit: introduced wkhtmltopdf
+39ad526b60cdaf7d9414739edca12cafeee200d0 d679f25fefbdfc2c751cd7390d92252dabe531ef ereng <aereng@gmail.com> 1494682943 +0300	commit: reduce report font size
+d679f25fefbdfc2c751cd7390d92252dabe531ef cba0ae6d907a1e2f4c6fee097d613dc29a7747ef ereng <aereng@gmail.com> 1494708545 +0300	commit: reports general fixes
+cba0ae6d907a1e2f4c6fee097d613dc29a7747ef 6a71eabbca2116f4cb1ec6d8687b3453c60d6971 ereng <aereng@gmail.com> 1494767078 +0300	commit: more more bug fixes on the reports and workflow
+6a71eabbca2116f4cb1ec6d8687b3453c60d6971 3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 ereng <aereng@gmail.com> 1494772219 +0300	commit: more report bug fix, permissions on side menu
+3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 ereng <aereng@gmail.com> 1494825753 +0300	checkout: moving from develop to visit_crude
+3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 c67c67cb359f33d7a71282e5148ea8b99cd3e819 ereng <aereng@gmail.com> 1495006805 +0300	commit: visit crude for starters
+c67c67cb359f33d7a71282e5148ea8b99cd3e819 3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 ereng <aereng@gmail.com> 1495006825 +0300	checkout: moving from visit_crude to develop
+3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 ereng <aereng@gmail.com> 1495006847 +0300	checkout: moving from develop to case_masaka
+3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 d987f52a6dd7d60811ec591620fb9416d775b5fd ereng <aereng@gmail.com> 1495007032 +0300	commit: investigate its relevance first
+d987f52a6dd7d60811ec591620fb9416d775b5fd 3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 ereng <aereng@gmail.com> 1495011054 +0300	checkout: moving from case_masaka to develop
+3e974fcae66a1e0d1aa18683a14af9f3a1ab74a0 d0c8cb788b3e91cfd3dc0571a91c6d4e4c644e17 ereng <aereng@gmail.com> 1495011072 +0300	pull origin develop: Fast-forward
+d0c8cb788b3e91cfd3dc0571a91c6d4e4c644e17 d987f52a6dd7d60811ec591620fb9416d775b5fd ereng <aereng@gmail.com> 1495011080 +0300	checkout: moving from develop to case_masaka
+d987f52a6dd7d60811ec591620fb9416d775b5fd 7e2698a767a1c90cc03db86904160dcf11f41503 ereng <aereng@gmail.com> 1495011103 +0300	merge develop: Merge made by the 'recursive' strategy.
+7e2698a767a1c90cc03db86904160dcf11f41503 b3cce9840d3f2ed6bbc4657b19c952b0641774f2 ereng <aereng@gmail.com> 1495016243 +0300	commit: made the OPD number editable
+b3cce9840d3f2ed6bbc4657b19c952b0641774f2 309502505c5c385bc7785356e842bb35f706fa8d ereng <aereng@gmail.com> 1495016848 +0300	commit: generated number erroneour for some facilities... tobe revised
+309502505c5c385bc7785356e842bb35f706fa8d ccbdb441e7004dd62f0dfd3998abe9a39f2452f6 ereng <aereng@gmail.com> 1495092156 +0300	commit: remove dummies..., custom report masaka
+ccbdb441e7004dd62f0dfd3998abe9a39f2452f6 ccbdb441e7004dd62f0dfd3998abe9a39f2452f6 ereng <aereng@gmail.com> 1495110132 +0300	checkout: moving from case_masaka to days_old_baby
+ccbdb441e7004dd62f0dfd3998abe9a39f2452f6 e747acde8a185a8453bbae7c599a61d239db4f85 ereng <aereng@gmail.com> 1495110235 +0300	commit: need to be catered for, but it affects everybody else as well having many
+e747acde8a185a8453bbae7c599a61d239db4f85 ccbdb441e7004dd62f0dfd3998abe9a39f2452f6 ereng <aereng@gmail.com> 1495111340 +0300	checkout: moving from days_old_baby to case_masaka
+ccbdb441e7004dd62f0dfd3998abe9a39f2452f6 b8a0948d076c269b1b99dd6b1df0731c1c9d2e0f ereng <aereng@gmail.com> 1495119405 +0300	commit: test catalog in masaka speak
+b8a0948d076c269b1b99dd6b1df0731c1c9d2e0f d0c8cb788b3e91cfd3dc0571a91c6d4e4c644e17 ereng <aereng@gmail.com> 1495436080 +0300	checkout: moving from case_masaka to develop
+d0c8cb788b3e91cfd3dc0571a91c6d4e4c644e17 73d97a36f65e9b03987883756e212ea65b3b6cdf ereng <aereng@gmail.com> 1495440615 +0300	commit: to remove tests from list before submission
+73d97a36f65e9b03987883756e212ea65b3b6cdf 73d97a36f65e9b03987883756e212ea65b3b6cdf ereng <aereng@gmail.com> 1495523454 +0300	checkout: moving from develop to clinical_notes
+73d97a36f65e9b03987883756e212ea65b3b6cdf 9ab59e690587c1af4cdc2af5e1acc02074ae9f45 ereng <aereng@gmail.com> 1495541343 +0300	commit: clinical notes init
+9ab59e690587c1af4cdc2af5e1acc02074ae9f45 73d97a36f65e9b03987883756e212ea65b3b6cdf ereng <aereng@gmail.com> 1495541369 +0300	checkout: moving from clinical_notes to develop
+73d97a36f65e9b03987883756e212ea65b3b6cdf eefce8042d4d01c77785d45d84c606002f430d5f ereng <aereng@gmail.com> 1495542029 +0300	commit: small fix on patient edit
+eefce8042d4d01c77785d45d84c606002f430d5f eefce8042d4d01c77785d45d84c606002f430d5f ereng <aereng@gmail.com> 1495620696 +0300	checkout: moving from develop to health_unit_configuration
+eefce8042d4d01c77785d45d84c606002f430d5f d0ab23eefd9f3d0d80205842b1fd8f5ee730fc1d ereng <aereng@gmail.com> 1495627617 +0300	commit: health unit crude
+d0ab23eefd9f3d0d80205842b1fd8f5ee730fc1d 49a85332b956126b0ecb4d38fa570877c12612ac ereng <aereng@gmail.com> 1495627870 +0300	commit: failing this
+49a85332b956126b0ecb4d38fa570877c12612ac 3899ef5c7d734cf059e55acd5f98b15b782b88a4 ereng <aereng@gmail.com> 1495629610 +0300	commit: another fix
+3899ef5c7d734cf059e55acd5f98b15b782b88a4 eefce8042d4d01c77785d45d84c606002f430d5f ereng <aereng@gmail.com> 1495629631 +0300	checkout: moving from health_unit_configuration to develop
+eefce8042d4d01c77785d45d84c606002f430d5f 3899ef5c7d734cf059e55acd5f98b15b782b88a4 ereng <aereng@gmail.com> 1495629645 +0300	merge health_unit_configuration: Fast-forward
+3899ef5c7d734cf059e55acd5f98b15b782b88a4 3899ef5c7d734cf059e55acd5f98b15b782b88a4 ereng <aereng@gmail.com> 1495631975 +0300	checkout: moving from develop to test_menu
+3899ef5c7d734cf059e55acd5f98b15b782b88a4 7b344d4b8387b42db9196de521c4fe198f8a5875 ereng <aereng@gmail.com> 1495632364 +0300	commit: test menu init
+7b344d4b8387b42db9196de521c4fe198f8a5875 3899ef5c7d734cf059e55acd5f98b15b782b88a4 ereng <aereng@gmail.com> 1495633541 +0300	checkout: moving from test_menu to develop
+3899ef5c7d734cf059e55acd5f98b15b782b88a4 c2b7b4150f38b8444ee3aaf9100eb5ad6497fcd2 ereng <aereng@gmail.com> 1495697332 +0300	commit: fixed visit report
+c2b7b4150f38b8444ee3aaf9100eb5ad6497fcd2 e444d8f5b5ca9314d0f04fd97c2706f4f83cb7d6 ereng <aereng@gmail.com> 1495698633 +0300	commit: left this behind
+e444d8f5b5ca9314d0f04fd97c2706f4f83cb7d6 f3cee71030135a00cf16803a7afa790021627668 ereng <aereng@gmail.com> 1495708065 +0300	commit: messages data for NIN missing
+f3cee71030135a00cf16803a7afa790021627668 b8a0948d076c269b1b99dd6b1df0731c1c9d2e0f ereng <aereng@gmail.com> 1495715661 +0300	checkout: moving from develop to case_masaka
+b8a0948d076c269b1b99dd6b1df0731c1c9d2e0f f3cee71030135a00cf16803a7afa790021627668 ereng <aereng@gmail.com> 1495779163 +0300	checkout: moving from case_masaka to develop
+f3cee71030135a00cf16803a7afa790021627668 7c10ca4d051db1b256fdc4d5522e358dc19c3bc7 ereng <aereng@gmail.com> 1496484273 +0300	commit: fix health unit list display of delete button
+7c10ca4d051db1b256fdc4d5522e358dc19c3bc7 5856098b419eb90a703cdf33366c5a7e45cf2eb8 ereng <aereng@gmail.com> 1496523306 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+5856098b419eb90a703cdf33366c5a7e45cf2eb8 257889292154bb1ecbad7f6e94b3c722d9152358 ereng <aereng@gmail.com> 1496750290 +0300	pull origin develop: Fast-forward
+257889292154bb1ecbad7f6e94b3c722d9152358 465838301e9268264d743496fab82dffd244f8b7 ereng <aereng@gmail.com> 1496833617 +0300	commit: disabled datatables
+465838301e9268264d743496fab82dffd244f8b7 9d73a7503d0e818153f421f88346e2617006fb29 ereng <aereng@gmail.com> 1496833624 +0300	commit: removed from test type creation
+9d73a7503d0e818153f421f88346e2617006fb29 6ff97aef8b0d031b7de5129184cd209579d9ce18 ereng <aereng@gmail.com> 1496923275 +0300	commit: fixes for unknow values
+6ff97aef8b0d031b7de5129184cd209579d9ce18 6c00c6daa571a218627c7418eaf9f8296d61bd75 ereng <aereng@gmail.com> 1496923282 +0300	commit: TAT specimen reception to test completion
+6c00c6daa571a218627c7418eaf9f8296d61bd75 31069c2d353bb2417a44468e117b430b0ac8f85a ereng <aereng@gmail.com> 1496923289 +0300	commit: removed CD4 report
+31069c2d353bb2417a44468e117b430b0ac8f85a d01ae5dabc6379beed62a9f0e7a6ac7b1371638a ereng <aereng@gmail.com> 1496923341 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+d01ae5dabc6379beed62a9f0e7a6ac7b1371638a b8b0d030207bca7ee1ced5e4fabdaa4caac31457 ereng <aereng@gmail.com> 1496928538 +0300	commit: removed quality control report until control functionality is rectified
+b8b0d030207bca7ee1ced5e4fabdaa4caac31457 670ba5a977bffc38a444b37a6d2c764bed9eea56 ereng <aereng@gmail.com> 1497089046 +0300	commit: for starters: Biosaftey and Biosecurity Incidence Report
+670ba5a977bffc38a444b37a6d2c764bed9eea56 3816610ee2758e13352de814ffff4f9a29f43167 ereng <aereng@gmail.com> 1497336755 +0300	pull origin develop: Fast-forward
+3816610ee2758e13352de814ffff4f9a29f43167 00612514d8017b7d93ffedf1d115b8c0965e7d2f ereng <aereng@gmail.com> 1497337668 +0300	commit: la petit fix for bb report
+00612514d8017b7d93ffedf1d115b8c0965e7d2f 424e989f2a0849a768968953856cfd537b4a52b1 ereng <aereng@gmail.com> 1497338393 +0300	pull origin develop: Fast-forward
+424e989f2a0849a768968953856cfd537b4a52b1 c41d5b5688801fed21527b7bdb62adac4a205d06 ereng <aereng@gmail.com> 1497529111 +0300	commit: removed obsolete seeding
+c41d5b5688801fed21527b7bdb62adac4a205d06 2e4e5d423b91e0ed804cc245e146f37f503f4222 ereng <aereng@gmail.com> 1497529156 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+2e4e5d423b91e0ed804cc245e146f37f503f4222 ee2930004601f0b86a6c85f3e9dc4064c217126a ereng <aereng@gmail.com> 1497870397 +0300	pull origin develop: Fast-forward
+ee2930004601f0b86a6c85f3e9dc4064c217126a 7a2c792e58ae8626f0531bedc7158336251ce70d ereng <aereng@gmail.com> 1497951416 +0300	pull origin develop: Fast-forward
+7a2c792e58ae8626f0531bedc7158336251ce70d 138e80d8a5b1e476c963b54e99c58872bab69fb3 ereng <aereng@gmail.com> 1497951497 +0300	commit: geoff on this
+138e80d8a5b1e476c963b54e99c58872bab69fb3 30eefa00a2ee664739846ccf2c2bf032a2db441a ereng <aereng@gmail.com> 1498030901 +0300	pull origin develop: Fast-forward
+30eefa00a2ee664739846ccf2c2bf032a2db441a d5d9e50ecc1a9977e39086121f6a1c465998157d ereng <aereng@gmail.com> 1498127165 +0300	commit: rejection fix
+d5d9e50ecc1a9977e39086121f6a1c465998157d 9fb845c45e9f69a279eec323c642c5e75bf07dac ereng <aereng@gmail.com> 1498728144 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+9fb845c45e9f69a279eec323c642c5e75bf07dac 9fb845c45e9f69a279eec323c642c5e75bf07dac ereng <aereng@gmail.com> 1498832794 +0300	checkout: moving from develop to microbiology
+9fb845c45e9f69a279eec323c642c5e75bf07dac 3c6d0b553d96f1251174eeed7c3211c785032135 ereng <aereng@gmail.com> 1498835989 +0300	commit: obsolete
+3c6d0b553d96f1251174eeed7c3211c785032135 57c9d3c101f79971439c67598942af3b54875e92 ereng <aereng@gmail.com> 1498838217 +0300	commit: should not happen again
+57c9d3c101f79971439c67598942af3b54875e92 24a6e3d747bff9000dcf9cd198cb9f174ac9850c ereng <aereng@gmail.com> 1498920704 +0300	commit: brutal addition of microbiology updates, bugs on the way :(
+24a6e3d747bff9000dcf9cd198cb9f174ac9850c 6c7fef22e3eb71feb1f6d71fbcf2a1da5f43f13d ereng <aereng@gmail.com> 1499010097 +0300	commit: removed test menu from deployment seeder
+6c7fef22e3eb71feb1f6d71fbcf2a1da5f43f13d 096d706c2c35a574309262408257a661f0bb37d6 ereng <aereng@gmail.com> 1499074093 +0300	commit: new microb in, let bug fixing begin
+096d706c2c35a574309262408257a661f0bb37d6 d3e2a8fe4a04d5cdde1a4845eb15aa73f9587d36 ereng <aereng@gmail.com> 1499074776 +0300	commit: quick fix for erroneous dob culculation
+d3e2a8fe4a04d5cdde1a4845eb15aa73f9587d36 b73e9eb88ce115a1df4305c9143f6e03305d01fa ereng <aereng@gmail.com> 1499078025 +0300	commit: tcpdf installation
+b73e9eb88ce115a1df4305c9143f6e03305d01fa f2400b92ca740bce8b992800ce2149f7ce546023 ereng <aereng@gmail.com> 1499168130 +0300	commit: js enhancements
+f2400b92ca740bce8b992800ce2149f7ce546023 9fb845c45e9f69a279eec323c642c5e75bf07dac ereng <aereng@gmail.com> 1499168339 +0300	checkout: moving from microbiology to develop
+9fb845c45e9f69a279eec323c642c5e75bf07dac 03397200b8d38439e173e60c4e894a43442f1515 ereng <aereng@gmail.com> 1499168357 +0300	pull origin develop: Fast-forward
+03397200b8d38439e173e60c4e894a43442f1515 7041442653c81644132f19b0070b1a5791ff6db2 ereng <aereng@gmail.com> 1499168909 +0300	commit (merge): Merge branch 'microbiology' into develop
+7041442653c81644132f19b0070b1a5791ff6db2 2d714ce12c91915ade4250d0a2efa9ebfa0457db ereng <aereng@gmail.com> 1499172605 +0300	commit: updates on gram stains
+2d714ce12c91915ade4250d0a2efa9ebfa0457db e7e09bcd91ed978f12ae641059d7144ec770a04e ereng <aereng@gmail.com> 1499173650 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+e7e09bcd91ed978f12ae641059d7144ec770a04e 45969d9db85657cf6d5fad5e0c882742aa3d0e58 ereng <aereng@gmail.com> 1499257040 +0300	pull origin develop: Fast-forward
+45969d9db85657cf6d5fad5e0c882742aa3d0e58 45969d9db85657cf6d5fad5e0c882742aa3d0e58 ereng <aereng@gmail.com> 1499263408 +0300	checkout: moving from develop to report_db
+45969d9db85657cf6d5fad5e0c882742aa3d0e58 a62ffc0cd0e4b1ff2a54800f09313bd650442516 ereng <aereng@gmail.com> 1499410700 +0300	commit: report db the begingings
+a62ffc0cd0e4b1ff2a54800f09313bd650442516 45969d9db85657cf6d5fad5e0c882742aa3d0e58 ereng <aereng@gmail.com> 1499410711 +0300	checkout: moving from report_db to develop
+45969d9db85657cf6d5fad5e0c882742aa3d0e58 0fcce280bf15786c56a7eb526f9cc78b4d581c0c ereng <aereng@gmail.com> 1499410738 +0300	pull origin: Fast-forward
+0fcce280bf15786c56a7eb526f9cc78b4d581c0c b12ab780001672c8b828ba4c29490c8f6cc0d0b9 ereng <aereng@gmail.com> 1499441199 +0300	commit: addons to the patient report
+b12ab780001672c8b828ba4c29490c8f6cc0d0b9 bed1dcf76f1f192d95ae48781a4f12abb1c13fe2 ereng <aereng@gmail.com> 1499441264 +0300	pull origin: Merge made by the 'recursive' strategy.
+bed1dcf76f1f192d95ae48781a4f12abb1c13fe2 d48913b1f24ba8229f3f49637e10f05497673e66 ereng <aereng@gmail.com> 1499496414 +0300	commit: not to seed users by default
+d48913b1f24ba8229f3f49637e10f05497673e66 353d608df89522a51077f12fe4592248f6ff9634 ereng <aereng@gmail.com> 1499499011 +0300	commit: small fix
+353d608df89522a51077f12fe4592248f6ff9634 bb9612dd0a07443b2b6edda4aea331c37b290926 ereng <aereng@gmail.com> 1499499271 +0300	commit: is it not better grammer?
+bb9612dd0a07443b2b6edda4aea331c37b290926 72757a2981cdedc9f15c9c30ed1e148b7ff5f4b2 ereng <aereng@gmail.com> 1499757356 +0300	commit: fix for completed tests
+72757a2981cdedc9f15c9c30ed1e148b7ff5f4b2 22c15f45bd32d375be9a7e37c27100cc6de703a1 ereng <aereng@gmail.com> 1499758722 +0300	commit: fix for age on test list
+22c15f45bd32d375be9a7e37c27100cc6de703a1 e443d2517bb13ee252012c7e8a2f8bd2d7ec12c2 ereng <aereng@gmail.com> 1499764994 +0300	commit: page break fix
+e443d2517bb13ee252012c7e8a2f8bd2d7ec12c2 b71338f4e68b14904668f68481cac8dbf43ab145 ereng <aereng@gmail.com> 1499765158 +0300	commit: reduce subsequent header space
+b71338f4e68b14904668f68481cac8dbf43ab145 d334b97d16119a3d859d566acf4ad23216a21016 ereng <aereng@gmail.com> 1499841520 +0300	commit: disable ward if its outpatient
+d334b97d16119a3d859d566acf4ad23216a21016 d334b97d16119a3d859d566acf4ad23216a21016 ereng <aereng@gmail.com> 1499933968 +0300	checkout: moving from develop to case_jinja
+d334b97d16119a3d859d566acf4ad23216a21016 c87bcafc0399c45a25be133539517047734852b1 ereng <aereng@gmail.com> 1499934023 +0300	commit: jinja adaptions dont merge dont push
+c87bcafc0399c45a25be133539517047734852b1 c67c67cb359f33d7a71282e5148ea8b99cd3e819 ereng <aereng@gmail.com> 1499935413 +0300	checkout: moving from case_jinja to visit_crude
+c67c67cb359f33d7a71282e5148ea8b99cd3e819 97667a608a8481d6abfde1ba16a2029f664a1ba1 ereng <aereng@gmail.com> 1499935680 +0300	commit (merge): Merge branch 'develop' into visit_crude
+97667a608a8481d6abfde1ba16a2029f664a1ba1 a84f2d2c04e0c83693567e4c3ff34c3425b425fb ereng <aereng@gmail.com> 1499938508 +0300	commit: wip
+a84f2d2c04e0c83693567e4c3ff34c3425b425fb c87bcafc0399c45a25be133539517047734852b1 ereng <aereng@gmail.com> 1499938531 +0300	checkout: moving from visit_crude to case_jinja
+c87bcafc0399c45a25be133539517047734852b1 798de6a2b68863e30d83cf57e308bf936a97b2b2 ereng <aereng@gmail.com> 1499938771 +0300	commit: fix
+798de6a2b68863e30d83cf57e308bf936a97b2b2 a84f2d2c04e0c83693567e4c3ff34c3425b425fb ereng <aereng@gmail.com> 1499938785 +0300	checkout: moving from case_jinja to visit_crude
+a84f2d2c04e0c83693567e4c3ff34c3425b425fb 52a455718a063ff982f1696d6392a7bd1a724118 ereng <aereng@gmail.com> 1499952025 +0300	commit: .
+52a455718a063ff982f1696d6392a7bd1a724118 798de6a2b68863e30d83cf57e308bf936a97b2b2 ereng <aereng@gmail.com> 1499952072 +0300	checkout: moving from visit_crude to case_jinja
+798de6a2b68863e30d83cf57e308bf936a97b2b2 8f643a5d3576e15f8725dc1bdbb30485bc7c006a ereng <aereng@gmail.com> 1500013332 +0300	commit: search for patient number and only approvedby at the bottom of patient report
+8f643a5d3576e15f8725dc1bdbb30485bc7c006a d2cc9ef08865bb4e30e0338c3c78828bc156b87b ereng <aereng@gmail.com> 1500018557 +0300	commit: tweaking report
+d2cc9ef08865bb4e30e0338c3c78828bc156b87b fae2fd2b46fc1bb377f5519a3b51f9e4957cbb47 ereng <aereng@gmail.com> 1500034444 +0300	commit: show only ranges that are not empty in report
+fae2fd2b46fc1bb377f5519a3b51f9e4957cbb47 d334b97d16119a3d859d566acf4ad23216a21016 ereng <aereng@gmail.com> 1500277617 +0300	checkout: moving from case_jinja to develop
+d334b97d16119a3d859d566acf4ad23216a21016 0cd1238bf36e8bb8e1044ed4481226eaad38594a ereng <aereng@gmail.com> 1500277655 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+0cd1238bf36e8bb8e1044ed4481226eaad38594a a62ffc0cd0e4b1ff2a54800f09313bd650442516 ereng <aereng@gmail.com> 1500280546 +0300	checkout: moving from develop to report_db
+a62ffc0cd0e4b1ff2a54800f09313bd650442516 39eb2888de64b762e82ff9df24c51b565cef61e1 ereng <aereng@gmail.com> 1500370713 +0300	commit: reports db WIP
+39eb2888de64b762e82ff9df24c51b565cef61e1 fae2fd2b46fc1bb377f5519a3b51f9e4957cbb47 ereng <aereng@gmail.com> 1500371020 +0300	checkout: moving from report_db to case_jinja
+fae2fd2b46fc1bb377f5519a3b51f9e4957cbb47 29cb6060e4239445f6abaa17fce039256bc595dd ereng <aereng@gmail.com> 1500372255 +0300	commit: hide microb verified by
+29cb6060e4239445f6abaa17fce039256bc595dd 29cb6060e4239445f6abaa17fce039256bc595dd ereng <aereng@gmail.com> 1500533523 +0300	checkout: moving from case_jinja to lab_no
+29cb6060e4239445f6abaa17fce039256bc595dd 214926f96c6d01b188c8ecbb05b7bd06b6b27406 ereng <aereng@gmail.com> 1500557617 +0300	commit: trying out ulin... on hold
+214926f96c6d01b188c8ecbb05b7bd06b6b27406 0cd1238bf36e8bb8e1044ed4481226eaad38594a ereng <aereng@gmail.com> 1500557633 +0300	checkout: moving from lab_no to develop
+0cd1238bf36e8bb8e1044ed4481226eaad38594a 5422ac2bd1cc4364b96818571a13d88d23a3ab47 ereng <aereng@gmail.com> 1500558062 +0300	pull origin develop: Merge made by the 'recursive' strategy.
+5422ac2bd1cc4364b96818571a13d88d23a3ab47 29cb6060e4239445f6abaa17fce039256bc595dd ereng <aereng@gmail.com> 1500558128 +0300	checkout: moving from develop to case_jinja
+29cb6060e4239445f6abaa17fce039256bc595dd 5422ac2bd1cc4364b96818571a13d88d23a3ab47 ereng <aereng@gmail.com> 1500640919 +0300	checkout: moving from case_jinja to develop
+5422ac2bd1cc4364b96818571a13d88d23a3ab47 9d5b235893b8b1486043539f2cf4e66beedaf922 ereng <aereng@gmail.com> 1500640943 +0300	pull origin develop: Fast-forward
+9d5b235893b8b1486043539f2cf4e66beedaf922 6fa2baaf2723fcc5a17da4c17a0540d36f9edbc1 ereng <aereng@gmail.com> 1500641710 +0300	commit: added ulin search functionality
+6fa2baaf2723fcc5a17da4c17a0540d36f9edbc1 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1500642499 +0300	commit: improve ulin search and displaying it
+846894e17b97e9c18a8148c20b96cfe1228b8f0e 39eb2888de64b762e82ff9df24c51b565cef61e1 ereng <aereng@gmail.com> 1500643257 +0300	checkout: moving from develop to report_db
+39eb2888de64b762e82ff9df24c51b565cef61e1 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1500902589 +0300	checkout: moving from report_db to develop
+846894e17b97e9c18a8148c20b96cfe1228b8f0e 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1500964766 +0300	checkout: moving from develop to case_kayunga
+846894e17b97e9c18a8148c20b96cfe1228b8f0e 9accd522d4e7499890ff731afb5c5d4f792f5399 ereng <aereng@gmail.com> 1500972929 +0300	commit: fix for OPD not appearing on report
+9accd522d4e7499890ff731afb5c5d4f792f5399 4511da8d463f3dafd2a5da9196ade98131ce0a38 ereng <aereng@gmail.com> 1500976178 +0300	commit: made username editable
+4511da8d463f3dafd2a5da9196ade98131ce0a38 af665f4234ce011f5904c6cedf5fea8def95aa3c ereng <aereng@gmail.com> 1500977055 +0300	commit: reduce header size
+af665f4234ce011f5904c6cedf5fea8def95aa3c 76d72897eb24f0a5dccbea05496d3cb9f1bcd519 ereng <aereng@gmail.com> 1500983159 +0300	commit: added report SN
+76d72897eb24f0a5dccbea05496d3cb9f1bcd519 06adeaf33d02bf68d3c0a1238631aec544ab5980 ereng <aereng@gmail.com> 1500985019 +0300	commit: removed place holder
+06adeaf33d02bf68d3c0a1238631aec544ab5980 52a455718a063ff982f1696d6392a7bd1a724118 ereng <aereng@gmail.com> 1501054242 +0300	checkout: moving from case_kayunga to visit_crude
+52a455718a063ff982f1696d6392a7bd1a724118 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1501054422 +0300	checkout: moving from visit_crude to develop
+846894e17b97e9c18a8148c20b96cfe1228b8f0e 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1501054859 +0300	checkout: moving from develop to develop
+846894e17b97e9c18a8148c20b96cfe1228b8f0e 06adeaf33d02bf68d3c0a1238631aec544ab5980 ereng <aereng@gmail.com> 1501054881 +0300	checkout: moving from develop to case_kayunga
+06adeaf33d02bf68d3c0a1238631aec544ab5980 1e4ebfc769fc9627b6d33b4079999147a5c1a419 ereng <aereng@gmail.com> 1501055548 +0300	commit: display adjustments
+1e4ebfc769fc9627b6d33b4079999147a5c1a419 e902818dfddd97f9f4d6e81ec0ef2ab1effce0cf ereng <aereng@gmail.com> 1501056052 +0300	commit (merge): Merge branch 'case_kayunga' of github.com:geoflen/iBLIS_UGANDA into case_kayunga
+e902818dfddd97f9f4d6e81ec0ef2ab1effce0cf e902818dfddd97f9f4d6e81ec0ef2ab1effce0cf ereng <aereng@gmail.com> 1501060297 +0300	checkout: moving from case_kayunga to case_kayunga
+e902818dfddd97f9f4d6e81ec0ef2ab1effce0cf 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1501060305 +0300	checkout: moving from case_kayunga to develop
+846894e17b97e9c18a8148c20b96cfe1228b8f0e e902818dfddd97f9f4d6e81ec0ef2ab1effce0cf ereng <aereng@gmail.com> 1501060323 +0300	checkout: moving from develop to case_kayunga
+e902818dfddd97f9f4d6e81ec0ef2ab1effce0cf f5127df8003a55c81e1d8468aac153c1d595aa0a ereng <aereng@gmail.com> 1501147402 +0300	commit: report aesthetics improved
+f5127df8003a55c81e1d8468aac153c1d595aa0a f5127df8003a55c81e1d8468aac153c1d595aa0a ereng <aereng@gmail.com> 1501147456 +0300	checkout: moving from case_kayunga to case_kayunga_queuing
+f5127df8003a55c81e1d8468aac153c1d595aa0a ad0c87b679b59ad197d66a59def4f8279532eeae ereng <aereng@gmail.com> 1501147507 +0300	merge visit_crude: Merge made by the 'recursive' strategy.
+ad0c87b679b59ad197d66a59def4f8279532eeae f4e1508d79b68151a3c168c68e87ca3dde7cdcb9 ereng <aereng@gmail.com> 1501148029 +0300	commit: element causing havoc
+f4e1508d79b68151a3c168c68e87ca3dde7cdcb9 6fbf1b28d9f3f2bee78c74d7e08c63359752e851 ereng <aereng@gmail.com> 1501157182 +0300	commit: add status column on to the visit table
+6fbf1b28d9f3f2bee78c74d7e08c63359752e851 49a2bb3bad55a67acc266b02f47f6853c7e98106 ereng <aereng@gmail.com> 1501180612 +0300	commit: - back end visit search introduced
+49a2bb3bad55a67acc266b02f47f6853c7e98106 0850f490767bb4fed8b392257a80ac37bab1969e ereng <aereng@gmail.com> 1501256936 +0300	commit: visit mumbo jambo
+0850f490767bb4fed8b392257a80ac37bab1969e f5127df8003a55c81e1d8468aac153c1d595aa0a ereng <aereng@gmail.com> 1501257143 +0300	checkout: moving from case_kayunga_queuing to case_kayunga
+f5127df8003a55c81e1d8468aac153c1d595aa0a 0850f490767bb4fed8b392257a80ac37bab1969e ereng <aereng@gmail.com> 1501257199 +0300	checkout: moving from case_kayunga to case_kayunga_queuing
+0850f490767bb4fed8b392257a80ac37bab1969e e710c0fb56a1e4489aace915a0c78de8748bd3dc ereng <aereng@gmail.com> 1501417758 +0300	commit: wip
+e710c0fb56a1e4489aace915a0c78de8748bd3dc 5fcb4b37a30b494e369b340e63edfa2ea5ea1713 ereng <aereng@gmail.com> 1501424936 +0300	commit: working towards reusing code
+5fcb4b37a30b494e369b340e63edfa2ea5ea1713 5fcb4b37a30b494e369b340e63edfa2ea5ea1713 ereng <aereng@gmail.com> 1501836544 +0300	checkout: moving from case_kayunga_queuing to case_mukono
+5fcb4b37a30b494e369b340e63edfa2ea5ea1713 ddb1b015db717d83c733521c25cd6fe7e79e2884 ereng <aereng@gmail.com> 1501836991 +0300	commit: changes at mukono, tobe deliberated
+ddb1b015db717d83c733521c25cd6fe7e79e2884 39eb2888de64b762e82ff9df24c51b565cef61e1 ereng <aereng@gmail.com> 1501866742 +0300	checkout: moving from case_mukono to report_db
+39eb2888de64b762e82ff9df24c51b565cef61e1 d14e61277e4eebca0e50e4f88914cd6a1a426be6 ereng <aereng@gmail.com> 1501866777 +0300	merge develop: Merge made by the 'recursive' strategy.
+d14e61277e4eebca0e50e4f88914cd6a1a426be6 30179824e9d3424281bfbe8d217b12359268aeef ereng <aereng@gmail.com> 1502180294 +0300	commit: .
+30179824e9d3424281bfbe8d217b12359268aeef 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1502180378 +0300	checkout: moving from report_db to develop
+846894e17b97e9c18a8148c20b96cfe1228b8f0e 30179824e9d3424281bfbe8d217b12359268aeef ereng <aereng@gmail.com> 1502295500 +0300	checkout: moving from develop to report_db
+30179824e9d3424281bfbe8d217b12359268aeef fd57178ccc4367976419722e446a41071871492d ereng <aereng@gmail.com> 1502436891 +0300	commit: wip
+fd57178ccc4367976419722e446a41071871492d ddb1b015db717d83c733521c25cd6fe7e79e2884 ereng <aereng@gmail.com> 1502436920 +0300	checkout: moving from report_db to case_mukono
+ddb1b015db717d83c733521c25cd6fe7e79e2884 a9778b9df5eef31ee58246210e71bc0a95a5731f ereng <aereng@gmail.com> 1502459300 +0300	commit: fix
+a9778b9df5eef31ee58246210e71bc0a95a5731f fd57178ccc4367976419722e446a41071871492d ereng <aereng@gmail.com> 1502459572 +0300	checkout: moving from case_mukono to report_db
+fd57178ccc4367976419722e446a41071871492d b334c6cf0a3f9a643b62de7841f89ec014ae25db ereng <aereng@gmail.com> 1502792064 +0300	commit: .
+b334c6cf0a3f9a643b62de7841f89ec014ae25db a9778b9df5eef31ee58246210e71bc0a95a5731f ereng <aereng@gmail.com> 1502792089 +0300	checkout: moving from report_db to case_mukono
+a9778b9df5eef31ee58246210e71bc0a95a5731f a9778b9df5eef31ee58246210e71bc0a95a5731f ereng <aereng@gmail.com> 1502801355 +0300	checkout: moving from case_mukono to case_mukono
+a9778b9df5eef31ee58246210e71bc0a95a5731f b334c6cf0a3f9a643b62de7841f89ec014ae25db ereng <aereng@gmail.com> 1502801404 +0300	checkout: moving from case_mukono to report_db
+b334c6cf0a3f9a643b62de7841f89ec014ae25db 736eaf02a6e3bf547a58f8273fc16a0dadebdcc2 ereng <aereng@gmail.com> 1503034789 +0300	commit: .
+736eaf02a6e3bf547a58f8273fc16a0dadebdcc2 eadf81a623223425dd72e2b65f65670ccd596a73 ereng <aereng@gmail.com> 1503057477 +0300	commit: .
+eadf81a623223425dd72e2b65f65670ccd596a73 08de1202975c80dc5d26b390eed3311bf53febb7 ereng <aereng@gmail.com> 1503131163 +0300	commit: .
+08de1202975c80dc5d26b390eed3311bf53febb7 08de1202975c80dc5d26b390eed3311bf53febb7 ereng <aereng@gmail.com> 1503131693 +0300	checkout: moving from report_db to sideBarUpgrade
+08de1202975c80dc5d26b390eed3311bf53febb7 27e057d8a856bc1b007581b0e2092683174ff929 ereng <aereng@gmail.com> 1503142147 +0300	commit: .
+27e057d8a856bc1b007581b0e2092683174ff929 08de1202975c80dc5d26b390eed3311bf53febb7 ereng <aereng@gmail.com> 1503142854 +0300	checkout: moving from sideBarUpgrade to report_db
+08de1202975c80dc5d26b390eed3311bf53febb7 f2207ed26e803f9d116e3d5d6cc7a14e68f728bc ereng <aereng@gmail.com> 1503236885 +0300	commit: .
+f2207ed26e803f9d116e3d5d6cc7a14e68f728bc 4019aa860f25d9c984c00d2a22a628f70c08e8c9 ereng <aereng@gmail.com> 1503328044 +0300	commit: .
+4019aa860f25d9c984c00d2a22a628f70c08e8c9 7ac002a5b9b0e201d3cbe8f98ce1a969e02a1a4b ereng <aereng@gmail.com> 1503340985 +0300	commit: .
+7ac002a5b9b0e201d3cbe8f98ce1a969e02a1a4b 93bc35599653087b1bdb7ac25a196cc63cf360ac ereng <aereng@gmail.com> 1503413432 +0300	commit: test name mapping
+93bc35599653087b1bdb7ac25a196cc63cf360ac e15bfc9fc9769fa77be1b1430a2f4fde15a0e835 ereng <aereng@gmail.com> 1503563999 +0300	commit: .
+e15bfc9fc9769fa77be1b1430a2f4fde15a0e835 5ceef639e2af18dee4a8400397b06c035a26731e ereng <aereng@gmail.com> 1503592083 +0300	commit: .
+5ceef639e2af18dee4a8400397b06c035a26731e 7121162db198f4304416aac31cd0a5d371094a8b ereng <aereng@gmail.com> 1503605197 +0300	commit: .
+7121162db198f4304416aac31cd0a5d371094a8b 6d11e6b7ac62cd7a06f2dbf5e7efcf11bef74ba8 ereng <aereng@gmail.com> 1503819120 +0300	commit: .
+6d11e6b7ac62cd7a06f2dbf5e7efcf11bef74ba8 5f0c72c493bf9de270e09ac2765fed1272f0fa3a ereng <aereng@gmail.com> 1503833506 +0300	commit: .
+5f0c72c493bf9de270e09ac2765fed1272f0fa3a b5bea6dc2bf32e37282ea43196ffae6a1745a22c ereng <aereng@gmail.com> 1503903628 +0300	commit: finally numeric working
+b5bea6dc2bf32e37282ea43196ffae6a1745a22c e5a1c863fe383fca7aaf0a60c8f85d422b7d82b8 ereng <aereng@gmail.com> 1503904104 +0300	commit: .
+e5a1c863fe383fca7aaf0a60c8f85d422b7d82b8 a24ec1aa66fd3f7bb216fe008f782e0e8e030e6c ereng <aereng@gmail.com> 1503999767 +0300	commit: .
+a24ec1aa66fd3f7bb216fe008f782e0e8e030e6c 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1503999832 +0300	checkout: moving from report_db to develop
+846894e17b97e9c18a8148c20b96cfe1228b8f0e a24ec1aa66fd3f7bb216fe008f782e0e8e030e6c ereng <aereng@gmail.com> 1503999852 +0300	checkout: moving from develop to report_db
+a24ec1aa66fd3f7bb216fe008f782e0e8e030e6c 846894e17b97e9c18a8148c20b96cfe1228b8f0e ereng <aereng@gmail.com> 1504000104 +0300	checkout: moving from report_db to develop
+846894e17b97e9c18a8148c20b96cfe1228b8f0e 9f2f0f5af1b8b907be5ce828bd3a797cc877c320 ereng <aereng@gmail.com> 1504000121 +0300	pull origin develop: Fast-forward
+9f2f0f5af1b8b907be5ce828bd3a797cc877c320 a24ec1aa66fd3f7bb216fe008f782e0e8e030e6c ereng <aereng@gmail.com> 1504000520 +0300	checkout: moving from develop to report_db
+a24ec1aa66fd3f7bb216fe008f782e0e8e030e6c 44c46f8b65308e1edc201dbe8b4ca658448a138f ereng <aereng@gmail.com> 1504000531 +0300	merge develop: Merge made by the 'recursive' strategy.
+44c46f8b65308e1edc201dbe8b4ca658448a138f 666b68c97a359734d8ea653870d9fffea375cdde ereng <aereng@gmail.com> 1504016178 +0300	commit: .
+666b68c97a359734d8ea653870d9fffea375cdde ba0446fb98b0364f14e3266cf69f833d480fbff3 ereng <aereng@gmail.com> 1504023729 +0300	commit: .
+ba0446fb98b0364f14e3266cf69f833d480fbff3 b84d3858bcb558763c1c56b04522c6e2e4a4aeae ereng <aereng@gmail.com> 1504177454 +0300	commit: .
+b84d3858bcb558763c1c56b04522c6e2e4a4aeae cb03ebdc8300130acacc67835187d9520010b8dc ereng <aereng@gmail.com> 1504178061 +0300	commit: .
+cb03ebdc8300130acacc67835187d9520010b8dc 42d911d593af574116e11731474d4e17060a77d8 ereng <aereng@gmail.com> 1504255120 +0300	commit: .
+42d911d593af574116e11731474d4e17060a77d8 f42aa245c72c0790306cd2416b98fd93873ea34a ereng <aereng@gmail.com> 1504268525 +0300	commit: .
+f42aa245c72c0790306cd2416b98fd93873ea34a 8c2e3130558adc9887ab0bd317e2761a3b947933 ereng <aereng@gmail.com> 1504269030 +0300	commit: .
+8c2e3130558adc9887ab0bd317e2761a3b947933 8c2e3130558adc9887ab0bd317e2761a3b947933 ereng <aereng@gmail.com> 1504270130 +0300	checkout: moving from report_db to report_db
+8c2e3130558adc9887ab0bd317e2761a3b947933 9f2f0f5af1b8b907be5ce828bd3a797cc877c320 ereng <aereng@gmail.com> 1504270139 +0300	checkout: moving from report_db to develop
+9f2f0f5af1b8b907be5ce828bd3a797cc877c320 8c2e3130558adc9887ab0bd317e2761a3b947933 ereng <aereng@gmail.com> 1504270323 +0300	checkout: moving from develop to report_db
+8c2e3130558adc9887ab0bd317e2761a3b947933 0fde1a910dcb6b717725f3cec7fad9f8032d83da ereng <aereng@gmail.com> 1504271702 +0300	commit: .
+0fde1a910dcb6b717725f3cec7fad9f8032d83da 9f2f0f5af1b8b907be5ce828bd3a797cc877c320 ereng <aereng@gmail.com> 1504680329 +0300	checkout: moving from report_db to develop
+9f2f0f5af1b8b907be5ce828bd3a797cc877c320 ff624f772a0a370ff359ced0e4c343f51e67863b ereng <aereng@gmail.com> 1504683340 +0300	commit: Reporting revamp
+ff624f772a0a370ff359ced0e4c343f51e67863b ff624f772a0a370ff359ced0e4c343f51e67863b ereng <aereng@gmail.com> 1504883156 +0300	checkout: moving from develop to instrumentation
+ff624f772a0a370ff359ced0e4c343f51e67863b 27aba30195bb95566a809087311da538ec5ee509 ereng <aereng@gmail.com> 1504883182 +0300	commit: save result from instrumen - first approach
+27aba30195bb95566a809087311da538ec5ee509 f59980e3174f050b5938c2361d7eae9263dcc96c ereng <aereng@gmail.com> 1505124236 +0300	commit: .
+f59980e3174f050b5938c2361d7eae9263dcc96c ff624f772a0a370ff359ced0e4c343f51e67863b ereng <aereng@gmail.com> 1505124251 +0300	checkout: moving from instrumentation to develop
+ff624f772a0a370ff359ced0e4c343f51e67863b ff624f772a0a370ff359ced0e4c343f51e67863b ereng <aereng@gmail.com> 1505289733 +0300	checkout: moving from develop to 105fix
+ff624f772a0a370ff359ced0e4c343f51e67863b def5eda2968b480e0be3a37cc4f366d4644d1b39 ereng <aereng@gmail.com> 1505289764 +0300	commit: .
+def5eda2968b480e0be3a37cc4f366d4644d1b39 f59980e3174f050b5938c2361d7eae9263dcc96c ereng <aereng@gmail.com> 1505289799 +0300	checkout: moving from 105fix to instrumentation
+f59980e3174f050b5938c2361d7eae9263dcc96c ff624f772a0a370ff359ced0e4c343f51e67863b ereng <aereng@gmail.com> 1505498898 +0300	checkout: moving from instrumentation to develop
+ff624f772a0a370ff359ced0e4c343f51e67863b def5eda2968b480e0be3a37cc4f366d4644d1b39 ereng <aereng@gmail.com> 1505498910 +0300	merge 105fix: Fast-forward
+def5eda2968b480e0be3a37cc4f366d4644d1b39 7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 ereng <aereng@gmail.com> 1505542764 +0300	commit: ma bad
+7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 f59980e3174f050b5938c2361d7eae9263dcc96c ereng <aereng@gmail.com> 1505647617 +0300	checkout: moving from develop to instrumentation
+f59980e3174f050b5938c2361d7eae9263dcc96c 7787f183d640c19cbfa023c668980d29976bb9a9 ereng <aereng@gmail.com> 1506343051 +0300	commit: wip
+7787f183d640c19cbfa023c668980d29976bb9a9 7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 ereng <aereng@gmail.com> 1506343058 +0300	checkout: moving from instrumentation to develop
+7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 f5127df8003a55c81e1d8468aac153c1d595aa0a ereng <aereng@gmail.com> 1506425354 +0300	checkout: moving from develop to case_kayunga
+f5127df8003a55c81e1d8468aac153c1d595aa0a 7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 ereng <aereng@gmail.com> 1506499737 +0300	checkout: moving from case_kayunga to develop
+7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 ereng <aereng@gmail.com> 1506499782 +0300	checkout: moving from develop to microb_input
+7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 2f544f3facd11758e50398305e7cdb7a202149ef ereng <aereng@gmail.com> 1506504324 +0300	commit: microbiology input fix
+2f544f3facd11758e50398305e7cdb7a202149ef 7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 ereng <aereng@gmail.com> 1506504339 +0300	checkout: moving from microb_input to develop
+7eb6d4b15225a276ca73f3206a3c2f7f70f1ca50 2f544f3facd11758e50398305e7cdb7a202149ef ereng <aereng@gmail.com> 1506504353 +0300	merge microb_input: Fast-forward
+2f544f3facd11758e50398305e7cdb7a202149ef 2f544f3facd11758e50398305e7cdb7a202149ef ereng <aereng@gmail.com> 1506685866 +0300	checkout: moving from develop to jinjulinreset
+2f544f3facd11758e50398305e7cdb7a202149ef bd176fbde4e164c13608571f3a9bc1eef1d9a3e4 ereng <aereng@gmail.com> 1506685913 +0300	commit: reseting of ulin at the begining of the month
+bd176fbde4e164c13608571f3a9bc1eef1d9a3e4 7787f183d640c19cbfa023c668980d29976bb9a9 ereng <aereng@gmail.com> 1506688235 +0300	checkout: moving from jinjulinreset to instrumentation
+7787f183d640c19cbfa023c668980d29976bb9a9 df0135ae0223395c07081b0b00c80959b68fc9d8 ereng <aereng@gmail.com> 1507476493 +0300	commit: fix for mapping issue
+df0135ae0223395c07081b0b00c80959b68fc9d8 5b2d4ef12ba67f50a309b7b4b20e019ecef8967d ereng <aereng@gmail.com> 1507488267 +0300	commit: using ulin to identify test reseults... sysmex 1000i we are good to go
+5b2d4ef12ba67f50a309b7b4b20e019ecef8967d 2f544f3facd11758e50398305e7cdb7a202149ef ereng <aereng@gmail.com> 1507488368 +0300	checkout: moving from instrumentation to develop
+2f544f3facd11758e50398305e7cdb7a202149ef 5b2d4ef12ba67f50a309b7b4b20e019ecef8967d ereng <aereng@gmail.com> 1507488392 +0300	checkout: moving from develop to instrumentation
+5b2d4ef12ba67f50a309b7b4b20e019ecef8967d 5d3f402ddf7bfa753da3e187e94f740f514c43fa ereng <aereng@gmail.com> 1507488521 +0300	commit: ma bad
+5d3f402ddf7bfa753da3e187e94f740f514c43fa 2f544f3facd11758e50398305e7cdb7a202149ef ereng <aereng@gmail.com> 1507488532 +0300	checkout: moving from instrumentation to develop
+2f544f3facd11758e50398305e7cdb7a202149ef 8102611bfcc142c2b4afb0d9c5532e268498b20f ereng <aereng@gmail.com> 1507488652 +0300	commit (merge): Merge branch 'instrumentation' into develop
+8102611bfcc142c2b4afb0d9c5532e268498b20f 49e8a0069bfc913a6ecd8f618fdbc93a9a96af7a ereng <aereng@gmail.com> 1507534259 +0300	commit: report db fix
+49e8a0069bfc913a6ecd8f618fdbc93a9a96af7a 414ee5b603fe1bceda077ffa58a726049e3e0d66 ereng <aereng@gmail.com> 1507538469 +0300	commit: make editable
+414ee5b603fe1bceda077ffa58a726049e3e0d66 ff9ecfb0ed68c540ee9a6cbacf88adbe29aba33b ereng <aereng@gmail.com> 1507544856 +0300	commit: better dob/age picker implementation than combodate
+ff9ecfb0ed68c540ee9a6cbacf88adbe29aba33b 64de63ee37873153e6026b19cbe1903aeea612f5 ereng <aereng@gmail.com> 1507544900 +0300	commit: hide verify after verification
+64de63ee37873153e6026b19cbe1903aeea612f5 ecdf4832e094ee8c5586d435f3f55a3213141a84 ereng <aereng@gmail.com> 1507548108 +0300	commit: fix for fetching reference ranges for persons less than 2yrs cbc results
+ecdf4832e094ee8c5586d435f3f55a3213141a84 f97987a5c252b8141cebb484b9741ef8e8f2d978 ereng <aereng@gmail.com> 1507622634 +0300	commit: fix for hiv db reporting
+f97987a5c252b8141cebb484b9741ef8e8f2d978 28fbf1c85ffbdc4d25f0a4a3f42a113e67bafa6f ereng <aereng@gmail.com> 1507625131 +0300	commit: what is required is dob
+28fbf1c85ffbdc4d25f0a4a3f42a113e67bafa6f 28fbf1c85ffbdc4d25f0a4a3f42a113e67bafa6f ereng <aereng@gmail.com> 1508059114 +0300	checkout: moving from develop to adhoc_config
+28fbf1c85ffbdc4d25f0a4a3f42a113e67bafa6f 1455b3e481e68ec07a8e46c2c92fd69c43b76ab8 ereng <aereng@gmail.com> 1508082145 +0300	commit: introducing adhoc configurations
+1455b3e481e68ec07a8e46c2c92fd69c43b76ab8 214926f96c6d01b188c8ecbb05b7bd06b6b27406 ereng <aereng@gmail.com> 1508082236 +0300	checkout: moving from adhoc_config to lab_no
+214926f96c6d01b188c8ecbb05b7bd06b6b27406 bd176fbde4e164c13608571f3a9bc1eef1d9a3e4 ereng <aereng@gmail.com> 1508082294 +0300	checkout: moving from lab_no to jinjulinreset
+bd176fbde4e164c13608571f3a9bc1eef1d9a3e4 8c78ac5534d2f3fcf059b8150077293b42035fc6 ereng <aereng@gmail.com> 1508082357 +0300	commit: .
+8c78ac5534d2f3fcf059b8150077293b42035fc6 d8a671782b94128e7c65731c95723a87ec06ae82 ereng <aereng@gmail.com> 1508082425 +0300	commit: cleaning up
+d8a671782b94128e7c65731c95723a87ec06ae82 1455b3e481e68ec07a8e46c2c92fd69c43b76ab8 ereng <aereng@gmail.com> 1508082509 +0300	checkout: moving from jinjulinreset to adhoc_config
+1455b3e481e68ec07a8e46c2c92fd69c43b76ab8 2862eea1d83aea7ce07c53d8d1f76f119f31a033 ereng <aereng@gmail.com> 1508082768 +0300	commit (merge): Merge branch 'jinjulinreset' into adhoc_config
+2862eea1d83aea7ce07c53d8d1f76f119f31a033 28fbf1c85ffbdc4d25f0a4a3f42a113e67bafa6f ereng <aereng@gmail.com> 1508139471 +0300	checkout: moving from adhoc_config to develop
+28fbf1c85ffbdc4d25f0a4a3f42a113e67bafa6f 2862eea1d83aea7ce07c53d8d1f76f119f31a033 ereng <aereng@gmail.com> 1508139486 +0300	merge adhoc_config: Fast-forward
+2862eea1d83aea7ce07c53d8d1f76f119f31a033 6281a4d1127d11621ad1f023fa7b0ef7c8de541f ereng <aereng@gmail.com> 1508148910 +0300	commit: adding to report library
+6281a4d1127d11621ad1f023fa7b0ef7c8de541f afd47f1f97c745b8b5065407b27cbdd7998cd402 ereng <aereng@gmail.com> 1508161056 +0300	commit: adhoc fix
+afd47f1f97c745b8b5065407b27cbdd7998cd402 ee14290472da58bde42dd73fe53643d3d260f428 ereng <aereng@gmail.com> 1510133263 +0300	pull origin develop: Fast-forward
+ee14290472da58bde42dd73fe53643d3d260f428 8e82e3f12a5f618ab289e59bc066163bdac1e13a ereng <aereng@gmail.com> 1510232273 +0300	commit: hmis105 hiv pannel
+8e82e3f12a5f618ab289e59bc066163bdac1e13a 2b941256e50645420575736c90c38e204c503697 ereng <aereng@gmail.com> 1510318917 +0300	commit: no changes after verification
+2b941256e50645420575736c90c38e204c503697 abc7ee7c7be673b043916b82af7badd0d3508f0c Ereng A <aereng@gmail.com> 1546949766 +0300	commit: minor changes after ulin reset - e.g digits of serial to 4 e.t.c

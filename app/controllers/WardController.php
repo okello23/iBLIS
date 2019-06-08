@@ -27,11 +27,8 @@ class WardController extends \BaseController {
      */
     public function create()
     {
-        
-        $ward_types = WardType::lists("name","id");
-        
         //Create ward
-        return View::make('ward.create')->with('ward_types',$ward_types);
+        return View::make('ward.create');
     }
 
     /**
@@ -42,9 +39,13 @@ class WardController extends \BaseController {
     public function store()
     {
         //Validation
+<<<<<<< HEAD
         $rules = array(
             'name' => 'required|unique:wards,name',
             );
+=======
+        $rules = array('name' => 'required|unique:wards,name');
+>>>>>>> case_butabika
         $validator = Validator::make(Input::all(), $rules);
     
         //process
@@ -55,7 +56,6 @@ class WardController extends \BaseController {
             $ward = new Ward;
             $ward->name = Input::get('name');
             $ward->description = Input::get('description');
-            $ward->ward_type_id = Input::get('ward_type_id');
             try{
                 $ward->save();
             
@@ -77,7 +77,6 @@ class WardController extends \BaseController {
     {
         //show a ward
         $ward = Ward::find($id);
-        
         //show the view and pass the $ward to it
         return View::make('ward.show')->with('ward',$ward);
     }
@@ -92,9 +91,9 @@ class WardController extends \BaseController {
     {
         //Get the patient
         $ward = Ward::find($id);
-        $ward_types = WardType::lists("name","id");
+
         //Open the Edit View and pass to it the $patient
-        return View::make('ward.edit')->with('ward', $ward)->with('ward_types',$ward_types);
+        return View::make('ward.edit')->with('ward', $ward);
     }
 
     /**
@@ -106,7 +105,7 @@ class WardController extends \BaseController {
     public function update($id)
     {
         //Validate
-        $rules = array('name' => 'required','ward_type_id'=>'required');
+        $rules = array('name' => 'required');
         $validator = Validator::make(Input::all(), $rules);
 
         // process the login
@@ -117,7 +116,6 @@ class WardController extends \BaseController {
             $ward = Ward::find($id);
             $ward->name = Input::get('name');
             $ward->description = Input::get('description');
-            $ward->ward_type_id = Input::get('ward_type_id');
             $ward->save();
 
             // redirect

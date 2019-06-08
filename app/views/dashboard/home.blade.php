@@ -34,6 +34,7 @@
 			</div>	
 		</div>  <!--end of inner container -->
 	</div> <!--End of upper row -->
+<<<<<<< HEAD
 	@extends("layout")
 @section("content")
 
@@ -70,6 +71,8 @@
 			</div>	
 		</div>  <!--end of inner container -->
 	</div> <!--End of upper row -->
+=======
+>>>>>>> case_butabika
 	<div class="container-fluid col-md-12">
 		<div class="row">
 			<div class="col-lg-4 col-md-6">
@@ -324,6 +327,9 @@
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
 @stop
 </div>
+=======
+>>>>>>> case_butabika
 @stop

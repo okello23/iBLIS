@@ -52,7 +52,11 @@
 					<th>{{trans('messages.gender')}}</th>
 					<th>{{trans('messages.age')}}</th>
 					<th>{{trans('messages.residence-village')}}</th>
+<<<<<<< HEAD
 					<!-- <th>{{trans('messages.workplace-village')}}</th> -->
+=======
+					<th>{{trans('messages.workplace-village')}}</th>
+>>>>>>> case_butabika
 					<th>{{trans('messages.actions')}}</th>
 				</tr>
 			</thead>
@@ -68,7 +72,11 @@
 					<td>{{ ($patient->gender==0?trans('messages.male'):trans('messages.female')) }}</td>
 					<td>{{ $patient->getAge() }}</td>
 					<td>{{ $patient->village_residence }}</td>
+<<<<<<< HEAD
 					<!-- <td>{{ $patient->village_workplace  }}</td> -->
+=======
+					<td>{{ $patient->village_workplace  }}</td>
+>>>>>>> case_butabika
 					<td>
 						@if($clinicianUI)
 							@if(Auth::user()->can('manage_appointments'))
