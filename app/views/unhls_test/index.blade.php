@@ -10,6 +10,38 @@
         <div class="alert alert-info">{{ trans(Session::get('message')) }}</div>
     @endif
 
+     <div class='container-fluid'>
+    <ul class="nav navbar-nav navbar-left">
+
+    <li><a href="{{ URL::route('test.pending')}}">
+      <span class="ion-planet">
+    <font size="3">  Pending <span class="badge badge-danger"> {{ $count = UnhlsTest::where('test_status_id', '=', '2')->count()}}</span></font>
+    </span>
+        </a>
+    </li>
+        
+    <li><a href="{{ URL::route('test.started')}}">
+      <span class="ion-chatbubbles">
+    <font size="3">  Started Tests <span class="badge badge-success"> {{ $count = UnhlsTest::where('test_status_id', '=', '3')->count()}}</font></span>
+    </span>
+        </a>
+    </li>
+    <li><a href="{{ URL::route('test.completed')}}">
+      <span class="ion-chatbubbles">
+    <font size="3">  Completed Tests <span class="badge badge-success"> {{ $count = UnhlsTest::where('test_status_id', '=', '4')->count()}}</font></span>
+    </span>
+        </a>
+    </li>
+    <li><a href="{{ URL::route('test.verified')}}">
+      <span class="ion-chatbubbles">
+    <font size="3">Reviewed<span class="badge badge-info"> {{ $count = UnhlsTest::where('test_status_id', '=', '5')->count()}}</font></span>
+ </span>
+        </a>
+    </li>
+</ul>
+
+</div>
+
     <div class='container-fluid'>
         {{ Form::open(array('route' => array('unhls_test.index'))) }}
             <div class='row'>
