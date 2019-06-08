@@ -960,20 +960,45 @@ class UnhlsTestController extends \BaseController {
 	 * @param specimenId
 	 * @return View
 	 */
-	public function showRefer($specimenId)
-	{
-		$unhlsspecimen = UnhlsSpecimen::find($specimenId);
-		$unhlspatient = UnhlsPatient::find('$specimenId');
-		$facilities = UNHLSFacility::all();
-		//Referral facilities
-		$referralReason = ReferralReason::all();
-		return View::make('unhls_test.refer')
-			->with('unhlsspecimen', $unhlsspecimen)
-			->with('unhlspatient', $unhlspatient)
-			->with('facilities', $facilities)
-			->with('referralReason', $referralReason);
-
-	}
+	 public function showrefer($specimenID)
+	 	{
+	 		$unhlsspecimen = UnhlsSpecimen::find($specimenID);
+	 		$referralReason = ReferralReason::all();
+	 		$test = UnhlsTest::find($specimenID);
+	 		return View::make('unhls_test.refer')->with('unhlsspecimen', $unhlsspecimen)->with('test', $test)
+	 						->with('referralReason', $referralReason);
+	 	}
+	//
+	// public function showRefer($specimenId)
+	// {
+	//
+	// 	$unhlsspecimen = UnhlsSpecimen::find($specimenId);
+	// 	$unhlspatient = UnhlsPatient::find('$specimenId');
+	//
+	// 	$now = new DateTime();
+	//
+	// 	$sampleTime = $now->format('Y-m-d H:i');
+	// 	$receptionDate = $now->format('Y-m-d H:i');
+	// 	$test = UnhlsTest::find($specimenId);
+	//
+	//
+	// 	$facilities = UNHLSFacility::all();
+	//
+	// 	$referralReason = ReferralReason::all();
+	// 	$specimentypes = ReferralReason::get();
+	// 	return View::make('unhls_test.refer')
+	//
+	// 		->with('unhlsspecimen', $unhlsspecimen)
+	// 		->with('unhlspatient', $unhlspatient)
+	// 		->with('facilities', $facilities)
+	//
+	// 			->with('sampleTime', $sampleTime)
+	// 			->with('receptionDate', $receptionDate)
+	// 			->with('test',$test)
+	// 			->with('specimentypes',$specimentypes)
+	// 			->with('referralReason', $referralReason);
+	//
+	// }
 
 	/**
 	 * Refer action
@@ -991,6 +1016,8 @@ class UnhlsTestController extends \BaseController {
 			);
 		$validator = Validator::make(Input::all(), $rules);
 		$specimenId = Input::get('specimen_id');
+
+		print_r(Input::all());
 
 		if ($validator->fails())
 		{

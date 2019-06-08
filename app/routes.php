@@ -90,6 +90,9 @@ Route::group(array("before" => "auth"), function()
         "uses" => "UnhlsPatientController@search"
     ));
 
+    // refered sample
+
+
 
     // specimens and patients information
     Route::resource('unhls_specimens', 'UnhlsSpecimenController');
@@ -205,6 +208,10 @@ Route::group(array("before" => "auth"), function()
 
         Route::resource('testnamemapping', 'TestNameMappingController');
         Route::resource('adhocconfig', 'AdhocConfigController');
+
+
+        Route::resource('referedsamples', 'CliniciansController');
+
 
         Route::get("/measurenamemapping/create/{test_type_id}", array(
             "as"   => "measurenamemapping.create",

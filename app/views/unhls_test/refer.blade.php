@@ -40,9 +40,9 @@
                         <span><strong>{{trans("messages.national-id")}}</strong> </span>
                         <span><strong>{{trans("messages.ulin")}}</strong> </span>
                         <span><strong>{{trans("messages.specimen-id")}}</strong> {{$unhlsspecimen->id}}</span>
-                        <span><strong>{{trans("messages.specimen-type-title")}}</strong> {{$unhlsspecimen->specimenType->name}}</span>    
+                        <span><strong>{{trans("messages.specimen-type-title")}}</strong> {{$unhlsspecimen->specimenType->name}}</span>
                         <span><strong>{{ Lang::choice('messages.date-specimen-collected',1) }}</strong> </span>
-                       
+
                         <span><strong>{{trans("messages.time-specimen-collected")}}</strong>
                         </span>
                     </div>
@@ -63,10 +63,10 @@
                     {{Form::text('sample-date', Input::old('sample_date'), array('class' => 'form-control standard-datepicker'))}}
                     {{ Form::label('sample-time', 'Time Sample Recieved in Lab') }}
                     {{Form::text('sample-time', Input::old('sample_time'), array('class' => 'form-control', 'placeholder' => 'HH:MM'))}}
-                </div> 
+                </div>
                 <div class="form-group">
                      {{ Form::label('time-dispatch', trans('messages.time-dispatch')) }}
-                     {{Form::text('time-dispatch', Input::old('time-dispatch'), array('class' => 'form-control', 'placeholder' => 'HH:MM'))}} 
+                     {{Form::text('time-dispatch', Input::old('time-dispatch'), array('class' => 'form-control', 'placeholder' => 'HH:MM'))}}
                 </div>
                 <div class="form-group">
                         {{ Form::label('storage-condition', trans("messages.storage-condition")) }}
