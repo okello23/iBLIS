@@ -17,7 +17,7 @@
 					{{ Form::text('search', Input::get('search'), array('class' => 'form-control test-search')) }}
 				</div>
 				<div class="form-group">
-					{{ Form::button("<span class='glyphicon glyphicon-search'></span> ".trans('messages.search'), 
+					{{ Form::button("<span class='glyphicon glyphicon-search'></span> ".trans('messages.search'),
 				        array('class' => 'btn btn-primary', 'type' => 'submit')) }}
 				</div>
 			{{ Form::close() }}
@@ -52,11 +52,9 @@
 					<th>{{trans('messages.gender')}}</th>
 					<th>{{trans('messages.age')}}</th>
 					<th>{{trans('messages.residence-village')}}</th>
-<<<<<<< HEAD
-					<!-- <th>{{trans('messages.workplace-village')}}</th> -->
-=======
+
 					<th>{{trans('messages.workplace-village')}}</th>
->>>>>>> case_butabika
+
 					<th>{{trans('messages.actions')}}</th>
 				</tr>
 			</thead>
@@ -65,23 +63,20 @@
 				<tr  @if(Session::has('activepatient'))
 						{{(Session::get('activepatient') == $patient->id)?"class='info'":""}}
 					@endif
-				>
 					<td>{{ $patient->patient_number }}</td>
 					<td>{{ $patient->ulin}}</td>
 					<td>{{ $patient->name }}</td>
 					<td>{{ ($patient->gender==0?trans('messages.male'):trans('messages.female')) }}</td>
 					<td>{{ $patient->getAge() }}</td>
 					<td>{{ $patient->village_residence }}</td>
-<<<<<<< HEAD
-					<!-- <td>{{ $patient->village_workplace  }}</td> -->
-=======
+
 					<td>{{ $patient->village_workplace  }}</td>
->>>>>>> case_butabika
+					
 					<td>
 						@if($clinicianUI)
 							@if(Auth::user()->can('manage_appointments'))
 							<!-- can create visit -->
-							<a class="btn btn-sm btn-primary" 
+							<a class="btn btn-sm btn-primary"
 								href="{{ URL::route('visit.create', array('patient_id' => $patient->id)) }}">
 								<span class="glyphicon glyphicon-plus-sign"></span>
 								Make Appointment
@@ -120,7 +115,7 @@
 			@endforeach
 			</tbody>
 		</table>
-		<?php echo $patients->links(); 
+		<?php echo $patients->links();
 		Session::put('SOURCE_URL', URL::full());?>
 	</div>
 </div>

@@ -60,7 +60,7 @@
 					<span class="input-tag">{{trans('messages.female')}}</span></div>
 				</div>
 				<div class="form-group">
-<<<<<<< HEAD
+
 					{{ Form::label('nationality', trans('Nationality')) }}
 					{{ Form::select('nationality', [' ' => '--- Select Nationality ---',
 					'0' => trans('National'),'1' => trans('Refugee'),'2' => trans('Foreigner')], null,
@@ -70,10 +70,7 @@
 					{{ Form::label('village_residence', trans('messages.residence-village')) }}
 					{{ Form::text('village_residence', Input::old('village_residence'), array('class' => 'form-control',
 					'required' => 'required')) }}
-=======
-					{{ Form::label('village_residence', trans('messages.residence-village')) }}
-					{{ Form::text('village_residence', Input::old('village_residence'), array('class' => 'form-control')) }}
->>>>>>> case_butabika
+
 				</div>
 				<div class="form-group">
 					{{ Form::label('village_workplace', trans('messages.workplace-village')) }}
@@ -89,11 +86,9 @@
 				</div>
 				<div class="form-group">
 					{{ Form::label('phone_number', trans('messages.phone-number')) }}
-<<<<<<< HEAD
-					{{ Form::text('phone_number', Input::old('phone_number'), array('class' => 'form-control','required' => 'required')) }}
-=======
+
 					{{ Form::text('phone_number', Input::old('phone_number'), array('class' => 'form-control')) }}
->>>>>>> case_butabika
+
 				</div>
 				<div class="form-group">
 					{{ Form::label('email', trans('messages.email-address')) }}

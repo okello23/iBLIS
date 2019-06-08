@@ -52,13 +52,11 @@ Route::group(array("before" => "auth"), function()
         "as" => "user.home",
         "uses" => "UserController@homeAction"
         ));
-<<<<<<< HEAD
+
     // Loads the counts on the dashbor
-    Route::any('/dashboard', array(
-=======
 
      Route::any('/dashboard', array(
->>>>>>> case_butabika
+
         "as" => "dashboard.index",
         "uses" => "DashboardController@index"
         ));
@@ -91,7 +89,7 @@ Route::group(array("before" => "auth"), function()
         "as"   => "unhls_patient.search",
         "uses" => "UnhlsPatientController@search"
     ));
-<<<<<<< HEAD
+
 
     // specimens and patients information
     Route::resource('unhls_specimens', 'UnhlsSpecimenController');
@@ -150,8 +148,6 @@ Route::group(array("before" => "auth"), function()
         "as" => "unhls_test.uploadPoCResults",
         "uses" => "UnhlsTestController@uploadPoCResults"));
 
-=======
->>>>>>> case_butabika
     //Unhls patiend routes end
     Route::any("/instrument/getresult", array(
         "as"   => "instrument.getResult",
@@ -203,11 +199,10 @@ Route::group(array("before" => "auth"), function()
     {
         Route::resource('instrument', 'InstrumentController');
         Route::resource('ward', 'WardController');
-<<<<<<< HEAD
+
         Route::resource('referral', 'ReferralController');
         Route::resource('clinicians', 'CliniciansController');
-=======
->>>>>>> case_butabika
+
         Route::resource('testnamemapping', 'TestNameMappingController');
         Route::resource('adhocconfig', 'AdhocConfigController');
 

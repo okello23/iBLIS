@@ -39,15 +39,13 @@ class WardController extends \BaseController {
     public function store()
     {
         //Validation
-<<<<<<< HEAD
+
         $rules = array(
             'name' => 'required|unique:wards,name',
             );
-=======
-        $rules = array('name' => 'required|unique:wards,name');
->>>>>>> case_butabika
+
         $validator = Validator::make(Input::all(), $rules);
-    
+
         //process
         if($validator->fails()){
                 return Redirect::back()->withErrors($validator);
@@ -58,7 +56,7 @@ class WardController extends \BaseController {
             $ward->description = Input::get('description');
             try{
                 $ward->save();
-            
+
                 return Redirect::route('ward.index')
                     ->with('message', 'Health Unit Successfully Create');
             }catch(QueryException $e){
@@ -119,7 +117,7 @@ class WardController extends \BaseController {
             $ward->save();
 
             // redirect
-            
+
             return Redirect::route('ward.index')
                 ->with('message', 'Health Unit Successfully Updated') ->with('activeward', $ward ->id);
         }
@@ -142,7 +140,7 @@ class WardController extends \BaseController {
             $ward->delete();
         } else {
             // The ward is in use
-            
+
             return Redirect::route('ward.index')
                 ->with('message', 'This Health Unit is in use');
         }

@@ -7,7 +7,7 @@
 			<div class="row">
 				{{Form::open(array('route' =>array('dashboard.index')))}}
 					<div class="col col-md-4">
-						<span style="font-weight: bold; color:blue;">DATA BELOW IS FOR THE CURRENT MONTH - <?php echo date('01-m-Y'); ?> to 
+						<span style="font-weight: bold; color:blue;">DATA BELOW IS FOR THE CURRENT MONTH - <?php echo date('01-m-Y'); ?> to
 							<?php echo date('d-m-Y'); ?></span><br> <strong>To view older stats please select a date range</strong>
 					</div>
 					<div class="col col-md-3">
@@ -15,9 +15,9 @@
 							<span style="font-weight: bold; color:blue;">{{Form::label('From', 'From')}}</span>
 						</div>
 						<div class="col-md-7">
-							<span style="font-weight: bold; color:blue;"> {{Form::text('date_from', $dateFrom, array('class' => 'form-control standard-datepicker') )}}</span>                         
+							<span style="font-weight: bold; color:blue;"> {{Form::text('date_from', $dateFrom, array('class' => 'form-control standard-datepicker') )}}</span>
 						</div>
-					</div>	
+					</div>
 					<div class="col col-md-3">
 						<div class="col-md-2">
 							<span style="font-weight: bold; color:blue;">{{Form::label('To', 'To')}}</span>
@@ -30,49 +30,11 @@
 						{{ Form::button("<span class='glyphicon glyphicon-filter'>
 						</span> ".trans('messages.view'), array('class' => 'btn btn-primary', 'id' => 'filter', 'type' => 'submit')) }}
 					</div>
-				{{Form::close()}}		
-			</div>	
+				{{Form::close()}}
+			</div>
 		</div>  <!--end of inner container -->
 	</div> <!--End of upper row -->
-<<<<<<< HEAD
-	@extends("layout")
-@section("content")
 
-<div class="container-fluid">
-	<div class="row"> <!--beggining of upper row -->
-		<div class="container-fluid">
-			<div class="row">
-				{{Form::open(array('route' =>array('dashboard.index')))}}
-					<div class="col col-md-4">
-						<span style="font-weight: bold; color:blue;">DATA BELOW IS FOR THE CURRENT MONTH - <?php echo date('01-m-Y'); ?> to 
-							<?php echo date('d-m-Y'); ?></span><br> <strong>To view older stats please select a date range</strong>
-					</div>
-					<div class="col col-md-3">
-						<div class="col-md-2">
-							<span style="font-weight: bold; color:blue;">{{Form::label('From', 'From')}}</span>
-						</div>
-						<div class="col-md-7">
-							<span style="font-weight: bold; color:blue;"> {{Form::text('date_from', $dateFrom, array('class' => 'form-control standard-datepicker') )}}</span>                         
-						</div>
-					</div>	
-					<div class="col col-md-3">
-						<div class="col-md-2">
-							<span style="font-weight: bold; color:blue;">{{Form::label('To', 'To')}}</span>
-						</div>
-						<div class="col-md-7">
-							<span style="font-weight: bold; color:blue;">{{Form::text('date_to', $dateTo, array('class' => 'form-control standard-datepicker') )}}</span>
-						</div>
-					</div>
-					<div class="btn col-md-2">
-						{{ Form::button("<span class='glyphicon glyphicon-filter'>
-						</span> ".trans('messages.view'), array('class' => 'btn btn-primary', 'id' => 'filter', 'type' => 'submit')) }}
-					</div>
-				{{Form::close()}}		
-			</div>	
-		</div>  <!--end of inner container -->
-	</div> <!--End of upper row -->
-=======
->>>>>>> case_butabika
 	<div class="container-fluid col-md-12">
 		<div class="row">
 			<div class="col-lg-4 col-md-6">
@@ -92,7 +54,7 @@
 								<span class="stat_count">{{$testCounts}}</span>
 								<span class="stat_name">Tests completed</span>
 							</div>
-							
+
 						</div>
 						<div class="stat_box">
 							<div class="stat_ico color_a"><i class="ion-plane"></i></div>
@@ -103,9 +65,9 @@
 								@endif
 								<span class="stat_name">Tests referred</span>
 							</div>
-							
-						</div>	
-					</div>										
+
+						</div>
+					</div>
 				</div> <!--end of panel-->
 			</div>
 
@@ -133,7 +95,7 @@
 								<span class="stat_name">TB Prevalence</span>
 							</div>
 						</div>
-					</div>																				
+					</div>
 				</div> <!--end of panel-->
 			</div>
 
@@ -166,7 +128,7 @@
 			</div>
 
 		</div>
-								
+
 	<div class="row"> <!--start of commodity row -->
 		<div class="col-lg-4 col-md-6">
 			<div class="panel panel-default"><b>Commodities</b>
@@ -185,7 +147,7 @@
 						<span class="stat_count">3</span>
 						<span class="stat_name">Number of stocked out tracer items</span>
 					</div>
-					
+
 				</div>
 				<div class="stat_box">
 					<div class="stat_ico color_d"><i class="ion-gear-b"></i></div>
@@ -193,9 +155,9 @@
 						<span class="stat_count">0</span>
 						<span class="stat_name">Non functional equipment</span>
 					</div>
-					
-				</div>	
-				</div>									
+
+				</div>
+				</div>
 			</div>
 		</div>
 
@@ -214,7 +176,7 @@
 						<div class="stat_content">
 							<span class="stat_count">
 								{{count(Bbincidence::countbbincidents_major())}}
-								<?php if((count(Bbincidence::countbbincidents_all()))>0){ ?> 
+								<?php if((count(Bbincidence::countbbincidents_all()))>0){ ?>
 								({{round ((count(Bbincidence::countbbincidents_major())/count(Bbincidence::countbbincidents_all())*100),2) }} %)
 								<?php } ?>
 							</span>
@@ -226,14 +188,14 @@
 						<div class="stat_content">
 							<span class="stat_count">
 								{{count(Bbincidence::countbbincidents_minor())}}
-								<?php if((count(Bbincidence::countbbincidents_all()))>0){ ?> 
+								<?php if((count(Bbincidence::countbbincidents_all()))>0){ ?>
 								({{round ((count(Bbincidence::countbbincidents_minor())/count(Bbincidence::countbbincidents_all())*100),2) }} %)
 								<?php } ?>
 								</span>
 							<span class="stat_name">Minor incidents</span>
 						</div>
-					</div>	
-				</div>																			
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -258,7 +220,7 @@
 			</div>
 		</div>
 
-	</div>	<!--end of commodity row -->							
+	</div>	<!--end of commodity row -->
 	</div>
 </div>
 
@@ -327,9 +289,4 @@
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
-@stop
-</div>
-=======
->>>>>>> case_butabika
 @stop

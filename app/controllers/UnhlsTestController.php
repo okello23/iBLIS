@@ -3,8 +3,8 @@
 use Illuminate\Database\QueryException;
 
 /**
- * Contains test resources  
- * 
+ * Contains test resources
+ *
  */
 class UnhlsTestController extends \BaseController {
 
@@ -22,7 +22,7 @@ class UnhlsTestController extends \BaseController {
 		if($fromRedirect){
 
 			$input = Session::get('TESTS_FILTER_INPUT');
-			
+
 		}else{
 
 			$input = Input::except('_token');
@@ -92,7 +92,7 @@ class UnhlsTestController extends \BaseController {
 		if($fromRedirect){
 
 			$input = Session::get('TESTS_FILTER_INPUT');
-			
+
 		}else{
 
 			$input = Input::except('_token');
@@ -160,7 +160,7 @@ class UnhlsTestController extends \BaseController {
 		if($fromRedirect){
 
 			$input = Session::get('TESTS_FILTER_INPUT');
-			
+
 		}else{
 
 			$input = Input::except('_token');
@@ -227,7 +227,7 @@ class UnhlsTestController extends \BaseController {
 		if($fromRedirect){
 
 			$input = Session::get('TESTS_FILTER_INPUT');
-			
+
 		}else{
 
 			$input = Input::except('_token');
@@ -294,7 +294,7 @@ class UnhlsTestController extends \BaseController {
 		if($fromRedirect){
 
 			$input = Session::get('TESTS_FILTER_INPUT');
-			
+
 		}else{
 
 			$input = Input::except('_token');
@@ -362,7 +362,7 @@ class UnhlsTestController extends \BaseController {
 		if($fromRedirect){
 
 			$input = Session::get('TESTS_FILTER_INPUT');
-			
+
 		}else{
 
 			$input = Input::except('_token');
@@ -467,11 +467,9 @@ class UnhlsTestController extends \BaseController {
 		//Create a Lab categories Array
 		$categories = ['Select Lab Section']+TestCategory::lists('name', 'id');
 		$wards = ['Select Sample Origin']+Ward::lists('name', 'id');
-<<<<<<< HEAD
 		$clinicians = ['Select clinician']+Clinician::lists('name', 'id');
 		$facilities = ['Select facility']+Facility::where('active', '=', 1)->lists('name', 'id');
-=======
->>>>>>> case_butabika
+
 
 		// sample collection default details
 		$now = new DateTime();
@@ -497,7 +495,7 @@ class UnhlsTestController extends \BaseController {
 					->with('specimenType', $specimenTypes)
 					->with('patient', $patient)
 					->with('testCategory', $categories)
-<<<<<<< HEAD
+
 					->with('ward', $wards)
 					->with('facilities', $facilities)
 					->with('clinicians',$clinicians);
@@ -507,20 +505,15 @@ class UnhlsTestController extends \BaseController {
 
 		if($ward_type_id == 0){
 			$ward_type_id = Input::get('ward_type_id');
-			
+
 		}else{
 			$wards = Ward::where('ward_type_id','=',$ward_type_id)->get();
-		    
-		   
-       
+
 		}
-		
+
 
 		return $wards;
-		
-=======
-					->with('ward', $wards);
->>>>>>> case_butabika
+
 	}
 
 	/**
@@ -534,29 +527,24 @@ class UnhlsTestController extends \BaseController {
 		$rules = array(
 			'visit_type' => 'required',
 			'testtypes' => 'required',
-<<<<<<< HEAD
+
 			//'phone_contact'=>'required',
 			'clinician'=>'required',
 			//'current_therapy'=>'required',
 			//'previous_therapy'=>'required',
 			// 'clinical_notes'=>'required'
 
-=======
->>>>>>> case_butabika
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
 		// process the login
 		if ($validator->fails()) {
-			return Redirect::route('unhls_test.create', 
+			return Redirect::route('unhls_test.create',
 				array(Input::get('patient_id')))->withInput()->withErrors($validator);
 		} else {
 
-<<<<<<< HEAD
 			$visitType = ['0' => 'Out-patient','1' => 'In-patient','2' => 'Referral'];
-=======
-			$visitType = ['Out-patient','In-patient'];
->>>>>>> case_butabika
+
 			$activeTest = array();
 
 			/*
@@ -566,14 +554,12 @@ class UnhlsTestController extends \BaseController {
 			$visit = new UnhlsVisit;
 			$visit->patient_id = Input::get('patient_id');
 			$visit->visit_type = $visitType[Input::get('visit_type')];
-<<<<<<< HEAD
+
 			$visit->facility_id = Input::get('facility');
 			$visit->facility_lab_number = Input::get('facility_lab_number');
-			
+
 			$visit->ward_id = Input::get('ward_dropdown');
-=======
-			$visit->ward_id = Input::get('ward_id');
->>>>>>> case_butabika
+
 			$visit->bed_no = Input::get('bed_no');
 			$visit->save();
 
@@ -616,24 +602,19 @@ class UnhlsTestController extends \BaseController {
                 }
             }
 
-<<<<<<< HEAD
+
 			//$url = Session::get('SOURCE_URL');
 			$url="/unhls_test";
 
 			return Redirect::to($url)->with('message', 'Successfully created test with ULIN:' .$test->visit->patient->ulin.'!')
 								->with('activeTest', $activeTest);
-=======
-			$url = Session::get('SOURCE_URL');
-			
-			return Redirect::to($url)->with('message', 'messages.success-creating-test')
-					->with('activeTest', $activeTest);
->>>>>>> case_butabika
+
 		}
 	}
 
 
 	/**
-	 * Display Collect page 
+	 * Display Collect page
 	 *
 	 * @param
 	 * @return
@@ -660,7 +641,7 @@ class UnhlsTestController extends \BaseController {
     }
 
 	/**
-	 * Display Rejection page 
+	 * Display Rejection page
 	 *
 	 * @param
 	 * @return
@@ -674,7 +655,7 @@ class UnhlsTestController extends \BaseController {
 	}
 
 	/**
-	 * Display Referral page 
+	 * Display Referral page
 	 *
 	 * @param
 	 * @return
@@ -738,7 +719,7 @@ class UnhlsTestController extends \BaseController {
 				}
 			}
 			$url = Session::get('SOURCE_URL');
-			
+
 			return Redirect::to($url)->with('message', 'messages.success-rejecting-specimen')
 						->with('activeTest', array($test->id));
 		}
@@ -835,7 +816,7 @@ class UnhlsTestController extends \BaseController {
 	{
 		$result = array();
 		//save if it is available
-		
+
 		if (Input::get('age')) {
 			$result['birthdate'] = Input::get('age');
 			$result['gender'] = Input::get('gender');
@@ -866,7 +847,7 @@ class UnhlsTestController extends \BaseController {
 				$results = $results.$gramStainResult->gramStainRange->name.',';
 			}
 		}
-		
+
 		foreach ($test->testType->measures as $measure) {
 			$testResult = UnhlsTestResult::firstOrCreate(array('test_id' => $testID, 'measure_id' => $measure->id));
 			if ($test->testType->name == 'Gram Staining') {
@@ -944,7 +925,7 @@ class UnhlsTestController extends \BaseController {
 	public function viewDetails($testID)
 	{
 		return View::make('unhls_test.viewDetails')->with('test', UnhlsTest::find($testID));
-		
+
 	}
 
 	/**
@@ -1042,7 +1023,7 @@ class UnhlsTestController extends \BaseController {
 
 		//Return view
 		$url = Session::get('SOURCE_URL');
-		
+
 		return Redirect::to($url)->with('message', trans('messages.specimen-successful-refer'))
 					->with('activeTest', array($specimen->test->id));
 	}
