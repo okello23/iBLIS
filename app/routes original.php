@@ -640,98 +640,93 @@ Route::group(array("before" => "auth"), function()
         ));
     });
 
-  // New stock and inventory routes start here
+    Route::group(array("before" => "checkPerms:request_topup"), function()
+    {
+        //top-ups
+        Route::resource('topup', 'TopUpController');
+        Route::get("/topup/{id}/delete", array(
+            "as"   => "topup.delete",
+            "uses" => "TopUpController@delete"
+        ));
+        Route::get('topup/{id}/availableStock', array(
+            "as"    =>  "issue.dropdown",
+            "uses"  =>  "TopUpController@availableStock"
+        ));
+    });
+    Route::group(array("before" => "checkPerms:manage_inventory"), function()
+    {
+        //Commodities
+        Route::resource('commodity', 'CommodityController');
+        Route::get("/commodity/{id}/delete", array(
+            "as"   => "commodity.delete",
+            "uses" => "CommodityController@delete"
+        ));
+        //issues
+        Route::resource('issue', 'IssueController');
+        Route::get("/issue/{id}/delete", array(
+            "as"   => "issue.delete",
+            "uses" => "IssueController@delete"
+        ));
+        Route::get("/issue/{id}/dispatch", array(
+            "as"   => "issue.dispatch",
+            "uses" => "IssueController@dispatch"
+        ));
+        //Metrics
+        Route::resource('metric', 'MetricController');
+        Route::get("/metric/{id}/delete", array(
+            "as"   => "metric.delete",
+            "uses" => "MetricController@delete"
+        ));
+        //Suppliers
+        Route::resource('supplier', 'SupplierController');
 
-Route::group(array("before" => "checkPerms:request_topup"), function()
-  {
-       //top-ups
-       Route::resource('topup', 'TopUpController');
-       Route::get("/topup/{id}/delete", array(
-           "as"   => "topup.delete",
-           "uses" => "TopUpController@delete"
-       ));
-       Route::get('topup/{id}/availableStock', array(
-           "as"    =>  "issue.dropdown",
-           "uses"  =>  "TopUpController@availableStock"
-       ));
-   });
-   Route::group(array("before" => "checkPerms:manage_inventory"), function()
-   {
-       //Commodities
-       Route::resource('commodity', 'CommodityController');
-       Route::get("/commodity/{id}/delete", array(
-           "as"   => "commodity.delete",
-           "uses" => "CommodityController@delete"
-       ));
-       //issues
-       Route::resource('issue', 'IssueController');
-       Route::get("/issue/{id}/delete", array(
-           "as"   => "issue.delete",
-           "uses" => "IssueController@delete"
-       ));
-       Route::get("/issue/{id}/dispatch", array(
-           "as"   => "issue.dispatch",
-           "uses" => "IssueController@dispatch"
-       ));
-       //Suppliers
-       Route::resource('supplier', 'SupplierController');
+        Route::get("/supplier/{id}/delete", array(
+            "as"   => "supplier.delete",
+            "uses" => "SupplierController@delete"
+        ));
+        //Receipts
+        Route::resource('receipt', 'ReceiptController');
+        Route::get("/receipt/{id}/delete", array(
+            "as"   => "receipt.delete",
+            "uses" => "ReceiptController@delete"
+        ));
+        //Stock card
+        Route::post("/stockcard/index", array(
+            "as"   => "stockcard.index",
+            "uses" => "StockCardController@index"
+        ));
+        Route::post("/stockcard/create", array(
+            "as"   => "stockcard.create",
+            "uses" => "StockCardController@create"
+        ));
+        Route::post("/stockcard/store", array(
+            "as"   => "stockcard.store",
+            "uses" => "StockCardController@store"
+        ));
+        Route::get("/stockcard/{id}/delete", array(
+            "as"   => "stockcard.delete",
+            "uses" => "StockCardController@delete"
+        ));
+        Route::resource('stockcard', 'StockCardController');
 
-       Route::get("/supplier/{id}/delete", array(
-           "as"   => "supplier.delete",
-           "uses" => "SupplierController@delete"
-       ));
-       /*
-       *   Routes for items
-       */
-       Route::resource('item', 'ItemController');
-       Route::get("/item/{id}/delete", array(
-           "as"   => "item.delete",
-           "uses" => "ItemController@delete"
-       ));
-       /*
-       *   Routes for stocks
-       */
-       Route::resource('stock', 'StockController');
-       Route::any("stock/{id}/log", array(
-           "as"   => "stocks.log",
-           "uses" => "StockController@index"
-       ));
-       Route::any("stock/{id}/create", array(
-           "as"   => "stocks.create",
-           "uses" => "StockController@create"
-       ));
-       Route::any("stock/{id}/usage/{req?}", array(
-           "as"   => "stocks.usage",
-           "uses" => "StockController@usage"
-       ));
-       Route::post("stock/saveusage", array(
-           "as"   => "stock.saveUsage",
-           "uses" => "StockController@stockUsage"
-       ));
-       Route::any("stock/{id}/show", array(
-           "as"   => "stocks.show",
-           "uses" => "StockController@show"
-       ));
-       Route::any("stock/{id}/lot", array(
-           "as"   => "stocks.lot",
-           "uses" => "StockController@lot"
-       ));
-       Route::any("lt/usage", array(
-           "as"   => "lt.update",
-           "uses" => "StockController@lotUsage"
-       ));
-       /*
-       *   Routes for requests
-       */
-       Route::resource('request', 'TopupController');
-       Route::get("/request/{id}/delete", array(
-           "as"   => "request.delete",
-           "uses" => "TopupController@delete"
-       ));
-   });
-
-
-  // Stock & inventory routes end here
+        //Stock requisition form
+        Route::post("/stockrequisition/index", array(
+            "as"   => "stockrequisition.index",
+            "uses" => "StockRequisitionController@index"
+        ));
+        Route::post("/stockrequisition/create", array(
+            "as"   => "stockrequisition.create",
+            "uses" => "StockRequisitionController@create"
+        ));
+        Route::post("/stockrequisition/store", array(
+            "as"   => "stockrequisition.store",
+            "uses" => "StockRequisitionController@store"
+        ));
+        Route::get("/stockrequisition/{id}/delete", array(
+            "as"   => "stockrequisition.delete",
+            "uses" => "StockRequisitionController@delete"
+        ));
+        Route::resource('stockrequisition', 'StockRequisitionController');
 
 
         //Equipment supplier form
@@ -960,3 +955,5 @@ Route::group(array("before" => "checkPerms:request_topup"), function()
         "as"   => "stockbook.fetch",
         "uses" => "StockRequisitionController@fetch"
     ));
+
+});

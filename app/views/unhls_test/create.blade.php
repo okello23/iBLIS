@@ -229,5 +229,5 @@
                 title="{{trans('messages.delete')}}">×</button>
         </div>
     </div><!-- Test List Item -->
-</div><!-- Test List Item Loader-->  
+</div><!-- Test List Item Loader-->
 @stop

@@ -11,7 +11,7 @@
 <div class="panel panel-primary">
 	<div class="panel-heading ">
 		<span class="glyphicon glyphicon-stats"></span>
-		HMIS 105 | 
+		HMIS 105 |
 		<a title="Previous Month"
 			href="{{URL::to('/hmis105/'.date('Y-m',strtotime(date('Y-m',strtotime($month)).' -1 month')))}}">
 			<span class="btn btn-default ion-android-arrow-back"></span></a>
@@ -23,7 +23,7 @@
 	<div class="panel-body">
 	@if (Session::has('message'))
 		<div class="alert alert-info">{{ trans(Session::get('message')) }}</div>
-	@endif	
+	@endif
 		<div class="table-responsive">
 			<table class="table table-condensed report-table-border">
 				<tbody>
@@ -49,7 +49,7 @@
 							{{(isset($testTypeCountArray['hepatitis_b']['hepatitis_b']))?$testTypeCountArray['hepatitis_b']['hepatitis_b']['positive']:''}}</td>
 					</tr>
 					<tr>
-						<td colspan="2">01. Hb</td>
+						<td colspan="2">01. Hb (non automated)</td>
 						<td colspan="2">
 							@if(isset($testTypeCountArray['hb']))
 							{{(isset($testTypeCountArray['hb']['hb']))?$testTypeCountArray['hb']['hb']['total']:''}}
@@ -62,7 +62,14 @@
 						<td colspan="2">{{(isset($testTypeCountArray['brucella']['brucella']))?$testTypeCountArray['brucella']['brucella']['positive']:''}}</td>
 					</tr>
 					<tr>
-						<td colspan="2">02. HBG<8</td>
+						<!-- <td colspan="2">02. HBG<8</td>
+						<td colspan="2">
+							@if(isset($testTypeCountArray['cbc']))
+								{{(isset($testTypeCountArray['cbc']['hgb']))?$testTypeCountArray['cbc']['hgb']['hbg_less_8']:''}}
+							@endif
+						</td>
+						<td colspan="2" style="background-color: #777777;"></td> -->
+						<td colspan="2">02. CBC</td>
 						<td colspan="2">
 							@if(isset($testTypeCountArray['cbc']))
 								{{(isset($testTypeCountArray['cbc']['hgb']))?$testTypeCountArray['cbc']['hgb']['hbg_less_8']:''}}
@@ -79,12 +86,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">03. HBG≥8</td>
-						<td colspan="2">
-							@if(isset($testTypeCountArray['cbc']))
-								{{(isset($testTypeCountArray['cbc']['hgb']))?$testTypeCountArray['cbc']['hgb']['hbg_equal_8']:''}}
-							@endif
-						</td>
+						<td colspan="2">03. Film Comment</td>
+						<td colspan="2">{{(isset($testTypeCountArray['film_comment']))?$testTypeCountArray['film_comment']['total']:''}}</td>
 						<td colspan="2" style="background-color: #777777;"></td>
 						<td></td>
 						<td colspan="2">41. Rheumatoid Factor</td>
@@ -96,12 +99,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">04. WBC Total</td>
-						<td colspan="2">
-							@if(isset($testTypeCountArray['cbc']))
-								{{(isset($testTypeCountArray['cbc']['wbc']))?$testTypeCountArray['cbc']['wbc']['total']:''}}
-							@endif
-						</td>
+						<td colspan="2">04. ESR</td>
+						<td colspan="2">{{(isset($testTypeCountArray['esr']['esr']))?$testTypeCountArray['esr']['esr']['total']:''}}</td>
 						<td colspan="2" style="background-color: #777777;"></td>
 						<td></td>
 						<td colspan="2" rowspan="4">42. Others</td>
@@ -109,42 +108,44 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td colspan="2">05. WBC Differential</td>
-						<td colspan="2">{{(isset($testTypeCountArray['cbc']['wbc']))?$testTypeCountArray['cbc']['wbc']['total']:''}}</td>
+						<td colspan="2">05. Bleeding time</td>
+						<td colspan="2">{{(isset($testTypeCountArray['bleeding_time']))?$testTypeCountArray['bleeding_time']['bleeding_time']['total']:''}}</td>
 						<td colspan="2" style="background-color: #777777;"></td>
 						<td></td>
 						<td colspan="2"></td>
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td colspan="2">06. Film Comment</td>
-						<td colspan="2">{{(isset($testTypeCountArray['film_comment']))?$testTypeCountArray['film_comment']['total']:''}}</td>
-						<td colspan="2" style="background-color: #777777;"></td>
-						<td></td>
-						<td colspan="2"></td>
-						<td colspan="2"></td>
-					</tr>
-					<tr>
-						<td colspan="2">07. ESR</td>
-						<td colspan="2">{{(isset($testTypeCountArray['esr']['esr']))?$testTypeCountArray['esr']['esr']['total']:''}}</td>
-						<td colspan="2" style="background-color: #777777;"></td>
-						<td></td>
-						<td colspan="2"></td>
-						<td colspan="2"></td>
-					</tr>
-					<tr>
-						<td colspan="2">08. RBC</td>
+						<td colspan="2">06. Prothrombin Time</td>
 						<td colspan="2">
-						@if(isset($testTypeCountArray['cbc']))
-							{{(isset($testTypeCountArray['cbc']['rbc']))?$testTypeCountArray['cbc']['rbc']['total']:''}}
-						@endif
+							{{(isset($testTypeCountArray['prothrombin_time']))?$testTypeCountArray['prothrombin_time']['prothrombin_time']['total']:''}}
+						</td>
+						<td colspan="2" style="background-color: #777777;"></td>
+						<td></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td colspan="2">07. Clotting Time</td>
+						<td colspan="2">
+							{{(isset($testTypeCountArray['clotting_time']['clotting_time']))?$testTypeCountArray['clotting_time']['clotting_time']['total']:''}}
+						</td>
+						<td colspan="2" style="background-color: #777777;"></td>
+						<td></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td colspan="2">08. Sickle Cell</td>
+						<td colspan="2">
+						{{(isset($testTypeCountArray['sickle_cell']))?$testTypeCountArray['sickle_cell']['sickle_cell']['total']:''}}
 						</td>
 						<td colspan="2" style="background-color: #777777;"></td>
 						<td></td>
 						<td colspan="6" style="background-color: #cccccc;">7.5 IMMUNOLOGY</td>
 					</tr>
 					<tr>
-						<td colspan="2">09. Bleeding time</td>
+						<td colspan="2">05. Bleeding time</td>
 						<td colspan="2">{{(isset($testTypeCountArray['bleeding_time']))?$testTypeCountArray['bleeding_time']['bleeding_time']['total']:''}}</td>
 						<td colspan="2" style="background-color: #777777;"></td>
 						<td></td>
@@ -153,7 +154,7 @@
 						<td colspan="2" style="background-color: #777777;"></td>
 					</tr>
 					<tr>
-						<td colspan="2">10 Prothrombin Time</td>
+						<td colspan="2">06. Prothrombin Time</td>
 						<td colspan="2">
 							{{(isset($testTypeCountArray['prothrombin_time']))?$testTypeCountArray['prothrombin_time']['prothrombin_time']['total']:''}}
 						</td>
@@ -164,7 +165,7 @@
 						<td colspan="2" style="background-color: #777777;"></td>
 					</tr>
 					<tr>
-						<td colspan="2">11. Clotting Time</td>
+						<td colspan="2">07. Clotting Time</td>
 						<td colspan="2">
 							{{(isset($testTypeCountArray['clotting_time']['clotting_time']))?$testTypeCountArray['clotting_time']['clotting_time']['total']:''}}
 						</td>

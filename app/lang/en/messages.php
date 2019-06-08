@@ -1,11 +1,11 @@
 <?php
-/** 
+/**
  *   To aid quick referencing, keep entries in the same section ALPHABETICALLY ORDERED
  */
 
 return array(
 
-    /** 
+    /**
      *   Generic names
      */
 
@@ -60,7 +60,7 @@ return array(
     'out' => 'Out',
     'vertical' =>'Vertical', //UNHLS terminology
 
-    /** 
+    /**
      *   Generic phrases
      */
     'confirm-delete-title' => 'Confirm Delete',
@@ -68,7 +68,7 @@ return array(
     'confirm-delete-irreversible' => 'This action is irreversible.',
     'court-of-arms' => 'Court of Arms',
 
-    /** 
+    /**
      *   User
      */
     'create-user' => 'Create User',
@@ -91,7 +91,7 @@ return array(
     'user-details' => 'User Details',
     'user-profile-edit-success' => 'The user details were successfully updated!',
 
-    /** 
+    /**
      *  Patient
      */
 
@@ -124,8 +124,8 @@ return array(
     'sex' => 'Sex', //Unhls prefers this to Gender
     'ulin' => 'ULIN',
     'workplace-village' => 'Village of Workplace', //Unhls entry
-    
-    /** 
+
+    /**
      *   Specimen
      */
     'not-paid' => 'Not Paid',
@@ -188,7 +188,7 @@ return array(
     'time-dispatch' => 'Time of Sample dispatch: ', //UNHLS terminolgy
     'specimen-collected-by' => 'Specimen Collected and Recieved By', //UNHLS terminology
 
-    /** 
+    /**
      *   Test Catalog
      */
     /*Measure*/
@@ -229,7 +229,7 @@ return array(
     'success-updating-specimen-type' => 'The specimen type details were successfully updated!',
 
     /*Specimen Rejection*/
-    
+
     'add-rejection-reason' => 'Add New Rejection Reason',
     'edit-rejection-reason' => ' Edit Rejection Reason',
     'failure-specimen-rejection-reason-in-use' => 'This Rejection Reason is in Use',
@@ -377,7 +377,7 @@ return array(
     'visit-test-details' => 'View List of Tests',
 
 
-    /** 
+    /**
      *   Tests search panel
      */
     'empty-search' => 'Your search did not match any test record!',
@@ -399,7 +399,7 @@ return array(
     'success-saving-results' => 'The results successfully saved!',
     'test-results' => 'Results',
 
-    /** 
+    /**
      *   Access Controls
      */
 
@@ -418,7 +418,7 @@ return array(
     'success-updating-role' => 'Roles successfully updated!',
     'user-accounts' => 'User Accounts',
 
-    /** 
+    /**
      *   Reports
      */
     'aggregate-reports' => 'Aggregate Reports',
@@ -509,7 +509,7 @@ return array(
     'weekly'    =>  'Weekly',
     'daily' =>  'Daily',
 
-    /* Usage Statistics Reports*/ 
+    /* Usage Statistics Reports*/
     'accepted-specimen' => 'Specimen Collected',
     'no-data-found' => 'No data available!',
     'performed-tests' => 'Tests Performed',
@@ -527,16 +527,16 @@ return array(
     'user-statistics-tests-register-report-title' => 'Tests Registered (Period: [FROM] - [TO] [USER])',
     'verified-tests' => 'Tests Verified',
 
-     /* Inventory Reports*/ 
+     /* Inventory Reports*/
     'inventory-reports' => 'Inventory Reports',
     'stock-levels' => 'Stock Levels',
     'stock-level-report' => 'Stock Level Report',
     'monthly-stock-level-report-title' => 'Monthly Stock Levels (Period: [FROM] - [TO])',
     'quarterly-stock-level-report-title' => 'Quarterly Stock Levels (Period: [FROM] - [TO] )',
-    
- 
 
-    /** 
+
+
+    /**
      *   Configurations
      */
     'add-facility' => 'Add a facility',
@@ -576,7 +576,7 @@ return array(
     'supported-test-types' => 'Supported Tests',
     'unwriteable-destination-folder' => 'Unable to write to the plugins folder',
 
-    /** 
+    /**
      *   Dates
      */
     'year' => 'Year|Years',
@@ -585,8 +585,8 @@ return array(
     'hour' => 'Hour|Hours',
     'minute' => 'Minute|Minutes',
     'second' => 'Second|Seconds',
-  
-    /** 
+
+    /**
      *   Inventory
      */
 
@@ -699,7 +699,7 @@ return array(
     'success-deleting-control' => 'The Control has been successfully deleted',
     'success-adding-control-result' => 'The control results have been succesfully added',
 
-    /** 
+    /**
      *   MOH 706 report
      */
     'moh-706'   =>  'MOH 706',
@@ -708,7 +708,7 @@ return array(
     'affiliation'   =>  'Affiliation',
     'reporting-period'  =>  'Reporting Period',
     'begin-end' =>  'Begining|Ending',
-    /** 
+    /**
      *   Controls
      */
     'gok'   =>  'GOK',
@@ -757,9 +757,9 @@ return array(
     'baseline'  =>  'Baseline',
     'follow-up' =>  'Follow Up',
     'cd4-less'  =>  '< 500',
-    'cd4-greater'   =>  '> 500',   
-	
-	
+    'cd4-greater'   =>  '> 500',
+
+
 	/**
 	* BB Incidences
 	*/
@@ -771,27 +771,73 @@ return array(
 	'age' => 'Age',
 	'dob' => 'Date of Birth',
 	'filter' => 'Filter',
-	
-	
+
+
+    /**
+     *   Inventory
+     */
+    'inventory'     =>  'Inventory',
+    'item'          =>  'Item|Items',
+    'supplier'      =>  'Supplier|Suppliers',
+    'top-up'        =>  'Request|Requests',
+    'request'        =>  'Request|Requests',
+    'stock-levels'  =>  'Stock Levels',
+    'stock'         =>  'Stock',
+    'unit'          =>  'Unit',
+    'min-level'     =>  'Min. Level',
+    'max-level'     =>  'Max. Level',
+    'lot-no'        =>  'Lot No.',
+    'quantity'      =>  'Quantity',
+    'expiry'        =>  'Expiry Date',
+    'manufacturer'  =>  'Manufacturer',
+    'ordered'       =>  'Quantity Ordered',
+    'supplied'      =>  'Quantity Supplied',
+    'cost-per-unit' =>  'Cost Per Unit',
+    'date-supplied' =>  'Date Supplied',
+    'stock-usage'   =>  'Stock Usage',
+    'available-qty' =>  'Available Quantity',
+    'date-of-usage' =>  'Date of Issue',
+    'signed-out'    =>  'Quantity Signed Out',
+    'lot'           =>  'Lot',
+    'batch-no'      =>  'Batch No',
+    'usage'         =>  'Usage',
+    'export'        =>  'Export',
+    'log-usage'     =>  'Log Stock Usage',
+    'add-stock'     =>  'Add Stock',
+    'update-stock'  =>  'Issue Stock',
+    'details'       =>  'Details',
+    'phone'         =>  'Phone',
+    'email'         =>  'Email Address',
+    'address'       =>  'Address',
+    'remarks'       =>  'Remarks',
+    'storage'       =>  'Storage Req.',
+    'date-received' =>  'Date Received',
+    'id'            =>  'ID',
+    'status'        =>  'Status',
+    'issued'        =>  'Issued',
+    'not-issued'    =>  'Pending',
+
+
+
 
     //BLIS uganda
-    'stock-card' => 'Stock card' ,   
+    'stock-card' => 'Stock card' ,
     'equipment-log' => 'Equipment log',
     'requisition-voucher'=>'Requisition voucher',
     'stock-entries'=> 'Stock Entries',
     'add-stock'=> 'Add',
     'stock-list'=> 'Stock List',
-    'stock-requisition' => 'Stockbook',    
+    'stock-requisition' => 'Stockbook',
     'edit-stock-entry'=> 'Edit',
     'stock-succesfully-deleted' => 'Stock has been succesfully deleted',
     'stock-succesfully-added' => 'Successifully added a new stock entry',
     'settings' => 'Settings',
     'add-stock'=> 'Add',
-    'equipment-list'=> 'Equipment List',      
-    'equipment-breakdown'=> 'Equipment breakdown',    
-     'equipment-breakdown-list'=> 'Equipment breakdown list', 
-    'equipment-maintenance'=> 'Equipment maintenance',         
-    'supplier-list'=> 'Supplier List',    
+    'equipment-list'=> 'Equipment List',
+    'equipment-breakdown'=> 'Equipment breakdown',
+     'equipment-breakdown-list'=> 'Equipment breakdown list',
+    'equipment-maintenance'=> 'Equipment maintenance',
+    'supplier-list'=> 'Supplier List',
     'add'=> 'Add',
 
     //

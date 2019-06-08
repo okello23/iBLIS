@@ -2,10 +2,10 @@
 
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
-class Metric extends Eloquent
+class DataLogger extends Eloquent
 {
 	use SoftDeletingTrait;
-
-	protected $table = 'metrics';
+	protected $table = 'datalogger';
 	protected $dates = ['deleted_at'];
+	
 }
