@@ -11,7 +11,7 @@ class EquipmentBreakdownController extends \BaseController {
 	{
 
 		//
-		
+
 		$items = UNHLSEquipmentBreakdown::get();
 		return View::make('equipment.breakdown.index')->with('items',$items);
 
@@ -44,48 +44,44 @@ class EquipmentBreakdownController extends \BaseController {
 
 		$rules = array(
 
-		'equipment_id' => 'required',
-		'description_problem' => 'required',
-		'action_taken' => 'required',
-		'request_hsd' => 'required',		
-		'priority' => 'required',
-		'in_charge' => 'required',
-		'breakdown_type' => 'required',
-		'breakdown_date' => 'required',
-		'reported_by' => 'required',
-		'report_date' => 'required'									
+			'equipment_id' => 'required',
+			'problem' => 'required',
+			'action_taken' => 'required',
+			);
 
-		);
-		
-		$validator = Validator::make(Input::all(), $rules);
+			$validator = Validator::make(Input::all(), $rules);
 
-		if ($validator->fails()) {
-			return Redirect::back()->withErrors($validator);
-		} else {
+			if ($validator->fails()) {
+				return Redirect::back()->withErrors($validator);
+			} else {
 
-			$item = new UNHLSEquipmentBreakdown;
+				$item = new UNHLSEquipmentBreakdown;
 
-        	$item->district_id = \Config::get('constants.DISTRICT_ID') ;
-        	$item->facility_id = \Config::get('constants.FACILITY_ID');        
-        	$item->year_id = \Config::get('constants.FIN_YEAR_ID');  
+				$item->district_id = \Config::get('constants.DISTRICT_ID') ;
+				$item->facility_id = \Config::get('constants.FACILITY_ID');
+				$item->year_id = \Config::get('constants.FIN_YEAR_ID');
 
-			$item->equipment_id = Input::get('equipment_id');
-			$item->description = Input::get('description_problem');
-			$item->action_taken = Input::get('action_taken');
-			$item->hsd_request = Input::get('request_hsd');
-			$item->priority = Input::get('priority'); 
-			$item->in_charge_id = Input::get('in_charge');      
-			$item->report_date = Input::get('report_date');     
-			$item->breakdown_date = Input::get('report_date');     
-			$item->breakdown_type = Input::get('breakdown_type');     
-			$item->reported_by = Input::get('reported_by');           
-      
+				$item->equipment_id = Input::get('equipment_id');
+				$item->problem = Input::get('problem');
+				$item->reporting_officer = Input::get('reporting_officer');
+				$item->reporting_officer_email = Input::get('reporting_officer_email');
+				$item->reporting_officer_contact = Input::get('reporting_officer_contact');
+				$item->action_taken = Input::get('action_taken');
+				$item->intervention_authority = Input::get('intervention_authority');
+				$item->conclusion = Input::get('conclusion');
+				$item->facility_code = Input::get('facility_code');
+				$item->facility_level = Input::get('facility_level');
+				$item->report_date = Input::get('report_date');
+				$item->breakdown_date = Input::get('report_date');
+				$item->verified_by = Input::get('verified_by');
+				$item->verification_date = Input::get('verification_date');
 
-			$item->save();
 
-			return Redirect::to('equipmentbreakdown');
-	}
-}
+				$item->save();
+
+				return Redirect::to('equipmentbreakdown');
+			}
+		}
 
 
 	/**
@@ -157,10 +153,10 @@ class EquipmentBreakdownController extends \BaseController {
 		$rules = array(
 
 		'reviewed_by' => 'required',
-		'review_date' => 'required'									
+		'review_date' => 'required'
 
 		);
-		
+
 		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
@@ -169,10 +165,10 @@ class EquipmentBreakdownController extends \BaseController {
 
 			$breakdown = UNHLSEquipmentBreakdown::find( Input::get('breakdown_id'));
 
-			$breakdown->comment = Input::get('comment'); 
-			$breakdown->restored_by = Input::get('reviewed_by');      
-			$breakdown->restore_date = Input::get('review_date');           
-      
+			$breakdown->comment = Input::get('comment');
+			$breakdown->restored_by = Input::get('reviewed_by');
+			$breakdown->restore_date = Input::get('review_date');
+
 
 			$breakdown->save();
 

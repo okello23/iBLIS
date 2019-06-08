@@ -7,13 +7,13 @@ class ReportController extends \BaseController {
 	 * Called loadPatients because the same controller shall be used for all other reports
 	 * @return Response
 	 */
-	 
+
 	public function index()
 	{
 		return View::make('reports.index');
 	}
-	
-	
+
+
 	public function loadPatients()
 	{
 		$search = Input::get('search');
@@ -178,7 +178,7 @@ class ReportController extends \BaseController {
 			$testTypes = TestCategory::find($testCategory)->testTypes->lists('name', 'id');
 		else
 			$testTypes = array(""=>"");
-		
+
 		if($records=='patients'){
 			if($from||$to){
 				if(strtotime($from)>strtotime($to)||strtotime($from)>strtotime($date)||strtotime($to)>strtotime($date)){
@@ -239,13 +239,13 @@ class ReportController extends \BaseController {
 				}
 				else
 				{
-					/*$specimens = $specimens->whereBetween('time_rejected', 
+					/*$specimens = $specimens->whereBetween('time_rejected',
 						array($from, $toPlusOne))->get(array('specimens.*'));*/
 
-					/*$specimens = $specimens->join('pre_analytic_specimen_rejections', 'pre_analytic_specimen_rejections.specimen_id', '=', 'specimens.id')->whereBetween('time_rejected', 
+					/*$specimens = $specimens->join('pre_analytic_specimen_rejections', 'pre_analytic_specimen_rejections.specimen_id', '=', 'specimens.id')->whereBetween('time_rejected',
 						array($from, $toPlusOne))->get(array('specimens.*'));*/
 					// analytic specimen rejection is the functional one now
-					$specimens = $specimens->join('analytic_specimen_rejections', 'analytic_specimen_rejections.specimen_id', '=', 'specimens.id')->whereBetween('time_rejected', 
+					$specimens = $specimens->join('analytic_specimen_rejections', 'analytic_specimen_rejections.specimen_id', '=', 'specimens.id')->whereBetween('time_rejected',
 						array($from, $toPlusOne))->get(array('specimens.*'));
 				}
 			}
@@ -286,7 +286,7 @@ class ReportController extends \BaseController {
 		else
 		{
 			$tests = UnhlsTest::whereNotIn('test_status_id', [UnhlsTest::SPECIMEN_NOT_RECEIVED]);
-			
+
 			/*Filter by test category*/
 			if($testCategory&&!$testType){
 				$tests = $tests->join('test_types', 'unhls_tests.test_type_id', '=', 'test_types.id')
@@ -301,7 +301,7 @@ class ReportController extends \BaseController {
 				$tests = $tests->whereIn('test_status_id', [UnhlsTest::PENDING, UnhlsTest::STARTED]);
 			}
 			else if($pendingOrAll=='all'){
-				$tests = $tests->whereIn('test_status_id', 
+				$tests = $tests->whereIn('test_status_id',
 					[UnhlsTest::PENDING, UnhlsTest::STARTED, UnhlsTest::COMPLETED, UnhlsTest::VERIFIED]);
 			}
 			//For Complete tests and the default.
@@ -404,7 +404,7 @@ class ReportController extends \BaseController {
 
 	/**
 	* Get months: return months for time_created column when filter dates are set
-	*/	
+	*/
 	public static function getMonths($from, $to){
 		$today = "'".date("Y-m-d")."'";
 		$year = date('Y');
@@ -446,7 +446,7 @@ class ReportController extends \BaseController {
 		$testTypes = new Illuminate\Database\Eloquent\Collection();
 
 		if($testTypeID == 0){
-			
+
 			$testTypes = TestType::supportPrevalenceCounts();
 		}else{
 			$testTypes->add(TestType::find($testTypeID));
@@ -540,9 +540,9 @@ class ReportController extends \BaseController {
 
 
 					}
-				} 
+				}
 
-			} 
+			}
 		}';
 	return $options;
 	}
@@ -762,7 +762,7 @@ class ReportController extends \BaseController {
 					if(!$record->targetTAT==null)
 						$goal_tat[$month_ts] = $record->targetTAT; //Hours
 					else
-						$goal_tat[$month_ts] = 0.00; //Hours			
+						$goal_tat[$month_ts] = 0.00; //Hours
 				}
 				else
 				{
@@ -797,7 +797,7 @@ class ReportController extends \BaseController {
 			foreach($resultset as $record)
 			{
 				$date_collected = $record->timeCreated;
-				$day_ts = $date_collected; 
+				$day_ts = $date_collected;
 				$wait_diff = ($record->timeStarted - $record->timeCreated); //Waiting time
 				$date_diff = ($record->timeCompleted - $record->timeStarted); //Turnaround time
 				if(!isset($progression_val[$day_ts]))
@@ -870,7 +870,7 @@ class ReportController extends \BaseController {
 					if(!$record->targetTAT==null)
 						$goal_tat[$week_ts] = $record->targetTAT; //Hours
 					else
-						$goal_tat[$week_ts] = 0.00; //Hours				
+						$goal_tat[$week_ts] = 0.00; //Hours
 				}
 				else
 				{
@@ -960,8 +960,8 @@ class ReportController extends \BaseController {
 	 */
 	public function infectionReport(){
 
-	 	$ageRanges = array('0-5'=>'Under 5 years', 
-	 					'5-14'=>'5 years and over but under 14 years', 
+	 	$ageRanges = array('0-5'=>'Under 5 years',
+	 					'5-14'=>'5 years and over but under 14 years',
 	 					'14-120'=>'14 years and above');	//	Age ranges - will definitely change in configurations
 		$gender = array(UnhlsPatient::MALE, UnhlsPatient::FEMALE); 	//	Array for gender - male/female
 		$ranges = array('Low', 'Normal', 'High');
@@ -974,13 +974,13 @@ class ReportController extends \BaseController {
 
 		$to = Input::get('end');
 		if(!$to) $to = $date;
-		
+
 		$toPlusOne = date_add(new DateTime($to), date_interval_create_from_date_string('1 day'));
 
 		$testCategory = Input::get('test_category');
 
 		$infectionData = UnhlsTest::getInfectionData($from, $toPlusOne, $testCategory);	// array for counts data for each test type and age range
-		
+
 		return View::make('reports.infection.index')
 					->with('gender', $gender)
 					->with('ageRanges', $ageRanges)
@@ -1003,7 +1003,7 @@ class ReportController extends \BaseController {
 
 		$to = Input::get('end');
 		if(!$to) $to = $date;
-		
+
 		$selectedUser = Input::get('user');
 		if(!$selectedUser)$selectedUser = "";
 		else $selectedUser = " USER: ".User::find($selectedUser)->name;
@@ -1039,7 +1039,7 @@ class ReportController extends \BaseController {
 		$reportTitle = str_replace("[FROM]", $from, $reportTitle);
 		$reportTitle = str_replace("[TO]", $to, $reportTitle);
 		$reportTitle = str_replace("[USER]", $selectedUser, $reportTitle);
-		
+
 		return View::make('reports.userstatistics.index')
 					->with('reportTypes', $reportTypes)
 					->with('reportData', $reportData)
@@ -1143,9 +1143,9 @@ class ReportController extends \BaseController {
 	 * @param
 	 */
 	public function surveillanceConfig(){
-		
+
 		$allSurveillanceIds = array();
-		
+
 		//edit or leave surveillance entries as is
 		if (Input::get('surveillance')) {
 			$diseases = Input::get('surveillance');
@@ -1158,7 +1158,7 @@ class ReportController extends \BaseController {
 				$surveillance->save();
 			}
 		}
-		
+
 		//save new surveillance entries
 		if (Input::get('new-surveillance')) {
 			$diseases = Input::get('new-surveillance');
@@ -1169,7 +1169,7 @@ class ReportController extends \BaseController {
 				$surveillance->disease_id = $disease['disease'];
 				$surveillance->save();
 				$allSurveillanceIds[] = $surveillance->id;
-				
+
 			}
 		}
 
@@ -1233,9 +1233,9 @@ class ReportController extends \BaseController {
 		$sex = array(UnhlsPatient::MALE, UnhlsPatient::FEMALE);
 		$ranges = array('Low', 'Normal', 'High');
 		$specimen_types = array('Urine', 'Pus', 'HVS', 'Throat', 'Stool', 'Blood', 'CSF', 'Water', 'Food', 'Other fluids');
-		$isolates = array('Naisseria', 'Klebsiella', 'Staphylococci', 'Streptoccoci'. 'Proteus', 'Shigella', 'Salmonella', 'V. cholera', 
-						  'E. coli', 'C. neoformans', 'Cardinella vaginalis', 'Haemophilus', 'Bordotella pertusis', 'Pseudomonas', 
-						  'Coliforms', 'Faecal coliforms', 'Enterococcus faecalis', 'Total viable counts-22C', 'Total viable counts-37C', 
+		$isolates = array('Naisseria', 'Klebsiella', 'Staphylococci', 'Streptoccoci'. 'Proteus', 'Shigella', 'Salmonella', 'V. cholera',
+						  'E. coli', 'C. neoformans', 'Cardinella vaginalis', 'Haemophilus', 'Bordotella pertusis', 'Pseudomonas',
+						  'Coliforms', 'Faecal coliforms', 'Enterococcus faecalis', 'Total viable counts-22C', 'Total viable counts-37C',
 						  'Clostridium', 'Others');
 
 		//	Get specimen_types for microbiology
@@ -1287,9 +1287,9 @@ class ReportController extends \BaseController {
 						$table.='<td>'.($this->getGroupedTestCounts($urinalysis, null, null, $from, $toPlusOne)+$this->getGroupedTestCounts($urineChemistry, null, null, $from, $toPlusOne)).'</td>';
 						foreach ($ageRanges as $ageRange) {
 							$table.='<td>'.($this->getGroupedTestCounts($urinalysis, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne)+$this->getGroupedTestCounts($urineChemistry, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne)).'</td>';
-						}	
+						}
 					$table.='</tr>';
-				
+
 				foreach ($measures as $measure) {
 					$tMeasure = Measure::find($measure->measure_id);
 					if(in_array($tMeasure->name, ['ph', 'Epithelial cells', 'Pus cells', 'S. haematobium', 'T. vaginalis', 'Yeast cells', 'Red blood cells', 'Bacteria', 'Spermatozoa'])){continue;}
@@ -1345,9 +1345,9 @@ class ReportController extends \BaseController {
 						$table.='<td>'.($this->getGroupedTestCounts($urinalysis, null, null, $from, $toPlusOne)+$this->getGroupedTestCounts($urineMicroscopy, null, null, $from, $toPlusOne)).'</td>';
 						foreach ($ageRanges as $ageRange) {
 							$table.='<td>'.($this->getGroupedTestCounts($urinalysis, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne)+$this->getGroupedTestCounts($urineMicroscopy, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne)).'</td>';
-						}	
+						}
 					$table.='</tr>';
-				
+
 				foreach ($measures as $measure) {
 					$tMeasure = Measure::find($measure->measure_id);
 					if(in_array($tMeasure->name, ['Leucocytes', 'Nitrites', 'Glucose', 'pH', 'Bilirubin', 'Ketones', 'Proteins', 'Blood', 'Urobilinogen Phenlpyruvic acid'])){continue;}
@@ -1403,7 +1403,7 @@ class ReportController extends \BaseController {
 						$table.='<td>'.$this->getGroupedTestCounts($bloodChemistry, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne).'</td>';
 					}
 					foreach ($measures as $measure) {
-						$tMeasure = Measure::find($measure->measure_id);	
+						$tMeasure = Measure::find($measure->measure_id);
 						$table.='<tr>
 								<td>'.$tMeasure->name.'</td>';
 							foreach ($sex as $gender) {
@@ -1454,7 +1454,7 @@ class ReportController extends \BaseController {
 					$table.='<td>'.$this->getGroupedTestCounts($rft, null, null, $from, $toPlusOne).'</td>';
 					foreach ($ageRanges as $ageRange) {
 						$table.='<td>'.$this->getGroupedTestCounts($rft, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne).'</td>';
-					}	
+					}
 				$table.='</tr>';
 				foreach ($measures as $measure) {
 					$name = Measure::find($measure->measure_id)->name;
@@ -1503,7 +1503,7 @@ class ReportController extends \BaseController {
 						$table.='<td>'.$this->getGroupedTestCounts($lft, null, null, $from, $toPlusOne).'</td>';
 						foreach ($ageRanges as $ageRange) {
 							$table.='<td>'.$this->getGroupedTestCounts($lft, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne).'</td>';
-						}	
+						}
 					$table.='</tr>';
 				foreach ($measures as $measure) {
 					$name = Measure::find($measure->measure_id)->name;
@@ -1655,7 +1655,7 @@ class ReportController extends \BaseController {
 					$table.='<td>'.$this->getGroupedTestCounts($bioCsf, null, null, $from, $toPlusOne).'</td>';
 					foreach ($ageRanges as $ageRange) {
 						$table.='<td>'.$this->getGroupedTestCounts($bioCsf, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne).'</td>';
-					}	
+					}
 				$table.='</tr>';
 				$measures = TestTypeMeasure::where('test_type_id', $csf)->orderBy('measure_id', 'DESC')->get();
 				foreach ($measures as $measure) {
@@ -1763,7 +1763,7 @@ class ReportController extends \BaseController {
 					$table.='<td>'.$this->getGroupedTestCounts($tft, null, null, $from, $toPlusOne).'</td>';
 					foreach ($ageRanges as $ageRange) {
 						$table.='<td>'.$this->getGroupedTestCounts($tft, [UnhlsPatient::MALE, UnhlsPatient::FEMALE], $ageRange, $from, $toPlusOne).'</td>';
-					}	
+					}
 				$table.='</tr>';
 				$measures = TestTypeMeasure::where('test_type_id', $tfts)->orderBy('measure_id', 'ASC')->get();
 				foreach ($measures as $measure) {
@@ -1986,7 +1986,7 @@ class ReportController extends \BaseController {
 															 " where specimens.specimen_type_id=?".
 															 " and test_types.test_category_id=?".
 															 " and test_status_id in(?,?)".
-															 " and unhls_tests.time_created BETWEEN ? and ?;"), 
+															 " and unhls_tests.time_created BETWEEN ? and ?;"),
 															[$key->spec_id, $labSecId, UnhlsTest::COMPLETED, UnhlsTest::VERIFIED, $from, $toPlusOne]);
 							$table.='<tr>
 									<td>'.SpecimenType::find($key->spec_id)->name.'</td>
@@ -2105,7 +2105,7 @@ class ReportController extends \BaseController {
 						<tr><td></td>';
 					foreach ($specimen_types as $spec) {
 						$table.='<td>'.$spec.'</td>';
-					}	
+					}
 					$table.='</tr>';
 					foreach ($isolates as $isolate) {
 						$table.='<tr>
@@ -3022,7 +3022,7 @@ class ReportController extends \BaseController {
 			if (Input::get('new-diseases')) {
 				// create an array that form the rules array
 				foreach ($newDiseases as $key => $value) {
-					
+
 					//Ensure no duplicate disease
 					$rules['new-diseases.'.$key.'.disease'] = 'unique:diseases,name';
 				}
@@ -3035,7 +3035,7 @@ class ReportController extends \BaseController {
 			} else {
 
 				$allDiseaseIds = array();
-				
+
 				//edit or leave disease entries as is
 				if (Input::get('diseases')) {
 					$diseases = Input::get('diseases');
@@ -3047,7 +3047,7 @@ class ReportController extends \BaseController {
 						$diseases->save();
 					}
 				}
-				
+
 				//save new disease entries
 				if (Input::get('new-diseases')) {
 					$diseases = Input::get('new-diseases');
@@ -3096,7 +3096,7 @@ class ReportController extends \BaseController {
 	}
 
 	public function stockLevel(){
-		
+
 		//	Fetch form filters
 		$date = date('Y-m-d');
 		$from = Input::get('start');
@@ -3104,16 +3104,16 @@ class ReportController extends \BaseController {
 
 		$to = Input::get('end');
 		if(!$to) $to = $date;
-		
-		$reportTypes = array('Monthly', 'Quarterly');
-		
 
-		$selectedReport = Input::get('report_type');	
+		$reportTypes = array('Monthly', 'Quarterly');
+
+
+		$selectedReport = Input::get('report_type');
 		if(!$selectedReport)$selectedReport = 0;
 
 		switch ($selectedReport) {
 			case '0':
-			
+
 				$reportData = Receipt::getIssuedCommodities($from, $to.' 23:59:59');
 				$reportTitle = Lang::choice('messages.monthly-stock-level-report-title',1);
 				break;
@@ -3129,7 +3129,7 @@ class ReportController extends \BaseController {
 
 		$reportTitle = str_replace("[FROM]", $from, $reportTitle);
 		$reportTitle = str_replace("[TO]", $to, $reportTitle);
-		
+
 		return View::make('reports.inventory.index')
 					->with('reportTypes', $reportTypes)
 					->with('reportData', $reportData)
@@ -3143,7 +3143,7 @@ class ReportController extends \BaseController {
 	*
 	* @param control_measure_id
 	* @return json string
-	* 
+	*
 	*/
 	public function leveyJennings($control, $dates)
 	{
@@ -3165,7 +3165,7 @@ class ReportController extends \BaseController {
 				continue;
 			}
 
-			//Convert string results to float 
+			//Convert string results to float
 			foreach ($results as &$result) {
 				$result = (double) $result;
 			}

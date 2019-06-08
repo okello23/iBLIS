@@ -40,13 +40,17 @@ class EquipmentInventoryController extends \BaseController {
 		$warranty_list = array('0' => '6 months','1' => '1 year', '2' => '2 years', '3' => '3 years', '4' => '4 years', '5' => '5 years');	
 
 		$supplier_list = UNHLSEquipmentSupplier::get(['name','id'])->lists('name','id');
-
+		$lookup_name = new Lookup();
+		$lookup_name->name = 'EQUIPMENT_TYPES';
+		$equipment_types = $lookup_name->getOptionValuesAndDescription();
+		
 		return View::make('equipment.inventory.create')
 					->with('service_frequency_list',$service_frequency_list)
 					->with('yes_no_list',$yes_no_list)
 					->with('procurement_type_list',$procurement_type_list)
 					->with('location_list',$location_list)
 					->with('warranty_list',$warranty_list)
+					->with('equipment_types',$equipment_types)
 					->with('supplier_list',$supplier_list);
 
 	}
@@ -92,6 +96,8 @@ class EquipmentInventoryController extends \BaseController {
         	$item->facility_id = \Config::get('constants.FACILITY_ID');        
         	$item->year_id = \Config::get('constants.FIN_YEAR_ID');  
 
+			$item->name = Input::get('equipment_name');
+			$item->model = Input::get('model');
 			$item->name = Input::get('equipment_name');
 			$item->model = Input::get('model');
 			$item->serial_number = Input::get('serial_number');

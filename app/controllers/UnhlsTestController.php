@@ -840,7 +840,13 @@ class UnhlsTestController extends \BaseController {
 		$test->test_status_id = UnhlsTest::COMPLETED;
 		$test->tested_by = Auth::user()->id;
 		$test->time_completed = date('Y-m-d H:i:s');
-
+		$test_device = Input::get('testing_device_name');
+		$test_device = Input::get('testing_device');
+		$test_device_id = Input::get('testing_device');
+		if($test_device_id != '' && $test_device_id != 1000){
+			$equipment = UNHLSEquipmentInventory::find($test_device_id);
+			$test_device = $equipment->name;
+		}
 		if ($test->testType->name == 'Gram Staining') {
 			$results = '';
 			foreach ($test->gramStainResults as $gramStainResult) {
@@ -1050,5 +1056,87 @@ class UnhlsTestController extends \BaseController {
 		// redirect
 		return Redirect::route('visit.show', [$test->visit_id])
 			->with('message', 'Test Successfully Deleted!');
+	}
+=
+
+
+	/**
+	 * Import POC samples
+	 *@param
+	 * @return Response
+	 */
+	public function importPoc()
+	{
+
+		// Load the view and pass it the tests
+		return View::make('unhls_test.importPoCResults')
+					->with('message', false)
+					->with('failed_import', false);
+
+	}
+
+	public function uploadPoCResults()
+	{
+
+        if(Input::hasFile('file')){
+
+            $path = Input::file('file')->getRealPath();
+
+            $data = Excel::load($path, function($reader) {
+
+            })->get();
+
+            //print_r( $data->first() );
+
+            $failed_import = array();
+
+            if(!empty($data) && $data->count()){
+                foreach ($data as $key => $value) {
+
+			        //check for sample id in tests
+					$patient = DB::table('poc_tables')->where('sample_id','=',$value->sample_id)->select('id', 'sample_id')->first();
+
+					if(count($patient)>0)
+					{
+								//avoid duplicate sample id insert
+								$result_exists = POCResult::where('patient_id','=',trim($patient->id))->get();
+
+								if($result_exists->count()==0)
+								{
+
+										$result = new POCResult;
+
+										$result->patient_id = $patient->id;
+										$result->test_date = isset($value->test_date)?$value->test_date:date('Y-m-d H:i:s');
+										if(isset($value->result)){
+											$valid_result = $value->result=='Positive'||$value->result=='Negative';
+											$result->results = $valid_result?$value->result:'Error';
+										}else{
+											$result->results = trim(strtolower($value->hiv_1_mn))=="detected"?"Positive":"Negative";
+										}
+
+										$result->save();
+								}
+
+					}
+					else
+					{
+						array_push($failed_import, trim($value->sample_id));
+
+	            		//dd(trim($value->sample_id));
+					}
+
+                }
+            		//dd($failed_import);
+				// redirect
+				//return Redirect::to('unhls_test/importPoc')
+				return View::make('unhls_test.importPoCResults')
+							->with('message', 'Import completed successfully')
+							->with('failed_import', $failed_import);
+            }
+
+
+        }
+
 	}
 }

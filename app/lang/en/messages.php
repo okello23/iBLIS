@@ -329,6 +329,7 @@ return array(
     'first-select-patient' => 'First select a patient below',
     'in-patient' => 'In Patient',
     'refferrals' => 'Refferral',
+    'measure-flags' => 'Flags',
     'interpretation' => 'Interpretation',
     'lab-receipt-date' => 'Receipt Date',
     'list-tests' => 'Test Requests',
