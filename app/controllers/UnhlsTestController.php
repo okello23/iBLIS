@@ -1057,8 +1057,6 @@ class UnhlsTestController extends \BaseController {
 		return Redirect::route('visit.show', [$test->visit_id])
 			->with('message', 'Test Successfully Deleted!');
 	}
-=
-
 
 	/**
 	 * Import POC samples
