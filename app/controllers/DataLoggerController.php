@@ -32,9 +32,9 @@ class DataLoggerController extends \BaseController {
 
 		for($i=0; $i<sizeof($results); $i++){
 
-			$d =  DataLogger::InsertOnDuplicate([
+			$d =  DataLogger::firstOrNew([
 				'id' => $results[$i]['Id'],'dataAdded' => $results[$i]['DateAdded'],'DeviceSerialNumber' => $results[$i]['DeviceSerialNumber'],'DeviceType' => $results[$i]['DeviceSerialNumber'],'DeviceTypeString' => $results[$i]['DeviceTypeString'],'Operator' => $results[$i]['Operator'],'SiteName' => $results[$i]['SiteName'],'TestId' => $results[$i]['TestId'],'Sample' => $results[$i]['Sample'],'IsEidSample' => $results[$i]['IsEidSample'],'ResultValue' => $results[$i]['ResultValue'],'SpecimenSource' => $results[$i]['SpecimenSource'],'ResultDate' => $results[$i]['ResultDate'],'ErrorValue' => $results[$i]['ErrorValue'],'SoftwareVersion' => $results[$i]['SoftwareVersion'],'Disease' => $results[$i]['Disease'],'CatridgeType' => $results[$i]['CartridgeType'],'CatridgeId' => $results[$i]['CartridgeId'],'CatridgeLot' => $results[$i]['CartridgeLot'],'CatridgeExpiryDate' => $results[$i]['CartridgeExpiryDate'],'ResultType' => $results[$i]['ResultType'],'HasErrors' => $results[$i]['HasErrors'],'IsSuppressed' => $results[$i]['IsSuppressed'],'Qc' => $results[$i]['Qc'],'DateApproved' => $results[$i]['DateApproved'],'ApprovedBy' => $results[$i]['ApprovedBy'],'ResultStatus' => $results[$i]['ResultStatus'],'ResultStatusString' => $results[$i]['ResultStatusString'],'CatridgeLotNumberAndId' => $results[$i]['CartridgeLotNumberAndId'],'ResultDateString' => $results[$i]['ResultDateString'],'DateAddedString' => $results[$i]['DateAddedString'],'CatridgeTypeString' => $results[$i]['CartridgeTypeString'],'SpecimenSourceString' => $results[$i]['SpecimenSourceString'],'DiseaseString' => $results[$i]['DiseaseString'],'CatridgeExpiryDateString' => $results[$i]['CartridgeExpiryDateString'],'ResultTypeString' => $results[$i]['ResultTypeString']]);
-				$d->save();
+	$d->save();
 			}
 
 			$logger = DataLogger::orderBy('dataAdded', 'DESC')->get();

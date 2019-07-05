@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
 --
--- Host: localhost    Database: iblis
+-- Host: localhost    Database: blis1
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.26-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -164,43 +164,37 @@ CREATE TABLE `barcode_settings` (
 
 LOCK TABLES `barcode_settings` WRITE;
 /*!40000 ALTER TABLE `barcode_settings` DISABLE KEYS */;
-INSERT INTO `barcode_settings` VALUES (1,'code39','2','30','11',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14');
+INSERT INTO `barcode_settings` VALUES (1,'code39','2','30','11',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32');
 /*!40000 ALTER TABLE `barcode_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `commodities`
+-- Table structure for table `clinicians`
 --
 
-DROP TABLE IF EXISTS `commodities`;
+DROP TABLE IF EXISTS `clinicians`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `commodities` (
+CREATE TABLE `clinicians` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `metric_id` int(10) unsigned NOT NULL,
-  `unit_price` decimal(8,2) NOT NULL,
-  `item_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `storage_req` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `min_level` int(11) NOT NULL,
-  `max_level` int(11) NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cadre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  KEY `commodities_metric_id_foreign` (`metric_id`),
-  CONSTRAINT `commodities_metric_id_foreign` FOREIGN KEY (`metric_id`) REFERENCES `metrics` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `commodities`
+-- Dumping data for table `clinicians`
 --
 
-LOCK TABLES `commodities` WRITE;
-/*!40000 ALTER TABLE `commodities` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commodities` ENABLE KEYS */;
+LOCK TABLES `clinicians` WRITE;
+/*!40000 ALTER TABLE `clinicians` DISABLE KEYS */;
+INSERT INTO `clinicians` VALUES (1,'ben','doc','078562623','benbyron23@yahoo.com','2019-05-31 09:08:19','2019-05-31 09:08:19');
+/*!40000 ALTER TABLE `clinicians` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -841,6 +835,67 @@ LOCK TABLES `daily_turn_around_time` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `datalogger`
+--
+
+DROP TABLE IF EXISTS `datalogger`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `datalogger` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `DataAdded` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `DeviceSerialNumber` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `DeviceType` int(11) NOT NULL,
+  `DeviceTypeString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Operator` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `SiteName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `TestId` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Sample` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `IsEidSample` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ResultValue` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `SpecimenSource` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ResultDate` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ErrorValue` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `SoftwareVersion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Disease` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `CatridgeType` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `CatridgeId` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CatridgeLot` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CatridgeExpiryDate` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ResultType` int(11) NOT NULL,
+  `HasErrors` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `IsSuppressed` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Qc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DateApproved` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ApprovedBy` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ResultStatus` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ResultStatusString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `CatridgeLotNumberAndId` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ResultDateString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `DateAddedString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `CatridgeTypeString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `SpecimenSourceString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `DiseaseString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `CatridgeExpiryDateString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ResultTypeString` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` date DEFAULT NULL,
+  `dataId` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `datalogger`
+--
+
+LOCK TABLES `datalogger` WRITE;
+/*!40000 ALTER TABLE `datalogger` DISABLE KEYS */;
+/*!40000 ALTER TABLE `datalogger` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `diseases`
 --
 
@@ -1076,6 +1131,12 @@ DROP TABLE IF EXISTS `facilities`;
 CREATE TABLE `facilities` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `facility_contact` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facility_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `active` int(11) NOT NULL,
+  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dhis2_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dhis2_uid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
@@ -1217,6 +1278,31 @@ LOCK TABLES `gram_stain_results` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `hubs`
+--
+
+DROP TABLE IF EXISTS `hubs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hubs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hubs`
+--
+
+LOCK TABLES `hubs` WRITE;
+/*!40000 ALTER TABLE `hubs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `hubs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `ii_quickcodes`
 --
 
@@ -1287,7 +1373,7 @@ CREATE TABLE `instruments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1296,7 +1382,7 @@ CREATE TABLE `instruments` (
 
 LOCK TABLES `instruments` WRITE;
 /*!40000 ALTER TABLE `instruments` DISABLE KEYS */;
-INSERT INTO `instruments` VALUES (1,'Celltac F Mek 8222','192.168.1.12','HEMASERVER','Automatic analyzer with 22 parameters and WBC 5 part diff Hematology Analyzer','KBLIS\\Plugins\\CelltacFMachine','2018-03-17 18:35:15','2018-03-17 18:35:15'),(2,'GeneXpert',NULL,NULL,'',NULL,'2018-03-19 15:43:34','2018-03-19 15:43:34');
+INSERT INTO `instruments` VALUES (1,'Celltac F Mek 8222','192.168.1.12','HEMASERVER','Automatic analyzer with 22 parameters and WBC 5 part diff Hematology Analyzer','KBLIS\\Plugins\\CelltacFMachine','2019-05-30 11:56:33','2019-05-30 11:56:33');
 /*!40000 ALTER TABLE `instruments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1334,6 +1420,128 @@ LOCK TABLES `interfaced_equipment` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `inv_items`
+--
+
+DROP TABLE IF EXISTS `inv_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inv_items` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `unit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `min_level` decimal(8,2) NOT NULL,
+  `max_level` decimal(8,2) DEFAULT NULL,
+  `storage_req` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `remarks` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `inv_items_name_unique` (`name`),
+  KEY `inv_items_user_id_foreign` (`user_id`),
+  CONSTRAINT `inv_items_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inv_items`
+--
+
+LOCK TABLES `inv_items` WRITE;
+/*!40000 ALTER TABLE `inv_items` DISABLE KEYS */;
+INSERT INTO `inv_items` VALUES (1,'Ethanol','litre',3.00,6.00,'none','lol',1,NULL,'2019-05-30 11:57:57','2019-05-30 11:57:57');
+/*!40000 ALTER TABLE `inv_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `inv_supply`
+--
+
+DROP TABLE IF EXISTS `inv_supply`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inv_supply` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `item_id` int(10) unsigned NOT NULL,
+  `lot` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `batch_no` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `expiry_date` datetime NOT NULL,
+  `manufacturer` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `supplier_id` int(10) unsigned NOT NULL,
+  `quantity_ordered` int(11) NOT NULL DEFAULT '0',
+  `quantity_supplied` int(11) NOT NULL DEFAULT '0',
+  `cost_per_unit` decimal(5,2) DEFAULT NULL,
+  `date_of_order` date DEFAULT NULL,
+  `date_of_supply` date DEFAULT NULL,
+  `date_of_reception` date NOT NULL,
+  `remarks` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `inv_supply_user_id_foreign` (`user_id`),
+  KEY `inv_supply_item_id_foreign` (`item_id`),
+  KEY `inv_supply_supplier_id_foreign` (`supplier_id`),
+  CONSTRAINT `inv_supply_item_id_foreign` FOREIGN KEY (`item_id`) REFERENCES `inv_items` (`id`),
+  CONSTRAINT `inv_supply_supplier_id_foreign` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`),
+  CONSTRAINT `inv_supply_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inv_supply`
+--
+
+LOCK TABLES `inv_supply` WRITE;
+/*!40000 ALTER TABLE `inv_supply` DISABLE KEYS */;
+INSERT INTO `inv_supply` VALUES (1,1,'koasd','901','2019-06-30 00:00:00','Jingo',1,0,10,90.00,NULL,NULL,'2019-05-30','',1,NULL,'2019-05-30 12:11:51','2019-05-30 12:11:51'),(2,1,'Rajab','masn','2019-08-31 00:00:00','Dell',1,0,100,90.00,NULL,NULL,'2019-05-30','nasd',1,NULL,'2019-05-30 12:45:15','2019-05-30 12:45:15');
+/*!40000 ALTER TABLE `inv_supply` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `inv_usage`
+--
+
+DROP TABLE IF EXISTS `inv_usage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inv_usage` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `stock_id` int(10) unsigned NOT NULL,
+  `request_id` int(10) unsigned NOT NULL,
+  `quantity_used` int(11) NOT NULL DEFAULT '0',
+  `date_of_usage` date NOT NULL,
+  `issued_by` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `received_by` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remarks` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `inv_usage_user_id_foreign` (`user_id`),
+  KEY `inv_usage_stock_id_foreign` (`stock_id`),
+  KEY `inv_usage_request_id_foreign` (`request_id`),
+  CONSTRAINT `inv_usage_request_id_foreign` FOREIGN KEY (`request_id`) REFERENCES `requests` (`id`),
+  CONSTRAINT `inv_usage_stock_id_foreign` FOREIGN KEY (`stock_id`) REFERENCES `inv_supply` (`id`),
+  CONSTRAINT `inv_usage_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inv_usage`
+--
+
+LOCK TABLES `inv_usage` WRITE;
+/*!40000 ALTER TABLE `inv_usage` DISABLE KEYS */;
+INSERT INTO `inv_usage` VALUES (1,1,1,10,'2019-05-30','okello','benson','',1,NULL,'2019-05-30 12:30:04','2019-05-30 12:30:04'),(2,2,2,30,'2019-05-30','Kizito','Rajab','issued 30',1,NULL,'2019-05-30 12:47:30','2019-05-30 12:47:30'),(3,2,2,10,'2019-05-30','miiro','james','',1,NULL,'2019-05-30 14:25:50','2019-05-30 14:25:50');
+/*!40000 ALTER TABLE `inv_usage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `isolated_organisms`
 --
 
@@ -1364,45 +1572,6 @@ CREATE TABLE `isolated_organisms` (
 LOCK TABLES `isolated_organisms` WRITE;
 /*!40000 ALTER TABLE `isolated_organisms` DISABLE KEYS */;
 /*!40000 ALTER TABLE `isolated_organisms` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `issues`
---
-
-DROP TABLE IF EXISTS `issues`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `issues` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `receipt_id` int(10) unsigned NOT NULL,
-  `topup_request_id` int(10) unsigned NOT NULL,
-  `quantity_issued` int(11) NOT NULL,
-  `issued_to` int(10) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `remarks` varchar(400) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  KEY `issues_topup_request_id_foreign` (`topup_request_id`),
-  KEY `issues_receipt_id_foreign` (`receipt_id`),
-  KEY `issues_issued_to_foreign` (`issued_to`),
-  KEY `issues_user_id_foreign` (`user_id`),
-  CONSTRAINT `issues_issued_to_foreign` FOREIGN KEY (`issued_to`) REFERENCES `users` (`id`),
-  CONSTRAINT `issues_receipt_id_foreign` FOREIGN KEY (`receipt_id`) REFERENCES `receipts` (`id`),
-  CONSTRAINT `issues_topup_request_id_foreign` FOREIGN KEY (`topup_request_id`) REFERENCES `topup_requests` (`id`),
-  CONSTRAINT `issues_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `issues`
---
-
-LOCK TABLES `issues` WRITE;
-/*!40000 ALTER TABLE `issues` DISABLE KEYS */;
-/*!40000 ALTER TABLE `issues` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1525,7 +1694,7 @@ CREATE TABLE `measure_types` (
 
 LOCK TABLES `measure_types` WRITE;
 /*!40000 ALTER TABLE `measure_types` DISABLE KEYS */;
-INSERT INTO `measure_types` VALUES (1,'Numeric Range',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(2,'Alphanumeric Values',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(3,'Autocomplete',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(4,'Free Text',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14');
+INSERT INTO `measure_types` VALUES (1,'Numeric Range',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(2,'Alphanumeric Values',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(3,'Autocomplete',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(4,'Free Text',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32');
 /*!40000 ALTER TABLE `measure_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1557,35 +1726,8 @@ CREATE TABLE `measures` (
 
 LOCK TABLES `measures` WRITE;
 /*!40000 ALTER TABLE `measures` DISABLE KEYS */;
-INSERT INTO `measures` VALUES (1,2,'Screening','',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14',NULL),(2,2,'Confirmatory Test (Statpak)','',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14',NULL),(3,2,'Unigold','',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14',NULL),(4,2,'BS for mps','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(5,4,'GXM','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(6,2,'Blood Grouping','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(7,1,'HB','g/dL',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(8,4,'Pus cells','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(9,4,'S. haematobium','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(10,4,'T. vaginalis','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(11,4,'Yeast cells','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(12,4,'Red blood cells','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(13,4,'Bacteria','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(14,4,'Spermatozoa','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(15,4,'Epithelial cells','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(16,4,'Glucose','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(17,4,'Ketones','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(18,4,'Proteins','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(19,4,'Blood','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(20,4,'Bilirubin','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(21,4,'Urobilinogen Phenlpyruvic acid','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(22,4,'pH','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(23,1,'WBC','x10³/µL',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(24,1,'Lym','L',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(25,1,'Mon','*',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(26,1,'Neu','*',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(27,1,'Eos','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(28,1,'Baso','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(29,2,'Salmonella Antigen Test','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(30,2,'Direct COOMBS Test','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(31,2,'Du Test','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(32,2,'Sickling Test','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(33,2,'Borrelia','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(34,2,'VDRL','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(35,2,'Pregnancy Test','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(36,2,'Brucella','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(37,2,'H. Pylori','',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(38,1,'WBC','x10³/µL',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(39,1,'RBC','x10⁶/µL',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(40,1,'HGB','g/dL',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(41,1,'HCT','%',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(42,1,'MCV','fL',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(43,1,'MCH','pg',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(44,1,'MCHC','g/dL',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(45,1,'PLT','x10³/µL',NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15',NULL),(46,1,'RDW-SD','fL',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(47,1,'RDW-CV','%',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(48,1,'PDW','fL',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(49,1,'MPV','fL',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(50,1,'P-LCR','%',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(51,1,'PCT','%',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(52,1,'NEUT#','x10³/µL',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(53,1,'LYMPH#','x10³/µL',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(54,1,'MONO#','x10³/µL',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(55,1,'EO#','x10³/µL',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(56,1,'BASO#','x10³/µL',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(57,1,'NEUT%','%',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(58,1,'LYMPH%','%',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(59,1,'MONO%','%',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(60,1,'EO%','%',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(61,1,'BASO%','%',NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16',NULL),(62,2,'Crag','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(63,4,'Differential','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(64,4,'Total Cell Count','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(65,4,'Lymphocytes','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(66,4,'Quantitative Culture','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(67,4,'RBC Count','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(68,4,'TPHA','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(69,4,'HCG','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(70,4,'Bilirubin','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(71,4,'Blood','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(72,4,'Glucose','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(73,4,'Ketones','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(74,4,'Leukocytes','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(75,4,'Microscopy','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(76,4,'Nitrite','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(77,4,'pH','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(78,4,'Protein','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(79,4,'Specific Gravity','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(80,4,'Urobilinogen','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(81,4,'Appearance','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(82,4,'Culture and Sensitivity',NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(83,4,'Gram Staining','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(84,2,'India Ink Staining',NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(85,4,'Protein',NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(86,4,'Wet preparation (saline preparation)',NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(87,4,'White Blood Cell Count',NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(88,4,'ZN Staining',NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(89,4,'Modified ZN','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(90,4,'Wet Saline Iodine Prep','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(91,2,'SERUM AMYLASE','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(92,2,'calcium','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(93,2,'SGOT','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(94,2,'Indirect COOMBS test','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(95,2,'Direct COOMBS test','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(96,2,'Du test','',NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17',NULL),(97,4,'RPR','',NULL,'2018-03-17 18:35:18','2018-03-17 18:35:18',NULL),(98,4,'Serum Crag','',NULL,'2018-03-17 18:35:18','2018-03-17 18:35:18',NULL);
+INSERT INTO `measures` VALUES (1,2,'Screening','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(2,2,'Confirmatory Test (Statpak)','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(3,2,'Unigold','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(4,2,'BS for mps','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(5,4,'GXM','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(6,2,'Blood Grouping','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(7,1,'HB','g/dL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(8,4,'Pus cells','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(9,4,'S. haematobium','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(10,4,'T. vaginalis','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(11,4,'Yeast cells','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(12,4,'Red blood cells','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(13,4,'Bacteria','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(14,4,'Spermatozoa','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(15,4,'Epithelial cells','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(16,4,'Glucose','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(17,4,'Ketones','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(18,4,'Proteins','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(19,4,'Blood','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(20,4,'Bilirubin','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(21,4,'Urobilinogen Phenlpyruvic acid','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(22,4,'pH','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(23,1,'WBC','x10³/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(24,1,'Lym','L',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(25,1,'Mon','*',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(26,1,'Neu','*',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(27,1,'Eos','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(28,1,'Baso','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(29,2,'Salmonella Antigen Test','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(30,2,'Direct COOMBS Test','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(31,2,'Du Test','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(32,2,'Sickling Test','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(33,2,'Borrelia','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(34,2,'VDRL','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(35,2,'Pregnancy Test','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(36,2,'Brucella','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(37,2,'H. Pylori','',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(38,1,'WBC','x10³/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(39,1,'RBC','x10⁶/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(40,1,'HGB','g/dL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(41,1,'HCT','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(42,1,'MCV','fL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(43,1,'MCH','pg',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(44,1,'MCHC','g/dL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(45,1,'PLT','x10³/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(46,1,'RDW-SD','fL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(47,1,'RDW-CV','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(48,1,'PDW','fL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(49,1,'MPV','fL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(50,1,'P-LCR','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(51,1,'PCT','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(52,1,'NEUT#','x10³/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(53,1,'LYMPH#','x10³/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(54,1,'MONO#','x10³/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(55,1,'EO#','x10³/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(56,1,'BASO#','x10³/µL',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(57,1,'NEUT%','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(58,1,'LYMPH%','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(59,1,'MONO%','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(60,1,'EO%','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(61,1,'BASO%','%',NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33',NULL),(62,2,'Crag','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(63,4,'Differential','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(64,4,'Total Cell Count','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(65,4,'Lymphocytes','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(66,4,'Quantitative Culture','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(67,4,'RBC Count','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(68,4,'TPHA','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(69,4,'HCG','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(70,4,'Bilirubin','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(71,4,'Blood','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(72,4,'Glucose','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(73,4,'Ketones','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(74,4,'Leukocytes','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(75,4,'Microscopy','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(76,4,'Nitrite','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(77,4,'pH','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(78,4,'Protein','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(79,4,'Specific Gravity','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(80,4,'Urobilinogen','',NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34',NULL),(81,4,'Appearance','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(82,4,'Culture and Sensitivity',NULL,NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(83,4,'Gram Staining','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(84,2,'India Ink Staining',NULL,NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(85,4,'Protein',NULL,NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(86,4,'Wet preparation (saline preparation)',NULL,NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(87,4,'White Blood Cell Count',NULL,NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(88,4,'ZN Staining',NULL,NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(89,4,'Modified ZN','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(90,4,'Wet Saline Iodine Prep','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(91,2,'SERUM AMYLASE','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(92,2,'calcium','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(93,2,'SGOT','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(94,2,'Indirect COOMBS test','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(95,2,'Direct COOMBS test','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(96,2,'Du test','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(97,4,'RPR','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL),(98,4,'Serum Crag','',NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35',NULL);
 /*!40000 ALTER TABLE `measures` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `metrics`
---
-
-DROP TABLE IF EXISTS `metrics`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `metrics` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `metrics`
---
-
-LOCK TABLES `metrics` WRITE;
-/*!40000 ALTER TABLE `metrics` DISABLE KEYS */;
-/*!40000 ALTER TABLE `metrics` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1607,7 +1749,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES ('2014_07_24_082711_CreatekBLIStables',1),('2014_09_02_114206_entrust_setup_tables',1),('2014_10_09_162222_externaldumptable',1),('2015_02_04_004704_add_index_to_parentlabno',1),('2015_02_11_112608_remove_unique_constraint_on_patient_number',1),('2015_02_17_104134_qc_tables',1),('2015_02_23_112018_create_microbiology_tables',1),('2015_02_27_084341_createInventoryTables',1),('2015_03_16_155558_create_surveillance',1),('2015_06_24_145526_update_test_types_table',1),('2015_06_24_154426_FreeTestsColumn',1),('2016_03_30_145749_lab_config_settings',1),('2016_07_26_095319_create_unhls_financial_years_table',1),('2016_07_26_095409_create_unhls_drugs_table',1),('2016_08_17_181955_create_rejection_reasons',1),('2016_08_31_135348_create_unhls_stockcard',1),('2016_08_31_135420_create_unhls_stockrequisition',1),('2016_09_28_091952_create_unhls_warehouse',1),('2016_09_28_095327_create_unhls_staff',1),('2016_10_03_220056_create_bbincidences_table',1),('2016_10_03_220511_create_bbactions_table',1),('2016_10_03_220622_create_bbcauses_table',1),('2016_10_03_220702_create_bbnatures_table',1),('2016_10_03_220852_create_bbincidences_action_table',1),('2016_10_03_220959_create_bbincidences_cause_table',1),('2016_10_03_221055_create_bbincidences_nature_table',1),('2016_10_13_170615_create_unhls_equipment_suppliers_table',1),('2016_10_19_115152_create_referral_reasons',1),('2017_01_16_103507_create_equipment_inventory_table',1),('2017_01_16_103533_create_equipment_maintenance_table',1),('2017_01_16_103546_create_equipment_breakdown_table',1),('2017_04_27_134821_create_wards_table',1),('2017_04_27_144035_update_visits_table',1),('2017_04_27_160407_create_therapy_table',1),('2017_05_25_131728_updateUNHLSBreakdown',1),('2017_06_19_094902_update_equipment_inventory_table',1),('2017_06_19_111831_update_equipment_breakdown_table',1),('2017_06_19_115028_update_unhls_stockcard_table',1),('2017_06_20_043838_alter_stockcard_table',1),('2017_06_30_183112_update_microbiology_functionalities',1),('2017_07_05_170430_create_reports_tables',1),('2017_07_27_160147_create_visit_status_table',1),('2017_07_27_160228_add_status_column_to_visit_table',1),('2017_07_28_113854_add_clinical_notes_column_to_table',1),('2017_07_28_120834_add_phone_contact_column_to_table',1),('2017_07_31_020011_create_uuids_table',1),('2017_08_02_192917_alter_specimen_id_nullable_unhls_tests',1),('2017_08_22_080201_create_test_name_mappings_table',1),('2017_10_10_094958_update_hiv_report_table',1),('2017_10_15_122554_adhoc_configs_table',1),('2017_11_07_160414_create_instrument_column_tables',1),('2017_11_15_121513_update_visit_table',1),('2018_01_12_152202_add_column_range_interpretion',1),('2018_03_06_194838_create_poc_tables',1),('2018_03_15_090759_alter_test_results_table',1),('2018_03_16_180358_create_poc_results',1);
+INSERT INTO `migrations` VALUES ('2014_07_24_082711_CreatekBLIStables',1),('2014_09_02_114206_entrust_setup_tables',1),('2014_10_09_162222_externaldumptable',1),('2015_02_04_004704_add_index_to_parentlabno',1),('2015_02_11_112608_remove_unique_constraint_on_patient_number',1),('2015_02_17_104134_qc_tables',1),('2015_02_23_112018_create_microbiology_tables',1),('2015_02_27_084341_createInventoryTables',1),('2015_03_16_155558_create_surveillance',1),('2015_06_24_145526_update_test_types_table',1),('2015_06_24_154426_FreeTestsColumn',1),('2016_03_30_145749_lab_config_settings',1),('2016_04_12_093617_update_inventory_tables',1),('2016_07_26_095319_create_unhls_financial_years_table',1),('2016_07_26_095409_create_unhls_drugs_table',1),('2016_08_17_181955_create_rejection_reasons',1),('2016_09_28_091952_create_unhls_warehouse',2),('2016_09_28_095327_create_unhls_staff',2),('2016_10_03_220056_create_bbincidences_table',2),('2016_10_03_220511_create_bbactions_table',2),('2016_10_03_220622_create_bbcauses_table',2),('2016_10_03_220702_create_bbnatures_table',2),('2016_10_03_220852_create_bbincidences_action_table',2),('2016_10_03_220959_create_bbincidences_cause_table',2),('2016_10_03_221055_create_bbincidences_nature_table',2),('2016_10_13_170615_create_unhls_equipment_suppliers_table',2),('2016_10_19_115152_create_referral_reasons',2),('2017_01_16_103507_create_equipment_inventory_table',2),('2017_01_16_103533_create_equipment_maintenance_table',2),('2017_01_16_103546_create_equipment_breakdown_table',2),('2017_04_27_134821_create_wards_table',2),('2017_04_27_144035_update_visits_table',2),('2017_04_27_160407_create_therapy_table',2),('2017_05_25_131728_updateUNHLSBreakdown',2),('2017_06_19_094902_update_equipment_inventory_table',2),('2017_06_19_111831_update_equipment_breakdown_table',2),('2017_06_19_115028_update_unhls_stockcard_table',2),('2017_06_20_043838_alter_stockcard_table',2),('2017_06_30_183112_update_microbiology_functionalities',2),('2017_07_05_170430_create_reports_tables',2),('2017_07_27_160147_create_visit_status_table',2),('2017_07_27_160228_add_status_column_to_visit_table',2),('2017_07_28_113854_add_clinical_notes_column_to_table',2),('2017_07_28_120834_add_phone_contact_column_to_table',2),('2017_07_31_020011_create_uuids_table',2),('2017_08_02_192917_alter_specimen_id_nullable_unhls_tests',2),('2017_08_22_080201_create_test_name_mappings_table',2),('2017_10_10_094958_update_hiv_report_table',2),('2017_10_15_122554_adhoc_configs_table',2),('2017_11_07_160414_create_instrument_column_tables',2),('2017_11_15_121513_update_visit_table',2),('2018_01_12_152202_add_column_range_interpretion',2),('2018_03_06_194838_create_poc_tables',2),('2018_03_15_090759_alter_test_results_table',2),('2018_03_16_180358_create_poc_results',2),('2018_03_23_061054_alter_poc_results',2),('2018_05_14_172215_create_hubs',2),('2018_08_29_190957_add_unhls_equipment_breakdown_table',2),('2018_12_11_125050_add_unique_key_constraint_to_poc_tables',2),('2019_01_13_121925_add_targetTAT_units_to_test_types',2),('2019_02_24_121910_ward_type',2),('2019_02_24_122140_add_ward_type_column_ward_table',2),('2019_02_24_122237_add_visit_lab_number_column_unhls_visits_table',2),('2019_02_25_120647_create_clinicians_table',2),('2019_05_03_100733_add_therapy',2),('2019_05_21_141726_create_datalogger',2),('2019_06_01_104858_add_nationality_to_unhls_patients_table',3),('2019_06_01_131758_add_columns_to_facilities_table',3),('2019_06_07_071010_add_columns_to_unhls_visits_table',3);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1693,7 +1835,7 @@ CREATE TABLE `permissions` (
 
 LOCK TABLES `permissions` WRITE;
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
-INSERT INTO `permissions` VALUES (1,'manage_incidents','Can Manage Biorisk & Biosecurity Incidents','2018-03-17 18:35:14','2018-03-17 18:35:14'),(2,'register_incident','Can Register BB Incidences','2018-03-17 18:35:14','2018-03-17 18:35:14'),(3,'summary_log','Can view BB summary log','2018-03-17 18:35:14','2018-03-17 18:35:14'),(4,'facility_report','Can create faility BB report','2018-03-17 18:35:14','2018-03-17 18:35:14'),(5,'view_names','Can view patient names','2018-03-17 18:35:14','2018-03-17 18:35:14'),(6,'manage_patients','Can add patients','2018-03-17 18:35:14','2018-03-17 18:35:14'),(7,'receive_external_test','Can receive test requests','2018-03-17 18:35:14','2018-03-17 18:35:14'),(8,'request_test','Can request new test','2018-03-17 18:35:14','2018-03-17 18:35:14'),(9,'accept_test_specimen','Can accept test specimen','2018-03-17 18:35:14','2018-03-17 18:35:14'),(10,'reject_test_specimen','Can reject test specimen','2018-03-17 18:35:14','2018-03-17 18:35:14'),(11,'change_test_specimen','Can change test specimen','2018-03-17 18:35:14','2018-03-17 18:35:14'),(12,'start_test','Can start tests','2018-03-17 18:35:14','2018-03-17 18:35:14'),(13,'enter_test_results','Can enter tests results','2018-03-17 18:35:14','2018-03-17 18:35:14'),(14,'edit_test_results','Can edit test results','2018-03-17 18:35:14','2018-03-17 18:35:14'),(15,'verify_test_results','Can verify test results','2018-03-17 18:35:14','2018-03-17 18:35:14'),(16,'send_results_to_external_system','Can send test results to external systems','2018-03-17 18:35:14','2018-03-17 18:35:14'),(17,'refer_specimens','Can refer specimens','2018-03-17 18:35:14','2018-03-17 18:35:14'),(18,'manage_users','Can manage users','2018-03-17 18:35:14','2018-03-17 18:35:14'),(19,'manage_test_catalog','Can manage test catalog','2018-03-17 18:35:14','2018-03-17 18:35:14'),(20,'manage_lab_configurations','Can manage lab configurations','2018-03-17 18:35:14','2018-03-17 18:35:14'),(21,'view_reports','Can view reports','2018-03-17 18:35:14','2018-03-17 18:35:14'),(22,'manage_inventory','Can manage inventory','2018-03-17 18:35:14','2018-03-17 18:35:14'),(23,'request_topup','Can request top-up','2018-03-17 18:35:14','2018-03-17 18:35:14'),(24,'manage_qc','Can manage Quality Control','2018-03-17 18:35:14','2018-03-17 18:35:14'),(25,'manage_appointments','Can manage appointments with Clinician','2018-03-17 18:35:21','2018-03-17 18:35:21'),(26,'make_labrequests','Can make lab requests(Only for Clinicians)','2018-03-17 18:35:21','2018-03-17 18:35:21'),(27,'manage_visits','Can manage visit content','2018-03-17 18:35:21','2018-03-17 18:35:21');
+INSERT INTO `permissions` VALUES (1,'manage_incidents','Can Manage Biorisk & Biosecurity Incidents','2019-05-30 11:56:32','2019-05-30 11:56:32'),(2,'register_incident','Can Register BB Incidences','2019-05-30 11:56:32','2019-05-30 11:56:32'),(3,'summary_log','Can view BB summary log','2019-05-30 11:56:32','2019-05-30 11:56:32'),(4,'facility_report','Can create faility BB report','2019-05-30 11:56:32','2019-05-30 11:56:32'),(5,'view_names','Can view patient names','2019-05-30 11:56:32','2019-05-30 11:56:32'),(6,'manage_patients','Can add patients','2019-05-30 11:56:32','2019-05-30 11:56:32'),(7,'receive_external_test','Can receive test requests','2019-05-30 11:56:32','2019-05-30 11:56:32'),(8,'request_test','Can request new test','2019-05-30 11:56:32','2019-05-30 11:56:32'),(9,'accept_test_specimen','Can accept test specimen','2019-05-30 11:56:32','2019-05-30 11:56:32'),(10,'reject_test_specimen','Can reject test specimen','2019-05-30 11:56:32','2019-05-30 11:56:32'),(11,'change_test_specimen','Can change test specimen','2019-05-30 11:56:32','2019-05-30 11:56:32'),(12,'start_test','Can start tests','2019-05-30 11:56:32','2019-05-30 11:56:32'),(13,'enter_test_results','Can enter tests results','2019-05-30 11:56:32','2019-05-30 11:56:32'),(14,'edit_test_results','Can edit test results','2019-05-30 11:56:32','2019-05-30 11:56:32'),(15,'verify_test_results','Can verify test results','2019-05-30 11:56:32','2019-05-30 11:56:32'),(16,'send_results_to_external_system','Can send test results to external systems','2019-05-30 11:56:32','2019-05-30 11:56:32'),(17,'refer_specimens','Can refer specimens','2019-05-30 11:56:32','2019-05-30 11:56:32'),(18,'manage_users','Can manage users','2019-05-30 11:56:32','2019-05-30 11:56:32'),(19,'manage_test_catalog','Can manage test catalog','2019-05-30 11:56:32','2019-05-30 11:56:32'),(20,'manage_lab_configurations','Can manage lab configurations','2019-05-30 11:56:32','2019-05-30 11:56:32'),(21,'view_reports','Can view reports','2019-05-30 11:56:32','2019-05-30 11:56:32'),(22,'manage_inventory','Can manage inventory','2019-05-30 11:56:32','2019-05-30 11:56:32'),(23,'request_topup','Can request top-up','2019-05-30 11:56:32','2019-05-30 11:56:32'),(24,'manage_qc','Can manage Quality Control','2019-05-30 11:56:32','2019-05-30 11:56:32'),(25,'manage_appointments','Can manage appointments with Clinician','2019-05-30 11:56:38','2019-05-30 11:56:38'),(26,'make_labrequests','Can make lab requests(Only for Clinicians)','2019-05-30 11:56:38','2019-05-30 11:56:38'),(27,'manage_visits','Can manage visit content','2019-05-30 11:56:38','2019-05-30 11:56:38');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1709,13 +1851,18 @@ CREATE TABLE `poc_results` (
   `patient_id` int(10) unsigned NOT NULL,
   `results` enum('Negative','Positive','Error') COLLATE utf8_unicode_ci NOT NULL,
   `test_date` date NOT NULL,
+  `tested_by` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `dispatched_by` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `dispatched_date` date NOT NULL,
   `test_time` time NOT NULL,
+  `equipment_used` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `error_code` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `poc_results_patient_id_foreign` (`patient_id`),
   CONSTRAINT `poc_results_patient_id_foreign` FOREIGN KEY (`patient_id`) REFERENCES `poc_tables` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1724,7 +1871,6 @@ CREATE TABLE `poc_results` (
 
 LOCK TABLES `poc_results` WRITE;
 /*!40000 ALTER TABLE `poc_results` DISABLE KEYS */;
-INSERT INTO `poc_results` VALUES (1,6,'Negative','0000-00-00','00:00:00','2018-03-19 13:10:56','2018-03-19 13:10:56'),(2,7,'Negative','2018-03-01','00:00:00','2018-03-19 13:34:47','2018-03-19 13:34:47'),(3,8,'Negative','2018-02-27','00:00:00','2018-03-19 13:47:31','2018-03-19 13:47:31'),(4,9,'Negative','2018-02-26','00:00:00','2018-03-19 13:51:13','2018-03-19 13:51:13'),(5,10,'Negative','2018-02-26','00:00:00','2018-03-19 13:58:00','2018-03-19 13:58:00'),(6,12,'Positive','2018-02-23','00:00:00','2018-03-19 14:12:49','2018-03-19 14:12:49'),(7,11,'Negative','2018-02-23','00:00:00','2018-03-19 14:13:54','2018-03-19 14:13:54'),(8,13,'Negative','2018-02-26','00:00:00','2018-03-19 14:16:59','2018-03-19 14:16:59'),(9,14,'Negative','2018-02-26','00:00:00','2018-03-19 14:24:03','2018-03-19 14:24:03');
 /*!40000 ALTER TABLE `poc_results` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1741,7 +1887,8 @@ CREATE TABLE `poc_tables` (
   `district_id` int(11) NOT NULL,
   `gender` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `age` float(8,2) NOT NULL,
-  `exp_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `exp_no` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `provisional_diagnosis` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `caretaker_number` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `entry_point` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `mother_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1758,12 +1905,13 @@ CREATE TABLE `poc_tables` (
   `sample_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `infant_pmtctarv` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `mother_pmtctarv` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `other_entry_point` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deleted_at` date DEFAULT NULL,
-  `provisional_diagnosis` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sample_id` (`sample_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1772,7 +1920,6 @@ CREATE TABLE `poc_tables` (
 
 LOCK TABLES `poc_tables` WRITE;
 /*!40000 ALTER TABLE `poc_tables` DISABLE KEYS */;
-INSERT INTO `poc_tables` VALUES (6,1,1,'Male',1.50,'1/2018/62','','MBCP/eMTCT','Kansiime Udita','Kasande ','Yes','Positive','2018-03-01','1st PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','0000-00-00','14/03/18','Daily NVP from birth to 6 weeks','','2018-03-19 13:07:25','2018-03-19 13:07:25',NULL,''),(7,1,1,'Male',1.50,'1/2018/60','','MBCP/eMTCT','NEEMA ANNET','AHIMBISIBWE TIMOTHY','Yes','Positive','2018-03-01','1st PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','0000-00-00','16/03/18','Daily NVP from birth to 6 weeks','','2018-03-19 13:33:32','2018-03-19 13:33:32',NULL,''),(8,1,1,'Male',1.50,'1/2018/59','','MBCP/eMTCT','BONABAANA JOYCE','NYABWONGO PATRICK','Yes','Positive','2018-02-27','1st PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','2018-02-27','474/02/18','Daily NVP from birth to 6 weeks','','2018-03-19 13:46:26','2018-03-19 13:46:26',NULL,''),(9,1,1,'Male',1.50,'12/1/18','0773438846','MBCP/eMTCT','QUEEN ELIZABETH','KATO KIHIKA','Yes','Positive','2018-02-26','1st PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','2018-02-26','431/02/18','Daily NVP from birth to 6 weeks','','2018-03-19 13:50:42','2018-03-19 13:50:42',NULL,''),(10,1,1,'Male',1.50,'1/2018/57','0773438846','MBCP/eMTCT','QUEEN ELIZABETH','ISINGOMA KIHIKA','Yes','Positive','2018-02-26','1st PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','2018-02-26','430/02/18','Daily NVP from birth to 6 weeks','','2018-03-19 13:57:19','2018-03-19 13:57:19',NULL,''),(11,1,1,'Male',1.50,'','0782103980','Pediatric Inpatient','TUHAISE SCOLA','KAHWA DAN','No','Positive','2018-02-23','1st PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','2018-02-22','379/2/2018','Daily NVP from birth to 6 weeks','','2018-03-19 14:05:26','2018-03-19 14:05:26',NULL,''),(12,1,1,'Male',19.00,'7/2016/40','','Pediatric Inpatient','BAGAYA JENIFER','MUGANZI JOSEPH','Yes','Positive','2018-02-23','2nd PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','2018-02-19','378/02/2018','Daily NVP from birth to 6 weeks','','2018-03-19 14:12:21','2018-03-19 14:12:21',NULL,''),(13,1,1,'Male',14.00,'2/2017/008','','MBCP/eMTCT','KOMUHIMBO ROSEMARY','ATEGEKA NICLOUS','No','Positive','2018-02-26','2nd PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','2018-02-26','421/02/18','Daily NVP from birth to 6 weeks','','2018-03-19 14:16:42','2018-03-19 14:16:42',NULL,''),(14,1,1,'Female',1.50,'1/2018/56','0787869596','MBCP/eMTCT','KEMIGISA IREEN','ASINGWIRE ANGEL','Yes','Positive','2018-02-26','1st PCR','A-LIS Admin','Lifelong ART','Lifelong ART','Lifelong ART','0000-00-00','422/02/18','','','2018-03-19 14:22:09','2018-03-19 14:22:35',NULL,'');
 /*!40000 ALTER TABLE `poc_tables` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1806,43 +1953,6 @@ CREATE TABLE `pre_analytic_specimen_rejections` (
 LOCK TABLES `pre_analytic_specimen_rejections` WRITE;
 /*!40000 ALTER TABLE `pre_analytic_specimen_rejections` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pre_analytic_specimen_rejections` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `receipts`
---
-
-DROP TABLE IF EXISTS `receipts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `receipts` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `commodity_id` int(10) unsigned NOT NULL,
-  `supplier_id` int(10) unsigned NOT NULL,
-  `quantity` int(10) unsigned NOT NULL,
-  `batch_no` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
-  `expiry_date` date NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  KEY `receipts_commodity_id_foreign` (`commodity_id`),
-  KEY `receipts_supplier_id_foreign` (`supplier_id`),
-  KEY `receipts_user_id_foreign` (`user_id`),
-  CONSTRAINT `receipts_commodity_id_foreign` FOREIGN KEY (`commodity_id`) REFERENCES `commodities` (`id`),
-  CONSTRAINT `receipts_supplier_id_foreign` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`),
-  CONSTRAINT `receipts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `receipts`
---
-
-LOCK TABLES `receipts` WRITE;
-/*!40000 ALTER TABLE `receipts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `receipts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1965,6 +2075,45 @@ INSERT INTO `report_diseases` VALUES (1,2,1,NULL),(2,7,2,NULL),(3,18,3,NULL);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `requests`
+--
+
+DROP TABLE IF EXISTS `requests`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `requests` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `item_id` int(10) unsigned NOT NULL,
+  `quantity_remaining` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `test_category_id` int(10) unsigned NOT NULL,
+  `quantity_ordered` int(11) NOT NULL,
+  `tests_done` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(10) unsigned NOT NULL,
+  `remarks` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `requests_test_category_id_foreign` (`test_category_id`),
+  KEY `requests_item_id_foreign` (`item_id`),
+  KEY `requests_user_id_foreign` (`user_id`),
+  CONSTRAINT `requests_item_id_foreign` FOREIGN KEY (`item_id`) REFERENCES `inv_items` (`id`),
+  CONSTRAINT `requests_test_category_id_foreign` FOREIGN KEY (`test_category_id`) REFERENCES `test_categories` (`id`),
+  CONSTRAINT `requests_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `requests`
+--
+
+LOCK TABLES `requests` WRITE;
+/*!40000 ALTER TABLE `requests` DISABLE KEYS */;
+INSERT INTO `requests` VALUES (1,1,'00',1,10,15,1,'urgent',NULL,'2019-05-30 12:29:18','2019-05-30 12:29:18'),(2,1,'00',1,90,10,1,'please make it chap chap',NULL,'2019-05-30 12:46:40','2019-05-30 12:46:40'),(3,1,'00',1,100,15,1,'',NULL,'2019-05-30 14:24:52','2019-05-30 14:24:52');
+/*!40000 ALTER TABLE `requests` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `result_interpretations`
 --
 
@@ -2012,7 +2161,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Superadmin',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(2,'Technologist',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(3,'Receptionist',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14');
+INSERT INTO `roles` VALUES (1,'Superadmin',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(2,'Technologist',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(3,'Receptionist',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2064,7 +2213,7 @@ CREATE TABLE `specimen_types` (
 
 LOCK TABLES `specimen_types` WRITE;
 /*!40000 ALTER TABLE `specimen_types` DISABLE KEYS */;
-INSERT INTO `specimen_types` VALUES (1,'Ascitic Tap',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(2,'Dried Blood Spot',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(3,'Nasal Swab',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(4,'Pleural Tap',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(5,'Rectal Swab',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(6,'Semen',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(7,'Skin',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(8,'Vomitus',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(9,'Synovial Fluid',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(10,'Urethral Smear',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(11,'Vaginal Smear',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(12,'Water',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(13,'Stool',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(14,'CSF',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(15,'Wound swab',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(16,'Pus swab',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(17,'HVS',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(18,'Eye swab',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(19,'Ear swab',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(20,'Throat swab',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(21,'Pus Aspirate',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(22,'Blood',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(23,'BAL',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(24,'Sputum',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(25,'Uretheral swab',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(26,'Urine',NULL,NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14');
+INSERT INTO `specimen_types` VALUES (1,'Ascitic Tap',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(2,'Dried Blood Spot',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(3,'Nasal Swab',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(4,'Pleural Tap',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(5,'Rectal Swab',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(6,'Semen',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(7,'Skin',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(8,'Vomitus',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(9,'Synovial Fluid',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(10,'Urethral Smear',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(11,'Vaginal Smear',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(12,'Water',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(13,'Stool',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(14,'CSF',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(15,'Wound swab',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(16,'Pus swab',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(17,'HVS',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(18,'Eye swab',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(19,'Ear swab',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(20,'Throat swab',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(21,'Pus Aspirate',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(22,'Blood',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(23,'BAL',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(24,'Sputum',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(25,'Uretheral swab',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(26,'Urine',NULL,NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32');
 /*!40000 ALTER TABLE `specimen_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2091,7 +2240,7 @@ CREATE TABLE `specimens` (
   CONSTRAINT `specimens_referral_id_foreign` FOREIGN KEY (`referral_id`) REFERENCES `referrals` (`id`),
   CONSTRAINT `specimens_specimen_status_id_foreign` FOREIGN KEY (`specimen_status_id`) REFERENCES `specimen_statuses` (`id`),
   CONSTRAINT `specimens_specimen_type_id_foreign` FOREIGN KEY (`specimen_type_id`) REFERENCES `specimen_types` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2100,6 +2249,7 @@ CREATE TABLE `specimens` (
 
 LOCK TABLES `specimens` WRITE;
 /*!40000 ALTER TABLE `specimens` DISABLE KEYS */;
+INSERT INTO `specimens` VALUES (1,22,2,1,NULL,'2019-05-31 09:09:00','2019-05-31 09:09:00'),(2,22,2,1,NULL,'2019-06-01 08:57:00','2019-06-01 08:57:00'),(3,22,2,1,NULL,'2019-06-08 17:42:00','2019-06-08 17:42:00'),(4,22,2,1,NULL,'2019-06-08 17:42:00','2019-06-08 17:42:00'),(5,22,2,1,NULL,'2019-06-08 17:42:00','2019-06-08 17:42:00'),(6,22,2,1,NULL,'2019-06-10 07:02:00','2019-06-10 07:02:00'),(7,22,2,1,NULL,'2019-06-10 08:37:00','2019-06-10 08:37:00'),(8,22,2,1,NULL,'2019-06-10 09:30:00','2019-06-10 09:30:00'),(9,22,2,1,NULL,'2019-06-10 09:30:00','2019-06-10 09:30:00'),(10,22,2,1,NULL,'2019-06-10 11:56:00','2019-06-10 11:56:00'),(11,22,2,1,NULL,'2019-06-12 06:27:00','2019-06-12 06:27:00'),(12,22,2,1,NULL,'2019-06-12 06:27:00','2019-06-12 06:27:00'),(13,22,2,1,NULL,'2019-06-12 06:27:00','2019-06-12 06:27:00'),(14,22,2,1,NULL,'2019-06-12 06:40:00','2019-06-12 06:40:00'),(15,26,2,1,NULL,'2019-06-12 06:42:00','2019-06-12 06:42:00');
 /*!40000 ALTER TABLE `specimens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2113,14 +2263,17 @@ DROP TABLE IF EXISTS `suppliers`;
 CREATE TABLE `suppliers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `phone_no` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `physical_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `suppliers_user_id_foreign` (`user_id`),
+  CONSTRAINT `suppliers_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2129,6 +2282,7 @@ CREATE TABLE `suppliers` (
 
 LOCK TABLES `suppliers` WRITE;
 /*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
+INSERT INTO `suppliers` VALUES (1,'Computer Poin','078562623','benbyron23@yahoo.com','kintu road',1,NULL,'2019-05-30 12:11:16','2019-05-30 12:11:16');
 /*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2157,7 +2311,7 @@ CREATE TABLE `test_categories` (
 
 LOCK TABLES `test_categories` WRITE;
 /*!40000 ALTER TABLE `test_categories` DISABLE KEYS */;
-INSERT INTO `test_categories` VALUES (1,'PARASITOLOGY','',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(2,'MICROBIOLOGY','',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(3,'HEMATOLOGY','',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(4,'SEROLOGY','',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(5,'BLOOD TRANSFUSION','',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14');
+INSERT INTO `test_categories` VALUES (1,'PARASITOLOGY','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(2,'MICROBIOLOGY','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(3,'HEMATOLOGY','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(4,'SEROLOGY','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(5,'BLOOD TRANSFUSION','',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32');
 /*!40000 ALTER TABLE `test_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2252,6 +2406,7 @@ CREATE TABLE `test_types` (
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `test_category_id` int(10) unsigned NOT NULL,
   `targetTAT` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `targetTAT_unit` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `orderable_test` int(11) DEFAULT NULL,
   `prevalence_threshold` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `accredited` tinyint(4) DEFAULT NULL,
@@ -2270,7 +2425,7 @@ CREATE TABLE `test_types` (
 
 LOCK TABLES `test_types` WRITE;
 /*!40000 ALTER TABLE `test_types` DISABLE KEYS */;
-INSERT INTO `test_types` VALUES (1,'HIV',NULL,4,NULL,1,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(2,'BS for mps',NULL,1,NULL,1,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(3,'GXM',NULL,1,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(4,'HB',NULL,1,NULL,1,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(5,'Urinalysis',NULL,1,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(6,'WBC',NULL,1,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(7,'Salmonella Antigen Test',NULL,1,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(8,'Direct COOMBS Test',NULL,5,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(9,'DU Test',NULL,5,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(10,'Sickling Test',NULL,3,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(11,'Borrelia',NULL,1,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(12,'VDRL',NULL,4,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(13,'Pregnancy Test',NULL,4,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(14,'Brucella',NULL,4,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(15,'H. Pylori',NULL,4,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:15','2018-03-17 18:35:15'),(16,'CBC',NULL,3,NULL,1,NULL,NULL,NULL,'2018-03-17 18:35:16','2018-03-17 18:35:16'),(17,'Appearance',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(18,'Culture and Sensitivity',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(19,'Gram Staining',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(20,'India Ink Staining',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(21,'Protein',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(22,'Wet preparation (saline preparation)',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(23,'Wet Saline Iodine Prep',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(24,'White Blood Cell Count',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(25,'ZN Staining',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(26,'Modified ZN',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(27,'Crag',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(28,'Differential',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(29,'Total Cell Count',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(30,'Lymphocytes',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(31,'Quantitative Culture',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(32,'RBC Count',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(33,'TPHA',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(34,'HCG',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(35,'Bilirubin',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(36,'Blood',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(37,'Glucose',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(38,'Ketones',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(39,'Leukocytes',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(40,'Microscopy',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(41,'Nitrite',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(42,'pH',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(43,'Specific Gravity',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(44,'Urobilinogen',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:17','2018-03-17 18:35:17'),(45,'RPR',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:18','2018-03-17 18:35:18'),(46,'Serum Crag',NULL,2,NULL,NULL,NULL,NULL,NULL,'2018-03-17 18:35:18','2018-03-17 18:35:18');
+INSERT INTO `test_types` VALUES (1,'HIV',NULL,4,NULL,NULL,1,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(2,'BS for mps',NULL,1,NULL,NULL,1,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(3,'GXM',NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(4,'HB',NULL,1,NULL,NULL,1,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(5,'Urinalysis',NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(6,'WBC',NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(7,'Salmonella Antigen Test',NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(8,'Direct COOMBS Test',NULL,5,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(9,'DU Test',NULL,5,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(10,'Sickling Test',NULL,3,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(11,'Borrelia',NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(12,'VDRL',NULL,4,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(13,'Pregnancy Test',NULL,4,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(14,'Brucella',NULL,4,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(15,'H. Pylori',NULL,4,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(16,'CBC',NULL,3,NULL,NULL,1,NULL,NULL,NULL,'2019-05-30 11:56:33','2019-05-30 11:56:33'),(17,'Appearance',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(18,'Culture and Sensitivity',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(19,'Gram Staining',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(20,'India Ink Staining',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(21,'Protein',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(22,'Wet preparation (saline preparation)',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(23,'Wet Saline Iodine Prep',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(24,'White Blood Cell Count',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(25,'ZN Staining',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(26,'Modified ZN',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(27,'Crag',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(28,'Differential',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(29,'Total Cell Count',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(30,'Lymphocytes',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(31,'Quantitative Culture',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(32,'RBC Count',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(33,'TPHA',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(34,'HCG',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(35,'Bilirubin',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(36,'Blood',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(37,'Glucose',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(38,'Ketones',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(39,'Leukocytes',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(40,'Microscopy',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(41,'Nitrite',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(42,'pH',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(43,'Specific Gravity',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(44,'Urobilinogen',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:34','2019-05-30 11:56:34'),(45,'RPR',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35'),(46,'Serum Crag',NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-30 11:56:35','2019-05-30 11:56:35');
 /*!40000 ALTER TABLE `test_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2350,8 +2505,9 @@ CREATE TABLE `therapy` (
   `clinical_notes` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `clinician` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `contact` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `clinician_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2360,6 +2516,7 @@ CREATE TABLE `therapy` (
 
 LOCK TABLES `therapy` WRITE;
 /*!40000 ALTER TABLE `therapy` DISABLE KEYS */;
+INSERT INTO `therapy` VALUES (1,1,1,'','','bnbbnbnnb',NULL,NULL,1),(2,2,2,'','','yhh',NULL,NULL,1),(3,3,2,'','','hjasd',NULL,NULL,1),(4,4,4,'','',NULL,NULL,NULL,NULL),(5,5,1,'','',NULL,NULL,NULL,NULL),(6,6,4,'','',NULL,NULL,NULL,NULL),(7,7,3,'','',NULL,NULL,NULL,NULL),(8,8,15,'','',NULL,NULL,NULL,NULL),(9,9,14,'','',NULL,NULL,NULL,NULL),(10,10,13,'','',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `therapy` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2390,42 +2547,6 @@ LOCK TABLES `tokens` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `topup_requests`
---
-
-DROP TABLE IF EXISTS `topup_requests`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `topup_requests` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `commodity_id` int(10) unsigned NOT NULL,
-  `test_category_id` int(10) unsigned NOT NULL,
-  `order_quantity` int(10) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `remarks` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  KEY `topup_requests_test_category_id_foreign` (`test_category_id`),
-  KEY `topup_requests_commodity_id_foreign` (`commodity_id`),
-  KEY `topup_requests_user_id_foreign` (`user_id`),
-  CONSTRAINT `topup_requests_commodity_id_foreign` FOREIGN KEY (`commodity_id`) REFERENCES `commodities` (`id`),
-  CONSTRAINT `topup_requests_test_category_id_foreign` FOREIGN KEY (`test_category_id`) REFERENCES `test_categories` (`id`),
-  CONSTRAINT `topup_requests_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `topup_requests`
---
-
-LOCK TABLES `topup_requests` WRITE;
-/*!40000 ALTER TABLE `topup_requests` DISABLE KEYS */;
-/*!40000 ALTER TABLE `topup_requests` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `unhls_bbactions`
 --
 
@@ -2448,7 +2569,7 @@ CREATE TABLE `unhls_bbactions` (
 
 LOCK TABLES `unhls_bbactions` WRITE;
 /*!40000 ALTER TABLE `unhls_bbactions` DISABLE KEYS */;
-INSERT INTO `unhls_bbactions` VALUES (1,'Reported to administration for further action','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(2,'Referred to mental department','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(3,'Gave first aid (e.g. arrested bleeding)','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(4,'Referred to clinician for further management','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(5,'Conducted risk assessment','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(6,'Intervened to interrupt/arrest progress of incident (e.g. Used neutralizing agent, stopping a fight)','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(7,'Disposed off broken container to designated waste bin/sharps','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(8,'Patient sample taken & referred to testing lab Isolated suspected patient','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(9,'Reported to or engaged national level BRM for intervention','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(10,'Victim counseled','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(11,'Contacted Police','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(12,'Used spill kit','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(13,'Administered PEP','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(14,'Referred to disciplinary committee','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(15,'Contained the spillage','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(16,'Disinfected the place','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(17,'Switched off the Electricity Mains','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(18,'Washed punctured area','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(19,'Others','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL);
+INSERT INTO `unhls_bbactions` VALUES (1,'Reported to administration for further action','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(2,'Referred to mental department','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(3,'Gave first aid (e.g. arrested bleeding)','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(4,'Referred to clinician for further management','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(5,'Conducted risk assessment','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(6,'Intervened to interrupt/arrest progress of incident (e.g. Used neutralizing agent, stopping a fight)','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(7,'Disposed off broken container to designated waste bin/sharps','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(8,'Patient sample taken & referred to testing lab Isolated suspected patient','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(9,'Reported to or engaged national level BRM for intervention','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(10,'Victim counseled','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(11,'Contacted Police','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(12,'Used spill kit','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(13,'Administered PEP','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(14,'Referred to disciplinary committee','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(15,'Contained the spillage','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(16,'Disinfected the place','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(17,'Switched off the Electricity Mains','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(18,'Washed punctured area','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(19,'Others','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL);
 /*!40000 ALTER TABLE `unhls_bbactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2475,7 +2596,7 @@ CREATE TABLE `unhls_bbcauses` (
 
 LOCK TABLES `unhls_bbcauses` WRITE;
 /*!40000 ALTER TABLE `unhls_bbcauses` DISABLE KEYS */;
-INSERT INTO `unhls_bbcauses` VALUES (1,'Defective Equipment','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(2,'Hazardous Chemicals','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(3,'Unsafe Procedure','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(4,'Psychological causes (e.g. emotional condition, depression, mental confusion)','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(5,'Unsafe storage of laboratory chemicals','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(6,'Lack of Skill or Knowledge','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(7,'Lack of Personal Protective Equipment','2018-03-17 18:35:13','2018-03-17 18:35:13',NULL),(8,'Unsafe Working Environment','2018-03-17 18:35:14','2018-03-17 18:35:14',NULL),(9,'Lack of Adequate Physical Security','2018-03-17 18:35:14','2018-03-17 18:35:14',NULL),(10,'Unsafe location of laboratory equipment','2018-03-17 18:35:14','2018-03-17 18:35:14',NULL),(11,'Other','2018-03-17 18:35:14','2018-03-17 18:35:14',NULL);
+INSERT INTO `unhls_bbcauses` VALUES (1,'Defective Equipment','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(2,'Hazardous Chemicals','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(3,'Unsafe Procedure','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(4,'Psychological causes (e.g. emotional condition, depression, mental confusion)','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(5,'Unsafe storage of laboratory chemicals','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(6,'Lack of Skill or Knowledge','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(7,'Lack of Personal Protective Equipment','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(8,'Unsafe Working Environment','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(9,'Lack of Adequate Physical Security','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(10,'Unsafe location of laboratory equipment','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL),(11,'Other','2019-05-30 11:56:32','2019-05-30 11:56:32',NULL);
 /*!40000 ALTER TABLE `unhls_bbcauses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2683,7 +2804,7 @@ CREATE TABLE `unhls_bbnatures` (
 
 LOCK TABLES `unhls_bbnatures` WRITE;
 /*!40000 ALTER TABLE `unhls_bbnatures` DISABLE KEYS */;
-INSERT INTO `unhls_bbnatures` VALUES (1,'Assault/Fight among staff','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(2,'Fainting','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(3,'Roof leakages','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(4,'Machine cuts/bruises','Mechanical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(5,'Electric shock/burn','Mechanical','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(6,'Death within lab','Ergonometric and Medical','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(7,'Slip or fall','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(8,'Unnecessary destruction of lab material','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(9,'Theft of laboratory consumables','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(10,'Breakage of sample container','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(11,'Prick/cut by unused sharps','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(12,'Injury caused by laboratory objects','Physical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(13,'Chemical burn','Chemical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(14,'Theft of chemical','Chemical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(15,'Chemical spillage','Chemical','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(16,'Theft of equipment','Physical','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(17,'Attack on the Lab','Physical','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(18,'Collapsing building','Physical','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(19,'Bike rider accident','Physical','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(20,'Fire','Physical','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(21,'Needle prick or cuts by used sharps','Biological','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(22,'Sample spillage','Biological','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(23,'Theft of samples','Biological','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(24,'Contact with VHF suspect','Biological','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(25,'Contact with radiological materials','Radiological','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(26,'Theft of radiological materials','Radiological','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(27,'Poor disposal of radiological materials','Radiological','Major',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(28,'Poor vision from inadequate light','Ergonometric and Medical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(29,'Back pain from posture effects','Ergonometric and Medical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(30,'Other occupational hazard','Ergonometric and Medical','Minor',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14'),(31,'Other','Other','Other',NULL,'2018-03-17 18:35:14','2018-03-17 18:35:14');
+INSERT INTO `unhls_bbnatures` VALUES (1,'Assault/Fight among staff','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(2,'Fainting','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(3,'Roof leakages','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(4,'Machine cuts/bruises','Mechanical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(5,'Electric shock/burn','Mechanical','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(6,'Death within lab','Ergonometric and Medical','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(7,'Slip or fall','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(8,'Unnecessary destruction of lab material','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(9,'Theft of laboratory consumables','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(10,'Breakage of sample container','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(11,'Prick/cut by unused sharps','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(12,'Injury caused by laboratory objects','Physical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(13,'Chemical burn','Chemical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(14,'Theft of chemical','Chemical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(15,'Chemical spillage','Chemical','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(16,'Theft of equipment','Physical','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(17,'Attack on the Lab','Physical','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(18,'Collapsing building','Physical','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(19,'Bike rider accident','Physical','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(20,'Fire','Physical','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(21,'Needle prick or cuts by used sharps','Biological','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(22,'Sample spillage','Biological','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(23,'Theft of samples','Biological','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(24,'Contact with VHF suspect','Biological','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(25,'Contact with radiological materials','Radiological','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(26,'Theft of radiological materials','Radiological','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(27,'Poor disposal of radiological materials','Radiological','Major',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(28,'Poor vision from inadequate light','Ergonometric and Medical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(29,'Back pain from posture effects','Ergonometric and Medical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(30,'Other occupational hazard','Ergonometric and Medical','Minor',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32'),(31,'Other','Other','Other',NULL,'2019-05-30 11:56:32','2019-05-30 11:56:32');
 /*!40000 ALTER TABLE `unhls_bbnatures` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2709,7 +2830,7 @@ CREATE TABLE `unhls_districts` (
 
 LOCK TABLES `unhls_districts` WRITE;
 /*!40000 ALTER TABLE `unhls_districts` DISABLE KEYS */;
-INSERT INTO `unhls_districts` VALUES (1,'Kampala','2018-03-17 18:35:12','2018-03-17 18:35:12'),(2,'Buikwe','2018-03-17 18:35:12','2018-03-17 18:35:12'),(3,'Bukomansimbi','2018-03-17 18:35:12','2018-03-17 18:35:12'),(4,'Butambala','2018-03-17 18:35:12','2018-03-17 18:35:12'),(5,'Buvuma','2018-03-17 18:35:12','2018-03-17 18:35:12'),(6,'Gomba','2018-03-17 18:35:12','2018-03-17 18:35:12'),(7,'Kalangala','2018-03-17 18:35:12','2018-03-17 18:35:12'),(8,'Kalungu','2018-03-17 18:35:12','2018-03-17 18:35:12'),(9,'Kayunga','2018-03-17 18:35:13','2018-03-17 18:35:13'),(10,'Kiboga','2018-03-17 18:35:13','2018-03-17 18:35:13'),(11,'Kyankwanzi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(12,'Luweero','2018-03-17 18:35:13','2018-03-17 18:35:13'),(13,'Lwengo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(14,'Lyantonde','2018-03-17 18:35:13','2018-03-17 18:35:13'),(15,'Masaka','2018-03-17 18:35:13','2018-03-17 18:35:13'),(16,'Mityana','2018-03-17 18:35:13','2018-03-17 18:35:13'),(17,'Mpigi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(18,'Mubende','2018-03-17 18:35:13','2018-03-17 18:35:13'),(19,'Mukono','2018-03-17 18:35:13','2018-03-17 18:35:13'),(20,'Nakaseke','2018-03-17 18:35:13','2018-03-17 18:35:13'),(21,'Nakasongola','2018-03-17 18:35:13','2018-03-17 18:35:13'),(22,'Rakai','2018-03-17 18:35:13','2018-03-17 18:35:13'),(23,'Ssembabule','2018-03-17 18:35:13','2018-03-17 18:35:13'),(24,'Wakiso','2018-03-17 18:35:13','2018-03-17 18:35:13'),(25,'Amuria','2018-03-17 18:35:13','2018-03-17 18:35:13'),(26,'Budaka','2018-03-17 18:35:13','2018-03-17 18:35:13'),(27,'Bududa','2018-03-17 18:35:13','2018-03-17 18:35:13'),(28,'Bugiri','2018-03-17 18:35:13','2018-03-17 18:35:13'),(29,'Bukedea','2018-03-17 18:35:13','2018-03-17 18:35:13'),(30,'Bukwa','2018-03-17 18:35:13','2018-03-17 18:35:13'),(31,'Bulambuli','2018-03-17 18:35:13','2018-03-17 18:35:13'),(32,'Busia','2018-03-17 18:35:13','2018-03-17 18:35:13'),(33,'Butaleja','2018-03-17 18:35:13','2018-03-17 18:35:13'),(34,'Buyende','2018-03-17 18:35:13','2018-03-17 18:35:13'),(35,'Iganga','2018-03-17 18:35:13','2018-03-17 18:35:13'),(36,'Jinja','2018-03-17 18:35:13','2018-03-17 18:35:13'),(37,'Kaberamaido','2018-03-17 18:35:13','2018-03-17 18:35:13'),(38,'Kaliro','2018-03-17 18:35:13','2018-03-17 18:35:13'),(39,'Kamuli','2018-03-17 18:35:13','2018-03-17 18:35:13'),(40,'Kapchorwa','2018-03-17 18:35:13','2018-03-17 18:35:13'),(41,'Katakwi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(42,'Kibuku','2018-03-17 18:35:13','2018-03-17 18:35:13'),(43,'Kumi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(44,'Kween','2018-03-17 18:35:13','2018-03-17 18:35:13'),(45,'Luuka','2018-03-17 18:35:13','2018-03-17 18:35:13'),(46,'Manafwa','2018-03-17 18:35:13','2018-03-17 18:35:13'),(47,'Mayuge','2018-03-17 18:35:13','2018-03-17 18:35:13'),(48,'Mbale','2018-03-17 18:35:13','2018-03-17 18:35:13'),(49,'Namayingo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(50,'Namutumba','2018-03-17 18:35:13','2018-03-17 18:35:13'),(51,'Ngora','2018-03-17 18:35:13','2018-03-17 18:35:13'),(52,'Pallisa','2018-03-17 18:35:13','2018-03-17 18:35:13'),(53,'Serere','2018-03-17 18:35:13','2018-03-17 18:35:13'),(54,'Sironko','2018-03-17 18:35:13','2018-03-17 18:35:13'),(55,'Soroti','2018-03-17 18:35:13','2018-03-17 18:35:13'),(56,'Tororo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(57,'Abim','2018-03-17 18:35:13','2018-03-17 18:35:13'),(58,'Adjumani','2018-03-17 18:35:13','2018-03-17 18:35:13'),(59,'Agago','2018-03-17 18:35:13','2018-03-17 18:35:13'),(60,'Alebtong','2018-03-17 18:35:13','2018-03-17 18:35:13'),(61,'Amolatar','2018-03-17 18:35:13','2018-03-17 18:35:13'),(62,'Amudat','2018-03-17 18:35:13','2018-03-17 18:35:13'),(63,'Amuru','2018-03-17 18:35:13','2018-03-17 18:35:13'),(64,'Apac','2018-03-17 18:35:13','2018-03-17 18:35:13'),(65,'Arua','2018-03-17 18:35:13','2018-03-17 18:35:13'),(66,'Dokolo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(67,'Gulu','2018-03-17 18:35:13','2018-03-17 18:35:13'),(68,'Kaabong','2018-03-17 18:35:13','2018-03-17 18:35:13'),(69,'Kitgum','2018-03-17 18:35:13','2018-03-17 18:35:13'),(70,'Koboko','2018-03-17 18:35:13','2018-03-17 18:35:13'),(71,'Kole','2018-03-17 18:35:13','2018-03-17 18:35:13'),(72,'Kotido','2018-03-17 18:35:13','2018-03-17 18:35:13'),(73,'Lamwo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(74,'Lira','2018-03-17 18:35:13','2018-03-17 18:35:13'),(75,'Maracha','2018-03-17 18:35:13','2018-03-17 18:35:13'),(76,'Moroto','2018-03-17 18:35:13','2018-03-17 18:35:13'),(77,'Moyo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(78,'Nakapiripirit','2018-03-17 18:35:13','2018-03-17 18:35:13'),(79,'Napak','2018-03-17 18:35:13','2018-03-17 18:35:13'),(80,'Nebbi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(81,'Nwoya','2018-03-17 18:35:13','2018-03-17 18:35:13'),(82,'Otuke','2018-03-17 18:35:13','2018-03-17 18:35:13'),(83,'Oyam','2018-03-17 18:35:13','2018-03-17 18:35:13'),(84,'Pader','2018-03-17 18:35:13','2018-03-17 18:35:13'),(85,'Yumbe','2018-03-17 18:35:13','2018-03-17 18:35:13'),(86,'Zombo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(87,'Buhweju','2018-03-17 18:35:13','2018-03-17 18:35:13'),(88,'Buliisa','2018-03-17 18:35:13','2018-03-17 18:35:13'),(89,'Bundibugyo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(90,'Bushenyi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(91,'Hoima','2018-03-17 18:35:13','2018-03-17 18:35:13'),(92,'Ibanda','2018-03-17 18:35:13','2018-03-17 18:35:13'),(93,'Isingiro','2018-03-17 18:35:13','2018-03-17 18:35:13'),(94,'Kabale','2018-03-17 18:35:13','2018-03-17 18:35:13'),(95,'Kabarole','2018-03-17 18:35:13','2018-03-17 18:35:13'),(96,'Kamwenge','2018-03-17 18:35:13','2018-03-17 18:35:13'),(97,'Kanungu','2018-03-17 18:35:13','2018-03-17 18:35:13'),(98,'Kasese','2018-03-17 18:35:13','2018-03-17 18:35:13'),(99,'Kibaale','2018-03-17 18:35:13','2018-03-17 18:35:13'),(100,'Kiruhura','2018-03-17 18:35:13','2018-03-17 18:35:13'),(101,'Kiryandongo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(102,'Kisoro','2018-03-17 18:35:13','2018-03-17 18:35:13'),(103,'Kyegegwa','2018-03-17 18:35:13','2018-03-17 18:35:13'),(104,'Kyenjojo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(105,'Masindi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(106,'Mbarara','2018-03-17 18:35:13','2018-03-17 18:35:13'),(107,'Mitooma','2018-03-17 18:35:13','2018-03-17 18:35:13'),(108,'Ntoroko','2018-03-17 18:35:13','2018-03-17 18:35:13'),(109,'Ntungamo','2018-03-17 18:35:13','2018-03-17 18:35:13'),(110,'Rubirizi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(111,'Rukungiri','2018-03-17 18:35:13','2018-03-17 18:35:13'),(112,'Sheema','2018-03-17 18:35:13','2018-03-17 18:35:13'),(113,'Omoro','2018-03-17 18:35:13','2018-03-17 18:35:13'),(114,'Kagadi','2018-03-17 18:35:13','2018-03-17 18:35:13'),(115,'Kakumiro','2018-03-17 18:35:13','2018-03-17 18:35:13'),(116,'Rubanda','2018-03-17 18:35:13','2018-03-17 18:35:13'),(117,'Bukwo','2018-03-17 18:35:13','2018-03-17 18:35:13');
+INSERT INTO `unhls_districts` VALUES (1,'WAKISO','2019-05-30 11:56:31','2019-05-30 11:56:31'),(2,'Buikwe','2019-05-30 11:56:31','2019-05-30 11:56:31'),(3,'Bukomansimbi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(4,'Butambala','2019-05-30 11:56:31','2019-05-30 11:56:31'),(5,'Buvuma','2019-05-30 11:56:31','2019-05-30 11:56:31'),(6,'Gomba','2019-05-30 11:56:31','2019-05-30 11:56:31'),(7,'Kalangala','2019-05-30 11:56:31','2019-05-30 11:56:31'),(8,'Kalungu','2019-05-30 11:56:31','2019-05-30 11:56:31'),(9,'Kayunga','2019-05-30 11:56:31','2019-05-30 11:56:31'),(10,'Kiboga','2019-05-30 11:56:31','2019-05-30 11:56:31'),(11,'Kyankwanzi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(12,'Luweero','2019-05-30 11:56:31','2019-05-30 11:56:31'),(13,'Lwengo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(14,'Lyantonde','2019-05-30 11:56:31','2019-05-30 11:56:31'),(15,'Masaka','2019-05-30 11:56:31','2019-05-30 11:56:31'),(16,'Mityana','2019-05-30 11:56:31','2019-05-30 11:56:31'),(17,'Mpigi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(18,'Mubende','2019-05-30 11:56:31','2019-05-30 11:56:31'),(19,'Mukono','2019-05-30 11:56:31','2019-05-30 11:56:31'),(20,'Nakaseke','2019-05-30 11:56:31','2019-05-30 11:56:31'),(21,'Nakasongola','2019-05-30 11:56:31','2019-05-30 11:56:31'),(22,'Rakai','2019-05-30 11:56:31','2019-05-30 11:56:31'),(23,'Ssembabule','2019-05-30 11:56:31','2019-05-30 11:56:31'),(24,'Wakiso','2019-05-30 11:56:31','2019-05-30 11:56:31'),(25,'Amuria','2019-05-30 11:56:31','2019-05-30 11:56:31'),(26,'Budaka','2019-05-30 11:56:31','2019-05-30 11:56:31'),(27,'Bududa','2019-05-30 11:56:31','2019-05-30 11:56:31'),(28,'Bugiri','2019-05-30 11:56:31','2019-05-30 11:56:31'),(29,'Bukedea','2019-05-30 11:56:31','2019-05-30 11:56:31'),(30,'Bukwa','2019-05-30 11:56:31','2019-05-30 11:56:31'),(31,'Bulambuli','2019-05-30 11:56:31','2019-05-30 11:56:31'),(32,'Busia','2019-05-30 11:56:31','2019-05-30 11:56:31'),(33,'Butaleja','2019-05-30 11:56:31','2019-05-30 11:56:31'),(34,'Buyende','2019-05-30 11:56:31','2019-05-30 11:56:31'),(35,'Iganga','2019-05-30 11:56:31','2019-05-30 11:56:31'),(36,'Jinja','2019-05-30 11:56:31','2019-05-30 11:56:31'),(37,'Kaberamaido','2019-05-30 11:56:31','2019-05-30 11:56:31'),(38,'Kaliro','2019-05-30 11:56:31','2019-05-30 11:56:31'),(39,'Kamuli','2019-05-30 11:56:31','2019-05-30 11:56:31'),(40,'Kapchorwa','2019-05-30 11:56:31','2019-05-30 11:56:31'),(41,'Katakwi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(42,'Kibuku','2019-05-30 11:56:31','2019-05-30 11:56:31'),(43,'Kumi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(44,'Kween','2019-05-30 11:56:31','2019-05-30 11:56:31'),(45,'Luuka','2019-05-30 11:56:31','2019-05-30 11:56:31'),(46,'Manafwa','2019-05-30 11:56:31','2019-05-30 11:56:31'),(47,'Mayuge','2019-05-30 11:56:31','2019-05-30 11:56:31'),(48,'Mbale','2019-05-30 11:56:31','2019-05-30 11:56:31'),(49,'Namayingo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(50,'Namutumba','2019-05-30 11:56:31','2019-05-30 11:56:31'),(51,'Ngora','2019-05-30 11:56:31','2019-05-30 11:56:31'),(52,'Pallisa','2019-05-30 11:56:31','2019-05-30 11:56:31'),(53,'Serere','2019-05-30 11:56:31','2019-05-30 11:56:31'),(54,'Sironko','2019-05-30 11:56:31','2019-05-30 11:56:31'),(55,'Soroti','2019-05-30 11:56:31','2019-05-30 11:56:31'),(56,'Tororo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(57,'Abim','2019-05-30 11:56:31','2019-05-30 11:56:31'),(58,'Adjumani','2019-05-30 11:56:31','2019-05-30 11:56:31'),(59,'Agago','2019-05-30 11:56:31','2019-05-30 11:56:31'),(60,'Alebtong','2019-05-30 11:56:31','2019-05-30 11:56:31'),(61,'Amolatar','2019-05-30 11:56:31','2019-05-30 11:56:31'),(62,'Amudat','2019-05-30 11:56:31','2019-05-30 11:56:31'),(63,'Amuru','2019-05-30 11:56:31','2019-05-30 11:56:31'),(64,'Apac','2019-05-30 11:56:31','2019-05-30 11:56:31'),(65,'Arua','2019-05-30 11:56:31','2019-05-30 11:56:31'),(66,'Dokolo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(67,'Gulu','2019-05-30 11:56:31','2019-05-30 11:56:31'),(68,'Kaabong','2019-05-30 11:56:31','2019-05-30 11:56:31'),(69,'Kitgum','2019-05-30 11:56:31','2019-05-30 11:56:31'),(70,'Koboko','2019-05-30 11:56:31','2019-05-30 11:56:31'),(71,'Kole','2019-05-30 11:56:31','2019-05-30 11:56:31'),(72,'Kotido','2019-05-30 11:56:31','2019-05-30 11:56:31'),(73,'Lamwo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(74,'Lira','2019-05-30 11:56:31','2019-05-30 11:56:31'),(75,'Maracha','2019-05-30 11:56:31','2019-05-30 11:56:31'),(76,'Moroto','2019-05-30 11:56:31','2019-05-30 11:56:31'),(77,'Moyo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(78,'Nakapiripirit','2019-05-30 11:56:31','2019-05-30 11:56:31'),(79,'Napak','2019-05-30 11:56:31','2019-05-30 11:56:31'),(80,'Nebbi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(81,'Nwoya','2019-05-30 11:56:31','2019-05-30 11:56:31'),(82,'Otuke','2019-05-30 11:56:31','2019-05-30 11:56:31'),(83,'Oyam','2019-05-30 11:56:31','2019-05-30 11:56:31'),(84,'Pader','2019-05-30 11:56:31','2019-05-30 11:56:31'),(85,'Yumbe','2019-05-30 11:56:31','2019-05-30 11:56:31'),(86,'Zombo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(87,'Buhweju','2019-05-30 11:56:31','2019-05-30 11:56:31'),(88,'Buliisa','2019-05-30 11:56:31','2019-05-30 11:56:31'),(89,'Bundibugyo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(90,'Bushenyi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(91,'Hoima','2019-05-30 11:56:31','2019-05-30 11:56:31'),(92,'Ibanda','2019-05-30 11:56:31','2019-05-30 11:56:31'),(93,'Isingiro','2019-05-30 11:56:31','2019-05-30 11:56:31'),(94,'Kabale','2019-05-30 11:56:31','2019-05-30 11:56:31'),(95,'Kabarole','2019-05-30 11:56:31','2019-05-30 11:56:31'),(96,'Kamwenge','2019-05-30 11:56:31','2019-05-30 11:56:31'),(97,'Kanungu','2019-05-30 11:56:31','2019-05-30 11:56:31'),(98,'Kasese','2019-05-30 11:56:31','2019-05-30 11:56:31'),(99,'Kibaale','2019-05-30 11:56:31','2019-05-30 11:56:31'),(100,'Kiruhura','2019-05-30 11:56:31','2019-05-30 11:56:31'),(101,'Kiryandongo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(102,'Kisoro','2019-05-30 11:56:31','2019-05-30 11:56:31'),(103,'Kyegegwa','2019-05-30 11:56:31','2019-05-30 11:56:31'),(104,'Kyenjojo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(105,'Masindi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(106,'Mbarara','2019-05-30 11:56:31','2019-05-30 11:56:31'),(107,'Mitooma','2019-05-30 11:56:31','2019-05-30 11:56:31'),(108,'Ntoroko','2019-05-30 11:56:31','2019-05-30 11:56:31'),(109,'Ntungamo','2019-05-30 11:56:31','2019-05-30 11:56:31'),(110,'Rubirizi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(111,'Rukungiri','2019-05-30 11:56:31','2019-05-30 11:56:31'),(112,'Sheema','2019-05-30 11:56:31','2019-05-30 11:56:31'),(113,'Omoro','2019-05-30 11:56:31','2019-05-30 11:56:31'),(114,'Kagadi','2019-05-30 11:56:31','2019-05-30 11:56:31'),(115,'Kakumiro','2019-05-30 11:56:31','2019-05-30 11:56:31'),(116,'Rubanda','2019-05-30 11:56:31','2019-05-30 11:56:31'),(117,'Bukwo','2019-05-30 11:56:31','2019-05-30 11:56:31');
 /*!40000 ALTER TABLE `unhls_districts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2773,6 +2894,19 @@ CREATE TABLE `unhls_equipment_breakdown` (
   `breakdown_type` int(11) NOT NULL,
   `reported_by` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `breakdown_date` datetime DEFAULT NULL,
+  `facility_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `facility_level` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `equipment_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `equipment_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `problem` text COLLATE utf8_unicode_ci NOT NULL,
+  `equipment_failure` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `reporting_officer` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `reporting_officer_contact` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `reporting_officer_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `intervention_authorit	y` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `conclusion` text COLLATE utf8_unicode_ci NOT NULL,
+  `verified_by` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `verification_date` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `unhls_equipment_breakdown_district_id_foreign` (`district_id`),
   KEY `unhls_equipment_breakdown_facility_id_foreign` (`facility_id`),
@@ -2946,7 +3080,7 @@ CREATE TABLE `unhls_facilities` (
 
 LOCK TABLES `unhls_facilities` WRITE;
 /*!40000 ALTER TABLE `unhls_facilities` DISABLE KEYS */;
-INSERT INTO `unhls_facilities` VALUES (1,'LBK1','CENTRAL PUBLIC HEALTH LABORATORIES',1,1,1,'2018-03-17 18:35:13','2018-03-17 18:35:13');
+INSERT INTO `unhls_facilities` VALUES (1,'ENTB01','ENTEBBE GENERAL HOSPITAL LABORATORY',1,2,1,'2019-05-30 11:56:31','2019-05-30 11:56:31');
 /*!40000 ALTER TABLE `unhls_facilities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2972,7 +3106,7 @@ CREATE TABLE `unhls_facility_level` (
 
 LOCK TABLES `unhls_facility_level` WRITE;
 /*!40000 ALTER TABLE `unhls_facility_level` DISABLE KEYS */;
-INSERT INTO `unhls_facility_level` VALUES (1,'Public NRH','2018-03-17 18:35:13','2018-03-17 18:35:13'),(2,'Public RRH','2018-03-17 18:35:13','2018-03-17 18:35:13'),(3,'Public GH','2018-03-17 18:35:13','2018-03-17 18:35:13'),(4,'Public HCIV','2018-03-17 18:35:13','2018-03-17 18:35:13'),(5,'Public HCIII','2018-03-17 18:35:13','2018-03-17 18:35:13'),(6,'Hospital','2018-03-17 18:35:13','2018-03-17 18:35:13');
+INSERT INTO `unhls_facility_level` VALUES (1,'Public NRH','2019-05-30 11:56:31','2019-05-30 11:56:31'),(2,'Public RRH','2019-05-30 11:56:31','2019-05-30 11:56:31'),(3,'Public GH','2019-05-30 11:56:31','2019-05-30 11:56:31'),(4,'Public HCIV','2019-05-30 11:56:31','2019-05-30 11:56:31'),(5,'Public HCIII','2019-05-30 11:56:31','2019-05-30 11:56:31'),(6,'Hospital','2019-05-30 11:56:31','2019-05-30 11:56:31');
 /*!40000 ALTER TABLE `unhls_facility_level` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2998,7 +3132,7 @@ CREATE TABLE `unhls_facility_ownership` (
 
 LOCK TABLES `unhls_facility_ownership` WRITE;
 /*!40000 ALTER TABLE `unhls_facility_ownership` DISABLE KEYS */;
-INSERT INTO `unhls_facility_ownership` VALUES (1,'Public','2018-03-17 18:35:13','2018-03-17 18:35:13'),(2,'PFP','2018-03-17 18:35:13','2018-03-17 18:35:13'),(3,'PNFP','2018-03-17 18:35:13','2018-03-17 18:35:13'),(4,'Other','2018-03-17 18:35:13','2018-03-17 18:35:13');
+INSERT INTO `unhls_facility_ownership` VALUES (1,'Public','2019-05-30 11:56:31','2019-05-30 11:56:31'),(2,'PFP','2019-05-30 11:56:31','2019-05-30 11:56:31'),(3,'PNFP','2019-05-30 11:56:31','2019-05-30 11:56:31'),(4,'Other','2019-05-30 11:56:31','2019-05-30 11:56:31');
 /*!40000 ALTER TABLE `unhls_facility_ownership` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3042,6 +3176,7 @@ CREATE TABLE `unhls_patients` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `dob` date NOT NULL,
   `gender` tinyint(4) NOT NULL DEFAULT '0',
+  `nationality` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `village_residence` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -3056,7 +3191,7 @@ CREATE TABLE `unhls_patients` (
   PRIMARY KEY (`id`),
   KEY `unhls_patients_external_patient_number_index` (`external_patient_number`),
   KEY `unhls_patients_created_by_index` (`created_by`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3065,6 +3200,7 @@ CREATE TABLE `unhls_patients` (
 
 LOCK TABLES `unhls_patients` WRITE;
 /*!40000 ALTER TABLE `unhls_patients` DISABLE KEYS */;
+INSERT INTO `unhls_patients` VALUES (1,'9000','ENTB01/1905/1/js','','john snow','1969-06-12',0,NULL,'','','kirombe','','0785262623','',NULL,1,NULL,'2019-05-31 09:04:47','2019-05-31 09:04:47'),(2,'6767667','ENTB01/1905/2/mm','','mwanje mwanje','1963-06-14',0,NULL,'','','mukon','','0785262623','',NULL,1,NULL,'2019-05-31 09:18:49','2019-05-31 09:18:50'),(3,'189','Auto generated upon succesfull save!','','Jane kamurasi ','1989-06-10',0,'Refugee','','','','','','',NULL,1,NULL,'2019-06-08 18:19:14','2019-06-08 18:19:14'),(4,'6898','BNRH-7001-0902-wr','','wembele richard','2019-05-11',0,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 07:01:50','2019-06-10 07:01:50'),(5,'891','TLH-0903-011970','','Okwalingah Gerald','2019-06-10',0,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 11:56:48','2019-06-10 11:56:48'),(6,'12345','TLH-0001-011970','','Benjamin Ssekajija','2000-06-30',0,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 11:57:53','2019-06-10 11:57:53'),(7,'9012','TLH-0002-7001','','Kisakye Eron','1959-01-01',0,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 11:58:57','2019-06-10 11:58:57'),(8,'78123','TLH-0003-70-01','','Ninsiima Charity','1996-01-01',0,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 12:07:30','2019-06-10 12:07:30'),(9,'712','TLH-0004-197001','','Ritah Moln','1974-01-01',0,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 12:09:20','2019-06-10 12:09:20'),(10,'than12','TLH-0005-7001','','Kaitesi Sandra','1989-01-01',1,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 12:18:12','2019-06-10 12:18:12'),(11,'lkaskd','TLH-0006-062019','','Segirinya Muhamood','1929-01-01',0,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 12:20:20','2019-06-10 12:20:20'),(12,'poppa','TLH-0007-0619','','Martha Ayo P\'Okidi','1957-01-01',1,NULL,'','','','','','',NULL,1,NULL,'2019-06-10 12:22:58','2019-06-10 12:22:58'),(13,'-','TLH-0008-0619','','Okongo David','2012-01-01',0,NULL,'','','Masike','','','',NULL,1,NULL,'2019-06-12 06:23:07','2019-06-12 06:23:07'),(14,'-','TLH-0009-0719','','Benjamin Ssekajija','1996-01-01',0,NULL,'','','','','','',NULL,1,NULL,'2019-07-02 06:25:57','2019-07-02 06:25:57'),(15,'-','TLH-0010-0619','','Okongo David','2012-01-01',0,NULL,'','','Masike','','','',NULL,1,NULL,'2019-06-12 06:26:09','2019-06-12 06:26:09');
 /*!40000 ALTER TABLE `unhls_patients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3153,8 +3289,6 @@ CREATE TABLE `unhls_stockcard` (
   KEY `unhls_stockcard_district_id_foreign` (`district_id`),
   KEY `unhls_stockcard_facility_id_foreign` (`facility_id`),
   KEY `unhls_stockcard_year_id_foreign` (`year_id`),
-  KEY `unhls_stockcard_commodity_id_foreign` (`commodity_id`),
-  CONSTRAINT `unhls_stockcard_commodity_id_foreign` FOREIGN KEY (`commodity_id`) REFERENCES `commodities` (`id`),
   CONSTRAINT `unhls_stockcard_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `unhls_districts` (`id`),
   CONSTRAINT `unhls_stockcard_facility_id_foreign` FOREIGN KEY (`facility_id`) REFERENCES `unhls_facilities` (`id`),
   CONSTRAINT `unhls_stockcard_year_id_foreign` FOREIGN KEY (`year_id`) REFERENCES `unhls_financial_years` (`id`)
@@ -3195,10 +3329,8 @@ CREATE TABLE `unhls_stockrequisition` (
   KEY `unhls_stockrequisition_district_id_foreign` (`district_id`),
   KEY `unhls_stockrequisition_facility_id_foreign` (`facility_id`),
   KEY `unhls_stockrequisition_year_id_foreign` (`year_id`),
-  KEY `unhls_stockrequisition_item_id_foreign` (`item_id`),
   CONSTRAINT `unhls_stockrequisition_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `unhls_districts` (`id`),
   CONSTRAINT `unhls_stockrequisition_facility_id_foreign` FOREIGN KEY (`facility_id`) REFERENCES `unhls_facilities` (`id`),
-  CONSTRAINT `unhls_stockrequisition_item_id_foreign` FOREIGN KEY (`item_id`) REFERENCES `commodities` (`id`),
   CONSTRAINT `unhls_stockrequisition_year_id_foreign` FOREIGN KEY (`year_id`) REFERENCES `unhls_financial_years` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3231,7 +3363,7 @@ CREATE TABLE `unhls_test_results` (
   KEY `unhls_test_results_measure_id_foreign` (`measure_id`),
   CONSTRAINT `unhls_test_results_measure_id_foreign` FOREIGN KEY (`measure_id`) REFERENCES `measures` (`id`),
   CONSTRAINT `unhls_test_results_test_id_foreign` FOREIGN KEY (`test_id`) REFERENCES `unhls_tests` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3240,6 +3372,7 @@ CREATE TABLE `unhls_test_results` (
 
 LOCK TABLES `unhls_test_results` WRITE;
 /*!40000 ALTER TABLE `unhls_test_results` DISABLE KEYS */;
+INSERT INTO `unhls_test_results` VALUES (1,2,4,'No mps seen','2019-06-08 17:33:17',NULL),(2,3,4,'++','2019-06-08 17:44:32',NULL),(3,4,32,'Negative','2019-06-08 18:16:51',NULL),(4,6,32,'Positive','2019-06-10 07:03:19',NULL),(5,11,4,'++','2019-06-12 06:33:09',NULL),(6,12,32,'Negative','2019-06-12 06:33:29',NULL),(7,15,81,'some result here','2019-06-13 13:19:29',NULL),(8,16,70,'lllll','2019-06-13 13:19:42',NULL),(9,19,79,'mlmmlmlmml','2019-06-13 13:20:20',NULL),(10,18,75,'bsdfsd','2019-06-13 13:20:30',NULL),(11,17,72,'no glucose seen','2019-06-13 13:20:44',NULL),(12,13,30,'Positive','2019-06-13 13:21:20',NULL),(13,7,34,'Negative','2019-06-13 13:24:31',NULL),(14,1,4,'No mps seen','2019-06-13 13:26:31',NULL);
 /*!40000 ALTER TABLE `unhls_test_results` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3281,7 +3414,7 @@ CREATE TABLE `unhls_tests` (
   CONSTRAINT `unhls_tests_test_status_id_foreign` FOREIGN KEY (`test_status_id`) REFERENCES `test_statuses` (`id`),
   CONSTRAINT `unhls_tests_test_type_id_foreign` FOREIGN KEY (`test_type_id`) REFERENCES `test_types` (`id`),
   CONSTRAINT `unhls_tests_visit_id_foreign` FOREIGN KEY (`visit_id`) REFERENCES `unhls_visits` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3290,6 +3423,7 @@ CREATE TABLE `unhls_tests` (
 
 LOCK TABLES `unhls_tests` WRITE;
 /*!40000 ALTER TABLE `unhls_tests` DISABLE KEYS */;
+INSERT INTO `unhls_tests` VALUES (1,1,2,1,'',5,1,1,1,'1','','2019-05-31 09:09:40','2019-06-13 13:25:03','2019-06-13 13:26:31','2019-06-13 13:41:01',NULL,NULL,NULL),(2,2,2,2,'',4,1,1,0,'1','','2019-06-01 08:57:58','2019-06-08 17:33:12','2019-06-08 17:33:17',NULL,NULL,NULL,NULL),(3,3,2,3,'',4,1,1,0,'1','clinical_d','2019-06-08 17:43:59','2019-06-08 17:44:26','2019-06-08 17:44:32',NULL,NULL,NULL,NULL),(4,3,10,4,'',4,1,1,0,'1','clinical_d','2019-06-08 17:43:59','2019-06-08 18:16:46','2019-06-08 18:16:51',NULL,NULL,NULL,NULL),(5,3,1,5,'',2,1,0,0,'1','clinical_d','2019-06-08 17:43:59',NULL,NULL,NULL,NULL,NULL,NULL),(6,4,10,6,'',4,1,1,0,'','','2019-06-10 07:03:03','2019-06-10 07:03:13','2019-06-10 07:03:19',NULL,NULL,NULL,NULL),(7,5,12,7,'',5,1,1,1,'','','2019-06-10 08:55:33','2019-06-10 08:55:47','2019-06-13 13:24:31','2019-06-13 13:37:31',NULL,NULL,NULL),(8,6,9,8,'',2,1,0,0,'ben','','2019-06-10 09:30:57',NULL,NULL,NULL,NULL,NULL,NULL),(9,6,9,9,'',2,1,0,0,'ben','','2019-06-10 09:30:57',NULL,NULL,NULL,NULL,NULL,NULL),(10,7,2,10,'',2,1,0,0,'Okello','','2019-06-10 11:56:21',NULL,NULL,NULL,NULL,NULL,NULL),(11,8,2,11,'',4,1,1,0,'Sam Chepkwarai','','2019-06-12 06:31:38','2019-06-12 06:32:36','2019-06-12 06:33:09',NULL,NULL,NULL,NULL),(12,8,10,12,'',4,1,1,0,'Sam Chepkwarai','','2019-06-12 06:31:38','2019-06-12 06:33:18','2019-06-12 06:33:29',NULL,NULL,NULL,NULL),(13,8,8,13,'',4,1,1,0,'Sam Chepkwarai','','2019-06-12 06:31:38','2019-06-13 13:21:15','2019-06-13 13:21:20',NULL,NULL,NULL,NULL),(14,9,16,14,'',3,1,1,0,'ben','','2019-06-12 06:41:32','2019-06-12 06:41:46',NULL,NULL,NULL,NULL,NULL),(15,10,17,15,'',4,1,1,0,'john','','2019-06-12 06:43:50','2019-06-13 13:19:16','2019-06-13 13:19:29',NULL,NULL,NULL,NULL),(16,10,35,15,'',4,1,1,0,'john','','2019-06-12 06:43:50','2019-06-13 13:19:35','2019-06-13 13:19:42',NULL,NULL,NULL,NULL),(17,10,37,15,'',4,1,1,0,'john','','2019-06-12 06:43:50','2019-06-13 13:20:37','2019-06-13 13:20:44',NULL,NULL,NULL,NULL),(18,10,40,15,'',4,1,1,0,'john','','2019-06-12 06:43:50','2019-06-12 06:44:13','2019-06-13 13:20:30',NULL,NULL,NULL,NULL),(19,10,43,15,'',4,1,1,0,'john','','2019-06-12 06:43:50','2019-06-13 13:20:15','2019-06-13 13:20:20',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `unhls_tests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3305,6 +3439,9 @@ CREATE TABLE `unhls_visits` (
   `patient_id` int(10) unsigned NOT NULL,
   `visit_type` varchar(12) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Out-patient',
   `visit_number` int(10) unsigned DEFAULT NULL,
+  `visit_lab_number` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facility_id` int(10) unsigned DEFAULT NULL,
+  `facility_lab_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `ward_id` int(11) DEFAULT NULL,
@@ -3315,8 +3452,10 @@ CREATE TABLE `unhls_visits` (
   PRIMARY KEY (`id`),
   KEY `unhls_visits_visit_number_index` (`visit_number`),
   KEY `unhls_visits_patient_id_foreign` (`patient_id`),
+  KEY `unhls_visits_facility_id_foreign` (`facility_id`),
+  CONSTRAINT `unhls_visits_facility_id_foreign` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`),
   CONSTRAINT `unhls_visits_patient_id_foreign` FOREIGN KEY (`patient_id`) REFERENCES `unhls_patients` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3325,6 +3464,7 @@ CREATE TABLE `unhls_visits` (
 
 LOCK TABLES `unhls_visits` WRITE;
 /*!40000 ALTER TABLE `unhls_visits` DISABLE KEYS */;
+INSERT INTO `unhls_visits` VALUES (1,1,'Out-patient',NULL,'9000000',NULL,NULL,'2019-05-31 09:09:40','2019-05-31 09:09:40',NULL,'',NULL,0,0),(2,2,'Out-patient',NULL,'',NULL,NULL,'2019-06-01 08:57:58','2019-06-01 08:57:58',NULL,'',NULL,NULL,NULL),(3,2,'Out-patient',NULL,NULL,NULL,NULL,'2019-06-08 17:43:59','2019-06-08 17:43:59',NULL,NULL,NULL,NULL,NULL),(4,4,'Out-patient',NULL,NULL,NULL,NULL,'2019-06-10 07:03:03','2019-06-10 07:03:03',NULL,NULL,NULL,NULL,NULL),(5,1,'Out-patient',NULL,NULL,NULL,NULL,'2019-06-10 08:55:33','2019-06-10 08:55:33',NULL,NULL,NULL,NULL,NULL),(6,4,'Out-patient',NULL,NULL,NULL,NULL,'2019-06-10 09:30:57','2019-06-10 09:30:57',NULL,NULL,NULL,NULL,NULL),(7,3,'Out-patient',NULL,NULL,NULL,NULL,'2019-06-10 11:56:21','2019-06-10 11:56:21',NULL,NULL,NULL,NULL,NULL),(8,15,'Out-patient',NULL,NULL,NULL,NULL,'2019-06-12 06:31:38','2019-06-12 06:31:38',NULL,NULL,NULL,NULL,NULL),(9,14,'Out-patient',NULL,NULL,NULL,NULL,'2019-06-12 06:41:32','2019-06-12 06:41:32',NULL,NULL,NULL,NULL,NULL),(10,13,'Out-patient',NULL,NULL,NULL,NULL,'2019-06-12 06:43:50','2019-06-12 06:43:50',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `unhls_visits` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3388,7 +3528,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'administrator','$2y$10$rfw7xy1EaSs5rXv3EOsjfOFmm.rgpI5MbviIQ9.S22FTUZl3tOaE.','','A-LIS Admin',0,'Systems Administrator',NULL,'PBoKxjceo8SlWxy1L9JJYaneqkDTT4EXrMSv6OZH1RFQ2CUmy1H0cY6UUaEP',1,NULL,'2018-03-17 18:35:13','2018-03-19 12:55:19',NULL);
+INSERT INTO `users` VALUES (1,'administrator','$2y$10$JRs24D36K92vf01Y6FLx9u2mNc2RfsZ34IYd74ik4Zc.nrRs91nSK','','A-LIS Admin',0,'Systems Administrator',NULL,'MuENsldCog582jW6CFDw2h89AZJfmCbAvPXPv6BKZgNKcQvn0MZuMlvm5jvV',1,NULL,'2019-05-30 11:56:32','2019-06-12 06:20:22',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3403,7 +3543,7 @@ CREATE TABLE `uuids` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `counter` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=209 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3412,6 +3552,7 @@ CREATE TABLE `uuids` (
 
 LOCK TABLES `uuids` WRITE;
 /*!40000 ALTER TABLE `uuids` DISABLE KEYS */;
+INSERT INTO `uuids` VALUES (1,0),(2,0),(3,0),(4,0),(5,0),(6,0),(7,0),(8,0),(9,0),(208,0);
 /*!40000 ALTER TABLE `uuids` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3440,6 +3581,29 @@ INSERT INTO `visit_statuses` VALUES (1,'appointment-made'),(2,'test-request-made
 UNLOCK TABLES;
 
 --
+-- Table structure for table `ward_type`
+--
+
+DROP TABLE IF EXISTS `ward_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ward_type` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ward_type`
+--
+
+LOCK TABLES `ward_type` WRITE;
+/*!40000 ALTER TABLE `ward_type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ward_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `wards`
 --
 
@@ -3450,6 +3614,7 @@ CREATE TABLE `wards` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ward_type_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3505,4 +3670,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-19 19:49:37
+-- Dump completed on 2019-07-05 14:03:56
