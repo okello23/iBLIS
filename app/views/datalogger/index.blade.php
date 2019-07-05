@@ -4,6 +4,11 @@
 @if (Session::has('message'))
 <div class="alert alert-info">{{ trans(Session::get('message')) }}</div>
 @endif
+
+            <span class="glyphicon glyphicon-refresh"></span>
+
+<br>
+<br>
 <div class="panel panel-primary">
   <div class="panel-heading ">
     <span class="glyphicon glyphicon-list"></span>
@@ -15,11 +20,11 @@
     <table class="table table-bordered table-hover table-condensed search-table">
       <thead>
         <tr>
-          <th>Date Added</th>
+          <th>Test Date</th>
           <th>Sample Origin</th>
           <th>Sample ID</th>
+          <th>Test  Result</th>
           <th>Testing Device</th>
-          <th>Tested Requested <br>& result</th>
           <th>Tested By</th>
           <th>{{trans('messages.actions')}}</th>
         </tr>
@@ -27,11 +32,11 @@
       <tbody>
         @foreach($logger as $key => $value)
         <tr>
-          <td>{{ $value->dataAdded}}</td>
+          <td>{{ $value->ResultDateString}}</td>
           <td>{{ $value->SiteName}}</td>
           <td>{{ $value->Sample}}</td>
-          <td>{{ $value->DeviceTypeString}}</td>
           <td>{{ $value->ResultValue}}</td>
+          <td>{{ $value->DeviceTypeString}}</td>
           <td>{{ $value->Operator}}</td>
           <td>
 

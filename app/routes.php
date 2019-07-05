@@ -939,6 +939,12 @@ Route::group(array("before" => "checkPerms:request_topup"), function()
      // Data Logger route
      Route::resource('datalogger', 'DataLoggerController');
 
+	 Route::post("/datalogger/logger", array(
+        "as"   => "data.logger",
+        "uses" => "DataLoggerController@logger"
+    ));
+
+
     Route::get("/equipmentbreakdown/{id}/restore", array(
         "as"   => "equipmentbreakdown.restore",
         "uses" => "EquipmentBreakdownController@restore"
