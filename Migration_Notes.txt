@@ -1,0 +1,35 @@
+1. For all models, add the following to the top and let the models extend Model
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+
+2. For all models wich use softdeletes, use something like (SoftDeletes were changed abit)
+
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Bbincidence extends Model
+{
+	/**
+	 * Enabling soft deletes for specimen type details.
+	 *
+	 */
+	use SoftDeletes;
+
+2. To return to view from within controller, use View('view/name') instead of View::make()
+
+3. To access models from within views (e.g., dashboard/home.phtml), use full namespace for the models. App\Models\Bbincidence::
+
+4. In controllers, to access inputs: 
+	- Add use Illuminate\Http\Request;
+	- Functions/methods which consume imputs should take on instance of Request as a parameter e.g., public function index(Request $request)
+	- The inputs can then be accessed as properties of Request i.e. $request->date_from
+	
+5. In Views with forms, to access preiviously sent information (in case of errors), use old() instead of Input::old() - the Input cass was removed from new laravel
+	
+6. Move the config files to the new location (at the root, not inside app anymore)
+
+8. User the following link to configure Zizaco/entrust https://github.com/Zizaco/entrust
+
+9. Move the language files from app to resources/lang
+
+10. Move routes to routes/web.php 
+ 
