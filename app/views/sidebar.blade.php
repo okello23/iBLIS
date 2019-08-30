@@ -222,6 +222,13 @@
 										</a>
 									</div>
 								</li>
+								<li>
+									<div>
+										<a href="{{URL::route('poc.upload')}}">
+											<span class="glyphicon glyphicon-tag" ></span>{{trans('Upload to central Server')}}
+										</a>
+									</div>
+								</li>
 
 							</ul>
 

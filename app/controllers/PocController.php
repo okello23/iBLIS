@@ -367,6 +367,35 @@ $result->equipment_used = Input::get('equipment_used');
 		}
 	}
 
+	public function upload(){
+		$sql = "select r.id as result_id, patient_number, p.name as patient_name, dob, gender, tt.name as test_type, r.time_entered as test_date,result from unhls_test_results r 
+    left join unhls_tests t on r.test_id=t.id
+    left join test_types tt on t.test_type_id=tt.id
+    left join unhls_visits v on t.visit_id=v.id
+    left join unhls_patients p on v.patient_id=p.id where uploaded=0";
+
+		$records = DB::select($sql);
+		foreach ($records as $r) {
+			$url_data = $this->arr2str((array)$r);
+			$this->send($url_data);
+			$update_sql = "update unhls_test_results set uploaded=1 where id=$r->result_id";
+			DB::update($update_sql);
+		}
+
+		//return $this->send($url_data);
+		return "uploaded successfully";
+	}
+
+	private function send($txt){
+		$command = "curl -X GET 'http://localhost:8001/alis_api/?facility_id=10000&$txt'";
+		exec($command);
+	}
+
+	private function arr2str($arr, $glue="&"){
+		$arr2 = array_map(function($k, $v) { return "$k=".urlencode($v); }, array_keys($arr), array_values($arr));
+		return implode($glue, $arr2);
+	}
+
 	private function csv_download($fro, $to){
 		$patients = POC::leftjoin('poc_results as pr', 'pr.patient_id', '=', 'poc_tables.id')
 						->select('poc_tables.*','pr.results', 'pr.test_date')

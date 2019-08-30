@@ -57,7 +57,7 @@ return array(
 	*/
 
 	'organization-logo' => '/i/coat_of_arms_of_uganda.png',
-	'organization-logo' => '/i/coat_of_arms.png',
+	//'organization-logo' => '/i/coat_of_arms.png',
 	'uganda-logo' => '/i/uganda.png',
 	'cdc-logo' => '/i/cdc.png',
 	'aslm-logo' => '/i/aslm.png',

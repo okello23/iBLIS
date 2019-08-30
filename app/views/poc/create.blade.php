@@ -83,6 +83,7 @@
 				<div class="radio-inline">{{ Form::radio("entry_point", 'Young Child Clinic', false) }} <span class="input-tag">Young Child Clinic</span></div>
 				<div class="radio-inline">{{ Form::radio("entry_point", 'EPI', false) }} <span class="input-tag">EPI</span></div>
 				<div class="radio-inline">{{ Form::radio("entry_point", 'Maternity', false) }} <span class="input-tag">Maternity</span></div>
+				<div class="radio-inline">{{ Form::radio("entry_point", 'Other', false) }} <span class="input-tag">Other</span></div>
 			</div>
 
 			<div class="form-group">
