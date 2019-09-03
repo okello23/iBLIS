@@ -19,7 +19,7 @@
 
 
                                 <img src = "{{ ('/i/thnk.jpeg') }}" alt="thnk.jpeg" height=auto width=auto><br><span class="nav_title">	
-                                  <h1  style="color:#337ab7">Your HPV Data has successfully been uploaded <br> To the CPHL...!!</h1>
+                                  <h1  style="color:#337ab7">Your HPV Data has successfully been uploaded To  CPHL...!!</h1>
                                 </span>
 
                         </div>
