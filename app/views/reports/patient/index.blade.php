@@ -21,7 +21,7 @@
 <div class="panel panel-primary">
 	<div class="panel-heading ">
 		<span class="glyphicon glyphicon-user"></span>
-		{{ trans('messages.patient-report') }}
+Report Date::
 	</div>
 	<div class="panel-body">
 

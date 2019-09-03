@@ -1,0 +1,71 @@
+<?php $__env->startSection("content"); ?>
+    <div>
+        <ol class="breadcrumb">
+          <li><a href="<?php echo e(URL::route('user.home')); ?>"><?php echo trans('messages.home'); ?></a></li>
+          <li><a href="<?php echo URL::route('poc.index'); ?>"><?php echo Lang::choice('messages.patient',2); ?></a></li>
+          <li class="active"><?php echo trans('messages.patient-details'); ?></li>
+        </ol>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-user"></span> <br>
+          Full Infant Details
+            <div class="panel-btn">
+                <a class="btn btn-sm btn-info" href="<?php echo URL::route('poc.edit', array($patient->id)); ?>">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <?php echo trans('messages.edit'); ?>
+
+                </a>
+                <?php if(Auth::user()->can('request_test')): ?>
+                <a class="btn btn-sm btn-info"
+                    href="<?php echo URL::route('poc.create', array('patient_id' => $patient->id)); ?>">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <?php echo trans('messages.new-test'); ?>
+
+                </a>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="display-details">
+                <h5 class="view" style = "color:green;"><strong>Infant Details:</strong>
+                  <br>
+                  <br>
+
+                    Name: <?php echo $patient->infant_name; ?> | Sex: <?php echo $patient->gender; ?> | Age: <?php echo $patient->age; ?> <i>months</i> | EID Result: <?php echo $patient->results; ?>
+
+| Equipment Used: <?php echo $patient->equipment_used; ?>
+
+| Test Date: <?php echo $patient->test_date; ?>
+
+| Tested By: <?php echo $patient->tested_by; ?>
+
+</h5>
+                    <p class="view-striped"><strong>Care Taker's Mobile No:</strong><?php echo $patient->caretaker_number; ?></p>
+                    <p class="view-striped"><strong>Breastfeeding Child:</strong><?php echo $patient->breastfeeding_status; ?></p>
+                    <p class="view-striped"><strong>Exp Number:</strong><?php echo $patient->exp_no; ?></p>
+
+                    <?php if($patient->admission_date ==  '0000-00-00'): ?>
+                    <p class="view-striped"><strong>Admission Date:</strong>-</p>
+
+                    <?php else: ?>
+                    <p class="view-striped"><strong>Admission Date:</strong><?php echo $patient->admission_date; ?></p>
+                    <?php endif; ?>
+                    <p class="view"><strong>Entry Point:</strong> <?php echo $patient->entry_point; ?>
+
+                    <p class="view"><strong>PCR Level:</strong> <?php echo $patient->pcr_level; ?>
+
+                    <p class="view"><strong>Infant's PMTCT ARVs:</strong> <?php echo $patient->infant_pmtctarv; ?>
+
+                    <p class="view-striped"><strong>Mother's Name:</strong><?php echo $patient->mother_name; ?></p>
+                    <p class="view-striped"><strong>Mother's HIV Status:</strong><?php echo $patient-> mother_hiv_status; ?></p>
+                    <p class="view-striped"><strong>Mother's PMTCTARV's <i>(If mother is HIV positive)</i>:</strong><i>Antenatal:: </i><strong><?php echo $patient->pmtct_antenatal; ?> </strong> || <i>Delivery:: </i> <strong><?php echo $patient->pmtct_delivery; ?> </strong> || <i>Postnantal:: </i> <strong> <?php echo $patient->pmtct_postnatal; ?> </strong></p>
+
+                <p class="view"><strong><?php echo trans('messages.date-created'); ?></strong>
+                    <?php echo $patient->created_at; ?></p>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make("layout", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

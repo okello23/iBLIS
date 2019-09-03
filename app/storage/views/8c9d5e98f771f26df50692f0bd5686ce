@@ -1,0 +1,20 @@
+<?php echo Form::label('test-list', trans("messages.select-tests")); ?>
+
+<div class="form-pane panel panel-default">
+	<div class="container-fluid">
+		<?php foreach($testTypes as $key=>$value): ?>
+		<?php if($testCategoryId==$value->test_category_id): ?>
+		<div class="col-md-4">
+			<label  class="checkbox">
+				<input class="test-type id-<?php echo $value->id; ?>"
+					type="checkbox"
+					data-test-type-name="<?php echo $value->name; ?>"
+					name="testtypes[]"
+					value="<?php echo $value->id; ?>"/><?php echo $value->name; ?>
+
+			</label>
+		</div>
+		<?php endif; ?>
+		<?php endforeach; ?>
+	</div>
+</div>

@@ -125,6 +125,10 @@ Route::group(array("before" => "auth"), function()
         "as"   => "poc.download",
         "uses" => "PocController@download"
     ));
+    Route::get("/poc_upload/", array(
+        "as"   => "poc.upload",
+        "uses" => "PocController@upload"
+    ));
 
     Route::get("unhls_test/importPoc", array(
         "as" => "unhls_test.importPoc",

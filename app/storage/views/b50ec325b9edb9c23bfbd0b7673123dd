@@ -1,0 +1,117 @@
+<?php $__env->startSection("content"); ?>
+<div>
+	<ol class="breadcrumb">
+	  <li><a href="<?php echo e(URL::route('user.home')); ?>"><?php echo trans('messages.home'); ?></a></li>
+	  <li class="active"><?php echo trans('messages.surveillance'); ?></li>
+	</ol>
+</div>
+<div class="panel panel-primary">
+	<div class="panel-heading ">
+		<span class="glyphicon glyphicon-edit"></span>
+		<?php echo trans('messages.surveillance'); ?>
+
+		<div class="panel-btn">
+			<a href="<?php echo e(URL::route('reportconfig.disease')); ?>" 
+				class="btn btn-info add-another-disease-for-real">
+				<span class="glyphicon glyphicon-plus-sign"></span>
+				<?php echo trans('messages.new-disease'); ?></a>		
+		</div>
+	</div>
+	<?php echo Form::open(array('route' => 'reportconfig.surveillance', 'id' => 'form-edit-surveillance')); ?>
+
+		<div class="panel-body surveillance-input">
+			<div class="alert alert-danger error-div hidden">
+				<ul><li>Please enter all fields</li></ul>
+				<?php if($errors->all()): ?>
+					<?php echo HTML::ul($errors->all()); ?>
+
+				<?php endif; ?>
+			</div>
+			<div class="row">
+				<div class="col-sm-5 col-md-3">
+	                <label><?php echo Lang::choice('messages.test-type',2); ?></label>
+				</div>
+				<div class="col-sm-5 col-md-3">
+	                <label><?php echo Lang::choice('messages.disease',2); ?></label>
+				</div>
+			</div>
+			<?php foreach($diseaseTests as $diseaseTest): ?>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-sm-5 col-md-3">
+		                <select class="form-control" name="surveillance[<?php echo $diseaseTest->id; ?>][test-type]"> 
+		                    <option value="0"></option>
+		                    <?php foreach(TestType::all() as $testType): ?>
+		                        <option value="<?php echo $testType->id; ?>"
+		                        	<?php echo ($testType->id == $diseaseTest->test_type_id) ? 'selected="selected"' : ''; ?>>
+		                        	<?php echo $testType->name; ?></option>
+		                    <?php endforeach; ?>
+		                </select>
+					</div>
+					<div class="col-sm-5 col-md-3">
+					    <select class="form-control" name="surveillance[<?php echo $diseaseTest->id; ?>][disease]"> 
+					        <option value="0"></option>
+					        <?php foreach(Disease::all() as $disease): ?>
+					            <option value="<?php echo $disease->id; ?>"
+					            	<?php echo ($disease->id == $diseaseTest->disease_id) ? 'selected="selected"' : ''; ?>>
+					            	<?php echo $disease->name; ?></option>
+					        <?php endforeach; ?>
+					    </select>
+					</div>
+					<div class="col-md-1">
+					    <button class="close" aria-hidden="true" type="button"
+							title="<?php echo trans('messages.delete'); ?>">×</button>
+					</div>
+				</div>
+            </div>
+			<?php endforeach; ?>
+		</div>
+		<div class="panel-footer">
+			<div class="form-group actions-row">
+				<input class="hidden" name="from-form" type="text" value="from-form">
+				<?php echo Form::button(
+					'<span class="glyphicon glyphicon-save"></span> '.trans('messages.save'), 
+					['class' => 'btn btn-primary', 'onclick' => 'authenticate("#form-edit-surveillance")']
+				); ?>
+
+				<?php echo Form::button(trans('messages.cancel'), 
+					['class' => 'btn btn-default', 'onclick' => 'javascript:history.go(-1)']
+				); ?>
+
+				<?php echo Form::button(trans('messages.add-another'), 
+					['class' => 'btn btn-default add-another-surveillance', 'data-new-surveillance' => '1']
+				); ?>
+
+			</div>
+		</div>
+	<?php echo Form::close(); ?>
+
+</div>
+<div class="hidden addSurveillanceLoader">
+	<div class="form-group new">
+		<div class="row">
+			<div class="col-sm-5 col-md-3">
+                <select class="form-control test-type" name=""> 
+					<option value="0"></option>
+					<?php foreach(TestType::all() as $testType): ?>
+					    <option value="<?php echo $testType->id; ?>"><?php echo $testType->name; ?></option>
+					<?php endforeach; ?>
+            	</select>
+			</div>
+			<div class="col-sm-5 col-md-3">
+			    <select class="form-control disease" name=""> 
+			        <option value="0"></option>
+			        <?php foreach(Disease::all() as $disease): ?>
+			            <option value="<?php echo $disease->id; ?>"><?php echo $disease->name; ?></option>
+			        <?php endforeach; ?>
+			    </select>
+			</div>
+		    <div class="col-md-1">
+			    <button class="close" aria-hidden="true" type="button"
+	        		title="<?php echo trans('messages.delete'); ?>">×</button>
+		    </div>
+		</div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

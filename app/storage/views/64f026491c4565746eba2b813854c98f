@@ -1,0 +1,249 @@
+<style type="text/css">
+	 table {
+	 	padding: 2px;
+	 }
+</style>
+<br>
+<br>
+<b><?php echo trans('messages.patient-report').': '.date('d-m-Y'); ?></b>
+<br>
+<table style="border-bottom: 1px solid #cecfd5;">
+	<tr>
+		<td colspan="2"><strong><?php echo trans('messages.patient-name'); ?></strong></td>
+		<?php if(Entrust::can('view_names')): ?>
+			<td colspan="3"><?php echo $patient->name; ?></td>
+		<?php else: ?>
+			<td colspan="3">N/A</td>
+		<?php endif; ?>
+		<td colspan="1"><strong><?php echo trans('messages.gender'); ?></strong></td>
+		<td colspan="1"><?php echo $patient->getGender(false); ?></td>
+		<td colspan="1"><strong><?php echo trans('messages.age'); ?></strong></td>
+		<td colspan="1"><?php echo $patient->getAge(); ?></td>
+		<td colspan="2"><strong><?php echo trans('messages.patient-id'); ?></strong></td>
+		<td colspan="1"><?php echo $patient->patient_number; ?></td>
+	</tr>
+</table>
+<table style="border-bottom: 1px solid #cecfd5;">
+	<tr>
+		<td colspan="2"><strong>Unit</strong></td>
+		<td colspan="2">
+		<?php if(isset($tests)): ?>
+			<?php if(!is_null($tests->first())): ?>
+			<?php echo is_null($tests->first()->visit->ward) ? '':$tests->first()->visit->ward->name; ?>
+
+			<?php endif; ?>
+		<?php endif; ?>
+		</td>
+		<td colspan="1"></td>
+		<!-- <td colspan="1"></td> -->
+		<td colspan="3"><strong>Requesting Officer</strong></td>
+		<td colspan="4">
+		<?php if(isset($tests)): ?>
+			<?php echo is_null($tests->first()) ? '':$tests->first()->requested_by; ?>
+
+		<?php endif; ?>
+		</td>
+	</tr>
+</table>
+<br>
+<br>
+<table style="border-bottom: 1px solid #cecfd5;">
+		<tr>
+			<th colspan="6">Lab Reception</th>
+		</tr>
+</table>
+<table style="border-bottom: 1px solid #cecfd5;">
+		<tr>
+			<td colspan="2"><b>Specimen Type</b></td>
+			<td colspan="2"><b>Received By</b></td>
+			<td colspan="2"><b>Date Received</b></td>
+			<td colspan="2"><b><?php echo trans('messages.specimen-status'); ?></b></td>
+			<td colspan="3"><b><?php echo Lang::choice('messages.test-category', 2); ?></b></td>
+			<td colspan="2"><b>Tests Requested</b></td>
+		</tr>
+</table>
+<table style="border-bottom: 1px solid #cecfd5;">
+		<?php $__empty_1 = true; foreach($tests as $test): $__empty_1 = false; ?>
+				<tr>	
+					<td colspan="2"><?php echo $test->specimen->specimenType->name; ?></td>
+					<?php if($test->specimen->specimen_status_id == UnhlsSpecimen::NOT_COLLECTED): ?>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"><?php echo trans('messages.specimen-not-collected'); ?></td>
+					<?php elseif($test->specimen->specimen_status_id == UnhlsSpecimen::ACCEPTED): ?>
+						<td colspan="2"><?php echo $test->specimen->acceptedBy->name; ?></td>
+						<td colspan="2"><?php echo $test->specimen->time_accepted; ?></td>
+						<td colspan="2"><?php echo trans('messages.specimen-accepted'); ?></td>
+					<?php elseif($test->test_status_id == UnhlsTest::REJECTED): ?>
+						<td colspan="2"><?php echo $test->specimen->rejectedBy->name; ?></td>
+						<td colspan="2"><?php echo $test->specimen->time_rejected; ?></td>
+						<td colspan="2"><?php echo trans('messages.specimen-rejected'); ?></td>
+					<?php endif; ?>
+					<td colspan="3"><?php echo $test->testType->testCategory->name; ?></td>
+					<td colspan="2"><?php echo $test->testType->name; ?></td>
+				</tr>
+		<?php endforeach; if ($__empty_1): ?>
+			<tr>
+				<td colspan="6"><?php echo trans("messages.no-records-found"); ?></td>
+			</tr>
+		<?php endif; ?>
+</table>
+
+<br>
+<br>
+<table  style="border-bottom: 1px solid #cecfd5;">
+	<tr>
+		<th colspan="6"><?php echo trans('messages.test-results'); ?></th>
+	</tr>
+</table>
+<table  style="border-bottom: 1px solid #cecfd5;">
+	<tr>
+		<td colspan="2"><b><?php echo Lang::choice('messages.test-type', 1); ?></b></td>
+		<td colspan="8"><b><?php echo trans('messages.test-results-values'); ?></b></td>
+		<td colspan="2"><b><?php echo trans('messages.tested-by'); ?></b></td>
+		<td colspan="2"><b>Results Entry Date</b></td>
+	</tr>
+</table>
+<?php $__empty_1 = true; foreach($tests as $test): $__empty_1 = false; ?>
+	<?php if(!$test->testType->isCulture() && ($test->isCompleted() || $test->isVerified())): ?>
+	<table  style="border-bottom: 1px solid #cecfd5;">
+		<tr>
+			<td colspan="2"><?php echo $test->testType->name; ?></td>
+			<td colspan="8">
+				<table style="padding: 1px;">
+				<?php foreach($test->testResults as $result): ?>
+					<!-- show only parameters with values -->
+					<?php if($result->result != ''): ?>
+					<tr>
+						<?php if($test->testType->measures->count() > 1): ?>
+						<td>
+							<?php echo Measure::find($result->measure_id)->name; ?>:
+						</td>
+						<?php endif; ?>
+						<td>
+						<?php echo $result->result; ?>
+
+						</td>
+						<td>
+							<?php echo Measure::getRange($test->visit->patient, $result->measure_id); ?>
+
+						</td>
+						<td>
+							<?php echo Measure::find($result->measure_id)->unit; ?>
+
+						</td>
+					</tr>
+					<?php endif; ?>
+				<?php endforeach; ?>
+				<?php if($test->testType->name == 'HIV'): ?>
+					<tr>
+						<td><b>Interpretation:</b></td> <td><?php echo $test->interpreteHIVResults(); ?></td>
+					</tr>
+				<?php else: ?>
+					<tr>
+						<td colspan="4">
+							<b>Comments:</b> <?php echo $test->interpretation == '' ? 'N/A' : $test->interpretation; ?>
+
+						</td>
+					</tr>
+				<?php endif; ?>
+				</table>
+			</td>
+			<td colspan="2"><?php echo $test->isCompleted()?$test->testedBy->name:'Pending'; ?></td>
+			<td colspan="2"><?php echo $test->time_completed; ?></td>
+		</tr>
+	</table>
+	<?php elseif($test->testType->isCulture()): ?>
+        <!-- Culture and Sensitivity analysis -->
+        <?php if(count($test->isolated_organisms)>0): ?><!-- if there are any isolated organisms -->
+        <table style="border-bottom: 1px solid #cecfd5;">
+            <tr>
+              <td colspan="3"></td>
+            </tr>
+            <tr>
+              <td colspan="3">Antimicrobial Susceptibility Testing(AST)</td>
+            </tr>
+            <tr>
+                <th><b>Organism(s)</b></th>
+                <th><b>Antibiotic(s)</b></th>
+                <th><b>Result(s)</b></th>
+            </tr>
+        </table>
+        <?php foreach($test->isolated_organisms as $isolated_organism): ?>
+        <table style="border-bottom: 1px solid #cecfd5;">
+          <tr>
+            <td rowspan="<?php echo $isolated_organism->drug_susceptibilities->count(); ?>" class="organism"><?php echo $isolated_organism->organism->name; ?></td>
+              <?php $i = 1; ?>
+            <?php if($isolated_organism->drug_susceptibilities->count() == 0): ?>
+              </tr>
+            <?php else: ?>
+              <?php foreach($isolated_organism->drug_susceptibilities as $drug_susceptibility): ?>
+                <?php if($i > 1): ?>
+                <tr>
+                <?php endif; ?>
+                <?php $i++; ?>
+                <td class="antibiotic"><?php echo $drug_susceptibility->drug->name; ?></td>
+                <td class="result"><?php echo $drug_susceptibility->drug_susceptibility_measure->symbol; ?></td>
+              </tr>
+              <?php endforeach; ?>
+            <?php endif; ?>
+        </table>
+        <?php endforeach; ?>
+
+        <table style="border-bottom: 1px solid #cecfd5;">
+            <tr>
+              <td>Comment(s)</td>
+              <td colspan="2">
+              <?php echo $test->interpretation; ?>
+
+              </td>
+            </tr>
+        </table>
+
+        </hr>
+        <table style="border-bottom: 1px solid #cecfd5;">
+            <tr>
+              <td><b>Analysis Performed by:</b></td>
+              <td><?php echo $test->isCompleted()?$test->testedBy->name:'Pending'; ?></td>
+              <!-- <td><b>Verified by:</b></td>
+              <td><?php echo $test->isVerified()?$test->verifiedBy->name:'Pending'; ?></td> -->
+            </tr>
+        </table>
+
+        <table style="border-bottom: 1px solid #cecfd5;">
+            <tr>
+               <td colspan="2">Result Guide</td>
+               <td colspan="4" style="text-align:left;">S-Sensitive | R-Resistant | I-Intermediate</td>
+            </tr>
+        </table>
+        <?php else: ?><!-- if there are no isolated organisms -->
+            <?php if($test->culture_observation): ?><!-- if there are comments -->
+            <table>
+                  <tr>
+                    <td><?php echo $test->culture_observation->observation; ?></td>
+                  </tr>
+            </table>
+            <?php endif; ?><!--./ if there are comments -->
+        <?php endif; ?><!--./ if there are no isolated organisms -->
+	<?php endif; ?>
+<?php endforeach; if ($__empty_1): ?>
+<table  style="border-bottom: 1px solid #cecfd5;">
+	<tr>
+		<td colspan="6"><?php echo trans("messages.no-records-found"); ?></td>
+	</tr>
+</table>
+<?php endif; ?>
+
+<hr>
+
+<table>
+	<tr><td></td></tr>
+	<tr>
+		<td>
+			<strong>Approved By : </strong>
+			<?php echo trans('messages.signature-holder'); ?>
+
+		</td>
+	</tr>
+	<!-- <tr><td><u><strong></strong></u></td></tr> -->
+</table>

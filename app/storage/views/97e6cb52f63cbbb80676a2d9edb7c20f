@@ -1,0 +1,370 @@
+<?php $__env->startSection("content"); ?>
+	<div>
+		<ol class="breadcrumb">
+		  <li><a href="<?php echo e(URL::route('user.home')); ?>"><?php echo trans('messages.home'); ?></a></li>
+		  <li><a href="<?php echo URL::route('unhls_test.index'); ?>"><?php echo Lang::choice('messages.test',2); ?></a></li>
+		  <li class="active"><?php echo trans('messages.test-details'); ?></li>
+		</ol>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading ">
+            <div class="container-fluid">
+                <div class="row less-gutter">
+                    <div class="col-md-11">
+						<span class="glyphicon glyphicon-cog"></span><?php echo trans('messages.test-details'); ?>
+
+
+						<?php if($test->isCompleted() && $test->specimen->isAccepted()): ?>
+						<div class="panel-btn">
+							<?php if(Auth::user()->can('edit_test_results')): ?>
+								<a class="btn btn-sm btn-info" href="<?php echo URL::to('unhls_test/'.$test->id.'/edit'); ?>">
+									<span class="glyphicon glyphicon-edit"></span>
+									<?php echo trans('messages.edit-test-results'); ?>
+
+								</a>
+							<?php endif; ?>
+							<?php if(Auth::user()->can('verify_test_results') && Auth::user()->id != $test->tested_by): ?>
+								<?php if(!$test->isVerified()): ?>
+								<a class="btn btn-sm btn-success" href="<?php echo URL::route('test.verify', array($test->id)); ?>">
+									<span class="glyphicon glyphicon-thumbs-up"></span>
+									<?php echo trans('messages.verify'); ?>
+
+								</a>
+								<?php endif; ?>
+							<?php endif; ?>
+						</div>
+						<?php endif; ?>
+						<?php if($test->isCompleted() || $test->isVerified()): ?>
+						<div class="panel-btn">
+							<?php if(Auth::user()->can('view_reports')): ?>
+								<a class="btn btn-sm btn-default"
+								href="<?php echo URL::to('patientreport/'.$test->visit->patient->id.'/'.$test->visit->id ); ?>"
+								>
+									<span class="glyphicon glyphicon-eye-open"></span>
+									<?php echo trans('messages.view-visit-report'); ?>
+
+								</a>
+								<a class="btn btn-sm btn-default" href="<?php echo URL::to('patientreport/'.$test->visit->patient->id.'/'.$test->visit->id.'/'.$test->id ); ?>">
+									<span class="glyphicon glyphicon-eye-open"></span>
+									<?php echo trans('messages.view-test-report'); ?>
+
+								</a>
+							<?php endif; ?>
+						</div>
+						<?php endif; ?>
+                    </div>
+                    <div class="col-md-1">
+                        <a class="btn btn-sm btn-primary pull-right" href="#" onclick="window.history.back();return false;"
+                            alt="<?php echo trans('messages.back'); ?>" title="<?php echo trans('messages.back'); ?>">
+                            <span class="glyphicon glyphicon-backward"></span></a>
+                    </div>
+                </div>
+            </div>
+		</div> <!-- ./ panel-heading -->
+		<div class="panel-body">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="display-details">
+							<h3 class="view"><strong><?php echo Lang::choice('messages.test-type',1); ?></strong>
+								<?php echo $test->testType->name; ?></h3>
+							<p class="view"><strong><?php echo trans('messages.visit-number'); ?></strong>
+								<?php echo $test->visit->id; ?></p>
+							<p class="view"><strong><?php echo trans('messages.date-ordered'); ?></strong>
+								<?php echo $test->isExternal()?$test->external()->request_date:$test->time_created; ?></p>
+							<p class="view"><strong><?php echo trans('messages.lab-receipt-date'); ?></strong>
+								<?php echo $test->time_created; ?></p>
+							<p class="view"><strong><?php echo trans('messages.test-status'); ?></strong>
+								<?php echo trans('messages.'.$test->testStatus->name); ?></p>
+							<p class="view-striped"><strong><?php echo trans('messages.physician'); ?></strong>
+								<?php echo isset($test->requested_by) ? $test->requested_by : trans('messages.unknown'); ?></p>
+							<?php if($test->testType->name = 'HIV' || $test->testType->name = 'H.I.V' ): ?>
+								<p class="view-striped"><strong><?php echo trans('messages.purpose'); ?></strong>
+									<?php echo isset($test->purpose) ? $test->purpose : trans('messages.unknown'); ?></p>
+							<?php endif; ?>
+							<p class="view-striped"><strong><?php echo trans('messages.request-origin'); ?></strong>
+								<?php if($test->specimen->isReferred() && $test->specimen->referral->status == Referral::REFERRED_IN): ?>
+									<?php echo trans("messages.in"); ?>
+
+								<?php else: ?>
+									<?php echo $test->visit->visit_type; ?>
+
+								<?php endif; ?></p>
+							<p class="view-striped"><strong><?php echo trans('messages.registered-by'); ?></strong>
+								<?php echo $test->createdBy->name; ?></p>
+							<?php if($test->isCompleted()): ?>
+							<p class="view"><strong><?php echo trans('messages.tested-by'); ?></strong>
+								<?php echo $test->testedBy->name; ?></p>
+							<?php endif; ?>
+							<?php if($test->isVerified()): ?>
+							<p class="view"><strong><?php echo trans('messages.verified-by'); ?></strong>
+								<?php echo $test->verifiedBy->name; ?></p>
+							<?php endif; ?>
+							<?php if((!$test->specimen->isRejected()) && ($test->isCompleted() || $test->isVerified())): ?>
+							<!-- Not Rejected and (Verified or Completed)-->
+							<p class="view-striped"><strong><?php echo trans('messages.turnaround-time'); ?></strong>
+								<?php echo $test->getFormattedTurnaroundTime(); ?></p>
+							<?php endif; ?>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel panel-info">  <!-- Patient Details -->
+							<div class="panel-heading">
+								<h3 class="panel-title"><?php echo trans("messages.patient-details"); ?></h3>
+							</div>
+							<div class="panel-body">
+								<div class="container-fluid">
+									<div class="row">
+										<div class="col-md-3">
+											<p><strong><?php echo trans("messages.patient-number"); ?></strong></p></div>
+										<div class="col-md-9">
+											<?php echo $test->visit->patient->patient_number; ?></div></div>
+									<div class="row">
+										<div class="col-md-3">
+											<p><strong><?php echo Lang::choice('messages.name',1); ?></strong></p></div>
+										<div class="col-md-9">
+											<?php echo $test->visit->patient->name; ?></div></div>
+									<div class="row">
+										<div class="col-md-3">
+											<p><strong><?php echo trans("messages.age"); ?></strong></p></div>
+										<div class="col-md-9">
+											<?php echo $test->visit->patient->getAge(); ?></div></div>
+									<div class="row">
+										<div class="col-md-3">
+											<p><strong><?php echo trans("messages.gender"); ?></strong></p></div>
+										<div class="col-md-9">
+											<?php echo $test->visit->patient->gender==0?trans("messages.male"):trans("messages.female"); ?>
+
+										</div></div>
+								</div>
+							</div> <!-- ./ panel-body -->
+						</div> <!-- ./ panel -->
+						<div class="panel panel-info"> <!-- Specimen Details -->
+							<div class="panel-heading">
+								<h3 class="panel-title"><?php echo trans("messages.specimen-details"); ?></h3>
+							</div>
+							<div class="panel-body">
+								<div class="container-fluid">
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong>Specimen Type</strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo $test->specimen->specimenType->name; ?>
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php echo trans('messages.specimen-number'); ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo $test->getSpecimenId(); ?>
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php echo trans('messages.specimen-status'); ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo trans('messages.'.$test->specimen->specimenStatus->name); ?>
+
+										</div>
+									</div>
+								<?php if($test->specimen->isRejected()): ?>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php echo trans('messages.rejection-reason-title'); ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo isset($test->specimen->rejectionReason->reason) ? $test->specimen->rejectionReason->reason : trans('messages.pending'); ?>
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php echo trans('messages.reject-explained-to'); ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo isset($test->specimen->reject_explained_to) ? $test->specimen->reject_explained_to : trans('messages.pending'); ?>
+
+										</div>
+									</div>
+								<?php endif; ?>
+								<?php if($test->specimen->isReferred()): ?>
+								<br>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php echo trans("messages.specimen-referred-label"); ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php if($test->specimen->referral->status == Referral::REFERRED_IN): ?>
+												<?php echo trans("messages.in"); ?>
+
+											<?php elseif($test->specimen->referral->status == Referral::REFERRED_OUT): ?>
+												<?php echo trans("messages.out"); ?>
+
+											<?php endif; ?>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php echo Lang::choice("messages.facility", 1); ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo $test->specimen->referral->facility->name; ?>
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php if($test->specimen->referral->status == Referral::REFERRED_IN): ?>
+												<?php echo trans("messages.originating-from"); ?>
+
+											<?php elseif($test->specimen->referral->status == Referral::REFERRED_OUT): ?>
+												<?php echo trans("messages.intended-reciepient"); ?>
+
+											<?php endif; ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo $test->specimen->referral->person; ?>
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php echo trans("messages.contacts"); ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo $test->specimen->referral->contacts; ?>
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php if($test->specimen->referral->status == Referral::REFERRED_IN): ?>
+												<?php echo trans("messages.recieved-by"); ?>
+
+											<?php elseif($test->specimen->referral->status == Referral::REFERRED_OUT): ?>
+												<?php echo trans("messages.referred-by"); ?>
+
+											<?php endif; ?></strong></p>
+										</div>
+										<div class="col-md-8">
+											<?php echo $test->specimen->referral->user->name; ?>
+
+										</div>
+									</div>
+								<?php endif; ?>
+								</div>
+							</div>
+						</div> <!-- ./ panel -->
+						<div class="panel panel-info">  <!-- Test Results -->
+							<div class="panel-heading">
+								<h3 class="panel-title"><?php echo trans("messages.test-results"); ?></h3>
+							</div>
+							<div class="panel-body">
+								<div class="container-fluid">
+								<?php foreach($test->testResults as $result): ?>
+									<div class="row">
+										<div class="col-md-4">
+											<p><strong><?php echo Measure::find($result->measure_id)->name; ?></strong></p>
+										</div>
+										<div class="col-md-3">
+											<?php echo $result->result; ?>	
+										</div>
+										<div class="col-md-5">
+	        								<?php echo Measure::getRange($test->visit->patient, $result->measure_id); ?>
+
+											<?php echo Measure::find($result->measure_id)->unit; ?>
+
+										</div>
+									</div>
+								<?php endforeach; ?>
+									<div class="row">
+										<div class="col-md-2">
+											<p><strong><?php echo trans('messages.test-remarks'); ?></strong></p>
+										</div>
+										<div class="col-md-10">
+											<?php echo $test->interpretation; ?>
+
+										</div>
+									</div>
+								</div>
+							</div> <!-- ./ panel-body -->
+						</div>  <!-- ./ panel -->
+					</div>
+				</div>
+			</div> <!-- ./ container-fluid -->
+			<?php if(count($test->testType->organisms)>0): ?>
+            <div class="panel panel-success">  <!-- Patient Details -->
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo trans("messages.culture-worksheet"); ?></h3>
+                </div>
+                <div class="panel-body">
+                    <p><strong><?php echo trans("messages.culture-work-up"); ?></strong></p>
+                    <table class="table table-bordered">
+                        <thead>
+                            
+                        </thead>
+                        <tbody id="tbbody">
+                        	<tr>
+                                <th width="15%"><?php echo trans('messages.date'); ?></th>
+                                <th width="10%"><?php echo trans('messages.tech-initials'); ?></th>
+                                <th><?php echo trans('messages.observations-and-work-up'); ?></th>
+                            </tr>
+                            <?php if(($observations = $test->culture) != null): ?>
+                                <?php foreach($observations as $observation): ?>
+                                <tr>
+                                    <td><?php echo $observation->created_at; ?></td>
+                                    <td><?php echo User::find($observation->user_id)->name; ?></td>
+                                    <td><?php echo $observation->observation; ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                            	<tr>
+                            		<td colspan="3"><?php echo trans('messages.no-data-found'); ?></td>
+                            	</tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                    <p><strong><?php echo trans("messages.susceptibility-test-results"); ?></strong></p>
+                    <div class="row">
+                    	<?php if(count($test->susceptibility)>0): ?>
+	                    	<?php foreach($test->testType->organisms as $organism): ?>
+	                    	<div class="col-md-6">
+	                    		<table class="table table-bordered">
+			                        <tbody>
+			                        	<tr>
+			                                <th colspan="3"><?php echo $organism->name; ?></th>
+			                            </tr>
+			                            <tr>
+			                                <th width="50%"><?php echo Lang::choice('messages.drug',1); ?></th>
+			                                <th><?php echo trans('messages.zone-size'); ?></th>
+			                                <th><?php echo trans('messages.interp'); ?></th>
+			                            </tr>
+			                            <?php foreach($organism->drugs as $drug): ?>
+			                            	<?php if($drugSusceptibility = Susceptibility::getDrugSusceptibility($test->id, $organism->id, $drug->id)): ?>
+			                            		<?php if($drugSusceptibility->interpretation): ?>
+					                            <tr>
+					                                <td><?php echo $drug->name; ?></td>
+					                                <td><?php echo $drugSusceptibility->zone!=null?$drugSusceptibility->zone:''; ?></td>
+					                                <td><?php echo $drugSusceptibility->interpretation!=null?$drugSusceptibility->interpretation:''; ?></td>
+					                            </tr>
+					                            <?php endif; ?>
+				                            <?php endif; ?>
+			                            <?php endforeach; ?>
+			                        </tbody>
+			                    </table>
+	                    	</div>
+	                    	<?php endforeach; ?>
+                    	<?php endif; ?>
+                    </div>
+                  </div>
+                </div> <!-- ./ panel-body -->
+            <?php endif; ?>
+		</div> <!-- ./ panel-body -->
+	</div> <!-- ./ panel -->
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

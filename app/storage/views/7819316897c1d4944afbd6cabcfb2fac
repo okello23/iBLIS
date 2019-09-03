@@ -1,0 +1,60 @@
+<?php $__env->startSection("content"); ?>
+<div>
+	<ol class="breadcrumb">
+	  <li><a href="<?php echo e(URL::route('user.home')); ?>"><?php echo trans('messages.home'); ?></a></li>
+	 
+	  <li class="active"><?php echo Lang::choice('messages.supplier-list',2); ?></li>
+	</ol>
+</div>
+<?php if(Session::has('message')): ?>
+	<div class="alert alert-info"><?php echo trans(Session::get('message')); ?></div>
+<?php endif; ?>
+<div class="panel panel-primary">
+	<div class="panel-heading ">
+		<span class="glyphicon glyphicon-user"></span>
+		<?php echo trans('messages.supplier-list'); ?>
+
+		<div class="panel-btn">
+
+			<a href="<?php echo URL::route("equipmentsupplier.create"); ?>" class="btn btn-sm btn-info">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                <?php echo trans('messages.add'); ?>
+
+                            </a>
+			
+		</div>
+	</div>
+
+
+	<div class="panel-body">
+	<div class="table-responsive">
+  	<table class="table table-striped search-table">
+			<thead>
+				<tr>
+					<th class="col-sm-3">Name</th>
+					<th class="col-sm-2">Phone</th>
+					<th class="col-sm-2">Email</th>
+					<th class="col-sm-5">Address</th>								
+				</tr>
+			</thead>			
+			<tbody>
+			<?php foreach($suppliers as $supplier): ?>
+				<tr>
+				<td class="col-sm-3"><?php echo $supplier->name; ?></td>
+				<td class="col-sm-2"><?php echo $supplier->phone; ?></td>
+				<td class="col-sm-2"><?php echo $supplier->email; ?></td>
+				<td class="col-sm-5"><?php echo $supplier->address; ?></td>
+				</tr>
+			<?php endforeach; ?>	
+			</tbody>
+  </table>
+</div>
+
+		<?php Session::put('SOURCE_URL', URL::full());?>
+	</div>
+	
+</div>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

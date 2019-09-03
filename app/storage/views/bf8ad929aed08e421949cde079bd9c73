@@ -1,0 +1,171 @@
+<?php $__env->startSection("content"); ?>
+<div>
+	<ol class="breadcrumb">
+	  <li><a href="<?php echo e(URL::route('user.home')); ?>"><?php echo trans('messages.home'); ?></a></li>
+		<li><a href="<?php echo e(URL::route('bbincidence.create')); ?>"><?php echo trans('Register New BB Incident'); ?></a></li>
+		<li><a href="<?php echo URL::route('bbincidence.bbfacilityreport'); ?>">Facility Report</a></li>
+	  <li class="active">BB Incidents</li>
+	</ol>
+</div>
+
+<div class='container-fluid'>
+	<div class='row'>
+		<div class='col-md-4'>
+			<?php echo Form::open(array('route' => array('bbincidence.index'), 'class'=>'form-inline',
+				'role'=>'form', 'method'=>'GET')); ?>
+
+				<div class="form-group">
+
+				    <?php echo Form::label('search', "search", array('class' => 'sr-only')); ?>
+
+		            <?php echo Form::text('search', Input::get('search'), array('class' => 'form-control test-search', 'placeholder' => 'Serial No, Description')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::button("<span class='glyphicon glyphicon-search'></span> ".trans('messages.search'),
+				        array('class' => 'btn btn-primary', 'type' => 'submit')); ?>
+
+				</div>
+			<?php echo Form::close(); ?>
+
+		</div>
+
+		<div class='col-md-8'>
+			<?php echo Form::open(array('route' => array('bbincidence.index'), 'class'=>'form-inline',
+				'role'=>'form', 'method'=>'GET')); ?>
+
+				<div class="form-group">
+				    <?php echo Form::label('datefrom', "Date From"); ?>
+
+		            <?php echo Form::text('datefrom', Input::get('datefrom'), array('class' => 'form-control test-search standard-datepicker', 'required' => 'required')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('dateto', "Date To"); ?>
+
+		            <?php echo Form::text('dateto', Input::get('dateto'), array('class' => 'form-control test-search standard-datepicker', 'required' => 'required')); ?>
+
+				</div>
+				<div class="form-group">
+					</div>
+			<?php echo Form::close(); ?>
+
+		</div>
+	</div>
+</div>
+
+	<br>
+
+<?php if(Session::has('message')): ?>
+	<div class="alert alert-info"><?php echo trans(Session::get('message')); ?></div>
+<?php endif; ?>
+
+<div class="panel panel-primary">
+	<div class="panel-heading ">
+		<span class="glyphicon glyphicon-book"></span>
+		List of BB Incidents  (<?php echo count($bbincidences);; ?>)
+		<?php if(Entrust::can('create_bbincidences')): ?>
+		<div class="panel-btn">
+			<a class="btn btn-sm btn-info" href="<?php echo URL::route('bbincidence.create'); ?>">
+				<span class="glyphicon glyphicon-plus-sign"></span>
+				<?php echo trans('messages.new-bbincidence'); ?>
+
+			</a>
+
+			<a class="btn btn-sm btn-info" href="<?php echo URL::route('bbincidence.index'); ?>"> Clear Filters </a>
+		</div>
+		<?php endif; ?>
+	</div>
+	<div class="panel-body">
+		<table class="table table-striped table-hover table-condensed search-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>BB incident No.</th>
+					<th>Date / Time Of Ocuurence</th>
+					<th>Description</th>
+					<!--<th>Victim Details</th>-->
+					<th>Cause of Incident</th>
+					<th>Nature of Incident</th>
+
+					<th>Actions</th>
+
+				</tr>
+			</thead>
+			<tbody>
+			<?php foreach($bbincidences as $key => $bbincidence): ?>
+				<tr  <?php if(Session::has('activebbincidence')): ?>
+						<?php echo (Session::get('activebbincidence') == $bbincidence->id)?"class='info'":""; ?>
+
+					<?php endif; ?>>
+
+					<td class="text-left"><?php echo $bbincidence->id; ?></td>
+					<td class="text-left"><?php echo $bbincidence->serial_no; ?></td>
+					<td><?php echo date('d M Y', strtotime($bbincidence->occurrence_date)); ?><br><?php echo $bbincidence->occurrence_time; ?>
+
+					</td>
+
+				<!--	<td class="text-left"> <?php echo $bbincidence->personnel_surname; ?> <?php echo $bbincidence->personnel_othername; ?><br><?php echo $bbincidence->personnel_gender; ?></td>-->
+
+					<td>
+						<?php foreach($bbincidence->bbnature as $nature): ?>
+							<span title="<?php echo $nature->name; ?>"><?php echo $nature->priority; ?>/<?php echo $nature->class; ?>;</span>
+						<?php endforeach; ?>
+					</td>
+
+					<td>
+						<?php foreach($bbincidence->bbcause as $cause): ?>
+							<?php echo $cause->causename; ?>;
+						<?php endforeach; ?>
+					</td>
+
+					<td>'<?php echo $bbincidence->description; ?>'</td>
+
+					<td>
+					<a class="btn btn-sm btn-success" href="<?php echo URL::route('bbincidence.show', array($bbincidence->id)); ?>" >
+							<span class="glyphicon glyphicon-eye-open"></span>
+							<!--<?php echo trans('messages.edit'); ?>-->
+							View
+						</a>
+						<a class="btn btn-sm btn-info" href="<?php echo URL::route('bbincidence.edit', array($bbincidence->id)); ?>" >
+							<span class="glyphicon glyphicon-edit"></span>
+							Edit
+							<!--<?php echo trans('messages.edit'); ?>-->
+						</a>
+						<a class="btn btn-sm btn-info" href="<?php echo URL::route('bbincidence.clinicaledit', array($bbincidence->id)); ?>" >
+							<span class="glyphicon glyphicon-list-alt"></span>
+							Clinical Intervention
+						</a>
+						<a class="btn btn-sm btn-info" href="<?php echo URL::route('bbincidence.analysisedit', array($bbincidence->id)); ?>" >
+							<span class="glyphicon glyphicon-th-list"></span>
+							Incident Analysis
+						</a>
+						<a class="btn btn-sm btn-warning" href="<?php echo URL::route('bbincidence.responseedit', array($bbincidence->id)); ?>" >
+							<span class="glyphicon glyphicon-th"></span>
+							Emergency Incident Response
+						</a>
+
+						<!--<div class="dropdown">
+							 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Action
+							 <span class="caret"></span></button>
+							 <ul class="dropdown-menu">
+								 <li><a href="<?php echo URL::route('bbincidence.show', array($bbincidence->id)); ?>"><?php echo trans('messages.view'); ?></a></li>
+								 <li><a href="<?php echo URL::route('bbincidence.edit', array($bbincidence->id)); ?>">Update Incident Information</a></li>
+								 <li><a href="<?php echo URL::route('bbincidence.clinicaledit', array($bbincidence->id)); ?>">Update Clinical Intervention</a></li>
+								 <li><a href="<?php echo URL::route('bbincidence.analysisedit', array($bbincidence->id)); ?>">Update Incident Analysis</a></li>
+								 <li><a href="<?php echo URL::route('bbincidence.responseedit', array($bbincidence->id)); ?>">Update BRM Response</a></li>
+							 </ul>
+					 </div>-->
+
+					</td>
+				</tr>
+			<?php endforeach; ?>
+			</tbody>
+		</table>
+		<?php echo $bbincidences->links();
+		Session::put('SOURCE_URL', URL::full());?>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make("layout", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

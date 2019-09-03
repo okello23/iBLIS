@@ -1,0 +1,54 @@
+<?php $__env->startSection("footer"); ?>
+	<!-- Begin footer section -->
+	<!-- Delete Modal-->
+	<div class="modal fade confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+			aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;</button>
+					<h4 class="modal-title" id="myModalLabel">
+						<span class="glyphicon glyphicon-trash"></span> 
+						<?php echo trans('messages.confirm-delete-title'); ?>
+
+					</h4>
+				</div>
+				<div class="modal-body">
+					<p><?php echo trans('messages.confirm-delete-message'); ?></p>
+					<p><?php echo trans('messages.confirm-delete-irreversible'); ?></p>
+					<input type="hidden" id="delete-url" value="" />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger btn-delete">
+						<?php echo trans('messages.delete'); ?></button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						<?php echo trans('messages.cancel'); ?></button>
+				</div>
+			</div>
+		</div>
+	</div>
+<hr>
+    <footer class="footer">
+        <div class="col-md-12 row">
+        	<div class="col-md-2 col-md-offset-4">
+        		<a href="http://health.go.ug/" target="_blank">
+        			<img src="<?php echo Config::get('kblis.uganda-logo'); ?>" alt="Government of Uganda">
+        		</a>	
+        	</div>
+
+            <div class="col-md-2">
+                <a href="http://www.cdc.gov/" target="_blank">
+        			<img src="<?php echo Config::get('kblis.cdc-logo'); ?>" alt="Centres for Disease Control and Prevention">
+        		</a>
+        	</div>
+        </div>
+
+        <div>
+        		<?php echo HTML::link('http://www.cphl.go.ug', 'UNHLS &copy; ' . date("Y")); ?>
+
+        </div>
+    </footer>
+
+    <!-- End footer section-->
+<?php echo $__env->yieldSection(); ?>

@@ -1,0 +1,145 @@
+<?php $__env->startSection("edit"); ?>
+<?php foreach($testtype->measures as $measure): ?>
+<div class="row measure-section">
+<div class="col-md-11 measure">
+    <div class="col-md-3">
+        <div class="form-group">
+            <?php echo Form::label('measures[name]['.$measure->id.']', Lang::choice('messages.name',1)); ?>
+
+           <input class="form-control" name="measures[<?php echo $measure->id; ?>][name]" value="<?php echo $measure->name; ?>" type="text">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <?php echo Form::label('measures[measure_type_id]['.$measure->id.']', trans('messages.measure-type')); ?>
+
+                <select class="form-control measuretype-input-trigger <?php echo $measure->id; ?>" 
+                    data-measure-id="<?php echo $measure->id; ?>" 
+                    name="measures[<?php echo $measure->id; ?>][measure_type_id]" 
+                    id="measure_type_id">
+                    <option value="0"></option>
+                    <?php foreach($measuretype as $type): ?>
+                        <option value="<?php echo $type->id; ?>"
+                        <?php echo ($type->id == $measure->measure_type_id) ? 'selected="selected"' : ''; ?>><?php echo $type->name; ?></option>
+                    <?php endforeach; ?>
+                </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <?php echo Form::label('measures[unit]['.$measure->id.']', trans('messages.unit')); ?>
+
+            <input class="form-control" name="measures[<?php echo $measure->id; ?>][unit]" value="<?php echo $measure->unit; ?>" type="text">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <?php echo Form::label('measures[description]['.$measure->id.']', trans('messages.description')); ?>
+
+            <textarea class="form-control" value="<?php echo $measure->description; ?>" rows="2" name="measures[<?php echo $measure->id; ?>][description]"></textarea>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="measurerange"><?php echo trans('messages.measure-range-values'); ?></label>
+            <div class="form-pane panel panel-default">
+                <div class="panel-body">
+                <div>
+                    <div 
+                    class="<?php echo ($measure->measure_type_id == 1) ? 'col-md-12' : 'col-md-6'; ?> measurevalue <?php echo $measure->id; ?>">
+                    
+                    <?php if($measure->measure_type_id == 1): ?>
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <span class="col-md-6 range-title"><?php echo trans('messages.measure-age-range'); ?></span>
+                                <span class="col-md-6 range-title"><?php echo trans('messages.gender'); ?></span>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="col-md-12 range-title"><?php echo trans('messages.measure-range'); ?></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="col-md-12 interpretation-title"><?php echo trans('messages.interpretation'); ?>
+
+                                </span>
+                            </div>
+                        </div>     
+                        <?php foreach($measure->measureRanges as $key=>$value): ?>
+                        <div class="col-md-12 measure-input">
+                            <div class="col-md-4">
+                                <input class="col-md-2" name="measures[<?php echo $measure->id; ?>][agemin][]" type="text" value="<?php echo $value->age_min; ?>"
+                                    title="<?php echo trans('messages.lower-age-limit'); ?>">
+                                <span class="col-md-1">:</span>
+                                <input class="col-md-2" name="measures[<?php echo $measure->id; ?>][agemax][]" type="text" value="<?php echo $value->age_max; ?>"
+                                    title="<?php echo trans('messages.upper-age-limit'); ?>">
+                                    <?php $selection = array("","","");?>
+                                    <?php $selection[$value->gender] = "selected='selected'"; ?>
+                                <span class="col-md-1"></span>
+                                <select class="col-md-4" name="measures[<?php echo $measure->id; ?>][gender][]">
+                                    <option value="0" <?php echo $selection[0]; ?>><?php echo trans('messages.male'); ?></option>
+                                    <option value="1" <?php echo $selection[1]; ?>><?php echo trans('messages.female'); ?></option>
+                                    <option value="2" <?php echo $selection[2]; ?>><?php echo trans('messages.both'); ?></option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <input class="col-md-4" name="measures[<?php echo $measure->id; ?>][rangemin][]" type="text"
+                                    value="<?php echo $value->range_lower; ?>" 
+                                    title="<?php echo trans('messages.lower-range'); ?>">
+                                <span class="col-md-2">:</span>
+                                <input class="col-md-4" name="measures[<?php echo $measure->id; ?>][rangemax][]" type="text"
+                                    value="<?php echo $value->range_upper; ?>"
+                                    title="<?php echo trans('messages.upper-range'); ?>">
+                            </div>
+                            <div class="col-md-2">
+                                <input class="col-md-10" name="measures[<?php echo $measure->id; ?>][interpretation][]" type="text" 
+                                    value="<?php echo $value->interpretation; ?>">
+                                <button class="col-md-2 close" aria-hidden="true" type="button" 
+                                title="<?php echo trans('messages.delete'); ?>">×</button>
+                                <input value="<?php echo $value->id; ?>" name="measures[<?php echo $measure->id; ?>][measurerangeid][]" type="hidden">
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+
+                    <?php elseif($measure->measure_type_id == 2 || $measure->measure_type_id == 3): ?>
+                        <div class="col-md-12">
+                            <span class="col-md-5 val-title"><?php echo trans('messages.range'); ?></span>
+                            <span class="col-md-5 interpretation-title"><?php echo trans('messages.interpretation'); ?></span>
+                        </div>
+                        <?php foreach($measure->measureRanges as $key=>$value): ?>
+                        <div class="col-md-12 measure-input">
+                            <div class="col-md-5">
+                                <input class="col-md-10 val" value="<?php echo $value->alphanumeric; ?>"
+                                name="measures[<?php echo $measure->id; ?>][val][]" type="text">
+                            </div>
+                            <div class="col-md-5">
+                                <input class="col-md-10 interpretation" value="<?php echo $value->interpretation; ?>"
+                                name="measures[<?php echo $measure->id; ?>][interpretation][]" type="text">
+                                <button class="col-md-2 close" aria-hidden="true" type="button" 
+                                    title="<?php echo trans('messages.delete'); ?>">×</button>
+                                <input value="<?php echo $value->id; ?>" name="measures[<?php echo $measure->id; ?>][measurerangeid][]" type="hidden">
+                            </div>
+                        </div>  
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="freetextInputLoader">
+                            <p class="freetextInput" ><?php echo trans('messages.freetext-measure-config-input-message'); ?></p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="col-md-12 actions-row <?php echo ($measure->measure_type_id == 4)? 'hidden':''; ?>">
+                    <a class="btn btn-default add-another-range" href="javascript:void(0);" 
+                        data-measure-id="<?php echo $measure->id; ?>">
+                    <span class="glyphicon glyphicon-plus-sign"></span><?php echo trans('messages.add-new-measure-range'); ?></a>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-1">
+    <button class="col-md-12 close" aria-hidden="true" type="button" 
+        title="<?php echo trans('messages.delete'); ?>">×</button>
+</div>
+</div>
+<?php endforeach; ?>
+<?php echo $__env->yieldSection(); ?>

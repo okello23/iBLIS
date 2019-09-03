@@ -1,0 +1,43 @@
+<?php $__env->startSection("content"); ?>
+	<div>
+		<ol class="breadcrumb">
+		  <li><a href="<?php echo e(URL::route('user.home')); ?>"><?php echo trans('messages.home'); ?></a></li>
+		  <li><a href="<?php echo URL::route('testtype.index'); ?>"><?php echo Lang::choice('messages.test-type',1); ?></a></li>
+		  <li class="active"><?php echo trans('messages.test-type-details'); ?></li>
+		</ol>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading ">
+			<span class="glyphicon glyphicon-cog"></span>
+			<?php echo trans('messages.test-type-details'); ?>
+
+			<div class="panel-btn">
+				<a class="btn btn-sm btn-info" href="<?php echo URL::to("testtype/". $testtype->id ."/edit"); ?>">
+					<span class="glyphicon glyphicon-edit"></span>
+					<?php echo trans('messages.edit'); ?>
+
+				</a>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="display-details">
+				<h3 class="view"><strong><?php echo Lang::choice('messages.name',1); ?></strong><?php echo $testtype->name; ?> </h3>
+				<p class="view-striped"><strong><?php echo trans('messages.description'); ?></strong>
+					<?php echo $testtype->description; ?></p>
+				<p class="view"><strong><?php echo Lang::choice('messages.test-category',1); ?></strong>
+					<?php echo $testtype->testCategory->name; ?></p>
+				<p class="view-striped"><strong><?php echo trans('messages.compatible-specimen'); ?></strong>
+					<?php echo implode(", ", $testtype->specimenTypes->lists('name')); ?></p>
+				<p class="view"><strong><?php echo Lang::choice('messages.measure',1); ?></strong>
+					<?php echo implode(", ", $testtype->measures->lists('name')); ?></p>
+				<p class="view-striped"><strong><?php echo trans('messages.turnaround-time'); ?></strong>
+					<?php echo $testtype->targetTAT; ?></p>
+				<p class="view"><strong><?php echo trans('messages.prevalence-threshold'); ?></strong>
+					<?php echo $testtype->prevalence_threshold; ?></p>
+				<p class="view-striped"><strong><?php echo trans('messages.date-created'); ?></strong>
+					<?php echo $testtype->created_at; ?></p>
+			</div>
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

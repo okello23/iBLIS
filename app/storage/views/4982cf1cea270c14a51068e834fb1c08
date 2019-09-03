@@ -1,0 +1,73 @@
+<?php $__env->startSection("content"); ?>
+
+	<div>
+		<ol class="breadcrumb">
+			<li><a href="<?php echo e(URL::route('user.home')); ?>"><?php echo trans('messages.home'); ?></a></li>
+			<li>
+				<a href="<?php echo URL::route('organism.index'); ?>"><?php echo Lang::choice('messages.organism',1); ?></a>
+			</li>
+			<li class="active">Add Antibiotic</li>
+		<!-- todo: Set Antiibiotic | should make more sense -->
+		</ol>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading ">
+			<span class="glyphicon glyphicon-adjust"></span>
+			<?php echo $organism->name; ?> | Add Antibiotic
+		</div>
+		<div class="panel-body">
+		<!-- if there are creation errors, they will show here -->
+			<?php if($errors->all()): ?>
+				<div class="alert alert-danger">
+					<?php echo HTML::ul($errors->all()); ?>
+
+				</div>
+			<?php endif; ?>
+
+			<?php echo Form::open(array('route' => 'organismantibiotic.store', 'id' => 'form-create-organism')); ?>
+
+				<?php echo Form::hidden('organism_id', $organism->id); ?>
+
+				<div class="form-group">
+					<?php echo Form::label('antibiotic_id', 'Antibiotic'); ?>
+
+					<?php echo Form::select('antibiotic_id', $antibiotics, Input::old('antibiotic_id'), 
+					['class' => 'form-control']); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('resistant_max', 'Resistant Max'); ?>
+
+					<?php echo Form::text('resistant_max', Input::old('resistant_max'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('intermediate_min', 'Intermediate Min'); ?>
+
+					<?php echo Form::text('intermediate_min', Input::old('intermediate_min'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('intermediate_max', 'Intermediate Max'); ?>
+
+					<?php echo Form::text('intermediate_max', Input::old('intermediate_max'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('sensitive_min', 'Sensitive Min'); ?>
+
+					<?php echo Form::text('sensitive_min', Input::old('sensitive_min'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group actions-row">
+					<?php echo Form::button("<span class='glyphicon glyphicon-save'></span> ".trans('messages.save'),
+						array('class' => 'btn btn-primary', 'onclick' => 'submit()')); ?>
+
+				</div>
+
+			<?php echo Form::close(); ?>
+
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
