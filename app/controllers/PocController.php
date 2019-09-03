@@ -366,13 +366,13 @@ $result->equipment_used = Input::get('equipment_used');
 			return View::make('poc.download');
 		}
 	}
-	
+
 	public function upload(){
 		$sql = "select r.id as result_id, patient_number, p.name as patient_name, dob, gender, tt.name as test_type, r.time_entered as test_date,result from unhls_test_results r 
     left join unhls_tests t on r.test_id=t.id
     left join test_types tt on t.test_type_id=tt.id
     left join unhls_visits v on t.visit_id=v.id
-    left join unhls_patients p on v.patient_id=p.id where uploaded=0";
+    left join unhls_patients p on v.patient_id=p.id where measure_id = 99 && uploaded=0";
 
 		$records = DB::select($sql);
 		foreach ($records as $r) {

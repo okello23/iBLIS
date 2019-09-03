@@ -1,0 +1,128 @@
+<?php $__env->startSection("content"); ?>
+	<div>
+		<ol class="breadcrumb">
+		  <li><a href="<?php echo e(URL::route('user.home')); ?>"><?php echo trans('messages.home'); ?></a></li>
+		  <li><a href="<?php echo URL::route('unhls_patient.index'); ?>"><?php echo Lang::choice('messages.patient',2); ?></a></li>
+		  <li class="active"><?php echo trans('messages.create-patient'); ?></li>
+		</ol>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading ">
+			<span class="glyphicon glyphicon-user"></span>
+			<?php echo trans('messages.create-patient'); ?>
+
+		</div>
+		<div class="panel-body">
+		<!-- if there are creation errors, they will show here -->
+
+			<?php if($errors->all()): ?>
+				<div class="alert alert-danger">
+					<?php echo HTML::ul($errors->all()); ?>
+
+				</div>
+			<?php endif; ?>
+
+			<?php echo Form::open(array('url' => 'unhls_patient', 'id' => 'form-create-patient')); ?>
+
+				<div class="form-group">
+					<?php echo Form::label('patient_number', trans('messages.patient-number')); ?>
+
+					<?php echo Form::text('patient_number', Input::old('patient_number'),
+						array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('ulin', trans('messages.ulin'), array('class' => 'required')); ?>
+
+					<?php if($ulinFormat == 'Manual'): ?>
+					<?php echo Form::text('ulin', Input::old('ulin'),array('class' => 'form-control')); ?>
+
+					<?php else: ?>
+					<?php echo Form::text('ulin', '',
+						array('class' => 'form-control', 'readonly' =>'true', 'placeholder' => 'Auto generated upon succesfull save!')); ?>
+
+					<?php endif; ?>
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('nin', trans('messages.national-id')); ?>
+
+					<?php echo Form::text('nin', Input::old('nin'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('name', trans('messages.names'), array('class' => 'required')); ?>
+
+					<?php echo Form::text('name', Input::old('name'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<label class= 'required' for="dob">Date Of Birth</label>
+					<input type="text" name="dob" id="dob" class="form-control input-sm" size="11">
+				</div>
+				<div class="form-group">
+					<label for="age">Age</label>
+					<input type="text" name="age" id="age" class="form-control input-sm" size="11">
+					<select name="age_units" id="id_age_units" class="form-control input-sm">
+						<option value="Y">Years</option>
+						<option value="M">Months</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('gender', trans('messages.sex'), array('class' => 'required')); ?>
+
+					<div><?php echo Form::radio('gender', '0', true); ?>
+
+					<span class="input-tag"><?php echo trans('messages.male'); ?></span></div>
+					<div><?php echo Form::radio("gender", '1', false); ?>
+
+					<span class="input-tag"><?php echo trans('messages.female'); ?></span></div>
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('village_residence', trans('messages.residence-village')); ?>
+
+					<?php echo Form::text('village_residence', Input::old('village_residence'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('village_workplace', trans('messages.workplace-village')); ?>
+
+					<?php echo Form::text('village_workplace', Input::old('village_workplace'), array('class'=>'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('address', trans('messages.physical-address')); ?>
+
+					<?php echo Form::text('address', Input::old('address'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('occupation', trans('messages.occupation')); ?>
+
+					<?php echo Form::text('occupation', Input::old('occupation'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('phone_number', trans('messages.phone-number')); ?>
+
+					<?php echo Form::text('phone_number', Input::old('phone_number'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::label('email', trans('messages.email-address')); ?>
+
+					<?php echo Form::email('email', Input::old('email'), array('class' => 'form-control')); ?>
+
+				</div>
+				<div class="form-group actions-row">
+					<?php echo Form::button('<span class="glyphicon glyphicon-save"></span> '.trans('messages.save'),
+						['class' => 'btn btn-primary', 'onclick' => 'submit()']); ?>
+
+				</div>
+
+			<?php echo Form::close(); ?>
+
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make("layout", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
