@@ -3,78 +3,65 @@
 use Illuminate\Database\QueryException;
 
 /**
- *Contains functions for managing patient records
- *
- */
+*Contains functions for managing patient records
+*
+*/
 class PocController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+	* Display a listing of the resource.
+	*
+	* @return Response
+	*/
 	public function index()
-		{
+	{
 		$search = Input::get('search');
 
-		//$patients = POC::all();
-
 		$patients = POC::leftjoin('poc_results as pr', 'pr.patient_id', '=', 'poc_tables.id')
-						->select('poc_tables.*','pr.results', 'pr.test_date')
-						->from('poc_tables')
-						->get();
-		// ->paginate(Config::get('kblis.page-items'))->appends(Input::except('_token'));
+		->select('poc_tables.*','pr.results', 'pr.test_date')
+		->from('poc_tables')
+		->get();
 
 		if (count($patients) == 0) {
-		 	Session::flash('message', trans('messages.no-match'));
+			Session::flash('message', trans('messages.no-match'));
 		}
 
-		// Load the view and pass the patients
 		$antenatal = array('0'=>'Lifelong ART', '1' => 'No ART', '2' => 'UNKNOWN');
 		return View::make('poc.index')
 		->with('antenatal',$antenatal)
-		// ->with('facility',$facility)
-		// ->with('district',$district)
 		->with('patients', $patients)->withInput(Input::all());
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+	* Show the form for creating a new resource.
+	*
+	* @return Response
+	*/
 	public function create()
 	{
-		//Create patients
 		$hiv_status = array('0' => 'Positive', '1' => 'Negative', '2' => 'Unknown');
 		$antenatal= array('0'=>'Lifelong ART', '1' => 'No ART', '2' => 'UNKNOWN');
-		// $facility = Hubs::orderBy('name','ASC')
-		// ->lists('name','id');
-		// $district = District::orderBy('name','ASC')
-		// ->lists('name', 'id');
 
 		return View::make('poc.create')
 		->with('hiv_status', $hiv_status)
-		// ->with('facility',$facility)
-		// ->with('district',$district)
-			->with('antenatal', $antenatal);
+		->with('antenatal', $antenatal);
 	}
 
-		/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+	/**
+	* Store a newly created resource in storage.
+	*
+	* @return Response
+	*/
 	public function store()
 	{
 		//
 		$rules = array(
 
-			'infant_name' => 'required',
-			'age'       => 'required',
-			'gender' => 'required',
-			'mother_name' => 'required' ,
-			'entry_point' => 'required' ,
+		'infant_name' => 'required',
+		'age'       => 'required',
+		'gender' => 'required',
+		'mother_name' => 'required' ,
+		'entry_point' => 'required' ,
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -82,36 +69,28 @@ class PocController extends \BaseController {
 
 			return Redirect::back()->withErrors($validator)->withInput(Input::all());
 		} else {
-			// store
-
-
-
-$patient = new POC;
-// $patient->district_id = \Config::get('constants.DISTRICT_ID');
-// $patient->facility_id = \Config::get('constants.FACILITY_ID');
-$patient->gender	= Input::get('gender');
-$patient->age	= Input::get('age');
-$patient->exp_no = Input::get('exp_no');
-$patient->caretaker_number	= Input::get('caretaker_number');
-$patient->admission_date	= Input::get('admission_date');
-$patient->breastfeeding_status	= Input::get('breastfeeding_status');
-$patient->entry_point	= Input::get('entry_point');
-$patient->mother_name	= Input::get('mother_name');
-$patient->infant_name	= Input::get('infant_name');
-$patient->provisional_diagnosis	= Input::get('provisional_diagnosis');
-$patient->infant_pmtctarv	= Input::get('infant_pmtctarv');
-$patient->mother_hiv_status	= Input::get('mother_hiv_status');
-$patient->collection_date	= Input::get('collection_date');
-$patient->pcr_level	= Input::get('pcr_level');
-$patient->pmtct_antenatal	= Input::get('pmtct_antenatal');
-$patient->pmtct_delivery	= Input::get('pmtct_delivery');
-$patient->pmtct_postnatal	= Input::get('pmtct_postnatal');
-$patient->sample_id	= Input::get('sample_id');
-$patient->other_entry_point	= Input::get('other_entry_point');
-// $patient->facility	= Input::get('facility');
-// $patient->district	= Input::get('district');
-$patient->created_by = Auth::user()->name;
-
+			
+			$patient = new POC;
+			$patient->gender = Input::get('gender');
+			$patient->age = Input::get('age');
+			$patient->exp_no = Input::get('exp_no');
+			$patient->caretaker_number = Input::get('caretaker_number');
+			$patient->admission_date = Input::get('admission_date');
+			$patient->breastfeeding_status = Input::get('breastfeeding_status');
+			$patient->entry_point = Input::get('entry_point');
+			$patient->mother_name = Input::get('mother_name');
+			$patient->infant_name = Input::get('infant_name');
+			$patient->provisional_diagnosis	= Input::get('provisional_diagnosis');
+			$patient->infant_pmtctarv = Input::get('infant_pmtctarv');
+			$patient->mother_hiv_status = Input::get('mother_hiv_status');
+			$patient->collection_date = Input::get('collection_date');
+			$patient->pcr_level = Input::get('pcr_level');
+			$patient->pmtct_antenatal = Input::get('pmtct_antenatal');
+			$patient->pmtct_delivery = Input::get('pmtct_delivery');
+			$patient->pmtct_postnatal = Input::get('pmtct_postnatal');
+			$patient->sample_id = Input::get('sample_id');
+			$patient->other_entry_point = Input::get('other_entry_point');
+			$patient->created_by = Auth::user()->name;
 
 			try{
 				$patient->save();
@@ -123,96 +102,65 @@ $patient->created_by = Auth::user()->name;
 				Log::error($e);
 				echo $e->getMessage();
 			}
-
-			// redirect
 		}
 	}
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	// public function show($id)
-	// {
-	// 	//Show a patient
-	// 	$patient = POC::find($id);
-	//
-	// 	//Show the view and pass the $patient to it
-	// 	return View::make('poc.show')->with('patient', $patient);
-	// }
-
-
 
 	public function show($id)
-		{
+	{
 		$search = Input::get('search');
 
-		//$patients = POC::all();
-
 		$patient = POC::leftjoin('poc_results as pr', 'pr.patient_id', '=', 'poc_tables.id')
-						->select('poc_tables.*','pr.results', 'pr.test_date', 'pr.equipment_used', 'tested_by')
-						->from('poc_tables')->find($id);
-		// ->paginate(Config::get('kblis.page-items'))->appends(Input::except('_token'));
+		->select('poc_tables.*','pr.results', 'pr.test_date', 'pr.equipment_used', 'tested_by')
+		->from('poc_tables')->find($id);
 
 		if (count($patient) == 0) {
-		 	Session::flash('message', trans('messages.no-match'));
+			Session::flash('message', trans('messages.no-match'));
 		}
 
-		// Load the view and pass the patients
 		$antenatal = array('0'=>'Lifelong ART', '1' => 'No ART', '2' => 'UNKNOWN');
 		return View::make('poc.show')
 		->with('antenatal',$antenatal)
 		->with('patient', $patient)->withInput(Input::all());
 	}
 
-
-
-
-
 	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-
-
+	* Show the form for editing the specified resource.
+	*
+	* @param  int  $id
+	* @return Response
+	*/
 	public function edit($id)
 	{
-		//Get the patient
 		$patient = POC::find($id);
 
-		//Open the Edit View and pass to it the $patient
 		return View::make('poc.edit')
 		->with('patient', $patient);
 	}
 
 	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	* Update the specified resource in storage.
+	*
+	* @param  int  $id
+	* @return Response
+	*/
 	public function update($id)
 	{
-		//
 		$rules = array(
-			'infant_name' => 'required',
-			'age'       => 'required',
-			'gender' => 'required',
-			'mother_name' => 'required'
+		'infant_name' => 'required',
+		'age'       => 'required',
+		'gender' => 'required',
+		'mother_name' => 'required'
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
 		// process the login
 		if ($validator->fails()) {
 			return Redirect::to('poc/' . $id . '/edit')
-				->withErrors($validator)
-				->withInput(Input::except('password'));
+			->withErrors($validator)
+			->withInput(Input::except('password'));
 		}
 
-		 else {
+		else {
 			// Update
 			$patient = POC::find($id);
 
@@ -239,27 +187,26 @@ $patient->created_by = Auth::user()->name;
 			// redirect
 			return Redirect::route('poc.index')
 			->with('message', 'The patient details were successfully updated!') ->with('activepatient',$patient ->id);
-
 		}
 	}
 
 	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	* Remove the specified resource from storage.
+	*
+	* @param  int  $id
+	* @return Response
+	*/
 	public function destroy($id)
 	{
 		//
 	}
 
 	/**
-	 * Remove the specified resource from storage (soft delete).
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	* Remove the specified resource from storage (soft delete).
+	*
+	* @param  int  $id
+	* @return Response
+	*/
 	public function delete($id)
 	{
 		//Soft delete the patient
@@ -268,19 +215,19 @@ $patient->created_by = Auth::user()->name;
 		$patient->delete();
 
 		// redirect
-			$url = Session::get('SOURCE_URL');
-			return Redirect::to($url)
-			->with('message', 'The commodity was successfully deleted!');
+		$url = Session::get('SOURCE_URL');
+		return Redirect::to($url)
+		->with('message', 'The commodity was successfully deleted!');
 	}
 
 	/**
-	 * Return a Patients collection that meets the searched criteria as JSON.
-	 *
-	 * @return Response
-	 */
+	* Return a Patients collection that meets the searched criteria as JSON.
+	*
+	* @return Response
+	*/
 	public function search()
 	{
-        return UnhlsPatient::search(Input::get('text'))->take(Config::get('kblis.limit-items'))->get()->toJson();
+		return UnhlsPatient::search(Input::get('text'))->take(Config::get('kblis.limit-items'))->get()->toJson();
 	}
 
 	public function enter_results($patient_id){
@@ -292,8 +239,8 @@ $patient->created_by = Auth::user()->name;
 	public function save_results($patient_id)
 	{
 		$rules = array(
-			'results' => 'required',
-			'test_date' => 'required',
+		'results' => 'required',
+		'test_date' => 'required',
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -308,7 +255,7 @@ $patient->created_by = Auth::user()->name;
 			$result->error_code = Input::get('error_code');
 			$result->tested_by = Input::get('tested_by');
 			$result->dispatched_by = Input::get('dispatched_by');
-$result->equipment_used = Input::get('equipment_used');
+			$result->equipment_used = Input::get('equipment_used');
 			$result->dispatched_date = Input::get('dispatched_date');
 			try{
 				$result->save();
@@ -332,8 +279,8 @@ $result->equipment_used = Input::get('equipment_used');
 	public function update_results($patient_id)
 	{
 		$rules = array(
-			'results' => 'required',
-			'test_date' => 'required',
+		'results' => 'required',
+		'test_date' => 'required',
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -368,11 +315,19 @@ $result->equipment_used = Input::get('equipment_used');
 	}
 
 	public function upload(){
-		$sql = "select r.id as result_id, patient_number, p.name as patient_name, dob, gender, tt.name as test_type, r.time_entered as test_date,result from unhls_test_results r 
-    left join unhls_tests t on r.test_id=t.id
-    left join test_types tt on t.test_type_id=tt.id
-    left join unhls_visits v on t.visit_id=v.id
-    left join unhls_patients p on v.patient_id=p.id where measure_id = 99 && uploaded=0";
+
+		$sql = "select r.id as result_id, patient_number, p.name as patient_name, dob, gender, tt.name as test_type, r.time_entered as test_date,result from unhls_test_results r
+		left join unhls_tests t on r.test_id=t.id
+		left join test_types tt on t.test_type_id=tt.id
+		left join unhls_visits v on t.visit_id=v.id
+		left join unhls_patients p on v.patient_id=p.id where measure_id = 99 && uploaded=0";
+
+ if(!$sock = @fsockopen('www.google.com', 80))
+{
+return View::make('user.503');
+}
+else
+{
 
 		$records = DB::select($sql);
 		foreach ($records as $r) {
@@ -381,18 +336,21 @@ $result->equipment_used = Input::get('equipment_used');
 			$update_sql = "update unhls_test_results set uploaded=1 where id=$r->result_id";
 			DB::update($update_sql);
 		}
+}
 
 		//return $this->send($url_data);
 		return View::make('user.thanks');
 	}
 
 	private function send($txt){
+
 		$f = \Config::get('constants.FACILITY_NAME');
 		$command = "curl -X GET 'https://www.cphluganda.org/alis_api/?facility_id=10000&$txt'";
 		exec($command);
 	}
 
 	private function arr2str($arr, $glue="&"){
+		
 		$arr2 = array_map(function($k, $v) { return "$k=".urlencode($v); }, array_keys($arr), array_values($arr));
 		return implode($glue, $arr2);
 	}
@@ -401,63 +359,63 @@ $result->equipment_used = Input::get('equipment_used');
 	//POC eid csv download
 	private function csv_download($fro, $to){
 		$patients = POC::leftjoin('poc_results as pr', 'pr.patient_id', '=', 'poc_tables.id')
-						->select('poc_tables.*','pr.results', 'pr.test_date')
-						->from('poc_tables')
-						->where('test_date','>=',$fro)
-						->where('test_date','<=',$to)
-						->get();
+		->select('poc_tables.*','pr.results', 'pr.test_date')
+		->from('poc_tables')
+		->where('test_date','>=',$fro)
+		->where('test_date','<=',$to)
+		->get();
 		header('Content-Type: text/csv; charset=utf-8');
 		header("Content-Disposition: attachment; filename=eid_poc_date_$fro"."_$to.csv");
 		$output = fopen('php://output', 'w');
 		$headers = array(
-				'Infant Name',
-				'Gender',
-				'Age',
+		'Infant Name',
+		'Gender',
+		'Age',
 
-				'EXP No',
-				'Caretaker Number',
-				'Admission Date',
-				'Breastfeeding?',
-				'Entry Point',
-				'Mother Name',
+		'EXP No',
+		'Caretaker Number',
+		'Admission Date',
+		'Breastfeeding?',
+		'Entry Point',
+		'Mother Name',
 
-				'Provisional Diagnosis',
-				'Infant PMTCT ARV',
-				'Mother HIV Status',
-				'Collection Date',
-				'PRC Level',
-				'PMTCT Antenatal',
-				'PMTCT Delivery',
-				'PMTCT Post Natal',
-				'Sample ID',
-				'Results',
-				'Test Date'
-				);
+		'Provisional Diagnosis',
+		'Infant PMTCT ARV',
+		'Mother HIV Status',
+		'Collection Date',
+		'PRC Level',
+		'PMTCT Antenatal',
+		'PMTCT Delivery',
+		'PMTCT Post Natal',
+		'Sample ID',
+		'Results',
+		'Test Date'
+		);
 
 		fputcsv($output, $headers);
 		foreach ($patients as $patient) {
 			$row=array(
-				$patient->infant_name,
-				$patient->gender,
-				$patient->age,
-				$patient->exp_no,
-				$patient->caretaker_number,
-				$patient->admission_date,
-				$patient->breastfeeding_status,
-				$patient->entry_point,
-				$patient->mother_name,
-				$patient->provisional_diagnosis,
-				$patient->infant_pmtctarv,
-				$patient->mother_hiv_status,
-				$patient->collection_date,
-				$patient->pcr_level,
-				$patient->pmtct_antenatal,
-				$patient->pmtct_delivery,
-				$patient->pmtct_postnatal,
-				$patient->sample_id,
-				$patient->results,
-				$patient->test_date
-				);
+			$patient->infant_name,
+			$patient->gender,
+			$patient->age,
+			$patient->exp_no,
+			$patient->caretaker_number,
+			$patient->admission_date,
+			$patient->breastfeeding_status,
+			$patient->entry_point,
+			$patient->mother_name,
+			$patient->provisional_diagnosis,
+			$patient->infant_pmtctarv,
+			$patient->mother_hiv_status,
+			$patient->collection_date,
+			$patient->pcr_level,
+			$patient->pmtct_antenatal,
+			$patient->pmtct_delivery,
+			$patient->pmtct_postnatal,
+			$patient->sample_id,
+			$patient->results,
+			$patient->test_date
+			);
 			fputcsv($output, $row);
 		}
 		fclose($output);
@@ -465,10 +423,10 @@ $result->equipment_used = Input::get('equipment_used');
 	}
 
 	/**
-	 *Return a unique Lab Number
-	 *
-	 * @return string of current age concatenated with incremental Number.
-	 */
+	*Return a unique Lab Number
+	*
+	* @return string of current age concatenated with incremental Number.
+	*/
 	// Private function generateUniqueLabID(){
 
 	// 	//Get Year, Month and day of today. If Jan O1 then reset last insert ID to 1 to start a new cycle of IDs
