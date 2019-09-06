@@ -59,7 +59,7 @@ class UnhlsTest extends Eloquent
 	*/
 	public function clinician()
 	{
-		return $this->belongsTo('Clinician','clinician_id');
+		return $this->belongsTo('Clinician', 'requested_by', 'id');
 	}
 
 	public function getClinician()

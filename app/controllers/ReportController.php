@@ -32,6 +32,21 @@ class ReportController extends \BaseController {
 		->with('patient_helper',$patient_helper);
 	}
 
+	public function loadPatientss()
+	{
+		$search = Input::get('search');
+
+		$patients = UnhlsPatient::search($search)->orderBy('id','DESC')->paginate(Config::get('kblis.page-items'));
+
+		if (count($patients) == 0) {
+		 	Session::flash('message', trans('messages.no-match'));
+		}
+
+		// Load the view and pass the patients
+		return View::make('reports.patient.merged')->with('patients', $patients)->withInput(Input::all());
+	}
+
+
 	public function viewFinalPatientReport($id, $visit = null,$testId = null){
 		$from = Input::get('start');
 		$to = Input::get('end');

@@ -8,7 +8,7 @@
 	<div>
 		<ol class="breadcrumb">
 		  <li><a href="{{{URL::route('user.home')}}}">{{ trans('messages.home') }}</a></li>
-		  <li><a href="{{{URL::route('stock.index')}}}">{{ Lang::choice('messages.stock', 2) }}</a></li>
+		  <li><a href="{{{URL::route('item.index')}}}">{{ Lang::choice('messages.stock', 2) }}</a></li>
 		  <li class="active">{{ Lang::choice('messages.lot', 1).' '.trans('messages.details') }}</li>
 		</ol>
 	</div>

@@ -3,16 +3,7 @@
 	 	padding: 2px;
 	 }
 </style>
-
-
-
-
-
-<br>
-<br>
-
-<table style="border-bottom: 1px solid #cecfd5; font-size:8px;
- font-family: 'Courier New',Courier;">
+<table style="border-bottom: 1px solid #cecfd5; font-size:9px; font-family: Bookman Old Style;">
 	<thead>
 	    <tr>
 	            <th width="20%"><strong>Sample Type</strong></th>
@@ -59,17 +50,17 @@
 
 <br>
 <br>
-<table style="border-bottom: 1px solid #cecfd5; font-size:8px;font-family: 'Courier New',Courier;">
+<table style="border-bottom: 1px solid #cecfd5; font-size:9px;font-family: Bookman Old Style;">
 	<tr>
 		<td colspan="2"><b>{{Lang::choice('messages.test-type', 1)}}</b></td>
 		
-		<td colspan="2"><b>TEST RESULTS</b></td>
+		<td colspan="3"><b>TEST RESULTS</b></td>
 		
 	</tr>
 </table>
 @forelse($tests as $test)
-	@if( $test->testStatus->name == 'approved' || $test->testStatus->name == 'verified')
-	<table  id="results_content_id" style="border-bottom: 1px solid #cecfd5; font-size:10px;font-family: 'Courier New',Courier;">
+	@if(!$test->testType->isCulture() && ($test->isCompleted() || $test->isVerified()) && $test->testStatus->name == 'verified')
+	<table  id="results_content_id" style="border-bottom: 1px solid #cecfd5; font-size:9px;font-family: Bookman Old Style;">
 		<tr>
 			<td width="20%">{{ $test->testType->name }}</td>
 			<td width="80%">
@@ -115,51 +106,36 @@
 							<tr>
 								<td width="100%"><br><br>
 									<b>{{trans('messages.comments')}}:</b> {{ $test->interpretation == '' ? 'Suitable for the test' : $test->interpretation }}
-								</td>
-								
-							</tr>
-	                        <!--tr>
-								<td width="100%"><br><br>
-									<b>Expert Interpretation:</b> 
-									<br>
-								</td>
-								
-							</tr-->
+								</td>								
+							</tr>	       
 							<tr>
 								<td width="50%" style="font-size:8px">
-									<b>Results Entry Date</b>:{{ $test->time_completed }}</td>
+									<b>Results Entry Date</b>:{{ $test->time_completed }}
+								</td>
 								<td width="50%">
 									<b>{{trans('messages.tested-by')}}</b>:
 									{{ $test->testedBy->name}}
-								</td>
-								
-							</tr>
-							
+								</td>								
+							</tr>							
 							<tr>
 								<td width="50%"><b>Reviewed by</b>:{{$test->verifiedBy->name}}</td>
-								<td width="50%"><b>Date Reviewed</b>:{{$test->time_verified}}</td>
-								
-							</tr>
-							
-							
+								<td width="50%"><b>Date Reviewed</b>:{{$test->time_verified}}</td>								
+							</tr>						
 						@endif
 						</tbody>
 				</table>
-			</td>
-			
-			
+			</td>		
 		</tr>
-
 	</table>
 	@elseif($test->testType->isCulture())
         <!-- Culture and Sensitivity analysis -->
         @if(count($test->isolated_organisms)>0)<!-- if there are any isolated organisms -->
-        <table style="border-bottom: 1px solid #cecfd5; font-size:8px;font-family: 'Courier New',Courier;">
+        <table style="border-bottom: 1px solid #cecfd5; font-size:9px;font-family: 'Courier New',Courier;">
             <tr>
               <td colspan="3"></td>
             </tr>
             <tr>
-              <td colspan="3">Antimicrobial Susceptibility Testing(AST)</td>
+              <td colspan="6">Antimicrobial Susceptibility Testing(AST)</td>
             </tr>
             <tr>
                 <th><b>Organism(s)</b></th>
@@ -170,7 +146,7 @@
         @foreach($test->isolated_organisms as $isolated_organism)
         <table style="border-bottom: 1px solid #cecfd5;">
           <tr>
-            <td rowspan="{{$isolated_organism->drug_susceptibilities->count()}}" class="organism">{{$isolated_organism->organism->name}}</td>
+            <td rowspan="{{$isolated_organism->drug_susceptibilities->count()}}" class="organism"><i><b>{{$isolated_organism->organism->name}}</i></b></td>
               <?php $i = 1; ?>
             @if($isolated_organism->drug_susceptibilities->count() == 0)
               </tr>
@@ -178,39 +154,45 @@
               @foreach($isolated_organism->drug_susceptibilities as $drug_susceptibility)
                 @if ($i > 1)
                 <tr>
-                @endif
-                <?php $i++; ?>
-                <td class="antibiotic">{{$drug_susceptibility->drug->name}}</td>
-                <td class="result">{{$drug_susceptibility->drug_susceptibility_measure->symbol}}</td>
-              </tr>
-              @endforeach
+	                @endif
+	                <?php $i++; ?>
+	                <td style="font-size:10px;" class="antibiotic">{{$drug_susceptibility->drug->name}}</td>
+	                <td style="font-size:10px;" class="result">{{$drug_susceptibility->drug_susceptibility_measure->symbol}}</td>
+              	</tr>
+              @endforeach       
             @endif
+           
         </table>
         @endforeach
 
-        <table style="border-bottom: 1px solid #cecfd5;">
+        <table style="border-bottom: 1px solid #cecfd5; font-size:10px;font-family: 'Courier New',Courier;">
             <tr>
-              <td>Comment(s)</td>
+              <td><b>Comment(s)</b></td>
               <td colspan="2">
               {{$test->interpretation}}
               </td>
             </tr>
+             <tr>
+				<td width="50%" style="font-size:9px">
+					<b>Results Entry Date</b>:{{ $test->time_completed }}
+				</td>
+			</tr>
         </table>
 
         </hr>
-        <table style="border-bottom: 1px solid #cecfd5;">
+        <table style="border-bottom: 1px solid #cecfd5; font-size:10px;font-family: 'Courier New',Courier;">
             <tr>
-              <td><b>Analysis Performed by:</b></td>
-              <td>{{ $test->isCompleted()?$test->testedBy->name:'Pending' }}</td>
+              <td colspan="2"><b>Analysis Performed by:</b></td>
+              <td colspan="4">{{ $test->isCompleted()?$test->testedBy->name:'Pending' }}</td>
               <!-- <td><b>Verified by:</b></td>
               <td>{{ $test->isVerified()?$test->verifiedBy->name:'Pending' }}</td> -->
             </tr>
         </table>
 
-        <table style="border-bottom: 1px solid #cecfd5;">
+        <table style="border-bottom: 1px solid #cecfd5; font-size:10px;font-family: Bookman Old Style;">
             <tr>
-               <td colspan="2">Result Guide</td>
-               <td colspan="4" style="text-align:left;">S-Sensitive | R-Resistant | I-Intermediate</td>
+               <td colspan="2"><b>Results Guide</b></td>
+               <td colspan="4"><b>S-Sensitive | R-Resistant | I-Intermediate</b></td>
             </tr>
         </table>
         @else<!-- if there are no isolated organisms -->

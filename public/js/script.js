@@ -768,13 +768,30 @@ $(function(){
     /**
      * Disable Bed No: input field  based on Visit type selected
      */
+     // 0 = out-patient
+     // 1 = in-patient
+     // 2 = Referrals
      $("#visit_type").on('change', function() {
-        if(this.value === "0" || this.value === "null") {
+        if(this.value === "0") {
             $("#bed_no").prop("disabled", true);
             $("#ward_id").prop("disabled", true);
+            $("#facility").prop("disabled", true);
+            $("#facility_lab_number").prop("disabled", true);
+        } else if(this.value === "1"){
+            $("#bed_no").prop("disabled", false);
+            $("#ward_id").prop("disabled", false);
+             $("#facility").prop("disabled", true);
+            $("#facility_lab_number").prop("disabled", true);
+        } else if(this.value === "2"){
+            $("#bed_no").prop("disabled", true);
+            $("#ward_id").prop("disabled", true);
+             $("#facility").prop("disabled", false);
+            $("#facility_lab_number").prop("disabled", false);
         } else{
             $("#bed_no").prop("disabled", false);
             $("#ward_id").prop("disabled", false);
+            $("#facility").prop("disabled", false);
+            $("#facility_lab_number").prop("disabled", false);
         }
     });
 
@@ -904,6 +921,21 @@ $(function(){
         });
     });
 
+    $("input[name=onAntibiotics]").click(function(){
+        $selected = $(this).val();
+        if($selected=='1')
+        {
+            $("#list_antibiotics").removeClass("hidden"); 
+            $("#select2").select2({
+                multiple:true
+            })       
+        }        
+        else
+        {
+            $("#list_antibiotics").addClass("hidden");       
+        }
+
+    });
 
 	/** Receive Test Request button.
 	 *  - Updates the Test status via an AJAX call

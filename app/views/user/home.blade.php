@@ -6,9 +6,9 @@
 <div class="panel-body row">
 	<div class="btn-group container col-md-3">
 
-		<a class="link-tip" href="{{ URL::route('datalogger.index')}}" data-toggle="tooltip" data-placement="bottom" title="Click to view key performance indicators for laboratory performance">
+		<a class="link-tip" href="{{ URL::route('dashboard.index')}}" data-toggle="tooltip" data-placement="bottom" title="Click to view key performance indicators for laboratory performance">
 			<div class="panel panel-default">
-			<span class="ion-ios-paper" style="font-size:80px"></span> <br><span class="nav_title">MALARIA DATA LOGGER</span>
+			<span class="ion-speedometer" style="font-size:80px"></span> <br><span class="nav_title">DASHBOARD</span>
 			</div>
 		</a>
 	</div>
@@ -23,8 +23,8 @@
 		<a class="link-tip" href="{{ URL::route('unhls_els.index')}}" data-toggle="tooltip" data-placement="bottom" title="Click to mange stock of laboratory supplies and to update equipment information">
 			<div class="panel panel-default">
 
-				<span class="badge">New Stock Request:: {{ $count = Usage::where('request_id', '=', 1)->count()}}</span>
-			<span class="ion-ios-cart" style="font-size:80px"></span> <br><span class="nav_title">INVENTORY & EQUIPMENT</span>
+				<span class="badge">New Stock Request:: {{ $count = Usage::where('request_id', '=', 1)->count()}}</span><br>
+			<span class="ion-ios-cart" style="font-size:67px"></span> <br><span class="nav_title">INVENTORY & EQUIPMENT</span>
 			</div>
 		</a>
 	</div>

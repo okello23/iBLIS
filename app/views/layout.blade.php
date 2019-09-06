@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap-theme.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/dataTables.bootstrap.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/layout.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/select2.min.css') }}">
 
         <script defer type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }} "></script>
         <script defer type="text/javascript" src="{{ URL::asset('js/jquery-ui-min.js') }} "></script>
@@ -21,6 +22,7 @@
         <script defer type="text/javascript" src="{{ URL::asset('js/jquery.dataTables.js') }} "></script>
         <script defer type="text/javascript" src="{{ URL::asset('js/dataTables.bootstrap.js') }} "></script>
         <script defer type="text/javascript" src="{{ URL::asset('js/script.js') }} "></script>
+        <script defer type="text/javascript" src="{{ URL::asset('js/select2.min.js') }} "></script>
 		<!-- print special used in bb module -->
         <script defer type="text/javascript" src="{{ URL::asset('js/print_special.js') }} "></script>
         <!--   -->

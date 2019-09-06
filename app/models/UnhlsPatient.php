@@ -8,6 +8,8 @@ class UnhlsPatient extends Eloquent
 	const FEMALE = 1;
 	const BOTH = 2;
 	const UNKNOWN = 3;
+	const MICRO = 1;
+	const NOTMICRO = 0;
 	/**
 	 * Enabling soft deletes for patient details.
 	 *
@@ -220,5 +222,17 @@ class UnhlsPatient extends Eloquent
 			}
 			return $facilityCode.'/'.$yearMonth.'/'.$autoNum.'/'.$initials;
 		}
+    }
+    public function isMicro(){
+    	if($this->is_micro == UnhlsPatient::MICRO)
+			return true;
+		else 
+			return false;
+    }
+    public function isNotMicro(){
+    	if($this->is_micro == UnhlsPatient::NOTMICRO)
+			return true;
+		else 
+			return false;
     }
 }

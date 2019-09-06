@@ -24,18 +24,18 @@
 		<table class="table table-striped table-hover table-condensed search-table">
 			<thead>
 				<tr>
-					<th>Site Name</th>
 					<th>Standard Name</th>
-					<th>System name</th>
+					<th>Facility Name</th>
+					<!-- <th>System name</th> -->
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 			@foreach($testNameMappings as $testNameMapping)
 				<tr>
-					<td>{{ ($testNameMapping->testType!='')?$testNameMapping->testType->name:'' }}</td>
 					<td>{{ $testNameMapping->standard_name }}</td>
-					<td>{{ $testNameMapping->system_name }}</td>
+					<td>{{ ($testNameMapping->testType!='')?$testNameMapping->testType->name:'' }}</td>
+					<!-- <td>{{ $testNameMapping->system_name }}</td> -->
 					<td>
 						<a class="btn btn-sm btn-success" href="{{ URL::to("testnamemapping/" . $testNameMapping->id) }}">
 							<span class="glyphicon glyphicon-edit"></span>

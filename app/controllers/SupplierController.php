@@ -51,7 +51,7 @@ class SupplierController extends \BaseController {
 				$url = Session::get('SOURCE_URL');
             
             	return Redirect::to($url)
-					->with('message',  trans('messages.record-successfully-saved'));
+					->with('message',  trans('Record successfully saved'));
 			}catch(QueryException $e){
 				Log::error($e);
 			}

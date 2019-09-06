@@ -52,40 +52,47 @@
 					</select>
 				</div>
 
-
                 <div class="form-group">
-                    {{ Form::label('gender', trans('messages.gender')) }}
-                    <div>{{ Form::radio('gender', '0', true) }}
-                    	<span class="input-tag">{{trans('messages.male')}}</span></div>
-                    <div>{{ Form::radio("gender", '1', false) }}
-                    	<span class="input-tag">{{trans('messages.female')}}</span></div>
-                </div>
+					{{ Form::label('gender', trans('messages.sex'), array('class' => 'required')) }}
+					<div>{{ Form::radio('gender', '0', true) }}
+					<span class="input-tag">{{trans('messages.male')}}</span></div>
+					<div>{{ Form::radio("gender", '1', false) }}
+					<span class="input-tag">{{trans('messages.female')}}</span></div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('nationality', trans('Nationality')) }}
+					{{ Form::select('nationality', [' ' => '--- Select Nationality ---',
+					'0' => trans('National'),'1' => trans('Refugee'),'2' => trans('Foreigner')], null,
+						array('class' => 'form-control')) }}
+				</div>
+				<div class="form-group">
+					{{ Form::label('village_residence', trans('messages.residence-village')) }}
+					{{ Form::text('village_residence', Input::old('village_residence'), array('class' => 'form-control',
+					'required' => 'required')) }}
+				</div>
+				<div class="form-group">
+					{{ Form::label('village_workplace', trans('messages.workplace-village')) }}
+					{{ Form::text('village_workplace', Input::old('village_workplace'), array('class'=>'form-control')) }}
+				</div>
 				<div class="form-group">
 					{{ Form::label('address', trans('messages.physical-address')) }}
 					{{ Form::text('address', Input::old('address'), array('class' => 'form-control')) }}
 				</div>
 				<div class="form-group">
-					{{ Form::label('village_residence', trans('messages.residence-village'), array('class' => 'required')) }}
-					{{ Form::text('village_residence', Input::old('village_residence'), array('class' => 'form-control')) }}
-				</div>
-				<div class="form-group">
-					{{ Form::label('village_workplace', trans('messages.workplace-village')) }}
-					{{ Form::text('village_workplace', Input::old('village_workplace'), array('class' => 'form-control')) }}
-				</div>
-				<div class="form-group">
 					{{ Form::label('occupation', trans('messages.occupation')) }}
 					{{ Form::text('occupation', Input::old('occupation'), array('class' => 'form-control')) }}
+				</div>
 				<div class="form-group">
-					{{ Form::label('phone_number', trans('messages.phone-number'), array('class' => 'required')) }}
-					{{ Form::text('phone_number', Input::old('phone_number'), array('class' => 'form-control')) }}
+					{{ Form::label('phone_number', trans('messages.phone-number')) }}
+					{{ Form::text('phone_number', Input::old('phone_number'), array('class' => 'form-control','required' => 'required')) }}
 				</div>
 				<div class="form-group">
 					{{ Form::label('email', trans('messages.email-address')) }}
 					{{ Form::email('email', Input::old('email'), array('class' => 'form-control')) }}
 				</div>
 				<div class="form-group actions-row">
-					{{ Form::button('<span class="glyphicon glyphicon-save"></span> '.trans('messages.save'),
-						 array('class' => 'btn btn-primary', 'onclick' => 'submit()')) }}
+					{{ Form::button('<span class="glyphicon glyphicon-save"></span> '.trans('messages.save-request'),
+						['class' => 'btn btn-primary', 'onclick' => 'submit()']) }}
 				</div>
 
 			{{ Form::close() }}

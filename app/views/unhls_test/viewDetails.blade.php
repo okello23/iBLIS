@@ -49,14 +49,14 @@
 							@if(Auth::user()->can('view_reports'))
 							    @if($test->isApproved())
 								<a class="btn btn-sm btn-default"
-								href="{{ URL::to('patient_final_report/'.$test->visit->patient->id.'/'.$test->visit->id ) }}"
+								href="{{ URL::to('patient_final_report/'.$test->visit->patient->id.'/'.$test->visit->id ) }}" target="_blank"
 								>
 									<span class="glyphicon glyphicon-eye-open"></span>
 									{{trans('messages.view-final-report')}}
 								</a>
 								
 								@elseif( $test->isVerified())
-								<a class="btn btn-sm btn-default" href="{{ URL::to('patient_interim_report/'.$test->visit->patient->id.'/'.$test->visit->id ) }}">
+								<a class="btn btn-sm btn-default" href="{{ URL::to('patient_interim_report/'.$test->visit->patient->id.'/'.$test->visit->id ) }}" target="_blank">
 									<span class="glyphicon glyphicon-eye-open"></span>
 									{{trans('messages.view-interim-report')}}
 								</a>

@@ -45,11 +45,12 @@ Route::group(array("before" => "auth"), function()
         "as" => "user.home",
         "uses" => "UserController@homeAction"
         ));
-
+    // Loads the counts on the dashbor
     Route::any('/dashboard', array(
-        "as" => "user.dashboard",
-        "uses" => "UserController@dashboard"
+        "as" => "dashboard.index",
+        "uses" => "DashboardController@index"
         ));
+
     Route::group(array("before" => "checkPerms:manage_users"), function() {
         Route::resource('user', 'UserController');
         Route::get("/user/{id}/delete", array(
@@ -70,7 +71,7 @@ Route::group(array("before" => "auth"), function()
 
     //Unhls patient routes start here
     Route::resource('unhls_patient', 'UnhlsPatientController');
-
+   
 
     Route::get("/unhls_patient/{id}/delete", array(
         "as"   => "unhls_patient.delete",
@@ -81,6 +82,11 @@ Route::group(array("before" => "auth"), function()
         "uses" => "UnhlsPatientController@search"
     ));
 
+    //Microbiology specimens Controller
+    Route::resource('microbiology', 'MicrobiologyController');
+
+    // specimens and patients information
+    Route::resource('unhls_specimens', 'UnhlsSpecimenController');
 
     //POC routes start here
     Route::resource('poc', 'PocController');
@@ -135,6 +141,82 @@ Route::group(array("before" => "auth"), function()
     Route::post("unhls_test/uploadPoCResults", array(
         "as" => "unhls_test.uploadPoCResults",
         "uses" => "UnhlsTestController@uploadPoCResults"));
+
+    Route::get("/unhls_test/{test}/delete", array(
+        "as"   => "unhls_test.delete",
+        "uses" => "UnhlsTestController@delete"
+    ));
+    Route::get("unhls_test/completed", array(
+        "as" => "unhls_test.completed",
+        "uses" => "UnhlsTestController@completed"));
+    Route::get("unhls_test/pending", array(
+        "as" => "unhls_test.pending",
+        "uses" => "UnhlsTestController@pending"));
+    Route::get("unhls_test/started", array(
+        "as" => "unhls_test.started",
+        "uses" => "UnhlsTestController@started"));
+    Route::get("unhls_test/notrecieved", array(
+        "as" => "unhls_test.notrecieved",
+        "uses" => "UnhlsTestController@notRecieved"));
+    Route::get("unhls_test/verified", array(
+        "as" => "unhls_test.verified",
+        "uses" => "UnhlsTestController@verified"));
+    Route::get("/unhls_test/{test}/viewdetails", array(
+        "as"   => "unhls_test.viewDetails",
+        "uses" => "UnhlsTestController@viewDetails"
+    ));
+     Route::post("/unhls_test/start", array(
+        "before" => "checkPerms:start_test",
+        "as"   => "unhls_test.start",
+        "uses" => "UnhlsTestController@start"
+    ));
+
+    /*Visit Management*/
+    Route::any("/visit", array(
+        "as"   => "visit.index",
+        "uses" => "VisitController@index"
+    ));
+    Route::get("/visit/show/{visit_id}", array(
+        "as"   => "visit.show",
+        "uses" => "VisitController@show"
+    ));
+    Route::get("/visit/create/{patient_id}", array(
+        "as"   => "visit.create",
+        "uses" => "VisitController@create"
+    ));
+    Route::post("/visit/store", array(
+        "as"   => "visit.store",
+        "uses" => "VisitController@store"
+    ));
+    Route::post("/visit/update/{visit_id}", array(
+        "as"   => "visit.update",
+        "uses" => "VisitController@update"
+    ));
+    Route::get("/visit/edit/{visit_id}", array(
+        "as"   => "visit.edit",
+        "uses" => "VisitController@edit"
+    ));
+    Route::get("/visit/destroy/{visit_id}", array(
+        "as"   => "visit.destroy",
+        "uses" => "VisitController@destroy"
+    ));
+    Route::post("/visit/testlist", array(
+        "as"   => "visit.testList",
+        "uses" => "VisitController@testList"
+    ));
+    Route::get("/visit/addtest/{visit_id}", array(
+        "as"   => "visit.addtest",
+        "uses" => "VisitController@getAddTest"
+    ));
+    Route::post("/visit/clinicianaddtest/{visit_id}", array(
+        "as"   => "visit.clinicianpostaddtest",
+        "uses" => "VisitController@clinicianPostAddTest"
+    ));
+    Route::post("/visit/technologistaddtest/{visit_id}", array(
+        "as"   => "visit.technologistpostaddtest",
+        "uses" => "VisitController@technologistPostAddTest"
+    ));
+
 
     //Unhls patiend routes end
 
@@ -194,6 +276,7 @@ Route::group(array("before" => "auth"), function()
     {
         Route::resource('instrument', 'InstrumentController');
         Route::resource('ward', 'WardController');
+        Route::resource('referral', 'ReferralController');
         Route::resource('clinicians', 'CliniciansController');
         Route::resource('testnamemapping', 'TestNameMappingController');
 
@@ -332,7 +415,7 @@ Route::group(array("before" => "auth"), function()
         "before" => "checkPerms:edit_test_results",
         "as"   => "unhls_test.edit",
         "uses" => "UnhlsTestController@edit"
-    ));
+    )); 
     Route::post("/unhls_test/{test}/saveresults", array(
         "before" => "checkPerms:edit_test_results",
         "as"   => "unhls_test.saveResults",
@@ -478,6 +561,10 @@ Route::group(array("before" => "auth"), function()
         Route::any("/patientreport", array(
             "as"   => "reports.patient.index",
             "uses" => "ReportController@loadPatients"
+        ));
+         Route::any("/patientreports", array(
+            "as"   => "reports.patient.merged",
+            "uses" => "ReportController@loadPatientss"
         ));
         Route::any("/patientreport/{id}", array(
             "as" => "reports.patient.report",
@@ -640,54 +727,108 @@ Route::group(array("before" => "auth"), function()
         ));
     });
 
-  // New stock and inventory routes start here
+    Route::group(array("before" => "checkPerms:request_topup"), function()
+    {
+        //top-ups
+        Route::resource('topup', 'TopUpController');
+        Route::get("/topup/{id}/delete", array(
+            "as"   => "topup.delete",
+            "uses" => "TopUpController@delete"
+        ));
+        Route::get('topup/{id}/availableStock', array(
+            "as"    =>  "issue.dropdown",
+            "uses"  =>  "TopUpController@availableStock"
+        ));
+    });
+    Route::group(array("before" => "checkPerms:manage_inventory"), function()
+    {
+        //Commodities
+        Route::resource('commodity', 'CommodityController');
+        Route::get("/commodity/{id}/delete", array(
+            "as"   => "commodity.delete",
+            "uses" => "CommodityController@delete"
+        ));
+        //issues
+        Route::resource('issue', 'IssueController');
+        Route::get("/issue/{id}/delete", array(
+            "as"   => "issue.delete",
+            "uses" => "IssueController@delete"
+        ));
+        Route::get("/issue/{id}/dispatch", array(
+            "as"   => "issue.dispatch",
+            "uses" => "IssueController@dispatch"
+        ));
+        //Metrics
+        Route::resource('metric', 'MetricController');
+        Route::get("/metric/{id}/delete", array(
+            "as"   => "metric.delete",
+            "uses" => "MetricController@delete"
+        ));
+        //Suppliers
+        Route::resource('supplier', 'SupplierController');
 
-Route::group(array("before" => "checkPerms:request_topup"), function()
-  {
-       //top-ups
-       Route::resource('topup', 'TopUpController');
-       Route::get("/topup/{id}/delete", array(
-           "as"   => "topup.delete",
-           "uses" => "TopUpController@delete"
-       ));
-       Route::get('topup/{id}/availableStock', array(
-           "as"    =>  "issue.dropdown",
-           "uses"  =>  "TopUpController@availableStock"
-       ));
-   });
-   Route::group(array("before" => "checkPerms:manage_inventory"), function()
-   {
-       //Commodities
-       Route::resource('commodity', 'CommodityController');
-       Route::get("/commodity/{id}/delete", array(
-           "as"   => "commodity.delete",
-           "uses" => "CommodityController@delete"
-       ));
-       //issues
-       Route::resource('issue', 'IssueController');
-       Route::get("/issue/{id}/delete", array(
-           "as"   => "issue.delete",
-           "uses" => "IssueController@delete"
-       ));
-       Route::get("/issue/{id}/dispatch", array(
-           "as"   => "issue.dispatch",
-           "uses" => "IssueController@dispatch"
-       ));
-       //Suppliers
-       Route::resource('supplier', 'SupplierController');
+        Route::get("/supplier/{id}/delete", array(
+            "as"   => "supplier.delete",
+            "uses" => "SupplierController@delete"
+        ));
 
-       Route::get("/supplier/{id}/delete", array(
-           "as"   => "supplier.delete",
-           "uses" => "SupplierController@delete"
-       ));
-       /*
-       *   Routes for items
-       */
-       Route::resource('item', 'ItemController');
-       Route::get("/item/{id}/delete", array(
+        //Receipts
+        Route::resource('receipt', 'ReceiptController');
+        Route::get("/receipt/{id}/delete", array(
+            "as"   => "receipt.delete",
+            "uses" => "ReceiptController@delete"
+        ));
+        //Stock card
+        Route::post("/stockcard/index", array(
+            "as"   => "stockcard.index",
+            "uses" => "StockCardController@index"
+        ));
+        Route::post("/stockcard/create", array(
+            "as"   => "stockcard.create",
+            "uses" => "StockCardController@create"
+        ));
+        Route::post("/stockcard/store", array(
+            "as"   => "stockcard.store",
+            "uses" => "StockCardController@store"
+        ));
+        Route::get("/stockcard/{id}/delete", array(
+            "as"   => "stockcard.delete",
+            "uses" => "StockCardController@delete"
+        ));
+        Route::resource('stockcard', 'StockCardController');
+
+        //Stock requisition form
+        Route::post("/stockrequisition/index", array(
+            "as"   => "stockrequisition.index",
+            "uses" => "StockRequisitionController@index"
+        ));
+        Route::post("/stockrequisition/create", array(
+            "as"   => "stockrequisition.create",
+            "uses" => "StockRequisitionController@create"
+        ));
+        Route::post("/stockrequisition/store", array(
+            "as"   => "stockrequisition.store",
+            "uses" => "StockRequisitionController@store"
+        ));
+        Route::get("/stockrequisition/{id}/delete", array(
+            "as"   => "stockrequisition.delete",
+            "uses" => "StockRequisitionController@delete"
+        ));
+        Route::resource('stockrequisition', 'StockRequisitionController');
+
+        Route::resource('item', 'ItemController');
+
+        Route::get("/item/{id}/delete", array(
            "as"   => "item.delete",
            "uses" => "ItemController@delete"
+        ));
+
+        Route::resource('request', 'TopupController');
+       Route::get("/request/{id}/delete", array(
+           "as"   => "request.delete",
+           "uses" => "TopupController@delete"
        ));
+
        /*
        *   Routes for stocks
        */
@@ -720,18 +861,7 @@ Route::group(array("before" => "checkPerms:request_topup"), function()
            "as"   => "lt.update",
            "uses" => "StockController@lotUsage"
        ));
-       /*
-       *   Routes for requests
-       */
-       Route::resource('request', 'TopupController');
-       Route::get("/request/{id}/delete", array(
-           "as"   => "request.delete",
-           "uses" => "TopupController@delete"
-       ));
-   });
 
-
-  // Stock & inventory routes end here
 
 
         //Equipment supplier form
@@ -879,6 +1009,11 @@ Route::group(array("before" => "checkPerms:request_topup"), function()
         ));
 
   });
+    Route::resource('testpurpose', 'UnhlsPurposeController');
+    Route::get("/testpurpose/{id}/delete", array(
+            "as"   => "testpurpose.delete",
+            "uses" => "UnhlsPurposeController@delete"
+    ));
 
     //Bike Management
     Route::resource('bike', 'BikeController');
@@ -936,15 +1071,6 @@ Route::group(array("before" => "checkPerms:request_topup"), function()
 
      Route::resource('unhls_els', 'UnhlsElsController');
 
-     // Data Logger route
-     Route::resource('datalogger', 'DataLoggerController');
-
-	 Route::post("/datalogger/logger", array(
-        "as"   => "data.logger",
-        "uses" => "DataLoggerController@logger"
-    ));
-
-
     Route::get("/equipmentbreakdown/{id}/restore", array(
         "as"   => "equipmentbreakdown.restore",
         "uses" => "EquipmentBreakdownController@restore"
@@ -962,7 +1088,9 @@ Route::group(array("before" => "checkPerms:request_topup"), function()
         "uses" => "StockCardController@validate_batch"
     ));
 
-      Route::get("/stockbook/{id}/fetch", array(
+    Route::get("/stockbook/{id}/fetch", array(
         "as"   => "stockbook.fetch",
         "uses" => "StockRequisitionController@fetch"
     ));
+
+});

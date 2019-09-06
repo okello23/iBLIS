@@ -44,7 +44,6 @@ class WardController extends \BaseController {
         //Validation
         $rules = array(
             'name' => 'required|unique:wards,name',
-            'ward_type_id' => 'required'
             );
         $validator = Validator::make(Input::all(), $rules);
     
