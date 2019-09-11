@@ -34,6 +34,12 @@
 										{{trans('messages.daily-log')}}</a>
 									</div>
 								</li>
+								<li>
+									<div><a href="{{ URL::route('reports.microbiology.search')}}">
+										<span class="glyphicon glyphicon-tag"></span>
+										Microbiology Export</a>
+									</div>
+								</li>
 							</ul>
 							<h4 class="panel_heading panel_heading_first">{{trans('messages.aggregate-reports')}}</h4>
 							<ul>
@@ -141,17 +147,17 @@
 											<span class="glyphicon glyphicon-tag"></span> {{"Register EID patient"}}</a>
 									</div>
 								</li>
-								<li>
-									<div>
-										<a href="{{ URL::route('unhls_patient.index') }}">
-											<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.view-patients', 1)}}</a>
-									</div>
-								</li>
 
 								<li>
 									<div>
 										<a href="{{ URL::route('microbiology.create') }}">
 											<span class="glyphicon glyphicon-tag"></span> {{ 'Microbiology Specimen' }}</a>
+									</div>
+								</li>
+								<li>
+									<div>
+										<a href="{{ URL::route('unhls_patient.index') }}">
+											<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.view-patients', 1)}}</a>
 									</div>
 								</li>
 

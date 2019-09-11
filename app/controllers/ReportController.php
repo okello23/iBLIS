@@ -2242,7 +2242,7 @@ class ReportController extends \BaseController {
 			$content[$i]['Patient ID'] = $isolatedOrganism->test->visit->patient->ulin;
 			$content[$i]['Sex'] = $isolatedOrganism->test->visit->patient->getGender();//sex
 			$content[$i]['Age'] = $isolatedOrganism->test->visit->patient->getAge();//age
-			$content[$i]['Hospitalized for more than 2 days (48 hours) at time of specimen collection? '] = ($isolatedOrganism->test->visit->hospitalized == 1) ? 'Yes' : 'No';//48hrs
+			$content[$i]['Hospitalized for more than 2 days (48 hours) at time of specimen collection? '] = ($isolatedOrganism->test->visit->hospitalized == 1) ? 'Yes' : 'No' : 'Null';//48hrs
 			$content[$i]['Specimen Date'] = $isolatedOrganism->test->specimen->time_accepted;//specimen_date
 			$content[$i]['Specimen Type'] = $isolatedOrganism->test->specimen->specimenType->name;//specimen_type
 			$content[$i]['Organism'] = $isolatedOrganism->organism->name;

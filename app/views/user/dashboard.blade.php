@@ -15,7 +15,7 @@
 												<span class="stat_count">{{UnhlsVisit::whereMonth('created_at', '=', Carbon::today()->month)->count()}} 
 													({{UnhlsVisit::where('visit_type', '=', 'Out-patient')->whereMonth('created_at', '=', Carbon::today()->month)->count()*100/UnhlsVisit::count()}}% - OPD)</span>
 												@endif
-												<span class="stat_name">Number of patients</span>
+												<span class="stat_name">Number of Patient Visits</span>
 											</div>
 
 										</div>

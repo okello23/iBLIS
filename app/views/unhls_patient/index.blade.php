@@ -92,12 +92,19 @@
 							<span class="glyphicon glyphicon-eye-open"></span>
 							{{trans('messages.view')}}
 						</a>
-
+						@if($patient->isMicro())
+						<!-- edit this patient (uses the edit method found at GET /patient/{id}/edit -->
+						<a class="btn btn-sm btn-info" href="{{ URL::route('microbiology.edit', array($patient->id)) }}" >
+							<span class="glyphicon glyphicon-edit"></span>
+							{{trans('messages.edit')}}
+						</a>
+						@elseif($patient->isNotMicro())
 						<!-- edit this patient (uses the edit method found at GET /patient/{id}/edit -->
 						<a class="btn btn-sm btn-info" href="{{ URL::route('unhls_patient.edit', array($patient->id)) }}" >
 							<span class="glyphicon glyphicon-edit"></span>
 							{{trans('messages.edit')}}
 						</a>
+						@endif
 						@if(Auth::user()->can('can_delete_patient'))
 						<!-- can delete patient -->
 						<button class="btn btn-sm btn-danger delete-item-link"
