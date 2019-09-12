@@ -32,7 +32,7 @@ class MicrobiologyController extends \BaseController {
 		// Test Category
 		$categories = ['Select Lab Section']+TestCategory::lists('name', 'id');
 		$testpurpose = ['Select Test Purpose']+UnhlsPurpose::orderBy('name', 'ASC')->lists('name', 'id');
-		return View::make('microbiology.create')
+		return View::make('microbio.create')
 					->with('ward', $wards)
 					->with('receptionDate', $receptionDate)
 					->with('collectionDate', $collectionDate)
@@ -233,7 +233,7 @@ class MicrobiologyController extends \BaseController {
 		$patientAntibiotics = PatientAntibiotics::where('patient_id', $patient->id)->lists('drug_id');
 		$visits = UnhlsVisit::find($id);
 		//dd($patientAntibiotics);
-		return View::make('microbiology.edit')
+		return View::make('microbio.edit')
 					->with('patient', $patient)
 					->with('ward', $wards)
 					->with('visits', $visits)

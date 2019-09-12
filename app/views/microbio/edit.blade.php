@@ -20,7 +20,7 @@
 					{{ HTML::ul($errors->all()) }}
 				</div>
 			@endif
-			{{ Form::model($patient, array('route' => array('microbiology.update', $patient->id), 'method' => 'PUT',
+			{{ Form::model($patient, array('route' => array('microbio.update', $patient->id), 'method' => 'PUT',
 				'id' => 'form-edit-patient')) }}
 		<input type="hidden" name="_token" value="{{ Session::token() }}"><!--to be removed function for csrf_token -->
 				<div class="container-fluid">

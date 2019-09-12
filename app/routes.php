@@ -83,7 +83,7 @@ Route::group(array("before" => "auth"), function()
     ));
 
     //Microbiology specimens Controller
-    Route::resource('microbiology', 'MicrobiologyController');
+    Route::resource('microbio', 'MicrobiologyController');
 
     // specimens and patients information
     Route::resource('unhls_specimens', 'UnhlsSpecimenController');

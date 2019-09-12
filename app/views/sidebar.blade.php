@@ -150,7 +150,7 @@
 
 								<li>
 									<div>
-										<a href="{{ URL::route('microbiology.create') }}">
+										<a href="{{ URL::route('microbio.create') }}">
 											<span class="glyphicon glyphicon-tag"></span> {{ 'Microbiology Specimen' }}</a>
 									</div>
 								</li>

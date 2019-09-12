@@ -44,7 +44,7 @@
 							@endif
 						</div>
 						@endif
-						
+						@if($test->isCompleted() || $test->isVerified())
 						<div class="panel-btn">
 							@if(Auth::user()->can('view_reports'))
 							    @if($test->isApproved())
@@ -63,7 +63,7 @@
 								@endif
 							@endif
 						</div>
-						
+						@endif
                     </div>
                     <div class="col-md-1">
                         <a class="btn btn-sm btn-primary pull-right" href="#" onclick="window.history.back();return false;"

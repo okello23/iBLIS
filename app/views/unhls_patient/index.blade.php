@@ -94,7 +94,7 @@
 						</a>
 						@if($patient->isMicro())
 						<!-- edit this patient (uses the edit method found at GET /patient/{id}/edit -->
-						<a class="btn btn-sm btn-info" href="{{ URL::route('microbiology.edit', array($patient->id)) }}" >
+						<a class="btn btn-sm btn-info" href="{{ URL::route('microbio.edit', array($patient->id)) }}" >
 							<span class="glyphicon glyphicon-edit"></span>
 							{{trans('messages.edit')}}
 						</a>
