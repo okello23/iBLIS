@@ -35,8 +35,8 @@
 				<table class="table table-striped table-hover table-condensed search-table">
 					<thead>
 						<tr>
-							<th>{{ trans('messages.id') }}</th>
-							<th>{{ trans('messages.signed-out') }}</th>
+							<th>#</th>
+							<th>Quantity Issued</th>
 							<th>{{ trans('messages.date-of-usage') }}</th>
 							<th>{{ trans('messages.destination') }}</th>
 							<th>{{ trans('messages.issued-by') }}</th>
@@ -58,7 +58,7 @@
 							<td>{{ $value->issued_by }}</td>
 							<td>{{ $value->received_by }}</td>
 							<td>{{ $value->remarks }}</td>
-		                 	
+
 							<td>
 								<a class="btn btn-sm btn-info" href="{{ URL::to("stock/" . $value->id . "/lot") }}" >
 										<span class="glyphicon glyphicon-edit"></span>

@@ -153,7 +153,7 @@
 									</div>
 									<div class ="form-group hidden hiv-purpose col-md-12">
 										{{Form::label('hiv_purpose', 'Please select the purpose of HIV test', array('class' => 'required'))}}
-										{{Form::select('hiv_purpose',['' => '----Select purpose of H.I.V----', 'pmtct' => 'PMTCT', 'hct' => 'HCT', 'smc' => 'SMC', 'qc' => 'Quality Control', 'clinical_diagnosis' => 'Clinical Diagnosis'])}}
+										{{Form::select('hiv_purpose',['' => '----Select purpose of H.I.V----'])}}
 									</div>
 									</div>
 								</div>
@@ -185,5 +185,5 @@
                 title="{{trans('messages.delete')}}">×</button>
         </div>
     </div><!-- Test List Item -->
-</div><!-- Test List Item Loader-->  
+</div><!-- Test List Item Loader-->
 @stop

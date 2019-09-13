@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     {{ Form::label('date-of-usage', trans('messages.date-of-usage')) }}
-                    {{ Form::text('date_of_usage', Input::old('date_of_usage'), 
+                    {{ Form::text('date_of_usage', Input::old('date_of_usage'),
                             array('class' => 'form-control standard-datepicker')) }}
                 </div>
                 <div class="form-group">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     {{ Form::label('issued-by', trans('messages.issued-by')) }}
-                    {{ Form::text('issued_by', Input::old('issued_by'), array('class' => 'form-control')) }}
+                    {{ Form::text('issued_by', Auth::user()->name, array('class' => 'form-control', 'readonly')) }}
                 </div>
                 <div class="form-group">
                     {{ Form::label('received-by', trans('messages.received-by')) }}
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group actions-row">
-                        {{ Form::button("<span class='glyphicon glyphicon-save'></span> ".trans('messages.save'), 
+                        {{ Form::button("<span class='glyphicon glyphicon-save'></span> ".trans('messages.save'),
                             array('class' => 'btn btn-primary', 'onclick' => 'submit()')) }}
                 </div>
             {{ Form::close() }}
@@ -70,9 +70,9 @@
                 <li class="list-group-item"><strong>{{ Lang::choice('messages.item', 1).': '.$stock->item->name }}</strong></li>
                 <li class="list-group-item"><h5><strong>{{ trans("messages.unit").': ' }}</strong>{{ $stock->item->unit }}</h5></li>
                 <li class="list-group-item"><h5><strong>{{ trans('messages.lot-no').': ' }}</strong>{{ $stock->lot }}</h5></li>
-                <li class="list-group-item"><h5><strong>{{ trans('messages.available-qty').': ' }}</strong>{{ $stock->quantity() }}</h5></li>                      
+                <li class="list-group-item"><h5><strong>{{ trans('messages.available-qty').': ' }}</strong>{{ $stock->quantity() }}</h5></li>
             </ul>
         </div>
-    </div>	
+    </div>
 </div>
 @stop

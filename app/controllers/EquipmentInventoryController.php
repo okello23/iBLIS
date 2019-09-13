@@ -39,7 +39,7 @@ class EquipmentInventoryController extends \BaseController {
 		$service_frequency_list = array('0' => '3 months', '1' => '6 months', '2' => '9 months', '4' => '12 months');
 		$warranty_list = array('0' => '6 months','1' => '1 year', '2' => '2 years', '3' => '3 years', '4' => '4 years', '5' => '5 years');
 
-		$supplier_list = UNHLSEquipmentSupplier::get(['name','id'])->lists('name','id');
+		$supplier_list = UNHLSEquipmentSupplier::get()->lists('name','id');
 
 		return View::make('equipment.inventory.create')
 					->with('service_frequency_list',$service_frequency_list)
@@ -90,7 +90,7 @@ class EquipmentInventoryController extends \BaseController {
 
         	$item->district_id = \Config::get('constants.DISTRICT_ID') ;
         	$item->facility_id = \Config::get('constants.FACILITY_ID');
-        	$item->year_id = \Config::get('constants.FIN_YEAR_ID');  
+        	$item->year_id = \Config::get('constants.FIN_YEAR_ID');
 
 			$item->name = Input::get('equipment_name');
 			$item->model = Input::get('model');

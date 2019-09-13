@@ -37,7 +37,7 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-12">
-							
+
 							<div class="form-group">
 							<div class="panel panel-info">
 								<div class="panel-heading">
@@ -54,7 +54,7 @@
 										<div class="form-group">
 											{{ Form::label('name', trans('messages.names'), array('class' => 'required')) }}
 											{{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
-										
+
 										</div>
 										<div class="form-group">
 											{{ Form::label('nin', trans('messages.national-id')) }}
@@ -81,7 +81,7 @@
 												<option value="D">Days</option>
 											</select>
 										</div>
-									
+
 									 	<div class="form-group">
 											<label class= 'required' for="dob">Date Of Birth</label>
 											<input type="text" name="dob" id="dob" class="form-control input-sm" size="11">
@@ -97,7 +97,7 @@
 										<div class="form-group">
 											{{ Form::label('village_residence', trans('messages.residence-village')) }}
 											{{ Form::text('village_residence', Input::old('village_residence'), array('class' => 'form-control')) }}
-										</div>	
+										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
@@ -249,7 +249,11 @@
 									</div>
 									<div class ="form-group hidden hiv-purpose col-md-12">
 										{{Form::label('hiv_purpose', 'Please select the purpose of HIV test', array('class' => 'required'))}}
-										{{Form::select('hiv_purpose',['' => '----Select purpose of H.I.V----', 'pmtct' => 'PMTCT', 'hct' => 'HCT', 'smc' => 'SMC', 'qc' => 'Quality Control', 'clinical_diagnosis' => 'Clinical Diagnosis'])}}
+										{{Form::select('hiv_purpose',['' => '----Select purpose of H.I.V----',
+										'hct' => 'HCT', 'smc' => 'SMC','emtct' =>'eMTCT','repeat_test' =>'Repeat Test',
+										'test_for_verification'=>'Test For Verification','inconclusive_results'=>'Inconclusive Results',
+										'dna_confirmatory_test'=>'DNA Confirmatory Test', 'iqc'=>'IQC','eqa'=>'EQA',
+										'qc' => 'Quality Control', 'clinical_diagnosis' => 'Clinical Diagnosis'])}}
 									</div>
 									</div>
 								</div>
@@ -281,5 +285,5 @@
                 title="{{trans('messages.delete')}}">×</button>
         </div>
     </div><!-- Test List Item -->
-</div><!-- Test List Item Loader-->  
+</div><!-- Test List Item Loader-->
 @stop

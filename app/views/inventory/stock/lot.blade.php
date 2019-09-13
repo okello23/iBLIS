@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     {{ Form::label('date-of-usage', trans('messages.date-of-usage')) }}
-                    {{ Form::text('date_of_usage', Input::old('date_of_usage'), 
+                    {{ Form::text('date_of_usage', Input::old('date_of_usage'),
                             array('class' => 'form-control standard-datepicker')) }}
                 </div>
                 <div class="form-group">
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="form-group actions-row">
-                        {{ Form::button("<span class='glyphicon glyphicon-save'></span> ".trans('messages.update'), 
+                        {{ Form::button("<span class='glyphicon glyphicon-save'></span> ".trans('messages.update'),
                             array('class' => 'btn btn-primary', 'onclick' => 'submit()')) }}
                 </div>
             {{ Form::close() }}
@@ -72,6 +72,6 @@
                 <li class="list-group-item"><h5><strong>{{ trans('messages.available-qty').': ' }}</strong>{{ $lt->stock->quantity() }}</h5></li>
             </ul>
         </div>
-    </div>	
+    </div>
 </div>
 @stop
