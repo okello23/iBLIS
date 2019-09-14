@@ -153,7 +153,11 @@
 									</div>
 									<div class ="form-group hidden hiv-purpose col-md-12">
 										{{Form::label('hiv_purpose', 'Please select the purpose of HIV test', array('class' => 'required'))}}
-										{{Form::select('hiv_purpose',['' => '----Select purpose of H.I.V----'])}}
+										{{Form::select('hiv_purpose',['' => '----Select purpose of H.I.V----',
+										'hct' => 'HCT', 'smc' => 'SMC','emtct' =>'eMTCT','repeat_test' =>'Repeat Test',
+										'test_for_verification'=>'Test For Verification','inconclusive_results'=>'Inconclusive Results',
+										'dna_confirmatory_test'=>'DNA Confirmatory Test', 'iqc'=>'IQC','eqa'=>'EQA',
+										'qc' => 'Quality Control', 'clinical_diagnosis' => 'Clinical Diagnosis'])}}
 									</div>
 									</div>
 								</div>

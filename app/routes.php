@@ -71,7 +71,7 @@ Route::group(array("before" => "auth"), function()
 
     //Unhls patient routes start here
     Route::resource('unhls_patient', 'UnhlsPatientController');
-   
+
 
     Route::get("/unhls_patient/{id}/delete", array(
         "as"   => "unhls_patient.delete",
@@ -415,7 +415,7 @@ Route::group(array("before" => "auth"), function()
         "before" => "checkPerms:edit_test_results",
         "as"   => "unhls_test.edit",
         "uses" => "UnhlsTestController@edit"
-    )); 
+    ));
     Route::post("/unhls_test/{test}/saveresults", array(
         "before" => "checkPerms:edit_test_results",
         "as"   => "unhls_test.saveResults",
@@ -661,6 +661,12 @@ Route::group(array("before" => "auth"), function()
         Route::any("report/hmis105/{month?}", array(
             "as"   => "report.hmis105",
             "uses" => "HmisReportController@hmis105"
+        ));
+
+        // hiv hmis route
+        Route::any("/hiv", array(
+            "as"   => "report.hiv",
+            "uses" => "HmisReportController@hiv"
         ));
         Route::any("/cd4", array(
             "as"   => "reports.aggregate.cd4",

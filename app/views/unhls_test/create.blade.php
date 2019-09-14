@@ -206,6 +206,7 @@
 										'hct' => 'HCT', 'smc' => 'SMC','emtct' =>'eMTCT','repeat_test' =>'Repeat Test',
 										'test_for_verification'=>'Test For Verification','inconclusive_results'=>'Inconclusive Results',
 										'dna_confirmatory_test'=>'DNA Confirmatory Test', 'iqc'=>'IQC','eqa'=>'EQA',
+										'oraquick'=>'Oraquick (Self Testing)', hiv_syphilis_duo'=>'HIV Syphilis DUO',
 										'qc' => 'Quality Control', 'clinical_diagnosis' => 'Clinical Diagnosis'])}}
 									</div>
 									</div>

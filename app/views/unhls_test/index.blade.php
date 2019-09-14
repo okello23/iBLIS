@@ -56,7 +56,7 @@
 
     <li><a href="{{ URL::route('unhls_test.pending')}}">
       <span class="ion-planet">
-    <font size="5" color="red">  Pending <span class="badge badge-danger"> {{ $count = UnhlsTest::where('test_status_id', '=', '2')->count()}}</span></font>
+    <font size="5" color="red">Pending Tests<span class="badge badge-danger"> {{ $count = UnhlsTest::where('test_status_id', '=', '2')->count()}}</span></font>
     </span>
         </a>
     </li>
@@ -75,7 +75,7 @@
     </li>
     <li><a href="{{ URL::route('unhls_test.verified')}}">
       <span class="ion-chatbubbles">
-    <font size="3">Reviewed<span class="badge badge-info"> {{ $count = UnhlsTest::where('test_status_id', '=', '5')->count()}}</font></span>
+    <font size="5" color="gray">Verified Tests<span class="badge badge-default"> {{ $count = UnhlsTest::where('test_status_id', '=', '5')->count()}}</font></span>
  </span>
         </a>
     </li>

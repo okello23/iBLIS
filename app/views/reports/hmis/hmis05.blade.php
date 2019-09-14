@@ -492,6 +492,9 @@
 <p class="c0"><span class="c5"></span></p>
 <p class="c62"><span class="c5">4.0. Summary of HIV Test by Purpose</span></p>
 <a id="t.4176207b0439548ddc42ba1627537ecf3b3083aa"></a><a id="t.2"></a>
+
+
+
 <table class="c89">
   <tbody>
     <tr class="c17">
@@ -508,78 +511,244 @@
       <td class="c3 c23" colspan="1" rowspan="1"><p class="c6"><span class="c5">EQA</span></p></td>
       <td class="c72 c23" colspan="1" rowspan="1"><p class="c6"><span class="c5">Total</span></p></td>
     </tr>
-    <tr class="c17">
+
+<!-- Determine Row -->
+		<tr class="c17">
       <td class="c64" colspan="1" rowspan="1"><p class="c6"><span class="c1">84. Determine</span></p></td>
-      <td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{ $count = UnhlsTest::where('test_type_id', '=', '1')->where('purpose','=', 'hct')->count()}}</span></p></td>
-      <td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['determine']['PMTCT']:''}}</span></p></td>
-      <td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['determine']['CLINICAL DIAGNOSIS']:''}}</span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['determine']['SMC']:''}}</span></p></td>
-      <td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['determine']['QUALITY CONTROL']:''}}</span></p></td>
-      <td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['determine']['total']:''}}</span></p></td>
+
+			@foreach($d_hct as $k)
+      <td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_emct as $e)
+      <td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$e->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_clinic as $c)
+      <td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$c->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_smc as $s)
+      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$s->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_repeat as $k)
+      <td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_verification as $k)
+      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_inconclusive as $k)
+      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_dna as $k)
+      <td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_iqc as $k)
+      <td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($d_eqa as $q)
+      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$q->counter}}</span></p></td>
+			@endforeach
+
+      <td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
     </tr>
+
+<!-- Statpak Row -->
     <tr class="c17">
       <td class="c64" colspan="1" rowspan="1"><p class="c6"><span class="c1">85. Statpak</span></p></td>
-      <td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['start_pak']['HCT']:''}}</span></p></td>
-      <td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['start_pak']['PMTCT']:''}}</span></p></td>
-      <td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['start_pak']['CLINICAL DIAGNOSIS']:''}}</span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['start_pak']['SMC']:''}}</span></p></td>
-      <td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['hiv']))?$testTypeCountArray['hiv']['start_pak']['total']:''}}</span></p></td>
+			@foreach($s_hct as $k)
+      <td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_emct as $e)
+      <td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$e->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_clinic as $c)
+      <td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$c->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_smc as $s)
+      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$s->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_repeat as $k)
+      <td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_verification as $k)
+      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_inconclusive as $k)
+      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_dna as $k)
+      <td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_iqc as $k)
+      <td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($s_eqa as $q)
+      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$q->counter}}</span></p></td>
+			@endforeach
+
       <td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
     </tr>
+
+<!-- SD-Bioline Row -->
     <tr class="c17">
       <td class="c64" colspan="1" rowspan="1"><p class="c6"><span class="c1">86. SD Bioline</span></p></td>
-      <td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+
+			@foreach($sd_hct as $k)
+			<td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_emct as $e)
+			<td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$e->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_clinic as $c)
+			<td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$c->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_smc as $s)
+			<td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$s->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_repeat as $k)
+			<td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_verification as $k)
+			<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_inconclusive as $k)
+			<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_dna as $k)
+			<td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_iqc as $k)
+			<td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($sd_eqa as $q)
+			<td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$q->counter}}</span></p></td>
+			@endforeach
+
+			<td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+
     </tr>
+
+		<!-- HIV Syphilis Duo -->
     <tr class="c17">
       <td class="c64" colspan="1" rowspan="1"><p class="c6"><span class="c1">87. HIV Syphilis DUO</span></p></td>
-      <td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+
+			@foreach($h_hct as $k)
+			<td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_emct as $e)
+			<td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$e->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_clinic as $c)
+			<td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$c->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_smc as $s)
+			<td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$s->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_repeat as $k)
+			<td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_verification as $k)
+			<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_inconclusive as $k)
+			<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_dna as $k)
+			<td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_iqc as $k)
+			<td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($h_eqa as $q)
+			<td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$q->counter}}</span></p></td>
+			@endforeach
+
+			<td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
     </tr>
+
+		<!-- Oraquick -->
     <tr class="c17">
       <td class="c64" colspan="1" rowspan="1"><p class="c6"><span class="c1">88. Oraquick (Self Testing)</span></p></td>
-      <td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+
+			@foreach($o_hct as $k)
+			<td class="c57" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_emct as $e)
+			<td class="c19" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$e->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_clinic as $c)
+			<td class="c109" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$c->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_smc as $s)
+			<td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$s->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_repeat as $k)
+			<td class="c94" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_verification as $k)
+			<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_inconclusive as $k)
+			<td class="c27" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_dna as $k)
+			<td class="c58" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_iqc as $k)
+			<td class="c121" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$k->counter}}</span></p></td>
+			@endforeach
+
+			@foreach($o_eqa as $q)
+			<td class="c3" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$q->counter}}</span></p></td>
+			@endforeach
+
+			<td class="c72" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
     </tr>
   </tbody>
 </table>
+
 <p class="c0"><span class="c5"></span></p>
 <p class="c0"><span class="c5"></span></p>
 <p class="c0"><span class="c5"></span></p>
