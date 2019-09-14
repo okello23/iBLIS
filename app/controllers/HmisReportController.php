@@ -371,6 +371,10 @@ class HmisReportController extends \BaseController {
 		->with('o_dna', $o_dna)
 		->with('o_iqc', $o_iqc)
 		->with('o_eqa', $o_eqa);
+
+		// TODO: Not the best, but it serves the current purpose, we'll revise it when all is calm.
+		/*
+		Ben*/
 	}
 
 	/*
