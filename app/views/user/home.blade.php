@@ -20,10 +20,10 @@
 		</a>
 	</div>
 	<div class="btn-group container col-xs-3">
-		<a class="link-tip" href="{{ URL::route('unhls_els.index')}}" data-toggle="tooltip" data-placement="bottom" title="Click to mange stock of laboratory supplies and to update equipment information">
+		<a class="link-tip" href="{{ URL::route('request.index')}}" data-toggle="tooltip" data-placement="bottom" title="Click to mange stock of laboratory supplies and to update equipment information">
 			<div class="panel panel-default">
 
-				<span class="badge">New Stock Request:: {{ $count = Usage::where('request_id', '=', 1)->count()}}</span><br>
+				<span class="badge">New Stock Request:: {{ $count = Topup::count()}}</span><br>
 			<span class="ion-ios-cart" style="font-size:67px"></span> <br><span class="nav_title">INVENTORY & EQUIPMENT</span>
 			</div>
 		</a>

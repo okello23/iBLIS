@@ -551,6 +551,14 @@ Route::group(array("before" => "auth"), function()
             "as"   => "reportconfig.store",
             "uses" => "DailyReportController@store"
         ));
+        Route::any('/newulin', array(
+            "as" => "resetulin.create",
+            "uses" => "UuidGeneratorController@create"
+        ));
+        Route::post('/resetulin', array(
+            "as" => "resetulin.reset",
+            "uses" => "UuidGeneratorController@reset"
+        ));
     });
 
     //  Check if able to manage reports

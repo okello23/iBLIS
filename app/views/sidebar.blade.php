@@ -290,6 +290,10 @@
 									<a href="{{ URL::route("blisclient.index") }}">
 									<span class="glyphicon glyphicon-tag"></span>{{ trans('messages.interfaced-equipment')}}</a>
 								</li>
+								<li>
+									<a href="{{ URL::route("resetulin.create") }}">
+									<span class="glyphicon glyphicon-tag"></span>{{'Reset ULIN' }}</a>
+								</li>
 							</ul>
 						</div>
 					</div>
