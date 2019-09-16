@@ -53,10 +53,7 @@ class UnhlsPatient extends Eloquent
 		if(!$at)$at = new DateTime('now');
 
 		$dateOfBirth = new DateTime($this->dob);
-		$interval = $dateOfBirth->diff($at);
-		
-
-		
+		$interval = $dateOfBirth->diff($at);		
 		$age = "";
 
 		switch ($format) {
@@ -210,7 +207,12 @@ class UnhlsPatient extends Eloquent
 			}
 			return $initials.'/'.$month.'/'.$autoNum.'/'.$year;
 			// MG/12/220/17
-		}else{
+		}elseif($format == 'Rukunyu_SOP'){
+			$yearMonth = date('m/y', $registrationDate);
+			$autoNum = DB::table('uuids')->max('id')+1;
+			return $autoNum.'/'.$yearMonth;
+		}
+		else{
 			$yearMonth = date('ym', $registrationDate);
 			$autoNum = DB::table('uuids')->max('id')+1;
 			$name = preg_split("/\s+/", trim($this->name));

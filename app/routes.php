@@ -50,7 +50,10 @@ Route::group(array("before" => "auth"), function()
         "as" => "dashboard.index",
         "uses" => "DashboardController@index"
         ));
-
+    Route::any('/dashboard', array(
+        "as" => "user.dashboard",
+        "uses" => "DashboardController@index"
+        ));
     Route::group(array("before" => "checkPerms:manage_users"), function() {
         Route::resource('user', 'UserController');
         Route::get("/user/{id}/delete", array(
@@ -658,7 +661,10 @@ Route::group(array("before" => "auth"), function()
             "as"   => "reports.aggregate.hmis105",
             "uses" => "ReportController@hmis105"
         ));
-
+        Route::any("report/hmis105/{month?}", array(
+            "as"   => "report.hmis105",
+            "uses" => "HmisReportController@hmis105"
+        ));
         Route::any("/cd4", array(
             "as"   => "reports.aggregate.cd4",
             "uses" => "ReportController@cd4"

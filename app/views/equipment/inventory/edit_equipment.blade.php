@@ -24,10 +24,8 @@
 		{{ Lang::choice('messages.equipment',2) }}
 	</div>
 	<div class="panel-body">
-
-	
-      {{ Form::open(array('url' => 'equipmentinventory/store', 'autocomplete' => 'off', 'class' => 'form-horizontal', 'data-toggle' => 'validator')) }}
-
+	{{ Form::model($equipment, array('route' => array('equipmentinventory.update', $equipment->id), 'method' => 'PUT',
+				'id' => 'form-edit-patient')) }}
                             <fieldset> 
 
 								<div class="form-group">
@@ -197,16 +195,13 @@
 
                                   </div>
                                 </div> 
-
                                 <div class="form-group">
                                 {{ Form::label('life_time', 'Lifetime', ['class' => 'col-md-2 control-label']) }}
                                   <div class="col-md-2">
                                         <div class="input-group">
-                                            {{ Form::number('life_time',null,['class' => 'form-control','placeholder' => 'Lifetime', 'required' => 'true']) }}
+               {{ Form::number('life_time',Input::old('life_span'),['class' => 'form-control','placeholder' => 'Lifetime', 'required' => 'true'])}}
                                               <span class="input-group-addon">Years</span>
                                         </div>
-
-
                                         @if ($errors->has('life_time'))
                                             <span class="text-danger">
                                                 <strong>{{ $errors->first('life_time') }}</strong>

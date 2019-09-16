@@ -47,7 +47,7 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	*/
-	'address-info' => 'Plot 39/43 Kampala Road, P.O. BOX 29, Entebbe <br> Tel: +256 773 547 114, +256 753 385 163 <br> Email: info.ebhl@gmail.com <br><br>',
+	'address-info' => 'P.O. BOX 1408, Kamwenge<br><br>',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	*/
-	'interim-report-name'=>'Interim LABORATORY REPORT',
+	'interim-report-name'=>'INTERIM LABORATORY REPORT',
 
 	/*
 	|--------------------------------------------------------------------------
