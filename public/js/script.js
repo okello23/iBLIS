@@ -937,6 +937,10 @@ $(function(){
 
     });
 
+    $("#select2").select2({
+         multiple:true,
+    });
+
 	/** Receive Test Request button.
 	 *  - Updates the Test status via an AJAX call
 	 *  - Changes the UI to show the right status and buttons

@@ -79,7 +79,7 @@
 							<div class="stat_ico color_a"><i class="ion-ios-people"></i></div>
 							<div class="stat_content">
 								<span class="stat_count">{{$patientCount}} ({{$outPatients}}% OPD)</span>
-								<span class="stat_name">Number of patients</span>
+								<span class="stat_name">Number of patient Visits</span>
 							</div>
 
 						</div>

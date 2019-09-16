@@ -86,7 +86,7 @@ Route::group(array("before" => "auth"), function()
     ));
 
     //Microbiology specimens Controller
-    Route::resource('microbiology', 'MicrobiologyController');
+    Route::resource('microbio', 'MicrobiologyController');
 
     // specimens and patients information
     Route::resource('unhls_specimens', 'UnhlsSpecimenController');
@@ -318,10 +318,10 @@ Route::group(array("before" => "auth"), function()
         "as"   => "unhls_test.index",
         "uses" => "UnhlsTestController@index"
     ));
-     Route::any("/unhls_test/{id}", array(
-        "as"   => "unhls_test.list_tests_in_visit",
-        "uses" => "UnhlsTestController@getTestVisit"
-    ));
+    //  Route::any("/unhls_test/{id}", array(
+    //     "as"   => "unhls_test.list_tests_in_visit",
+    //     "uses" => "UnhlsTestController@getTestVisit"
+    // ));
 
     Route::any("/unhls_test/cancel/{id}", array(
         "as"   => "unhls_test.cancel_test",
@@ -554,6 +554,14 @@ Route::group(array("before" => "auth"), function()
             "as"   => "reportconfig.store",
             "uses" => "DailyReportController@store"
         ));
+        Route::any('/newulin', array(
+            "as" => "resetulin.create",
+            "uses" => "UuidGeneratorController@create"
+        ));
+        Route::post('/resetulin', array(
+            "as" => "resetulin.reset",
+            "uses" => "UuidGeneratorController@reset"
+        ));
     });
 
     //  Check if able to manage reports
@@ -685,6 +693,14 @@ Route::group(array("before" => "auth"), function()
         Route::post("/inventory", array(
             "as"   => "reports.inventory",
             "uses" => "ReportController@stockLevel"
+        ));
+        Route::get("/microbiology/search", array(
+            "as"   => "reports.microbiology.search",
+            "uses" => "ReportController@searchMicrobiology"
+        ));
+        Route::post("/microbiology/download", array(
+            "as"   => "reports.microbiology.download",
+            "uses" => "ReportController@downloadMicrobiology"
         ));
     });
     Route::group(array("before" => "checkPerms:manage_qc"), function()

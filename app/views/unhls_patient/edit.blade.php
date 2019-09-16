@@ -31,8 +31,8 @@
 					{{ Form::text('nin', Input::old('nin'), array('class' => 'form-control')) }}
 				</div>
 				<div class="form-group">
-					{{ Form::label('ulin', 'Lab No.') }}
-					{{ Form::text('ulin', Input::old('ulin'), array('class' => 'form-control')) }}
+					{{ Form::label('ulin', trans('messages.ulin'), array('class' => 'required')) }}
+					{{ Form::text('ulin', $patient->ulin,	array('class' => 'form-control', 'readonly' =>'true')) }}
 				</div>
 				<div class="form-group">
 					{{ Form::label('name', Lang::choice('messages.name',1)) }}

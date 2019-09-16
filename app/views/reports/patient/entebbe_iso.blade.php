@@ -59,7 +59,7 @@
 	</tr>
 </table>
 @forelse($tests as $test)
-	@if(!$test->testType->isCulture() && ($test->isCompleted() || $test->isVerified()) && $test->testStatus->name == 'verified')
+	@if(!$test->testType->isCulture() && ( $test->testStatus->name == 'approved' || $test->testStatus->name == 'verified'))
 	<table  id="results_content_id" style="border-bottom: 1px solid #cecfd5; font-size:9px;font-family: Bookman Old Style;">
 		<tr>
 			<td width="20%">{{ $test->testType->name }}</td>

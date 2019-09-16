@@ -17,9 +17,7 @@ class CreateMicroPatientsDetailsTable extends Migration {
 			$table->increments('id');
 			$table->integer('patient_id')->unsigned();
             $table->string('sub_county_residence', 150)->nullable();
-            $table->integer('district_residence')->unsigned()->nullable();
-            $table->string('sub_county_workplace', 150)->nullable();
-            $table->integer('district_workplace')->unsigned()->nullable();
+            $table->string('sub_county_workplace', 150)->nullable();  
             $table->string('name_next_kin', 150)->nullable();
             $table->string('contact_next_kin')->nullable();
             $table->string('residence_next_kin', 150)->nullable();
@@ -33,9 +31,7 @@ class CreateMicroPatientsDetailsTable extends Migration {
 
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('district_residence')->references('id')->on('unhls_districts');           
-            $table->foreign('district_workplace')->references('id')->on('unhls_districts');
+            
 			$table->foreign('patient_id')->references('id')->on('unhls_patients');
 		});
 	}

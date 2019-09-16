@@ -15,25 +15,20 @@
     <table style="text-align:center;" >
             <tr>
                 <td colspan="12" style="text-align:center;">
-
-                  <!-- {{ @HTML::image(Config::get('kblis.organization-logo'),  Config::get('kblis.country') . trans('messages.court-of-arms'), array('width' => '40px')) }} -->
-                   </td>
+                    {{ @HTML::image(Config::get('kblis.organization-logo'),  Config::get('kblis.country') . trans('messages.court-of-arms'), array('width' => '90px')) }}
+                </td>
             </tr>
-            <tr>
-               
+            <tr>               
                 <td colspan="12" style="text-align:center;"><b>
-                    {{ strtoupper(Config::get('constants.MINISTRY')) }}<br>
-                    <span style="font-size:14px">
+                    <span style="font-size:12px">
                         {{ strtoupper(Config::get('constants.FACILITY_NAME')) }}<br>
                     </span>
-                    
-                    {{Config::get('kblis.address-info')}}</b>
+                    </b>
                      {{Config::get('kblis.interim-report-name')}}
                 </td>
             </tr>
         </thead>
     </table>
-<br>
 <br>
 <table  border="0" width="100%"; style="border-bottom: 1px solid #cecfd5">
     <tr>

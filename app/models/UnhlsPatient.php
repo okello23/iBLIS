@@ -29,7 +29,14 @@ class UnhlsPatient extends Eloquent
 	 */
     public function visits()
     {
-        return $this->hasMany('UnhlsVisit');
+        return $this->hasMany('UnhlsVisit', 'patient_id');
+    }
+/**
+	 * Visits relationship
+	 */
+    public function microDetails()
+    {
+        return $this->hasOne('MicroPatientDetail', 'patient_id');
     }
 
 
@@ -39,6 +46,13 @@ class UnhlsPatient extends Eloquent
 
     	return $patients;
     }
+    /**
+	 * District relationship
+	 */
+    public function district()
+	{
+		return $this->belongsTo('District', 'id');
+	}
 
     
 	/**
