@@ -925,6 +925,26 @@ class UnhlsTestController extends \BaseController {
 		return View::make('unhls_test.viewDetails')->with('test', $test);
 	}
 
+	/**
+	 * Approve Test
+	 *
+	 * @param
+	 * @return
+	 */
+	public function approve($testID)
+	{
+		$test = UnhlsTest::find($testID);
+		$test->test_status_id = UnhlsTest::APPROVED;
+		$test->time_approved = date('Y-m-d H:i:s');
+		$test->approved_by = Auth::user()->id;
+		$test->save();
+
+		//Fire of entry approved event
+		Event::fire('test.approved', array($testID));
+
+		return View::make('unhls_test.viewDetails')->with('test', $test);
+	}
+
 	public function getTestVisit($id){
 		
 
@@ -955,16 +975,16 @@ class UnhlsTestController extends \BaseController {
 	 * @param specimenId
 	 * @return View
 	 */
-	public function showRefer($specimenId)
+	public function showRefer($testid)
 	{
-		$unhlsspecimen = UnhlsSpecimen::find($specimenId);
-		$unhlspatient = UnhlsPatient::find('$specimenId');
+		$test = UnhlsTest::find($testid);
+		
 		$facilities = UNHLSFacility::all();
 		//Referral facilities
 		$referralReason = ReferralReason::all();
 		return View::make('unhls_test.refer')
-			->with('unhlsspecimen', $unhlsspecimen)
-			->with('unhlspatient', $unhlspatient)
+			
+			->with('test',$test)
 			->with('facilities', $facilities)
 			->with('referralReason', $referralReason);
 
@@ -975,11 +995,11 @@ class UnhlsTestController extends \BaseController {
 	 *
 	 * @return View
 	 */
-	public function referAction()
+	public function refer_action()
 	{
 		//Validate
 		$rules = array(
-			'referral-status' => 'required',
+			//'referral-status' => 'required',
 			'facility_id' => 'required|non_zero_key',
 			'person',
 			'contacts'
@@ -994,7 +1014,8 @@ class UnhlsTestController extends \BaseController {
 
 		//Insert into referral table
 		$referral = new Referral();
-		$referral->status = Input::get('referral-status');
+		$referral->test_id = Input::get('test_id');
+		$referral->status = Referral::REFERRED_OUT;
 		$referral->sample_obtainer = Input::get('sample-obtainer');
 		$referral->cadre_obtainer = Input::get('cadre-obtainer');
 		$referral->sample_date = Input::get('sample-date');
@@ -1013,20 +1034,24 @@ class UnhlsTestController extends \BaseController {
 		$specimen = UnhlsSpecimen::find($specimenId);
 
 		DB::transaction(function() use ($referral, $specimen) {
+
+		
 			$referral->save();
 			$specimen->referral_id = $referral->id;
 			$specimen->save();
+			
 		});
 
 		//Start test
-		Input::merge(array('id' => $specimen->test->id)); //Add the testID to the Input
+		Input::merge(array('id' => Input::get('test_id'))); //Add the testID to the Input
 		$this->start();
-
+       
 		//Return view
 		$url = Session::get('SOURCE_URL');
+
 		
 		return Redirect::to($url)->with('message', trans('messages.specimen-successful-refer'))
-					->with('activeTest', array($specimen->test->id));
+					->with('activeTest', array(Input::get('test_id')));
 	}
 
 	/**

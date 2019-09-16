@@ -39,7 +39,7 @@
                     </div>
                     <div class="panel-body inline-display-details">
                         <span><strong>{{trans("messages.national-id")}}</strong> </span>
-                        <span><strong>{{trans("messages.ulin")}}</strong> </span>
+                        <span><strong>{{trans("messages.ulin")}}</strong>{{$test->visit->patient->ulin}} </span>
                         <span><strong>{{trans("messages.specimen-id")}}</strong> {{$test->specimen->id}}</span>
                         <span><strong>{{trans("messages.specimen-type-title")}}</strong> {{$test->specimen->specimenType->name}}</span>    
                         <span><strong>{{ Lang::choice('messages.date-specimen-collected',1) }}</strong> </span>
