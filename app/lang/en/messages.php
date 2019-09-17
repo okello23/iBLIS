@@ -125,6 +125,7 @@ return array(
     'residence-village' => 'Village of Residence', //Unhls entry
     'sex' => 'Sex', //Unhls prefers this to Gender
     'ulin' => 'ULIN',
+    'reset-ulin' => 'Reset ULIN',
     'workplace-village' => 'Village of Workplace', //Unhls entry
     
     /** 
@@ -326,7 +327,7 @@ return array(
     'all' => 'All',
     'create-new-test' => 'Create New Test',
     'comments' => 'Comment on Sample Suitability',
-    'completed' => 'Test Completed',
+    'completed' => 'Tests Completed',
     'completed-tests' => 'Completed Tests',
     'date-ordered' => 'Date Ordered',
     'fetch-test-data' => 'Fetch',
@@ -338,10 +339,10 @@ return array(
     'lab-receipt-date' => 'Receipt Date',
     'list-tests' => 'Test Requests',
     'new-test' => 'Request For a Test',
-    'not-received' => 'Test Not Received',
+    'not-received' => 'Tests with Samples not Received',
     'out-patient' => 'Out Patient',
     'patient-name' => 'Patient name',
-    'pending' => 'Pending',
+    'pending' => 'Tests Pending',
     'pending-tests' => 'Pending Tests',
     'purpose' => 'Purpose',
     'physician' => 'Requesting Physician',
@@ -352,7 +353,7 @@ return array(
     'select-tests' => 'Select Test(s)',
     'start-test' => 'Analysis',
     'start-test-title' => 'Start Test',
-    'started' => 'Test Started',
+    'started' => 'Tests Started',
     'success-creating-test' => 'Successfully created test! with ULIN:',
     'test' => 'Test|Tests|Test-Request',
     'test-unhls' => 'Test|List of All Test Requests', //Unhls  terminology
@@ -368,7 +369,7 @@ return array(
     'update-test-results' => 'Update Test Results',
     'verification-pending' => 'Verification Pending',
     'verified-by' => 'Reviewed By',
-    'verified' => 'Test Reviewed',
+    'verified' => 'Tests Reviewed',
     'verify' => 'Review',
     'verify-title' => 'Review Test Results',
     'view-details' => 'View',

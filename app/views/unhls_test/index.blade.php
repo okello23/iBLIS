@@ -51,37 +51,7 @@
             </div>
         {{ Form::close() }}
     </div>
-    <div class='container-fluid'>
-    <ul class="nav navbar-nav navbar-left">
-
-    <li><a href="{{ URL::route('unhls_test.pending')}}">
-      <span class="ion-planet">
-    <font size="3">  Pending <span class="badge badge-danger"> {{ $count = UnhlsTest::where('test_status_id', '=', '2')->count()}}</span></font>
-    </span>
-        </a>
-    </li>
-        
-    <li><a href="{{ URL::route('unhls_test.started')}}">
-      <span class="ion-chatbubbles">
-    <font size="3">  Started Tests <span class="badge badge-success"> {{ $count = UnhlsTest::where('test_status_id', '=', '3')->count()}}</font></span>
-    </span>
-        </a>
-    </li>
-    <li><a href="{{ URL::route('unhls_test.completed')}}">
-      <span class="ion-chatbubbles">
-    <font size="3">  Completed Tests <span class="badge badge-success"> {{ $count = UnhlsTest::where('test_status_id', '=', '4')->count()}}</font></span>
-    </span>
-        </a>
-    </li>
-    <li><a href="{{ URL::route('unhls_test.verified')}}">
-      <span class="ion-chatbubbles">
-    <font size="3">Reviewed<span class="badge badge-info"> {{ $count = UnhlsTest::where('test_status_id', '=', '5')->count()}}</font></span>
- </span>
-        </a>
-    </li>
-</ul>
-
-</div>
+    <br><br>
 
     
 
@@ -187,7 +157,7 @@
                         @endif
                         @if (!$test->isNotReceived() && $test->specimen->isAccepted() && !($test->isVerified()))
                             @if(Auth::user()->can('reject_test_specimen') && !($test->specimen->isReferred()))
-                                @if(!($test->specimenIsRejected()))
+                                @if(!$test->specimenIsRejected() && $test->test_status_id < UnhlsTest::COMPLETED) 
                                 <a class="btn btn-sm btn-danger" id="reject-{{$test->id}}-link"
                                     href="{{URL::route('unhls_test.reject', array($test->id))}}"
                                     title="{{trans('messages.reject-title')}}">
@@ -195,7 +165,7 @@
                                     {{trans('messages.reject')}}
                                 </a>
                                 @endif
-                                <a class="btn btn-sm btn-midnight-blue barcode-button" onclick="print_barcode({{ "'".$test->specimen->id."'".', '."'".$barcode->encoding_format."'".', '."'".$barcode->barcode_width."'".', '."'".$barcode->barcode_height."'".', '."'".$barcode->text_size."'" }})" title="{{trans('messages.barcode')}}">
+                                <a class="btn btn-sm btn-midnight-blue barcode-button hidden" onclick="print_barcode({{ "'".$test->specimen->id."'".', '."'".$barcode->encoding_format."'".', '."'".$barcode->barcode_width."'".', '."'".$barcode->barcode_height."'".', '."'".$barcode->text_size."'" }})" title="{{trans('messages.barcode')}}">
                                     <span class="glyphicon glyphicon-barcode"></span>
                                     {{trans('messages.barcode')}}
                                 </a>
@@ -241,8 +211,20 @@
                                         {{trans('messages.verify')}}
                                     </a>
                                 @endif
+
                             @endif
+
                         @endif
+                        @if(Auth::user()->can('approve_test_results') )
+                                @if($test->isVerified() && Auth::user()->id != $test->tested_by && Auth::user()->id != $test->verified_by)
+                                <a class="btn btn-sm btn-success" id="verify-{{$test->id}}-link"
+                                        href="{{ URL::route('unhls_test.viewDetails', array($test->id)) }}"
+                                        title="{{trans('messages.verify-title')}}">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        {{trans('messages.approve')}}
+                                    </a>
+                                @endif
+                            @endif
                         </td>
 
                         <td id="test-status-{{$test->id}}" class='test-status'>
@@ -456,9 +438,11 @@
     </div> <!-- /. accept-button -->
 
     <div class="hidden reject-start-buttons">
+        
         <a class="btn btn-sm btn-danger reject-specimen" href="#" title="{{trans('messages.reject-title')}}">
             <span class="glyphicon glyphicon-thumbs-down"></span>
             {{trans('messages.reject')}}</a>
+
         <a class="btn btn-sm btn-warning start-test" href="javascript:void(0)"
             data-url="{{ URL::route('unhls_test.start') }}" title="{{trans('messages.start-test-title')}}">
             <span class="glyphicon glyphicon-play"></span>

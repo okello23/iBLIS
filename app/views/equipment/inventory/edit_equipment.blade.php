@@ -83,8 +83,9 @@
 
                                 <div class="form-group">
                                 {{  Form::label('location', 'Location', array('class'=>'control-label')) }}
+                                
                                   <div class="col-md-4">
-                                        {{ Form::select('location', array_merge(array(null => 'Select'), $location_list), Input::old('location'), array('class' => 'form-control', 'id' => 'location_id')) }}  
+                                        {{ Form::select('location', array_merge_maintain_keys(array(null => 'Select'), $location_list), Input::old('location'), array('class' => 'form-control', 'id' => 'location_id')) }}  
                                       
                                         @if ($errors->has('location'))
                                             <span class="text-danger">
@@ -196,10 +197,10 @@
                                   </div>
                                 </div> 
                                 <div class="form-group">
-                                {{ Form::label('life_time', 'Lifetime', ['class' => 'col-md-2 control-label']) }}
+                                {{ Form::label('life_span', 'Lifetime', ['class' => 'col-md-2 control-label']) }}
                                   <div class="col-md-2">
                                         <div class="input-group">
-               {{ Form::number('life_time',Input::old('life_span'),['class' => 'form-control','placeholder' => 'Lifetime', 'required' => 'true'])}}
+               {{ Form::number('life_span',Input::old('life_span'),['class' => 'form-control','placeholder' => 'life_span', 'required' => 'true'])}}
                                               <span class="input-group-addon">Years</span>
                                         </div>
                                         @if ($errors->has('life_time'))

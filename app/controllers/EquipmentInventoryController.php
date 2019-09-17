@@ -237,11 +237,10 @@ class EquipmentInventoryController extends \BaseController {
 			$item->installation_date = Input::get('installation_date');
 			$item->spare_parts = Input::get('spare_parts');
 			$item->warranty = Input::get('warranty');
-			$item->life_span = Input::get('life_time');
+			$item->life_span = Input::get('life_span');
 			$item->service_frequency = Input::get('service_frequency');
 			$item->supplier_id = Input::get('supplier_id');
 			$item->service_contract = Input::get('service_contract');
-
 			$item->save();
 		}
 

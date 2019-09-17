@@ -103,20 +103,7 @@
                                   </div>
                                 </div>
 
-                                <div class="form-group">
-                                {{ Form::label('supplier', 'Supplier', ['class' => 'col-lg-2 control-label']) }}
-                                  <div class="col-md-4">
-                                        {{ Form::select('supplier_id', array(null => 'Select')+ UNHLSEquipmentSupplier::lists('name','id'), Input::old('supplier_id'), array('class' => 'form-control', 'id' => 'warranty_id','required'=>'required')) }}  
-                                      
-                                        @if ($errors->has('supplier_id'))
-                                            <span class="text-danger">
-                                                <strong>{{ $errors->first('supplier_id') }}</strong>
-                                            </span>
-                                        @endif
-
-                                  </div>
-                                </div>
-
+                            
                                 <div class="form-group">
                                 {{ Form::label('comment', 'Comment', ['class' => 'col-lg-2 control-label']) }}
                                   <div class="col-lg-7">

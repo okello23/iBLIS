@@ -203,35 +203,35 @@
 								</li>
 								<li>
 									<div>
-										<a href="{{URL::route('test.completed')}}">
+										<a href="{{URL::route('unhls_test.index')}}/?test_status={{UnhlsTest::COMPLETED}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Completed Tests')}}
 										</a>
 									</div>
 								</li>
 																<li>
 									<div>
-										<a href="{{URL::route('test.notrecieved')}}">
+										<a href="{{URL::route('unhls_test.index')}}/?test_status={{UnhlsTest::SPECIMEN_NOT_RECEIVED}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Samples Not Recieved')}}
 										</a>
 									</div>
 								</li>
 																<li>
 									<div>
-										<a href="{{URL::route('test.pending')}}">
+										<a href="{{URL::route('unhls_test.index')}}/?test_status={{UnhlsTest::PENDING}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Pending Tests')}}
 										</a>
 									</div>
 								</li>
 																<li>
 									<div>
-										<a href="{{URL::route('test.started')}}">
+										<a href="{{URL::route('unhls_test.index')}}/?test_status={{UnhlsTest::STARTED}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Tests Started')}}
 										</a>
 									</div>
 								</li>
 								<li>
 									<div>
-										<a href="{{URL::route('test.verified')}}">
+										<a href="{{URL::route('unhls_test.index')}}/?test_status={{UnhlsTest::VERIFIED}}">
 											<span class="glyphicon glyphicon-tag" ></span>Reviewed Tests
 										</a>
 									</div>
@@ -279,27 +279,29 @@
 								<!-- <li>
 									<a href="{{URL::route("referral.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> Manage Referrals</a>
-								</li> -->
+								</li> 
 								<li>
 									<a href="{{URL::route("instrument.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> {{trans('messages.instrument')}}</a>
-								</li>
+								</li>-->
 								<li>
 									<a href="{{URL::route("reportconfig.surveillance")}}">
 									<span class="glyphicon glyphicon-tag"></span> {{trans('messages.surveillance')}}</a>
 								</li>
-								<li>
+								<!--<li>
 									<a href="{{URL::route("barcode.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> {{trans('messages.barcode-settings')}}</a>
-								</li>
+								</li>-->
 								<li>
 									<a href="{{ URL::route("blisclient.index") }}">
 									<span class="glyphicon glyphicon-tag"></span>{{ trans('messages.interfaced-equipment')}}</a>
 								</li>
+								@if(Entrust::can('can_reset_ulin'))
 								<li>
 									<a href="{{ URL::route("resetulin.create") }}">
 									<span class="glyphicon glyphicon-tag"></span>{{'Reset ULIN' }}</a>
 								</li>
+								@endif
 							</ul>
 						</div>
 					</div>

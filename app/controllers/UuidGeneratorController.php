@@ -24,9 +24,9 @@ class UuidGeneratorController extends \BaseController {
 			$uuid = new UuidGenerator;
 
 			if($incrementNum > 1){
-				$uuid->resetUuid($incrementNum);
-
-				// return Redirect::route('resetulin.create')->with('message', 'ULIN has been succesfully reset to '.$incrementNum);
+				$uuid->id = $incrementNum;
+				$uuid->counter = $incrementNum;
+				$uuid->save();
 				return Redirect::to($url)->with('message', 'Success! The next ULIN will now start at: '.$incrementNum);
 
 			}else{

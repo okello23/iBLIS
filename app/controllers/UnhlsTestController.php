@@ -16,7 +16,7 @@ class UnhlsTestController extends \BaseController {
 	 */
 	public function index()
 	{
-
+		Input::get('status');
 		$fromRedirect = Session::pull('fromRedirect');
 
 		if($fromRedirect){
@@ -80,341 +80,7 @@ class UnhlsTestController extends \BaseController {
 					->withInput($input);
 	}
 
-	/**
-	 * Listing of Completed tests
-	 *@param
-	 * @return Response
-	 */
-	public function completed()
-	{
-		$fromRedirect = Session::pull('fromRedirect');
-
-		if($fromRedirect){
-
-			$input = Session::get('TESTS_FILTER_INPUT');
-			
-		}else{
-
-			$input = Input::except('_token');
-		}
-
-		$searchString = isset($input['search'])?$input['search']:'';
-		$testStatusId = '4';
-		if (isset($input['date_from'])) {
-			$dateFrom = $input['date_from'];
-		}else{
-			$dateFrom = date('Y-m-d');
-			$input['date_from'] = date('Y-m-d');
-		}
-		$dateTo = isset($input['date_to'])?$input['date_to']:'';
-		$tests = UnhlsTest::CompletedTests();
-
-				// Search Conditions
-		if($searchString||$testStatusId||$dateFrom||$dateTo){
-
-			$tests = UnhlsTest::completedTests($searchString, $testStatusId, $dateFrom, $dateTo);
-
-			if (count($tests) == 0) {
-			 	Session::flash('message', trans('messages.empty-search'));
-			}
-		}
-		else
-		{
-		// List all the active tests
-			$tests = UnhlsTest::orderBy('time_created', 'DESC');
-		}
-
-		// Create Test Statuses array. Include a first entry for ALL
-		$statuses = array('all')+TestStatus::all()->lists('name','id');
-
-		foreach ($statuses as $key => $value) {
-			$statuses[$key] = trans("messages.$value");
-		}
-
-		// Pagination
-		$tests = $tests->paginate(Config::get('kblis.page-items'))->appends($input);
-
-		//	Barcode
-		$barcode = Barcode::first();
-
-		return View::make('unhls_test.index')
-					->with('testSet', $tests)
-					->with('testStatus', $statuses)
-					->with('dateFrom', $dateFrom)
-					->with('dateTo', $dateTo)
-					->with('barcode', $barcode)
-					->withInput($input);
-
-	}
-
-
-	/**
-	 * Listing of pending tests
-	 *@param
-	 * @return Response
-	 */
-	public function pending()
-	{
-		$fromRedirect = Session::pull('fromRedirect');
-
-		if($fromRedirect){
-
-			$input = Session::get('TESTS_FILTER_INPUT');
-			
-		}else{
-
-			$input = Input::except('_token');
-		}
-
-		$searchString = isset($input['search'])?$input['search']:'';
-		$testStatusId = '2';
-		if (isset($input['date_from'])) {
-			$dateFrom = $input['date_from'];
-		}else{
-			$dateFrom = date('Y-m-d');
-			$input['date_from'] = date('Y-m-d');
-		}
-		$dateTo = isset($input['date_to'])?$input['date_to']:'';
-
-				// Search Conditions
-		if($searchString||$testStatusId||$dateFrom||$dateTo){
-
-			$tests = UnhlsTest::pendingTests($searchString, $testStatusId, $dateFrom, $dateTo);
-
-			if (count($tests) == 0) {
-			 	Session::flash('message', trans('messages.empty-search'));
-			}
-		}
-		else
-		{
-		// List all the active tests
-			$tests = UnhlsTest::orderBy('time_created', 'DESC');
-		}
-
-		// Create Test Statuses array. Include a first entry for ALL
-		$statuses = array('all')+TestStatus::all()->lists('name','id');
-
-		foreach ($statuses as $key => $value) {
-			$statuses[$key] = trans("messages.$value");
-		}
-
-		// Pagination
-		$tests = $tests->paginate(Config::get('kblis.page-items'))->appends($input);
-
-		//	Barcode
-		$barcode = Barcode::first();
-
-		return View::make('unhls_test.index')
-					->with('testSet', $tests)
-					->with('testStatus', $statuses)
-					->with('dateFrom', $dateFrom)
-					->with('dateTo', $dateTo)
-					->with('barcode', $barcode)
-					->withInput($input);
-
-	}
-
-
-	/**
-	 * Listing of started tests
-	 *@param
-	 * @return Response
-	 */
-	public function started()
-	{
-		$fromRedirect = Session::pull('fromRedirect');
-
-		if($fromRedirect){
-
-			$input = Session::get('TESTS_FILTER_INPUT');
-			
-		}else{
-
-			$input = Input::except('_token');
-		}
-
-		$searchString = isset($input['search'])?$input['search']:'';
-		$testStatusId = '3';
-		if (isset($input['date_from'])) {
-			$dateFrom = $input['date_from'];
-		}else{
-			$dateFrom = date('Y-m-d');
-			$input['date_from'] = date('Y-m-d');
-		}
-		$dateTo = isset($input['date_to'])?$input['date_to']:'';
-
-				// Search Conditions
-		if($searchString||$testStatusId||$dateFrom||$dateTo){
-
-			$tests = UnhlsTest::startedTests($searchString, $testStatusId, $dateFrom, $dateTo);
-
-			if (count($tests) == 0) {
-			 	Session::flash('message', trans('messages.empty-search'));
-			}
-		}
-		else
-		{
-		// List all the active tests
-			$tests = UnhlsTest::orderBy('time_created', 'DESC');
-		}
-
-		// Create Test Statuses array. Include a first entry for ALL
-		$statuses = array('all')+TestStatus::all()->lists('name','id');
-
-		foreach ($statuses as $key => $value) {
-			$statuses[$key] = trans("messages.$value");
-		}
-
-		// Pagination
-		$tests = $tests->paginate(Config::get('kblis.page-items'))->appends($input);
-
-		//	Barcode
-		$barcode = Barcode::first();
-
-		return View::make('unhls_test.index')
-					->with('testSet', $tests)
-					->with('testStatus', $statuses)
-					->with('dateFrom', $dateFrom)
-					->with('dateTo', $dateTo)
-					->with('barcode', $barcode)
-					->withInput($input);
-
-	}
-
-
-	/**
-	 * Listing of samples not yet recieved
-	 *@param
-	 * @return Response
-	 */
-	public function notRecieved()
-	{
-		$fromRedirect = Session::pull('fromRedirect');
-
-		if($fromRedirect){
-
-			$input = Session::get('TESTS_FILTER_INPUT');
-			
-		}else{
-
-			$input = Input::except('_token');
-		}
-
-		$searchString = isset($input['search'])?$input['search']:'';
-		$testStatusId = '1';
-		if (isset($input['date_from'])) {
-			$dateFrom = $input['date_from'];
-		}else{
-			$dateFrom = date('Y-m-d');
-			$input['date_from'] = date('Y-m-d');
-		}
-		$dateTo = isset($input['date_to'])?$input['date_to']:'';
-
-				// Search Conditions
-		if($searchString||$testStatusId||$dateFrom||$dateTo){
-
-			$tests = UnhlsTest::startedTests($searchString, $testStatusId, $dateFrom, $dateTo);
-
-			if (count($tests) == 0) {
-			 	Session::flash('message', trans('messages.empty-search'));
-			}
-		}
-		else
-		{
-		// List all the active tests
-			$tests = UnhlsTest::orderBy('time_created', 'DESC');
-		}
-
-		// Create Test Statuses array. Include a first entry for ALL
-		$statuses = array('all')+TestStatus::all()->lists('name','id');
-
-		foreach ($statuses as $key => $value) {
-			$statuses[$key] = trans("messages.$value");
-		}
-
-		// Pagination
-		$tests = $tests->paginate(Config::get('kblis.page-items'))->appends($input);
-
-		//	Barcode
-		$barcode = Barcode::first();
-
-		return View::make('unhls_test.index')
-					->with('testSet', $tests)
-					->with('testStatus', $statuses)
-					->with('dateFrom', $dateFrom)
-					->with('dateTo', $dateTo)
-					->with('barcode', $barcode)
-					->withInput($input);
-
-	}
-
-
-
-	/**
-	 * Listing of verified tests
-	 *@param
-	 * @return Response
-	 */
-	public function verified()
-	{
-		$fromRedirect = Session::pull('fromRedirect');
-
-		if($fromRedirect){
-
-			$input = Session::get('TESTS_FILTER_INPUT');
-			
-		}else{
-
-			$input = Input::except('_token');
-		}
-
-		$searchString = isset($input['search'])?$input['search']:'';
-		$testStatusId = '5';
-		if (isset($input['date_from'])) {
-			$dateFrom = $input['date_from'];
-		}else{
-			$dateFrom = date('Y-m-d');
-			$input['date_from'] = date('Y-m-d');
-		}
-		$dateTo = isset($input['date_to'])?$input['date_to']:'';
-
-				// Search Conditions
-		if($searchString||$testStatusId||$dateFrom||$dateTo){
-
-			$tests = UnhlsTest::verified($searchString, $testStatusId, $dateFrom, $dateTo);
-
-			if (count($tests) == 0) {
-			 	Session::flash('message', trans('messages.empty-search'));
-			}
-		}
-		else
-		{
-		// List all the active tests
-			$tests = UnhlsTest::orderBy('time_created', 'DESC');
-		}
-
-		// Create Test Statuses array. Include a first entry for ALL
-		$statuses = array('all')+TestStatus::all()->lists('name','id');
-
-		foreach ($statuses as $key => $value) {
-			$statuses[$key] = trans("messages.$value");
-		}
-
-		// Pagination
-		$tests = $tests->paginate(Config::get('kblis.page-items'))->appends($input);
-
-		//	Barcode
-		$barcode = Barcode::first();
-
-		return View::make('unhls_test.index')
-					->with('testSet', $tests)
-					->with('testStatus', $statuses)
-					->with('barcode', $barcode)
-					->with('dateFrom', $dateFrom)
-					->with('dateTo', $dateTo)
-					->withInput($input);
-
-	}
+	
 
 
 
@@ -773,6 +439,15 @@ class UnhlsTestController extends \BaseController {
 	 */
 	public function enterResults($testID)
 	{
+		$lt = new Lookup();
+        $lt->name = 'TEST_METHODS';
+        $test_methods = array_merge_maintain_keys(array('' => 'Select one'),$lt->getOptionValuesAndDescription());
+
+        $lt->name = 'POSITIVE_NEGATIVE';
+        $positive_negative = array_merge_maintain_keys(array('' => 'Select one'),$lt->getOptionValuesAndDescription());
+
+		$equipment_list = array_merge_maintain_keys(array('' => 'Select one'),UNHLSEquipmentInventory::get(['name','id'])->lists('name','id'));
+
 		$test = UnhlsTest::find($testID);
 		// if the test being carried out requires a culture worksheet
 		if ($test->testType->isCulture()) {
@@ -780,7 +455,11 @@ class UnhlsTestController extends \BaseController {
 		}elseif ($test->testType->isGramStain()) {
 			return Redirect::route('gramstain.edit', [$test->id]);
 		}else{
-			return View::make('unhls_test.enterResults')->with('test', $test);
+			return View::make('unhls_test.enterResults')
+			->with('equipment_list', $equipment_list)
+			->with('test_methods',$test_methods)
+			->with('positive_negative',$positive_negative)
+			->with('test', $test);
 		}
 	}
 
@@ -817,6 +496,9 @@ class UnhlsTestController extends \BaseController {
 		$test->test_status_id = UnhlsTest::COMPLETED;
 		$test->tested_by = Auth::user()->id;
 		$test->time_completed = date('Y-m-d H:i:s');
+		$test->equipment_id =  Input::get('equipment_id');
+		$test->method_used =  Input::get('method_used');
+		$test->free_text_interpretation =  Input::get('free_text_interpretation');
 
 		if ($test->testType->name == 'Gram Staining') {
 			$results = '';
@@ -882,6 +564,14 @@ class UnhlsTestController extends \BaseController {
 	// todo: move editing results to a different controller and here leave editing particular test request?
 	public function edit($testID)
 	{
+		$lt = new Lookup();
+        $lt->name = 'TEST_METHODS';
+        $test_methods = array_merge_maintain_keys(array('' => 'Select one'),$lt->getOptionValuesAndDescription());
+
+        $lt->name = 'POSITIVE_NEGATIVE';
+        $positive_negative = array_merge_maintain_keys(array('' => 'Select one'),$lt->getOptionValuesAndDescription());
+
+		$equipment_list = array_merge_maintain_keys(array('' => 'Select one'),UNHLSEquipmentInventory::get(['name','id'])->lists('name','id'));
 		$test = UnhlsTest::find($testID);
 		// if the test being carried out requires a culture worksheet
 		if ($test->testType->name == 'Culture and Sensitivity') {
@@ -889,7 +579,11 @@ class UnhlsTestController extends \BaseController {
 		}elseif ($test->testType->name == 'Gram Staining') {
 			return Redirect::route('gramstain.edit', [$test->id]);
 		}else{
-			return View::make('unhls_test.edit')->with('test', $test);
+			return View::make('unhls_test.edit')
+			->with('equipment_list', $equipment_list)
+			->with('test_methods', $test_methods)
+			->with('positive_negative',$positive_negative)
+			->with('test', $test);
 		}
 	}
 

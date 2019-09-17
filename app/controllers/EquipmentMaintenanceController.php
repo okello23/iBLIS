@@ -25,11 +25,9 @@ class EquipmentMaintenanceController extends \BaseController {
 	{
 		//
 
-		$equipment_list = UNHLSEquipmentInventory::get()->lists('name','id');
-		$supplier_list = Supplier::get()->lists('name','id');
+		$equipment_list = getEquipmentAndUniqueNumber();
 		return View::make('equipment.maintenance.create')
-				->with('equipment_list',$equipment_list)
-				->with('supplier_list',$supplier_list);
+				->with('equipment_list',$equipment_list);
 
 	}
 
@@ -47,8 +45,7 @@ class EquipmentMaintenanceController extends \BaseController {
 		'service_date' => 'required',
 		'next_service_date' => 'required',
 		'serviced_by' => 'required',
-		'serviced_by_phone' => 'required',
-		'supplier_id' => 'required'									
+		'serviced_by_phone' => 'required'								
 
 		);
 		
@@ -68,8 +65,7 @@ class EquipmentMaintenanceController extends \BaseController {
 			$item->last_service_date = Input::get('service_date');
 			$item->next_service_date = Input::get('next_service_date');
 			$item->serviced_by_name = Input::get('serviced_by');
-			$item->serviced_by_contact = Input::get('serviced_by_phone'); 
-			$item->supplier_id = Input::get('supplier_id');      
+			$item->serviced_by_contact = Input::get('serviced_by_phone');    
 			$item->comment = Input::get('comment');          
 
 			$item->save();

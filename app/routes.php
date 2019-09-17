@@ -149,21 +149,7 @@ Route::group(array("before" => "auth"), function()
         "as"   => "unhls_test.delete",
         "uses" => "UnhlsTestController@delete"
     ));
-    Route::get("unhls_test/completed", array(
-        "as" => "unhls_test.completed",
-        "uses" => "UnhlsTestController@completed"));
-    Route::get("unhls_test/pending", array(
-        "as" => "unhls_test.pending",
-        "uses" => "UnhlsTestController@pending"));
-    Route::get("unhls_test/started", array(
-        "as" => "unhls_test.started",
-        "uses" => "UnhlsTestController@started"));
-    Route::get("unhls_test/notrecieved", array(
-        "as" => "unhls_test.notrecieved",
-        "uses" => "UnhlsTestController@notRecieved"));
-    Route::get("unhls_test/verified", array(
-        "as" => "unhls_test.verified",
-        "uses" => "UnhlsTestController@verified"));
+    
     Route::get("/unhls_test/{test}/viewdetails", array(
         "as"   => "unhls_test.viewDetails",
         "uses" => "UnhlsTestController@viewDetails"

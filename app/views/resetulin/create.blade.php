@@ -7,13 +7,8 @@
 	</ol>
 </div>
 <div class ="panel panel-primary">
-	<div class="panel-heading"> <span class="glyphicon glyphicon-cog">{{trans('messages.reset-ulin')}}</span>
-		<div class="panel-btn">
-			<a class="btn btn-sm btn-info" href="{{ URL::route('unhls_patient.create') }}">
-				<span class="glyphicon glyphicon-plus-sign"></span>
-				{{trans('messages.new-patient')}}
-			</a>
-		</div>
+	<div class="panel-heading"> <span class="glyphicon glyphicon-cog"> {{trans('messages.reset-ulin')}}</span>
+		
 	</div>
 	
 	<div class="panel-body">
@@ -31,24 +26,25 @@
 				<div class="col-md-7">
 					{{ Form::open(array('route' => array('resetulin.reset'), 'id' => 'uuid-set'))}} 
 						<div class="form-group">
+							<div class="panel-btn"><a href="javascript:void(0)" class="btn btn-link" role="button" data-toggle="modal" data-target="#resetOne">
+								<span class="glyphicon glyphicon-plus-sign"></span><strong>{{' Click to Reset Lab ID to 1'}}</strong></a>
+							</div>
+						</div>
+						<div class="form-group">
 							<div class="panel-btn">
 								<a href="javascript:void(0)" class="btn btn-link link-tip" role="button" data-toggle="modal" data-placement="bottom" title="Please note the value should be greater than the last Lab ID" data-target="#reset" >
 								<span class="glyphicon glyphicon-plus-sign "></span><strong>{{' Click to set Lab ID to a value greater than 1 '}}</strong></a>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="panel-btn"><a href="javascript:void(0)" class="btn btn-link" role="button" data-toggle="modal" data-target="#resetOne">
-								<span class="glyphicon glyphicon-plus-sign"></span><strong>{{' Click to Reset Lab ID to 1'}}</strong></a>
-							</div>
-						</div>
+						
 					{{ Form::close()}}
 				</div>
 				<div class="col-md-5">
 			    	<ul class="list-group">
 			    		<li class="list-group-item disabled"><strong> Hints</strong></li>
-			    		<li class="list-group-item">There are two options you can use to set the beginning number of Lab IDs</li>
-			    		<li class="list-group-item">The First Option lets you set the starting point to a number higher than 1 or higher than the most recent Lab ID</li>
-			    		<li class="list-group-item">The Second Option resets to 1 e.g at the begining of a new year or a new month</li>
+			    		<li class="list-group-item">There are two options you can use to set the beginning number of Lab IDs:</li>
+			    		<li class="list-group-item">1. The Second Option resets to 1. This is commonly used at the begining of a new month or beginning of new year (depends on your lab policy on ULIN)</li>
+			    		<li class="list-group-item">2. The First Option lets you set the starting point to a number greater than 1. This is commonly used where you forgot to reset ULIN at begining of the policy period and already a few patients have been captured. E.g., if you had already worked on 4 patients before resetting ULIN, the number will be 5.</li>
 
 			    	</ul>
 		    	</div>

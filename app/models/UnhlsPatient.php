@@ -220,11 +220,22 @@ class UnhlsPatient extends Eloquent
 
 			}
 			return $initials.'/'.$month.'/'.$autoNum.'/'.$year;
-			// MG/12/220/17
+			// 001/mm/yy
 		}elseif($format == 'Rukunyu_SOP'){
 			$yearMonth = date('m/y', $registrationDate);
-			$autoNum = DB::table('uuids')->max('id')+1;
-			return $autoNum.'/'.$yearMonth;
+			$auto_num = DB::table('uuids')->max('id')+1;
+			//pad number less than 10 with 00
+			//pad number less than 100 with 0
+			//for number more than 1000, use as is.
+			$auto_num_string = '';
+			if($auto_num < 10){
+				$auto_num_string = '00'.$auto_num;
+			}elseif($auto_num < 100){
+				$auto_num_string = '0'.$auto_num;
+			}else{
+				$auto_num_string = $auto_num;
+			}
+			return $auto_num_string.'/'.$yearMonth;
 		}
 		else{
 			$yearMonth = date('ym', $registrationDate);

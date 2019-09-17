@@ -157,36 +157,6 @@ function decode($str) {
 }
 
 /**
- * Function to generate a JSON string from an array of data, using the keys and values
- *
- * @param $data The data to be converted into a string
- * @param $default_option_value Value of the default option
- * @param $default_option_text Test for the default 
- * 
- * @return the JSON string containing the select options
- */
-function generateJSONStringForSelectChain($data, $default_option_value = "", $default_option_text = "<Select One>") {
-	$values = array(); 
-	//debugMessage($data);
-	if (!isEmptyString($default_option_value)) {
-		# use the text and option from the data
-		if(!isArrayKeyAnEmptyString($default_option_value, $data)){
-			$values[] = '{"id":"' . $default_option_value . '", "label":"' . $data[$default_option_value] . '"}';
-			// remove the default option from the available options
-			unset($data[$default_option_value]);
-		}
-	}
-	# add a default option
-	$values[] = '{"id":"", "label":"' . $default_option_text . '"}';
-	foreach ( $data as $key => $value ) {
-		$values[] = '{"id":"'.$key.'", "label":"' . $value . '"}';
-		//debugMessage($strstring);
-	}
-	# remove the first comma at the end
-	return '[' . implode("," , $values). "]";
-}
-
-/**
  * Generate an HTML list from an array of values
  *
  * @param Array $array
@@ -242,14 +212,7 @@ function createHTMLListFromArray($array) {
 	}
 	
 	
-	/**
-	 * Generate a 10 digit activation key  
-	 * 
-	 * @return String An activation key
-	 */
-    function generateActivationKey() {
-		return substr(md5(uniqid(mt_rand(), 1)), 0, 10);
-    }
+	
     /**
      * Return the file extension from a file name
      * @param string $filename
@@ -272,84 +235,9 @@ function createHTMLListFromArray($array) {
     
         return round(pow(1024, $base - floor($base)), $precision) . " ".$suffixes[floor($base)];
     }
-    /**
-	 * Trims a given string with a length more than a specified length with a more link to view the details 
-	 *
-	 * @param string $text
-	 * @param int $length
-	 * @param string $tail
-	 * @return string the substring with a more link as the tail
-	 */
-	function snippet($text, $length, $tail) {
-		$text = trim($text);
-		$txtl = strlen($text);
-		if ($txtl > $length) {
-			for($i = 1; $text[$length - $i] != " "; $i ++) {
-				if ($i == $length) {
-					return substr($text, 0, $length) . $tail;
-				}
-			}
-			for(; $text[$length - $i] == "," || $text[$length - $i] == "." || $text[$length - $i] == " "; $i ++) {
-				;
-			}
-			$text = substr($text, 0, $length - $i + 1) . $tail;
-		}
-		return $text;
-	}
+    
 	
- 	function printtoScreen(){
-	 echo 'common functions works find';
-	}
 	
-	function generateContextMenu($currenturl){
-		$links = '';
-		if (strpos($currenturl, 'hub') !== false){
-			$links .= '<li> <a href="'.route('hub.index').'">All hubs</a></li>';
-			$links .= '<li> <a href="'.route('hub.create').'">New hub</a></li>';
-		}elseif(strpos($currenturl, 'organization') != false){
-			$links .= '<li> <a href="'.route('organization.index').'">All IPs</a></li>';
-			$links .= '<li> <a href="'.route('organization.create').'">New IP</a></li>';
-		}elseif(strpos($currenturl, 'facility') != false){
-			$links .= '<li> <a href="'.route('facility.index').'">All facilities</a></li>';
-			$links .= '<li> <a href="'.route('facility.create').'">New facility</a></li>';
-		}elseif(strpos($currenturl, 'equipment') != false){
-			$links .= '<li> <a href="'.route('equipment.index').'">All bikes</a></li>';
-			if(!(Auth::user()->hasRole('In_charge'))){
-				$links .= '<li> <a href="'.route('equipment.create').'">New bike</a></li>';
-			}
-		}elseif(strpos($currenturl, 'staff/list/2') != false || strpos($currenturl, 'staff/new/2') != false){
-			$links .= '<li> <a href="'.url('staff/list/2').'">All sample receptionists</a></li>';
-			$links .= '<li> <a href="'.url('staff/new/2').'">New sample receptionist</a></li>';
-		}elseif(strpos($currenturl, 'staff/list/1') != false || strpos($currenturl, 'staff/new/1') != false){
-			$links .= '<li> <a href="'.url('staff/list/1').'">All sample transporters</a></li>';
-			$links .= '<li> <a href="'.url('staff/new/1').'">New transporter</a></li>';
-		}elseif(strpos($currenturl, 'roles') != false || strpos($currenturl, 'permissions') != false || strpos($currenturl, 'users') != false){
-			if(!(Auth::user()->hasRole('Admin'))){
-				$links .= '<li> <a href="'.route('roles.index').'">All roles</a></li>';
-				$links .= '<li> <a href="'.route('roles.create').'">Create role</a></li>';
-				$links .= '<li> <a href="'.route('permissions.index').'">All permissions</a></li>';
-				$links .= '<li> <a href="'.route('permissions.create').'">Add Permission</a></li>';				
-			}
-			if(!(Auth::user()->hasRole(['In_charge', 'Admin']))){
-				$links .= '<li> <a href="'.route('users.index').'">All users</a></li>';
-				$links .= '<li> <a href="'.route('users.create').'">New user</a></li>';
-			}
-			
-		}elseif (strpos($currenturl, 'sampletracking') !== false){
-			$links .= '<li> <a href="'.route('sampletracking.index').'">All Refered Samples</a></li>';
-			$links .= '<li> <a href="'.route('sampletracking.create').'">Refer Sample</a></li>';
-		}
-		return $links;
-	}
-	/*get the name of a model
-	*
-	*
-	*
-	*/
-	function getModelAttribute($id, $model, $attribute) {
-		$model = $model::findOrFail($id); //Find model of id = $id
-        return $model->$attribute;
-    }
 	
 	/**
 	 * Return the description of a lookup value 
@@ -377,121 +265,8 @@ function createHTMLListFromArray($array) {
 	   } 
 	   return $result[0];
 	}
-	function getSupportPeriodDates($organizationid){
-		$query = "SELECT sp.startdate, sp.enddate from supportagencyperiod sp
-		INNER JOIN organization org ON sp.organizationid = org.id";
-		$dates = \DB::select($query);
-		return $dates;
-	}
-	function getFacilitiesForIP($organisationid){
-	$query = "SELECT f.id, f.name, h.hubname as hub, fl.level as `facilitylevel`, d.name as district 
-		FROM facility as f 
-		INNER JOIN facility as h ON (f.parentid = h.id) 
-		INNER JOIN ips_facilities ipf ON (ipf.facilityID = f.id AND ipf.ipID = '".$organisationid."')
-		INNER JOIN ips i ON (ipf.ipID = i.id)
-		INNER JOIN facilitylevel AS fl ON (f.facilitylevelid = fl.id) 
-		INNER JOIN district as d ON(f.districtid = d.id)
-		ORDER BY f.name ASC";
-		$facilities = \DB::select($query);
-		return $facilities;
-	}
-	function getIpsForFacility($facilityid){
-		$query = "SELECT  i.name from ips_facilities ipf
-INNER JOIN facility f ON (ipf.facilityID = f.id)
-INNER JOIN organization i ON (ipf.ipID = i.id AND ipf.facilityID ='".$facilityid."')
-where ISNULL(f.parentid) 
-ORDER BY f.name";
-	$ips = \DB::select($query);
-	$names = array();
-	foreach ($ips as $ip){
-		$names[] = $ip->name;
-	}
-		return implode(", ", $names);
-	} 
 	
-	function getContact($obj, $cat,$type,$table_attribute = 'organizationid'){
-		return \App\Models\Contact::where($table_attribute, $obj)
-											->where('category',$cat)
-											->where('isactive',1)
-											->where('type',$type)->first();
-	}
-	function getHubScheduleforaDay($day, $hubid){
-		$schedule =  \App\Models\RoutingSchedule::where('dayoftheweek', '=', $day)->where('hubid', $hubid)->get();
-		return $schedule;
-	}
-		
-	function getHubScheduleFacilitiesforaDay($day, $hubid){
-		$schedule = getHubScheduleforaDay($day, $hubid);
-		$ids_array = array();
-		$no_items = count($schedule);
-		if($no_items){
-			foreach($schedule as $line){
-				$ids_array[] = $line->facilityid;
-				
-			}
-		}
-		return $ids_array;
-	}
-	function getActionTakenOnBike($breakdownid){
-		return \App\Models\EquipmentBreakDownAction::where('equipmentbreakdownid', $breakdownid)->paginate(10);
-		
-	}
-	function getBikeBreakDownReason($breakdownid){
-		return \App\Models\EquipmentBreakDownReason::where('equipmentbreakdownid', $breakdownid)->paginate(10);
-	}
 	
-		/**
-		 * Generate an array of dates for the period, in this case for a week
-		 * 
-		 * @return Array 
-		 */
-		function getDatesInPeriod(){
-			$weekendingdate = new DateTime();
-			//$startdate = new DateTime();
-			//$day = $startdate->modify("sunday ".$aconfig->timesheet->minweekendingdate." weeks ago");
-			for ($i = 0; $i < 7; $i++) {
-				$days[$weekendingdate->format("U")] = $weekendingdate->format("Y-m-d");  
-				$weekendingdate->modify("-1 day");
-			}
-			ksort($days); 
-			return  $days;
-		}
-		
-		/**
-		 * Get the date for the start of the timesheet period, in this case a week which starts on a Monday and ends on a Sunday
-		 *
-		 * @return The time stamp for the week ending date
-		 */
-		function getPeriodStartingDateTimestamp($date=NULL) {
-			 $date_stamp = strtotime(date('Y-m-d', strtotime($date)));
-			 //check date is sunday or monday
-			$stamp = date('l', $date_stamp);      
-		
-			if($stamp == 'Mon'){
-				$week_start = $date;
-			}else{
-				$week_start = date('Y-m-d', strtotime('Last Monday', $date_stamp));
-			}
-		
-		
-			if($stamp == 'Sunday'){
-				$week_end = $date;
-			}else{
-				$week_end = date('Y-m-d', strtotime('Next Sunday', $date_stamp));
-			}        
-			return array($week_start, $week_end); 
-		}
-		function checkifPermissioninArray($key, $arr){
-			if(!empty($arr)){
-				foreach($arr as $ar){
-					if($ar->id == $key){
-						return 1;
-					}
-				}
-			}
-			return 0;
-		}
-		
 	function generateSlug($str, $delimiter = '-'){
 			$slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $str))))), $delimiter));
 			return $slug;
@@ -567,94 +342,7 @@ ORDER BY f.name";
 		return $dailyroutingdetails;
 	}
 	
-	function getPackagesInTransitByType($type,$status = 1){
-		//check the kind of user logged in and return the corresponding results
-		$hubid = Auth::getUser()->hubid;
-		$andwhere = '';
-		if($hubid){
-			$andwhere = " AND p.hubid = '".$hubid."'";
-		}
-		$query = "SELECT s.id FROM samples s
-INNER JOIN package p ON(p.barcode_id = s.barcodeid)
-INNER JOIN packagemovement pm ON (pm.packageid = p.id)
-WHERE p.`type` = '".$type."' AND pm.`status` = 1 ".$andwhere;
-//echo $query;
-	$samples = \DB::select($query);
-	return count($samples);
-	
-	} 
-	
-	function getReceivedSamples($type){
-		$query = "SELECT s.id FROM samples s
-INNER JOIN package p ON(p.barcode_id = s.barcodeid)
-INNER JOIN packagemovement pm ON (pm.packageid = p.id)
-WHERE p.`type` = '".$type."' AND pm.`status` = 3";
-	$samples = \DB::select($query);
-	return count($samples);
-	} 
-	
 
-/*public function index(Request $request){
-
-$notices = DB::select('select notices.id,notices.title,notices.body,notices.created_at,notices.updated_at,
-users.name,departments.department_name
-FROM notices
-INNER JOIN users ON notices.user_id = users.id
-INNER JOIN departments on users.dpt_id = departments.id
-ORDER BY users.id DESC');
-
-$notices = $this->arrayPaginator($notices, $request);
-
-return view('welcome')->with('allNotices', $notices);
-
-}
-
-public function arrayPaginator($array, $request)
-{
-    $page = Input::get('page', 1);
-    $perPage = 10;
-    $offset = ($page * $perPage) - $perPage;
-
-    return new LengthAwarePaginator(array_slice($array, $offset, $perPage, true), count($array), $perPage, $page,
-        ['path' => $request->url(), 'query' => $request->query()]);
-}
-*/
-
-function packageStats($status, $packagetype){
-	$incharge_clause = '';
-	if(Auth::user()->hasRole('hub_coordinator')){
-		$incharge_clause .= " AND hubid = '".Auth::user()->hubid."'";
-	}
-	$query = "SELECT COUNT(id) as numberofsamples FROM package WHERE status = 
-	".$status." AND type = '".$packagetype."'".$incharge_clause;		
-	$samples = \DB::select($query);	
-	if(!empty($samples)) { 
-		return $samples[0]->numberofsamples;
-	 } 
-	return 0;	
-}
-
-function getWeekEndDates(){
-	$date = time(); // Change to whatever date you need
-	$dotw = $dotw = date('w', $date);
-	$start = ($dotw == 1 /* Monday */) ? $date : strtotime('last Monday', $date);
-	$end = ($dotw == 0 /* Sunday */) ? $date : strtotime('next Sunday', $date);
-	return array('start' => date('m/d/Y',$start), 'end' => date('m/d/Y',$end));
-}
-function getTAT($delivered_at, $recieved_at, $received_at_cphl_on){
-	$from_date = $delivered_at;
-	if($recieved_at != ''){
-		$from_date = $recieved_at;
-	}
-	if(trim($from_date) != '' && trim($received_at_cphl_on) != ''){
-		$from_secs = strtotime(trim($from_date));
-		$to_secs = strtotime(trim($received_at_cphl_on));
-		//return 'starttime: '.$from_date.' endtime: '.$received_at_cphl_on.' '.number_format((($to_secs - $from_secs)/(60*60)),2,'.','').' hours';
-		return time_elapsed($to_secs - $from_secs);
-	}else{
-		return '';
-	}
-}
 
 function time_elapsed($secs){
     $bit = array(

@@ -86,7 +86,7 @@
                                 <div class="form-group">
                                 {{  Form::label('location', 'Location', array('class'=>'control-label')) }}
                                   <div class="col-md-4">
-                                        {{ Form::select('location', array_merge(array(null => 'Select'), $location_list), Input::old('location'), array('class' => 'form-control', 'id' => 'location_id')) }}  
+                                        {{ Form::select('location', array_merge_maintain_keys(array(null => 'Select'), $location_list), Input::old('location'), array('class' => 'form-control', 'id' => 'location_id')) }}  
                                       
                                         @if ($errors->has('location'))
                                             <span class="text-danger">

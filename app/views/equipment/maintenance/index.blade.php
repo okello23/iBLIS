@@ -36,7 +36,6 @@
 					<th>Next Service</th>
 					<th>Serviced by</th>
 					<th>Contact</th>
-					<th>Supplier</th>
 					<th>Comment</th>																			
 				</tr>
 			</thead>			
@@ -49,9 +48,7 @@
 					<td>  {{ date('d M Y', strtotime($item->next_service_date)) }}</td>
 					<td>  {{ $item->serviced_by_name }}</td>
 					<td>  {{ $item->serviced_by_contact }}</td>
-					<td>  {{ $item->supplier->name }}</td>
 					<td>  {{ $item->comment }}</td>
-					<td>  </td>
 				</tr>
 			@endforeach
 			</tbody>

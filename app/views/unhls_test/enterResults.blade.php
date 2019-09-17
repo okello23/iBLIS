@@ -228,9 +228,34 @@
                                             $sense = ' sense'.$test->id;
                                     ?>
                                     {{Form::text($fieldName, $ans, array('class' => 'form-control'.$sense))}}
+                                    
                                 @endif
                             </div>
+                            @if ( $measure->isFreeText() ) 
+                                <div class="form-group">
+                                {{  Form::label('free_text_interpretation', 'Result Interpretation', array('class'=>'control-label')) }}
+                                  
+                                        {{ Form::select('free_text_interpretation', $positive_negative, Input::old('free_text_interpretation'), array('class' => 'form-control', 'id' => 'free_text_interpretation')) }}  
+                                      
+                                       
+                        </div>
+                            @endif
                         @endforeach
+
+                        <div class="form-group">
+                                {{  Form::label('equipment_id', 'Equipment used', array('class'=>'control-label')) }}
+                                  
+                                        {{ Form::select('equipment_id', $equipment_list, Input::old('equipment_id'), array('class' => 'form-control', 'id' => 'equipment_id')) }}  
+                                      
+                                       
+                        </div>
+                         <div class="form-group">
+                                {{  Form::label('method_used', 'Method used', array('class'=>'control-label')) }}
+                                  
+                                        {{ Form::select('method_used', $test_methods, Input::old('method_used'), array('class' => 'form-control', 'id' => 'method_used')) }}  
+                                      
+                                       
+                        </div>
                         <div class="form-group">
                             {{ Form::label('comment', trans('messages.comments')) }}
                             {{ Form::textarea('interpretation', $test->interpretation, 
