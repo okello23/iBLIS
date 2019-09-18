@@ -17,6 +17,8 @@ truncate referrals;
 truncate report_diseases;
 truncate specimens;
 truncate uuids;
+truncate unhls_equipment_maintenance;
+truncate unhls_recalled_test_results;
 SET foreign_key_checks = 1;
 
 /* alsterntive to turing off foreign key constraints 

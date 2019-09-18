@@ -614,7 +614,7 @@ Route::group(array("before" => "auth"), function()
         ));
         Route::get('reports/dropdown', array(
             "as"    =>  "reports.dropdown",
-            "uses"  =>  "ReportController@reportsDropdown"
+            "uses"  =>  "ReportController@show"
         ));
         Route::any("/prevalence", array(
             "as"   => "reports.aggregate.prevalence",

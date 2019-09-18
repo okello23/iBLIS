@@ -10,75 +10,88 @@
 <div class='container-fluid'>
     {{ Form::open(array('route' => array('reports.daily.log'), 'class' => 'form-inline')) }}
     <div class='row'>
-    	<div class="col-sm-4">
-	    	<div class="row">
-				<div class="col-sm-2">
-				    {{ Form::label('start', trans('messages.from')) }}
-				</div>
-				<div class="col-sm-2">
-				    {{ Form::text('start', isset($input['start'])?$input['start']:date('Y-m-d'), 
+    	<div class="col-sm-2">
+    		<div class="form-group">
+                {{ Form::label('start', trans('messages.from')) }}
+                {{ Form::text('start', isset($input['start'])?$input['start']:date('Y-m-d'), 
 			                array('class' => 'form-control standard-datepicker')) }}
-		        </div>
-			</div>
+            </div>
 		</div>
-		<div class="col-sm-4">
-	    	<div class="row">
-				<div class="col-sm-2">
+		<div class="col-sm-2">
+	    	<div class="form-group">
 				    {{ Form::label('end', trans('messages.to')) }}
-				</div>
-				<div class="col-sm-2">
 				    {{ Form::text('end', isset($input['end'])?$input['end']:date('Y-m-d'), 
 			                array('class' => 'form-control standard-datepicker')) }}
 		        </div>
+		</div>
+		<div class="col-sm-2">
+			<div class="form-group">
+				  	{{ Form::label('description',  Lang::choice('messages.test-category', 2)) }}
+				 
+				  	{{ Form::select('section_id', array(''=>trans('messages.select-lab-section'))+$labSections, 
+							    		Request::old('testCategory') ? Request::old('testCategory') : $testCategory, 
+											array('class' => 'form-control', 'id' => 'section_id')) }}
+				</div>
+
+		</div>
+		<div class="col-sm-2">
+			<div class="form-group">
+					{{ Form::label('description', Lang::choice('messages.test-type', 1)) }}
+				
+					{{ Form::select('test_type', array('' => trans('messages.select-test-type'))+$testTypes, 
+							    		Request::old('testType') ? Request::old('testType') : $testType, 
+											array('class' => 'form-control', 'id' => 'test_type')) }}
+				</div>
+		</div>
+		<div class="col-sm-1" style="padding-top: 38px;">
+	    	<div class="form-group">
+				  	{{ Form::button("<span class='glyphicon glyphicon-filter'></span> ".trans('messages.view'), 
+		                array('class' => 'btn btn-info', 'id' => 'filter', 'type' => 'submit')) }}		        
 			</div>
 		</div>
-		<div class="col-sm-4">
-	    	<div class="row">
-				<div class="col-sm-3">
-				  	{{ Form::button("<span class='glyphicon glyphicon-filter'></span> ".trans('messages.view'), 
-		                array('class' => 'btn btn-info', 'id' => 'filter', 'type' => 'submit')) }}
-		        </div>
-		        <div class="col-sm-1">
+		<div class="col-sm-1" style="padding-top: 38px;">
+	    	<div class="form-group">	        
+		        
 					{{Form::submit(trans('messages.export-to-word'), 
 			    		array('class' => 'btn btn-success', 'id'=>'word', 'name'=>'word'))}}
-				</div>
+				
 			</div>
 		</div>
 	</div>
 	<div class='row spacer'>
 		<div class="col-sm-12">
 	    	<div class="row">
-				<div class="col-sm-2">
+				<div class="col-sm-1">
 				  	<label class="radio-inline">
 						{{ Form::radio('records', 'tests', true, array('data-toggle' => 'radio', 
 						  'id' => 'tests')) }} {{trans('messages.test-records')}}
 					</label>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-1">
 				    <label class="radio-inline">
 						{{ Form::radio('records', 'patients', false, array('data-toggle' => 'radio',
 						  'id' => 'patients')) }} {{trans('messages.patient-records')}}
 					</label>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-1">
 				    <label class="radio-inline">
 						{{ Form::radio('records', 'rejections', false, array('data-toggle' => 'radio',
 						  'id' => 'specimens')) }} {{trans('messages.rejected-specimen')}}
 					</label>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-1">
 					<label class="radio-inline">
 			    		{{ Form::radio('pending_or_all', 'pending', ($pendingOrAll=='pending')?true:false, array('data-toggle' => 'radio',
 						'id' => 'pending')) }} {{trans('messages.pending-tests')}}
 					</label>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-1">
 					<label class="radio-inline">
 						{{ Form::radio('pending_or_all', 'complete', ($pendingOrAll=='complete')?true:false, array('data-toggle' => 'radio',
 						'id' => 'pending')) }} {{trans('messages.complete-tests')}}
 					</label>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-1">
 				    <label class="radio-inline">
 				    	{{ Form::radio('pending_or_all', 'all', ($pendingOrAll=='all')?true:false, array('data-toggle' => 'radio',
 						  'id' => 'all')) }} {{trans('messages.all-tests')}}
@@ -87,32 +100,7 @@
 		  	</div>
 	  	</div>
   	</div>
-  	<div class='row spacer'>
-	  	<div class="col-sm-6">
-	    	<div class="row">
-				<div class="col-sm-3">
-				  	{{ Form::label('description',  Lang::choice('messages.test-category', 2)) }}
-				 </div>
-			  	<div class="col-sm-3">
-				  	{{ Form::select('section_id', array(''=>trans('messages.select-lab-section'))+$labSections, 
-							    		Request::old('testCategory') ? Request::old('testCategory') : $testCategory, 
-											array('class' => 'form-control', 'id' => 'section_id')) }}
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-6">
-	    	<div class="row">
-				<div class="col-sm-3">
-					{{ Form::label('description', Lang::choice('messages.test-type', 1)) }}
-				</div>
-				<div class="col-sm-3">
-					{{ Form::select('test_type', array('' => trans('messages.select-test-type'))+$testTypes, 
-							    		Request::old('testType') ? Request::old('testType') : $testType, 
-											array('class' => 'form-control', 'id' => 'test_type')) }}
-				</div>
-			</div>
-		</div>
-	</div>
+  	
 	{{ Form::close() }}
 </div>
 <br />
@@ -175,22 +163,22 @@
 					</tr>
 					@forelse($tests as $key => $test)
 					<tr>
-						<td>{{ $test->visit->patient->id }}</td>
+						<td>{{ $test->visit->patient->ulin }}</td>
 						<td>{{ isset($test->visit->visit_number)?$test->visit->visit_number:$test->visit->id }}</td>
 						<td>{{ $test->visit->patient->name }}</td>
 						<td>{{ $test->getSpecimenId() }}</td>
 						<td>{{ $test->specimen->specimentype->name }}</td>
 						<td>{{ $test->specimen->time_accepted }}</td>
 						<td>{{ $test->testType->name }}</td>
-						<td>{{ $test->testedBy->name or trans('messages.pending') }}</td>
+						<td>{{ $test->testedBy->name or '' }}</td>
 						<td>
 							@foreach($test->testResults as $result)
 								<p>{{Measure::find($result->measure_id)->name}}: {{$result->result}}</p>
 							@endforeach
 						</td>
 						<td>{{ $test->interpretation }}</td>
-						<td>{{ $test->time_completed or trans('messages.pending') }}</td>
-						<td>{{ $test->verifiedBy->name or trans('messages.verification-pending') }}</td>
+						<td>{{ $test->time_completed or '' }}</td>
+						<td>{{ $test->verifiedBy->name or '' }}</td>
 					</tr>
 					@empty
 					<tr><td colspan="12">{{trans('messages.no-records-found')}}</td></tr>

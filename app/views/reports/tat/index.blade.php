@@ -10,74 +10,62 @@
 <div class="container-fluid">
 	{{ Form::open(array('route' => array('reports.aggregate.tat'), 'id' => 'turnaround', 'class' => 'form-inline')) }}
 	  	<div class="row">
-			<div class="col-sm-5">
-		    	<div class="row">
-					<div class="col-sm-2">
+			<div class="col-sm-2">
+		    	<div class="form-group">
 						{{ Form::label('start', trans("messages.from")) }}
-					</div>
-					<div class="col-sm-3">
+					
 						{{ Form::text('start', isset($input['start'])?$input['start']:date('Y-m-01'), 
 					        array('class' => 'form-control standard-datepicker')) }}
-				    </div>
-		    	</div>
-		    </div>
-		    <div class="col-sm-5">
-		    	<div class="row">
-					<div class="col-sm-2">
-				    	{{ Form::label('end', trans("messages.to")) }}
-				    </div>
-					<div class="col-sm-3">
-					    {{ Form::text('end', isset($input['end'])?$input['end']:date('Y-m-d'), 
-					        array('class' => 'form-control standard-datepicker')) }}
-			        </div>
 		    	</div>
 		    </div>
 		    <div class="col-sm-2">
+		    	<div class="form-group">
+				    	{{ Form::label('end', trans("messages.to")) }}
+				    
+					    {{ Form::text('end', isset($input['end'])?$input['end']:date('Y-m-d'), 
+					        array('class' => 'form-control standard-datepicker')) }}
+			      
+		    	</div>
+		    </div>
+		    <div class="col-sm-2">
+		    	<div class="form-group">
+
+		    	{{ Form::label('description',  Lang::choice('messages.test-category', 2)) }}
+					
+						{{ Form::select('section_id', array(''=>trans('messages.select-lab-section'))+$labSections, 
+							    		Request::old('testCategory') ? Request::old('testCategory') : $testCategory, 
+											array('class' => 'form-control', 'id' => 'section_id')) }}
+				</div>
+		    </div>
+
+		    <div class="col-sm-2">
+		    	<div class="form-group">
+				    	{{ Form::label('description', Lang::choice('messages.test-type', 1)) }}
+				    
+					    {{ Form::select('test_type', array('' => trans('messages.select-test-type'))+$testTypes, 
+							    		Request::old('testType') ? Request::old('testType') : $testType, 
+											array('class' => 'form-control', 'id' => 'test_type')) }}
+		    	</div>
+		    </div>
+		    <div class="col-sm-2">
+			    <div class="form-group">
+				    	{{ Form::label('label', trans("messages.interval")) }}
+				    
+					    {{ Form::select('period', array('' => trans('messages.select-interval'), 'M'=>trans('messages.monthly'), 'W'=>trans('messages.weekly'), 'D'=>trans('messages.daily')),
+					    	Request::old('interval') ? Request::old('interval') : $interval,  
+							array('class' => 'form-control', 'id'=>'period')) }}
+		    	</div>
+		    </div>
+
+		    <div class="col-sm-2" style="padding-top: 38px;">
 			    {{ Form::button("<span class='glyphicon glyphicon-filter'></span> ".trans('messages.view'), 
 			        array('class' => 'btn btn-info', 'id' => 'filter', 'type' => 'submit')) }}
 		    </div>
 		</div>
-		<div class="row spacer">
-			<div class="col-sm-4">
-		    	<div class="row">
-					<div class="col-sm-2">
-						{{ Form::label('description',  Lang::choice('messages.test-category', 2)) }}
-					</div>
-					<div class="col-sm-2">
-						{{ Form::select('section_id', array(''=>trans('messages.select-lab-section'))+$labSections, 
-							    		Request::old('testCategory') ? Request::old('testCategory') : $testCategory, 
-											array('class' => 'form-control', 'id' => 'section_id')) }}
-				    </div>
-		    	</div>
-		    </div>
-		    <div class="col-sm-4">
-		    	<div class="row">
-					<div class="col-sm-2">
-				    	{{ Form::label('description', Lang::choice('messages.test-type', 1)) }}
-				    </div>
-					<div class="col-sm-2">
-					    {{ Form::select('test_type', array('' => trans('messages.select-test-type'))+$testTypes, 
-							    		Request::old('testType') ? Request::old('testType') : $testType, 
-											array('class' => 'form-control', 'id' => 'test_type')) }}
-			        </div>
-		    	</div>
-		    </div>
-		    <div class="col-sm-4">
-			    <div class="row">
-					<div class="col-sm-2">
-				    	{{ Form::label('label', trans("messages.interval")) }}
-				    </div>
-					<div class="col-sm-2">
-					    {{ Form::select('period', array('' => trans('messages.select-interval'), 'M'=>trans('messages.monthly'), 'W'=>trans('messages.weekly'), 'D'=>trans('messages.daily')),
-					    	Request::old('interval') ? Request::old('interval') : $interval,  
-							array('class' => 'form-control', 'id'=>'period')) }}
-			        </div>
-		    	</div>
-		    </div>
-		</div>
+		
 	{{ Form::close() }}
 </div>
-<div class="panel panel-primary">
+<div class="panel panel-primary" style="margin-top: 50px;">
 	<div class="panel-heading ">
 		<span class="glyphicon glyphicon-user"></span>
 		{{ trans('messages.turnaround-time') }}

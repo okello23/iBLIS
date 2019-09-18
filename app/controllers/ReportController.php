@@ -551,7 +551,7 @@ class ReportController extends \BaseController {
 	/**
 	*	Function to return test types of a particular test category to fill test types dropdown
 	*/
-	public function reportsDropdown(){
+	public function show(){
 		$input = Input::get('option');
 		$testCategory = TestCategory::find($input);
 		$testTypes = $testCategory->testTypes();
