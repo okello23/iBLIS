@@ -439,7 +439,7 @@ class UnhlsTestController extends \BaseController {
 	 */
 	public function enterResults($testID)
 	{
-		$lt = new Lookup();
+		$lt = new LookUp();
         $lt->name = 'TEST_METHODS';
         $test_methods = array_merge_maintain_keys(array('' => 'Select one'),$lt->getOptionValuesAndDescription());
 
@@ -564,7 +564,7 @@ class UnhlsTestController extends \BaseController {
 	// todo: move editing results to a different controller and here leave editing particular test request?
 	public function edit($testID)
 	{
-		$lt = new Lookup();
+		$lt = new LookUp();
         $lt->name = 'TEST_METHODS';
         $test_methods = array_merge_maintain_keys(array('' => 'Select one'),$lt->getOptionValuesAndDescription());
 

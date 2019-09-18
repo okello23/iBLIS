@@ -4,11 +4,11 @@ return [
 
     'DISTRICT_ID' => '1',
     'DISTRICT_NAME' => 'Kamwenge',
-    'FACILITY_LEVEL_ID' => '2',
+    'FACILITY_LEVEL_ID' => '6',
     'FACILITY_ID' => '1',
     'FACILITY_NAME' => 'Rukunyu Hospital',
     'FACILITY_CODE' => 'RUK001',
-    'FACILITY_OWNERSHIP_ID' => '1',
+    'FACILITY_OWNERSHIP_ID' => '6',
     'FIN_YEAR_ID' => '1',
     'FIN_YEAR_NAME' => '2019/2020',
     'INCOMING_STOCK_FLAG' => 'I',
