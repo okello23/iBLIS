@@ -347,6 +347,10 @@
 									<a href="{{URL::route("testpurpose.index")}}">
 									<span class="glyphicon glyphicon-tag"></span>Testing Purpose</a>
 								</li>
+								<li>
+									<a href="{{URL::route("lookup.index")}}?lookup_id=3">
+									<span class="glyphicon glyphicon-tag"></span>Test Methods</a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -397,6 +401,10 @@
 								<li><a href="{{ URL::route("equipmentmaintenance.index")}}"><span class="glyphicon glyphicon-tag"></span> Maintenance log</a></li>
 								<li><a href="{{ URL::route("equipmentbreakdown.index")}}"><span class="glyphicon glyphicon-tag"></span> Breakdown</a></li>
 								<li><a href="{{ URL::route("equipmentsupplier.index")}}"><span class="glyphicon glyphicon-tag"></span> Supplier</a></li>
+								<li>
+									<a href="{{URL::route("lookup.index")}}?lookup_id=1">
+									<span class="glyphicon glyphicon-tag"></span>Test Methods</a>
+								</li>
 							</ul>
 						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px; width: 215px; display: none;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 620px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
 					</div>

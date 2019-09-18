@@ -1101,4 +1101,9 @@ Route::group(array("before" => "auth"), function()
         "uses" => "StockRequisitionController@fetch"
     ));
 
+    Route::any("/lookups/list", array(
+            "as"   => "lookup.index",
+            "uses" => "LookUpController@index"
+        ));
+    Route::resource('lookups', 'LookUpController');
 });

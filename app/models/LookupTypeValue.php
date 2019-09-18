@@ -11,7 +11,7 @@ class LookupTypeValue extends Eloquent
 	*/
 	public function lookuptype()
 	{
-		return $this->belongsTo('App\LookupType','lookuptypeid','id');
+		return $this->belongsTo('App\LookupType','look_up_id','id');
 	}
 }
 
