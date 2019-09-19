@@ -1105,5 +1105,9 @@ Route::group(array("before" => "auth"), function()
             "as"   => "lookup.index",
             "uses" => "LookUpController@index"
         ));
+    Route::any("/lookups/deactivate", array(
+            "as"   => "lookup.deactivate",
+            "uses" => "LookUpController@deactivate"
+        ));
     Route::resource('lookups', 'LookUpController');
 });

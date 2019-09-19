@@ -216,7 +216,7 @@
 
                         @endif
                         @if(Auth::user()->can('approve_test_results') )
-                                @if($test->isVerified() && Auth::user()->id != $test->tested_by && Auth::user()->id != $test->verified_by)
+                                @if($test->isVerified() && Auth::user()->id != $test->tested_by)
                                 <a class="btn btn-sm btn-success" id="verify-{{$test->id}}-link"
                                         href="{{ URL::route('unhls_test.viewDetails', array($test->id)) }}"
                                         title="{{trans('messages.verify-title')}}">

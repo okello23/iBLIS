@@ -38,9 +38,10 @@
                             <span class="glyphicon glyphicon-edit"></span>
                             {{ trans('messages.edit') }}
                         </a>
+                        
                         <button class="btn btn-sm btn-danger delete-item-link" 
                             data-toggle="modal" data-target=".confirm-delete-modal" 
-                            data-id='{{ URL::to("lookups/" . $lookup->id . "/delete") }}'>
+                            data-id='{{ URL::to("lookups/deactivate/")}}?lookup_id={{$lookup_id}}&id={{$lookup->id}}'>
                             <span class="glyphicon glyphicon-trash"></span>
                             {{ trans('messages.delete') }}
                         </button>

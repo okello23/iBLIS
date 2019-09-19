@@ -33,7 +33,7 @@
 							@endif
 
 							@if(Auth::user()->can('approve_test_results') )
-								@if($test->isVerified() && Auth::user()->id != $test->tested_by && Auth::user()->id != $test->verified_by)
+								@if($test->isVerified() && Auth::user()->id != $test->tested_by)
 								
 								<a class="btn btn-sm btn-success" href="{{ URL::route('test.approve', array($test->id)) }}">
 									<span class="glyphicon glyphicon-thumbs-up"></span>

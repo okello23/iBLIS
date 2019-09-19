@@ -26,9 +26,13 @@
 
             <div class="form-group">
                 {{ Form::label('name', Lang::choice('messages.name',1)) }}
-                {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
-                Form::hidden('lookup_id', $lookup_id) }}
-                Form::hidden('id', $id) }}
+                @if($id)
+                    {{ Form::text('value_description', $lookup_value->value_description, array('class' => 'form-control')) }}
+                @else
+                    {{ Form::text('value_description', Input::old('value_description'), array('class' => 'form-control')) }}
+                @endif
+                {{Form::hidden('look_up_id', $lookup_id) }}
+                {{Form::hidden('id', $id) }}
             </div>
             
             <div class="form-group actions-row">
