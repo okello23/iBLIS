@@ -104,6 +104,9 @@
                     {{ Form::label('refer-reason', trans('messages.reasons-for-referral')) }}
                     {{ Form::select('referral-reason', array(0 => '')+$referralReason->lists('reason', 'id'),
                         Input::old('referral-reason'), array('class' => 'form-control')) }}
+                   
+                </div>
+                <div class="form-group">
                     {{ Form::label('priority-specimen', trans("messages.priority-of-specimen")) }}
                     {{Form::text('priority-specimen', Input::old('prioritySpecimen'),
                         array('class' => 'form-control'))}}

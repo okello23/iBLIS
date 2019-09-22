@@ -2,7 +2,7 @@
 
 class UNHLSFacility extends Eloquent
 {
-	protected $table = "unhls_facilities";
+	protected $table = "facilities";
 	
 	public function district()
 	{

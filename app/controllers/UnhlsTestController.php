@@ -446,7 +446,7 @@ class UnhlsTestController extends \BaseController {
         $lt->name = 'POSITIVE_NEGATIVE';
         $positive_negative = array_merge_maintain_keys(array('' => 'Select one'),$lt->getOptionValuesAndDescription());
 
-		$equipment_list = array_merge_maintain_keys(array('' => 'Select one'),UNHLSEquipmentInventory::get(['name','id'])->lists('name','id'));
+		$equipment_list = array_merge_maintain_keys(array('' => 'Select one'),getEquipmentAndUniqueNumber());
 
 		$test = UnhlsTest::find($testID);
 		// if the test being carried out requires a culture worksheet
@@ -571,7 +571,7 @@ class UnhlsTestController extends \BaseController {
         $lt->name = 'POSITIVE_NEGATIVE';
         $positive_negative = array_merge_maintain_keys(array('' => 'Select one'),$lt->getOptionValuesAndDescription());
 
-		$equipment_list = array_merge_maintain_keys(array('' => 'Select one'),UNHLSEquipmentInventory::get(['name','id'])->lists('name','id'));
+		$equipment_list = array_merge_maintain_keys(array('' => 'Select one'),getEquipmentAndUniqueNumber());
 		$test = UnhlsTest::find($testID);
 		// if the test being carried out requires a culture worksheet
 		if ($test->testType->name == 'Culture and Sensitivity') {
@@ -672,7 +672,6 @@ class UnhlsTestController extends \BaseController {
 	public function showRefer($testid)
 	{
 		$test = UnhlsTest::find($testid);
-		
 		$facilities = UNHLSFacility::all();
 		//Referral facilities
 		$referralReason = ReferralReason::all();

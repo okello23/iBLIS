@@ -359,4 +359,23 @@ function time_elapsed($secs){
         
     return join(' ', $ret);
     }
+
+  function getLabSection($test_type_id){
+ 	$query = "SELECT tc.name FROM test_types t
+ 	INNER JOIN test_categories tc ON(t.test_category_id = tc.id)
+ 	WHERE t.id = ".$test_type_id;
+ 	$result = DB::select($query);
+ 	return capitalizeFirstLetter($result[0]->name);
+ }
+
+ function getSpecimenName($specimen_id){
+ 	$query = "SELECT st.name FROM specimens s
+ 	INNER JOIN specimen_types st ON(s.specimen_type_id = st.id)
+ 	WHERE s.id = ".$specimen_id;
+ 	$result = DB::select($query);
+ 	return capitalizeFirstLetter($result[0]->name);
+ }
+ function capitalizeFirstLetter($str){
+ 	return ucwords(strtolower($str)); 
+ }
 ?>

@@ -19,7 +19,7 @@
 	    @if(isset($tests))
 	        @forelse($tests as $test)
 	                <tr>    
-	                    <td>{{ isset($test->specimen->specimenType->name)? $test->specimen->specimenType->name : ''}}</td>
+	                    <td>{{getSpecimenName($test->specimen->id)}}</td>
 
 	                    @if($test->specimen->specimen_status_id == UnhlsSpecimen::NOT_COLLECTED)
 	                        
@@ -35,7 +35,7 @@
 	                        
 	                    @endif
 
-	                    <td >{{ isset($test->testType->testCategory->name)?$test->testType->testCategory->name:'' }}</td>
+	                    <td >{{getLabSection($test->testType->id)}}</td>
 	                    <td >{{ isset($test->testType->name)?$test->testType->name:'' }}</td>
 	                </tr>
 	        @empty
@@ -52,9 +52,9 @@
 <br>
 <table style="border-bottom: 1px solid #cecfd5; font-size:9px;font-family: Bookman Old Style;">
 	<tr>
-		<td colspan="2"><b>{{Lang::choice('messages.test-type', 1)}}</b></td>
 		
-		<td colspan="3"><b>TEST RESULTS</b></td>
+		
+		<td colspan="5" align="center"><b>TEST RESULTS</b></td>
 		
 	</tr>
 </table>
@@ -62,17 +62,18 @@
 	@if(!$test->testType->isCulture() && ( $test->testStatus->name == 'approved' || $test->testStatus->name == 'verified'))
 	<table  id="results_content_id" style="border-bottom: 1px solid #cecfd5; font-size:9px;font-family: Bookman Old Style;">
 		<tr>
-			<td width="20%">{{ $test->testType->name }}</td>
-			<td width="80%">
+			
+			<td >
 				<table style="padding: 1px;">
 					<thead>
 
 						<tr>
-								<th><b>Parameter</b></th>
+								<th><b>Test</b></th>
+                                <th><b>Parameter</b></th>
 								<th><b>Result</b></th>
 								<th><b>Reference Interval</b></th>
 								<th><b>SI units</b></th>
-								<th><b>Diagnostic Flag</b></th><!-- Diagnostic Flag column for results-->
+								<!--<th><b>Diagnostic Flag</b></th> Diagnostic Flag column for results-->
 							</tr>
 					</thead>
 					<tbody>
@@ -80,33 +81,35 @@
 							<!-- show only parameters with values -->
 							@if($result->result != '')
 							<tr>
-								@if($test->testType->measures->count() > 1)
-								<td>
+								<td style="border-bottom: 0.01px solid 000">{{ $test->testType->name }}</td>
+								<td style="border-bottom: 0.01px solid 000">@if($test->testType->measures->count() > 1)
 									{{ Measure::find($result->measure_id)->name }}:
+                                    @endif
+								</td>								
+								<td style="border-bottom: 0.01px solid 000">
+								{{ $result->result}}
 								</td>
-								@endif
-								<td>
-								{{ $result->result }}
-								</td>
-								<td>
+								<td style="border-bottom: 0.01px solid 000">
 									{{ Measure::getRange($test->visit->patient, $result->measure_id) }}
 								</td>
-								<td>
+								<td style="border-bottom: 0.01px solid 000">
 									{{ Measure::find($result->measure_id)->unit }}
 								</td>
-								<td></td><!-- Diagnostic Flag column for results-->
+								<!--<td></td> Diagnostic Flag column for results-->
 							</tr>
 							@endif
 						@endforeach
 						@if($test->testType->name == 'HIV')
 							<tr>
-								<td><b>Interpretation:</b></td> <td>{{$test->interpreteHIVResults()}}</td>
+								<td><b>Interpretation:</b></td> 
+                                <td>{{$test->interpreteHIVResults()}}</td>
 							</tr>
 						@else
 							<tr>
 								<td width="100%"><br><br>
 									<b>{{trans('messages.comments')}}:</b> {{ $test->interpretation == '' ? 'Suitable for the test' : $test->interpretation }}
-								</td>								
+								</td>	
+                                <td></td>							
 							</tr>	       
 							<tr>
 								<td width="50%" style="font-size:8px">
@@ -146,7 +149,7 @@
         @foreach($test->isolated_organisms as $isolated_organism)
         <table style="border-bottom: 1px solid #cecfd5;">
           <tr>
-            <td rowspan="{{$isolated_organism->drug_susceptibilities->count()}}" class="organism"><i><b>{{$isolated_organism->organism->name}}</i></b></td>
+            <td rowspan="{{$isolated_organism->drug_susceptibilities->count()}}" class="organism"><i><b>{{$isolated_organism->organism->name}}</b></i></td>
               <?php $i = 1; ?>
             @if($isolated_organism->drug_susceptibilities->count() == 0)
               </tr>

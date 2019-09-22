@@ -210,6 +210,7 @@
 								</li>
 																<li>
 									<div>
+
 										<a href="{{URL::route('unhls_test.index')}}/?test_status={{UnhlsTest::SPECIMEN_NOT_RECEIVED}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Samples Not Recieved')}}
 										</a>
@@ -400,7 +401,7 @@
 								<li><a href="{{ URL::route("equipmentinventory.index")}}"><span class="glyphicon glyphicon-tag"></span> Inventory</a></li>
 								<li><a href="{{ URL::route("equipmentmaintenance.index")}}"><span class="glyphicon glyphicon-tag"></span> Maintenance log</a></li>
 								<li><a href="{{ URL::route("equipmentbreakdown.index")}}"><span class="glyphicon glyphicon-tag"></span> Breakdown</a></li>
-								<li><a href="{{ URL::route("equipmentsupplier.index")}}"><span class="glyphicon glyphicon-tag"></span> Supplier</a></li>
+								<li><a href="{{ URL::route("equipmentsupplier.index")}}"><span class="glyphicon glyphicon-tag"></span> Equipment Supplier</a></li>
 								<li>
 									<a href="{{URL::route("lookup.index")}}?lookup_id=1">
 									<span class="glyphicon glyphicon-tag"></span>Equipment Names</a>

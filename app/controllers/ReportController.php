@@ -309,7 +309,7 @@ class ReportController extends \BaseController {
 		\Log::info("....1....");		
 		// adhoc config decision
 		$template = AdhocConfig::where('name','Report')->first()->getReportTemplate();
-
+		
 		\Log::info("....2....");
 		\Log::info($patient);
 		
@@ -322,16 +322,6 @@ class ReportController extends \BaseController {
 			->with('tests', $tests)
 			
 			->withInput(Input::all());
-
-			/*$content = View::make($template)
-			->with('patient', $patient)
-			->with('tests', $tests)
-			->with('pending', $pending)
-			->with('error', $error)
-			->with('visit', $visit)
-			->with('accredited', $accredited)
-			->with('verified', $verified)
-			->withInput(Input::all());*/
 
 		ob_end_clean();
 		

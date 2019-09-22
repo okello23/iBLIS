@@ -25,13 +25,12 @@
     </div>
     <div class="panel-body">
 
-    
-      {{ Form::open(array('url' => 'equipmentmaintenance/store', 'autocomplete' => 'off', 'class' => 'form-horizontal', 'data-toggle' => 'validator')) }}
+      {{ Form::model($equipment_mce, array('route' => array('equipmentmaintenance.update', $equipment_mce->id), 'method' => 'PUT', 'id' => 'form-edit-patient')) }}
 
                             <fieldset> 
 
 
-                                <div class="form-group">
+                                 <div class="form-group">
                                 {{ Form::label('equipment_id', 'Equipment', ['class' => 'col-lg-2 control-label']) }}
                                   <div class="col-md-4">
                                         {{ Form::select('equipment_id', array(null => 'Select')+ $equipment_list, Input::old('equipment_id'), array('class' => 'form-control', 'id' => 'warranty_id','required'=>'required')) }}  
@@ -47,13 +46,13 @@
 
 
                                 <div class="form-group">
-                                {{ Form::label('service_date', 'Date of service', ['class' => 'col-md-2 control-label']) }}
+                                {{ Form::label('last_service_date', 'Date of service', ['class' => 'col-md-2 control-label']) }}
                                   <div class="col-md-4">
-                                        {{ Form::text('service_date', Input::old('service_date'),array('placeholder' => 'Date of service','class' => 'form-control standard-datepicker','required'=>'required')) }}
+                                        {{ Form::text('last_service_date', Input::old('last_service_date'),array('placeholder' => 'Date of service','class' => 'form-control standard-datepicker','required'=>'required')) }}
 
-                                        @if ($errors->has('service_date'))
+                                        @if ($errors->has('last_service_date'))
                                             <span class="text-danger">
-                                                <strong>{{ $errors->first('service_date') }}</strong>
+                                                <strong>{{ $errors->first('last_service_date') }}</strong>
                                             </span>
                                         @endif
 
@@ -76,13 +75,13 @@
                                 </div>                                
 
                                 <div class="form-group">
-                                {{ Form::label('serviced_by', 'Serviced by', ['class' => 'col-lg-2 control-label']) }}
+                                {{ Form::label('serviced_by_name', 'Serviced by', ['class' => 'col-lg-2 control-label']) }}
                                   <div class="col-lg-7">
-                                        {{ Form::text('serviced_by',null,['class' => 'form-control','placeholder' => 'Serviced by', 'required' => 'true']) }}
+                                        {{ Form::text('serviced_by_name',Input::old('serviced_by_name'),['class' => 'form-control','placeholder' => 'Serviced by', 'required' => 'true']) }}
 
-                                        @if ($errors->has('serviced_by'))
+                                        @if ($errors->has('serviced_by_name'))
                                             <span class="text-danger">
-                                                <strong>{{ $errors->first('serviced_by') }}</strong>
+                                                <strong>{{ $errors->first('serviced_by_name') }}</strong>
                                             </span>
                                         @endif
 
@@ -90,13 +89,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                {{ Form::label('serviced_by_phone', 'Serviced by contact', ['class' => 'col-lg-2 control-label']) }}
+                                {{ Form::label('serviced_by_contact', 'Serviced by contact', ['class' => 'col-lg-2 control-label']) }}
                                   <div class="col-lg-7">
-                                        {{ Form::text('serviced_by_phone',null,['class' => 'form-control','placeholder' => 'Serviced by contact', 'type'=>'number','required' => 'true']) }}
+                                        {{ Form::text('serviced_by_contact',Input::old('serviced_by_contact'),['class' => 'form-control','placeholder' => 'Serviced by contact', 'type'=>'number','required' => 'true']) }}
 
-                                        @if ($errors->has('serviced_by_phone'))
+                                        @if ($errors->has('serviced_by_contact'))
                                             <span class="text-danger">
-                                                <strong>{{ $errors->first('serviced_by_phone') }}</strong>
+                                                <strong>{{ $errors->first('serviced_by_contact') }}</strong>
                                             </span>
                                         @endif
 
@@ -107,7 +106,7 @@
                                 <div class="form-group">
                                 {{ Form::label('comment', 'Comment', ['class' => 'col-lg-2 control-label']) }}
                                   <div class="col-lg-7">
-                                        {{ Form::textarea('comment',null,['rows' => '3','class' => 'form-control','placeholder' => 'Comment']) }}
+                                        {{ Form::textarea('comment',Input::old('comment'),['rows' => '3','class' => 'form-control','placeholder' => 'Comment']) }}
 
                                         @if ($errors->has('comment'))
                                             <span class="text-danger">

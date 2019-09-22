@@ -675,7 +675,7 @@ return array(
     'qty-on-stock-card'=> 'Quantity on Stock Card',
     'commodities'=> 'Commodities',
     'supplier'=> 'Supplier',
-    'suppliers'=> 'Suppliers',
+    'suppliers'=> 'Commodities Suppliers',
     'item-code'=> 'Item Code',
     'storage-req'=> 'Storage Requirements',
     'average-consumption'=> 'Average Monthly Consumption',
