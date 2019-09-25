@@ -64,7 +64,7 @@
 		<tr>
 			
 			<td >
-				<table style="padding: 1px;">
+				<table style="padding: 1px;" id="{{generateSlug($test->testType->name)}}">
 					<thead>
 
 						<tr>
@@ -77,22 +77,26 @@
 							</tr>
 					</thead>
 					<tbody>
+                    <?php $counter = 0 ?>
 						@foreach($test->testResults as $result)
+                        <?php $counter++ ?>
 							<!-- show only parameters with values -->
 							@if($result->result != '')
 							<tr>
-								<td style="border-bottom: 0.01px solid 000">{{ $test->testType->name }}</td>
-								<td style="border-bottom: 0.01px solid 000">@if($test->testType->measures->count() > 1)
+                            <?php if($counter==1){?>
+								<td rowspan="{{count($test->testResults)}}">{{ $test->testType->name }}</td>
+                                <?php } ?>
+								<td>@if($test->testType->measures->count() > 1)
 									{{ Measure::find($result->measure_id)->name }}:
                                     @endif
 								</td>								
-								<td style="border-bottom: 0.01px solid 000">
+								<td>
 								{{ $result->result}}
 								</td>
-								<td style="border-bottom: 0.01px solid 000">
+								<td>
 									{{ Measure::getRange($test->visit->patient, $result->measure_id) }}
 								</td>
-								<td style="border-bottom: 0.01px solid 000">
+								<td >
 									{{ Measure::find($result->measure_id)->unit }}
 								</td>
 								<!--<td></td> Diagnostic Flag column for results-->
