@@ -30,7 +30,7 @@
         </thead>
     </table>
 <br>
-<table  border="0" width="100%"; style="border-bottom: 1px solid #cecfd5">
+<table  border="0" width="100%"; style="border-bottom: 1px solid #cecfd5; margin-bottom:0; padding-bottom:0">
     <tr>
         <td width="20%"><b>Patient Name</b></td>
         <td width="30%">{{ $patient->name }}</td>
