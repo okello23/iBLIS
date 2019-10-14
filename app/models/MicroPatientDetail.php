@@ -11,7 +11,7 @@ class MicroPatientDetail extends Eloquent
 
 	public function patient()
 	{
-		return $this->hasOne('UnhlsPatient', 'id');
+		return $this->belongsTo('UnhlsPatient', 'id');
 	}
 
 	public function drug()

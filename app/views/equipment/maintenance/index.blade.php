@@ -36,8 +36,8 @@
 					<th>Next Service</th>
 					<th>Serviced by</th>
 					<th>Contact</th>
-					<th>Supplier</th>
-					<th>Comment</th>																			
+					<th>Comment</th>
+					<th></th>																			
 				</tr>
 			</thead>			
 			<tbody>
@@ -49,9 +49,21 @@
 					<td>  {{ date('d M Y', strtotime($item->next_service_date)) }}</td>
 					<td>  {{ $item->serviced_by_name }}</td>
 					<td>  {{ $item->serviced_by_contact }}</td>
-					<td>  {{ $item->supplier->name }}</td>
 					<td>  {{ $item->comment }}</td>
-					<td>  </td>
+					<td><a class="btn btn-sm btn-info" href="{{ URL::route('equipmentmaintenance.edit', array($item->id)) }}" >
+							<span class="glyphicon glyphicon-edit"></span>
+							{{trans('messages.edit')}}
+						</a>
+						@if(Auth::user()->can('manage_inventory'))
+						<!-- can delete patient -->
+						<button class="btn btn-sm btn-danger delete-item-link"
+							data-toggle="modal" data-target=".confirm-delete-modal"
+							data-id="{{ URL::route('equipmentmaintenance.delete', array($item->id)) }}">
+							<span class="glyphicon glyphicon-trash"></span>
+							Delete
+						</button>
+						@endif
+					</td>
 				</tr>
 			@endforeach
 			</tbody>

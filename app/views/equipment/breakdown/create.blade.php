@@ -29,48 +29,12 @@
 		{{ Form::open(array('url' => 'equipmentbreakdown/store', 'autocomplete' => 'off', 'class' => 'form-horizontal', 'data-toggle' => 'validator')) }}
 
 		<fieldset>
-			<h1 class="panel-title" style="text-align:center">{{ HTML::image(Config::get('kblis.organization-logo'),  Config::get('kblis.country') . trans('messages.court-of-arms'), array('width' => '150px')) }}
-				<br>
-				<strong>{{ strtoupper(Config::get('constants.FACILITY_REQUEST_FORM_HEADER')) }}</strong></h1>
-				<br>
-				<br>
-				1. Facility Information
-				<div class="panel panel-warning">
-					<div class="form-group">
-						{{ Form::label('facility_id', 'Facility Name', ['class' => 'col-lg-2 control-label']) }}
-						{{ Form::text('facility_id',Auth::user()->facility->name,['class' => 'form-control','rows'=>'5','readonly']) }}
-
-						{{ Form::label('facility_code', 'Facility Code:', ['class' => 'col-lg-2 control-label']) }}
-						{{ Form::text('facility_code',Auth::user()->facility->code,['class' => 'form-control','rows'=>'5','readonly']) }}
-
-						{{ Form::label('facility_level', 'Facility Level:', ['class' => 'col-lg-2 control-label']) }}
-						{{ Form::text('facility_level',Auth::user()->facility->level->level,['class' => 'form-control col-sm-4','rows'=>'5','readonly']) }}
-					</div>
-
-					<div class="form-group">
-						{{ Form::label('district_id', 'District Name:', ['class' => 'col-lg-2 control-label']) }}
-						{{ Form::text('district_id',Auth::user()->facility->district->name,['class' => 'form-control col-sm-4','rows'=>'5','readonly']) }}
-
-
-						{{ Form::label('report_date', 'Date Of Report', ['class' => 'col-lg-2 control-label']) }}
-						{{ Form::text('report_date', Input::old('report_date'), array('class' => 'form-control col-sm-4 standard-datepicker', 'id' => 'report_date','required'=>'required')) }}
-					</div>
-				</div>
-
-				2. Equipment Information
+			
 				<div class="panel panel-warning">
 
 					<div class="form-group">
-						{{  Form::label('equipment_code', 'Equipment Code:',['class'=>'col-lg-2 control-label']) }}
-						{{ Form::text('equipment_code',Input::old('equipment_id'), array('class' => 'form-control col-sm-4')) }}
-
-
-						{{  Form::label('equipment_type', 'Equipment Type', array('class'=>'col-lg-2')) }}
-						{{ Form::select('equipment_type', array(null => 'Select')+UNHLSEquipmentInventory::lists('name','id'), Input::old('equipment_id'), array('class' => 'form-control col-sm-4', 'id' => 'equipment_id', 'required'=>'required')) }}
-
 						{{  Form::label('equipment_id', 'Equipment Name', array('class'=>'col-lg-2')) }}
 						{{ Form::select('equipment_id', array(null => 'Select')+UNHLSEquipmentInventory::lists('name','id'), Input::old('equipment_id'), array('class' => 'form-control col-sm-4', 'id' => 'equipment_id', 'required'=>'required')) }}
-
 
 
 						@if ($errors->has('equipment_id'))
@@ -89,12 +53,12 @@
 						<br>
 						<br>
 						<div class="form-group">
-							<div class="radio-inline">{{ Form::radio('equipment_failure[]', 'Equipment is overdue for service', false) }} <span class="input-tag">Equipment is overdue for service</span></div>
-							<div class="radio-inline">{{ Form::radio("equipment_failure[]", 'Accident Occured', false) }} <span class="input-tag">Accident Occured</span></div>
-							<div class="radio-inline">{{ Form::radio("equipment_failure[]", 'Missed Service Schedule', false) }} <span class="input-tag">Missed Service Schedule</span></div>
-							<div class="radio-inline">{{ Form::radio("equipment_failure[]", 'Too old equipment', false) }} <span class="input-tag">Too old equipment</span></div>
-							<div class="radio-inline">{{ Form::radio("equipment_failure[]", 'Poor maintained', false) }} <span class="input-tag">Poor maintained</span></div>
-							<div class="radio-inline">{{ Form::radio("equipment_failure[]", 'Unkown reason for failure', false) }} <span class="input-tag">Unkown reason for failure</span></div>
+							<div class="radio-inline">{{ Form::radio('equipment_failure', 'Equipment is overdue for service', false) }} <span class="input-tag">Equipment is overdue for service</span></div>
+							<div class="radio-inline">{{ Form::radio("equipment_failure", 'Accident Occured', false) }} <span class="input-tag">Accident Occured</span></div>
+							<div class="radio-inline">{{ Form::radio("equipment_failure", 'Missed Service Schedule', false) }} <span class="input-tag">Missed Service Schedule</span></div>
+							<div class="radio-inline">{{ Form::radio("equipment_failure", 'Too old equipment', false) }} <span class="input-tag">Too old equipment</span></div>
+							<div class="radio-inline">{{ Form::radio("equipment_failure", 'Poor maintained', false) }} <span class="input-tag">Poor maintained</span></div>
+							<div class="radio-inline">{{ Form::radio("equipment_failure", 'Unkown reason for failure', false) }} <span class="input-tag">Unkown reason for failure</span></div>
 						</div>
 					</div>
 					<br>
@@ -117,7 +81,7 @@
 					</div>
 				</div>
 
-				3. Information on Intervention from higher levels <small><i>(to be filled by intervening authority)</i></small>
+				 Information on Intervention from higher levels <small><i>(to be filled by intervening authority)</i></small>
 				<div class="panel panel-warning">
 
 					Specify Intervening Authority and date of intervention:

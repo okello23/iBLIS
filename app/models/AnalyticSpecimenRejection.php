@@ -34,4 +34,12 @@ class AnalyticSpecimenRejection extends Eloquent
 	{
 		return $this->belongsTo('User', 'rejected_by', 'id');
 	}
+
+	/**
+	 * Rejection reasons relationship
+	 */
+	public function rejectionReason()
+	{
+		return $this->belongsTo('AnalyticSpecimenRejectionReason', 'rejection_id', 'id');
+	}
 }

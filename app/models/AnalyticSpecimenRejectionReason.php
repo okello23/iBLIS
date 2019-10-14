@@ -17,7 +17,7 @@ class AnalyticSpecimenRejectionReason extends Eloquent
 
 	public function analyticSpecimenRejection()
 	{
-		return $this->belongsTo('AnalyticSpecimenRejection');
+		return $this->hasMany('AnalyticSpecimenRejection', 'rejection_id', 'id');
 	}
 
 	/**
@@ -25,6 +25,6 @@ class AnalyticSpecimenRejectionReason extends Eloquent
 	 */
 	public function rejectionReason()
 	{
-		return $this->belongsTo('RejectionReason');
+		return $this->hasMany('RejectionReason', 'reason_id', 'id');
 	}
 }

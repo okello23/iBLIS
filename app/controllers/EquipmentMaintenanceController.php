@@ -25,11 +25,9 @@ class EquipmentMaintenanceController extends \BaseController {
 	{
 		//
 
-		$equipment_list = UNHLSEquipmentInventory::get()->lists('name','id');
-		$supplier_list = Supplier::get()->lists('name','id');
+		$equipment_list = getEquipmentAndUniqueNumber();
 		return View::make('equipment.maintenance.create')
-				->with('equipment_list',$equipment_list)
-				->with('supplier_list',$supplier_list);
+				->with('equipment_list',$equipment_list);
 
 	}
 
@@ -47,8 +45,7 @@ class EquipmentMaintenanceController extends \BaseController {
 		'service_date' => 'required',
 		'next_service_date' => 'required',
 		'serviced_by' => 'required',
-		'serviced_by_phone' => 'required',
-		'supplier_id' => 'required'									
+		'serviced_by_phone' => 'required'								
 
 		);
 		
@@ -68,8 +65,7 @@ class EquipmentMaintenanceController extends \BaseController {
 			$item->last_service_date = Input::get('service_date');
 			$item->next_service_date = Input::get('next_service_date');
 			$item->serviced_by_name = Input::get('serviced_by');
-			$item->serviced_by_contact = Input::get('serviced_by_phone'); 
-			$item->supplier_id = Input::get('supplier_id');      
+			$item->serviced_by_contact = Input::get('serviced_by_phone');    
 			$item->comment = Input::get('comment');          
 
 			$item->save();
@@ -100,7 +96,11 @@ class EquipmentMaintenanceController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$equipment_mce = UNHLSEquipmentMaintenance::find($id);
+		$equipment_list = getEquipmentAndUniqueNumber();
+		return View::make('equipment.maintenance.edit')
+						->with('equipment_mce',$equipment_mce)
+						->with('equipment_list',$equipment_list);
 	}
 
 
@@ -112,10 +112,75 @@ class EquipmentMaintenanceController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$rules = array(
+		'equipment_id' => 'required',
+		'last_service_date' => 'required',
+		'next_service_date' => 'required',
+		'serviced_by_name' => 'required',
+		'serviced_by_contact' => 'required'								
+
+		);
+		
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withErrors($validator);
+		} else {
+
+			$item = UNHLSEquipmentMaintenance::find($id);;
+			$item->equipment_id = Input::get('equipment_id');
+			$item->last_service_date = Input::get('service_date');
+			$item->next_service_date = Input::get('next_service_date');
+			$item->serviced_by_name = Input::get('serviced_by');
+			$item->serviced_by_contact = Input::get('serviced_by_phone');    
+			$item->comment = Input::get('comment');          
+
+			$item->save();
+
+			return Redirect::to('equipmentmaintenance')->with('message','Updated successfully');
+		}
+
+		$rules = array(
+		'equipment_id' => 'required',
+		'service_date' => 'required',
+		'next_service_date' => 'required',
+		'serviced_by' => 'required',
+		'serviced_by_phone' => 'required'								
+
+		);
+		
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withErrors($validator);
+		} else {
+
+			$item = new UNHLSEquipmentMaintenance;
+
+        	$item->district_id = \Config::get('constants.DISTRICT_ID') ;
+        	$item->facility_id = \Config::get('constants.FACILITY_ID');        
+        	$item->year_id = \Config::get('constants.FIN_YEAR_ID');  
+
+			$item->equipment_id = Input::get('equipment_id');
+			$item->last_service_date = Input::get('service_date');
+			$item->next_service_date = Input::get('next_service_date');
+			$item->serviced_by_name = Input::get('serviced_by');
+			$item->serviced_by_contact = Input::get('serviced_by_phone');    
+			$item->comment = Input::get('comment');          
+
+			$item->save();
+
+			return Redirect::to('equipmentmaintenance');
+		}
+
 	}
 
-
+	public function delete($id)
+	{
+		$equipment_maintenance = UNHLSEquipmentMaintenance::find($id);
+		$equipment_maintenance->delete();
+		return Redirect::to('equipmentmaintenance')->with('message', 'Maintenance log deleted successfully');
+	}
 	/**
 	 * Remove the specified resource from storage.
 	 *

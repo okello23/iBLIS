@@ -85,7 +85,8 @@ class EquipmentSupplierController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$supplier = UNHLSEquipmentSupplier::find($id);
+		return View::make('equipment.supplier.edit_supplier')->with('supplier',$supplier);
 	}
 
 
@@ -98,9 +99,44 @@ class EquipmentSupplierController extends \BaseController {
 	public function update($id)
 	{
 		//
+		$rules = array(
+		'name' => 'required',
+		'phone' => 'required',
+		'email' => 'required',
+		'address' => 'required'		
+		);
+		
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withErrors($validator);
+		} else {
+
+			$supplier = UNHLSEquipmentSupplier::find($id);
+			$supplier->name = Input::get('name');
+			$supplier->phone = Input::get('phone');
+			$supplier->email = Input::get('email');
+			$supplier->address = Input::get('address');
+
+			$supplier->save();
+
+			return Redirect::to('equipmentsupplier');
+		}
+
 	}
 
-
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function delete($id)
+	{
+		$supplier = UNHLSEquipmentSupplier::find($id);
+		$supplier->delete();
+		return Redirect::to('equipmentsupplier')->with('message', 'supplier deleted successfully');
+	}
 	/**
 	 * Remove the specified resource from storage.
 	 *

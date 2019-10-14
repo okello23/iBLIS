@@ -47,7 +47,7 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	*/
-	'address-info' => 'Plot 39/43 Kampala Road, P.O. BOX 29, Entebbe <br> Tel: +256 773 547 114, +256 753 385 163 <br> Email: info.ebhl@gmail.com <br><br>',
+	'address-info' => 'P.O. BOX 1408, Kamwenge<br><br>',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -55,8 +55,6 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	*/
-
-	'organization-logo' => '/i/coat_of_arms_of_uganda.png',
 	'organization-logo' => '/i/coat_of_arms.png',
 	'uganda-logo' => '/i/uganda.png',
 	'cdc-logo' => '/i/cdc.png',
@@ -85,7 +83,14 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	*/
-	'interim-report-name'=>'Interim LABORATORY REPORT',
+	'interim-report-name'=>'INTERIM LABORATORY REPORT',
+/*
+	|--------------------------------------------------------------------------
+	| Rejected Laboratory Report Name
+	|--------------------------------------------------------------------------
+	|
+	*/
+	'rejected-report-name'=>'REJECTION LABORATORY REPORT',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -32,6 +32,88 @@ class UnhlsPatientController extends \BaseController {
 				->withInput(Input::all());
 	}
 
+	 // public function loadPatients()
+  //   {
+  //       // print_r($request->all());
+
+  //       $columns = array(
+  //           0 => 'patient-number',
+  //           1 => 'ulin',
+  //           2 => 'name',
+  //           3 => 'gender',
+  //           4 => 'age',
+  //           5 => 'residence-village',
+  //           6 => 'actions'
+  //       );
+
+  //       $totalData = UnhlsPatient::count();
+  //       $limit = Input::get('length');
+  //       $start = Input::get('start');
+  //       $order = $columns[Input::get('order.0.column')];
+  //       $dir = Input::get('order.0.dir');
+
+  //       dd($totalData);
+
+  //       if(empty(Input::get('search.value'))){
+  //           $patients = UnhlsPatient::offset($start)
+  //                   ->limit($limit)
+  //                   ->orderBy($order, $dir)
+  //                   ->get();
+  //           $totalFiltered = UnhlsPatient::count();
+  //       }else{
+  //           $search = Input::get('search.value');
+  //           $patients = UnhlsPatient::where('patient_number', 'like', "%{$search}%" )
+  //                               ->orWhere('name', 'like', "%{$search}%")
+  //                               ->orWhere('ulin', 'like', "%{$search}%")
+  //                               ->orWhere('external_patient_number', 'like', "%{$search}%")
+  //                               ->offset($start)
+  //                               ->limit($limit)
+  //                               ->orderBy($order, $dir)
+  //                               ->get();
+
+  //           $totalFiltered = UnhlsPatient::where('patient_number', 'like', "%{$search}%" )
+  //                               ->orWhere('name', 'like', "%{$search}%")
+  //                               ->orWhere('ulin', 'like', "%{$search}%")
+  //                               ->orWhere('external_patient_number', 'like', "%{$search}%")
+  //                               ->count();
+  //       }    
+  //       $data = array();
+  //       if($patients){
+  //           foreach($patients as $patient) {
+  //               $nestedData['patient_number'] = $patient->patient_number;
+  //               $nestedData['ulin'] = $patient->ulin;
+  //               $nestedData['name'] = $patient->name;
+  //               $nestedData['gender'] = ($patient->gender==0?trans('messages.male'):trans('messages.female'));
+  //               $nestedData['age'] = $patient->getAge();
+  //               $nestedData['age'] = $patient->village_residence;
+  //               $nestedData['action'] = '
+  //                   	<a class="btn btn-sm btn-primary" 
+		// 						href="#">
+		// 						<span class="glyphicon glyphicon-plus-sign"></span>
+		// 						Make Appointment
+		// 				</a>
+  //                  		<a class="btn btn-sm btn-info"
+		// 					href="#">
+		// 					<span class="glyphicon glyphicon-edit"></span>
+		// 					New Test
+		// 				</a>
+
+  //               ';
+  //               $data[] = $nestedData;
+  //           }
+  //       }
+
+  //       $json_data = array(
+  //           "draw"              => intval($request->input('draw')),
+  //           "recordsTotal"      => intval($totalData),
+  //           "recordsFiltered"   => intval($totalFiltered),
+  //           "data"              => $data
+  //       );
+
+  //       echo json_encode($json_data);
+  //   }
+
+
 
 	public function live()
 		{

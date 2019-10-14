@@ -102,17 +102,9 @@
                                 {{ $test->getSpecimenId() }}
                             @endif
                         </td> <!--Specimen ID if specimen received, show when specimen is shared  -->
+                        
                         <td>{{ $test->testType->name }}</td> <!--Test-->
                         <!-- ACTION BUTTONS -->
-                        <td>
-                            <a class="btn btn-sm btn-danger"
-                                href="{{ URL::route('unhls_test.delete', $test->id) }}"
-                                id="view-details-{{$test->id}}-link" 
-                                title="Delete Test">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                Delete
-                            </a>
-                        </td>
                         <td>
                             @if($test->isNotReceived())
                                 <span class='label label-default'>

@@ -62,6 +62,16 @@ class UnhlsTest extends Eloquent
 		return $this->belongsTo('Clinician', 'requested_by', 'id');
 	}
 
+	/**
+	* Equipment Relationship
+	*
+	*/
+	public function getEquipement()
+	{
+		return $this->belongsTo('UNHLSEquipmentInventory', 'equipment_id', 'id');
+	}
+
+
 	public function getClinician()
 	{
 		return Clinician::find($this->clinician_id);

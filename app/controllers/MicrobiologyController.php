@@ -82,6 +82,7 @@ class MicrobiologyController extends \BaseController {
 			$patient->village_workplace = Input::get('village_workplace');
 			$patient->district_residence = Input::get('district_residence');
 			$patient->district_workplace = Input::get('district_workplace');
+			$patient->admission_date = Input::get('admission_date');
 			//$patient->occupation = Input::get('occupation');
 			//$patient->email = Input::get('email');
 			//$patient->address = Input::get('address');
@@ -103,19 +104,11 @@ class MicrobiologyController extends \BaseController {
 			$patientdetail->patient_id = $patient->id;
 			$patientdetail->requested_by = Input::get('requested_by');
 			$patientdetail->clinician_contact = Input::get('phone_contact');
-			//$patientdetail->village_residence = Input::get('village_residence');
-			//patientdetail->village_workplace = Input::get('village_workplace');
-			//$patientdetail->occupation = Input::get('occupation');
-			//$patientdetail->email = Input::get('email');
-			//$patientdetail->address = Input::get('address');
-			//$patientdetail->phone_number = Input::get('phone_number');
-			//$patientdetail->patientid = Input::get('patientid');
 			$patientdetail->sub_county_residence = Input::get('sub_county_residence');			
 			$patientdetail->sub_county_workplace = Input::get('sub_county_workplace');			
 			$patientdetail->name_next_kin = Input::get('name_next_kin');
 			$patientdetail->contact_next_kin = Input::get('contact_next_kin');
 			$patientdetail->residence_next_kin = Input::get('residence_next_kin');
-			$patientdetail->admission_date = Input::get('admission_date');
 			$patientdetail->transfered = Input::get('transfered');
 			$patientdetail->facility_transfered = Input::get('facility_transfered');
 			$patientdetail->clinical_notes = Input::get('clinical_notes');
@@ -385,7 +378,7 @@ class MicrobiologyController extends \BaseController {
                         $test->test_status_id = UnhlsTest::PENDING;
                         $test->created_by = Auth::user()->id;
                         //$test->requested_by = Input::get('clinician');
-                        //$test->purpose = Input::get('hiv_purpose');
+                        $test->purpose = Input::get('testpurpose');
                         $test->save();
 
                         $activeTest[] = $test->id;

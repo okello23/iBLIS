@@ -23,7 +23,7 @@
 								</a>
 							@endif
 							@if(Auth::user()->can('verify_test_results'))
-								@if(!$test->isVerified())
+								@if(!$test->isVerified() && Auth::user()->id != $test->tested_by)
 								<a class="btn btn-sm btn-success" href="{{ URL::route('test.verify', array($test->id)) }}">
 									<span class="glyphicon glyphicon-thumbs-up"></span>
 									{{trans('messages.verify')}}
@@ -32,9 +32,8 @@
 								@endif
 							@endif
 
-
 							@if(Auth::user()->can('approve_test_results') )
-								@if($test->isVerified())
+								@if($test->isVerified() && Auth::user()->id != $test->tested_by)
 								
 								<a class="btn btn-sm btn-success" href="{{ URL::route('test.approve', array($test->id)) }}">
 									<span class="glyphicon glyphicon-thumbs-up"></span>
@@ -43,8 +42,14 @@
 								@endif
 							@endif
 						</div>
-						@endif
-						
+						@elseif($test->isStarted() && $test->testType->isCulture())
+						<div class="panel-btn">
+							<a class="btn btn-sm btn-info" href="{{ URL::to('patientvisitreport/' . $test->visit->id) }}" target="blank">
+								<span class="glyphicon glyphicon-eye-open"></span>
+								{{trans('messages.view-report')}}
+							</a>
+						</div>
+						@endif						
 						<div class="panel-btn">
 							@if(Auth::user()->can('view_reports'))
 							    @if($test->isApproved())
@@ -62,8 +67,7 @@
 								</a>
 								@endif
 							@endif
-						</div>
-					
+						</div>					
                     </div>
                     <div class="col-md-1">
                         <a class="btn btn-sm btn-primary pull-right" href="#" onclick="window.history.back();return false;"

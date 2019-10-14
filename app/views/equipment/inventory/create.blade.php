@@ -30,15 +30,25 @@
 
                             <fieldset> 
 
-
-                                <div class="form-group">
-                                {{ Form::label('equipment_name', 'Name', ['class' => 'col-md-2 control-label']) }}
-                                  <div class="col-md-3">
-                                        {{ Form::text('equipment_name',null,['class' => 'form-control','placeholder' => 'Name', 'required' => 'true']) }}
-
-                                        @if ($errors->has('equipment_name'))
+								<div class="form-group">
+                                {{  Form::label('name_id', 'Name', array('class'=>'control-label')) }}
+                                  <div class="col-md-4">
+                                        {{ Form::select('name_id', $equipment_names, Input::old('name_id'), array('class' => 'form-control', 'id' => 'name_id')) }}  
+                                      
+                                        @if ($errors->has('name_id'))
                                             <span class="text-danger">
-                                                <strong>{{ $errors->first('equipment_name') }}</strong>
+                                                <strong>{{ $errors->first('name_id') }}</strong>
+                                            </span>
+                                        @endif
+
+                                  </div>
+                                </div> 
+                                <div class="form-group">
+                                {{ Form::label('unique_number', 'Unique Number', ['class' => 'col-md-2 control-label']) }}
+                                  <div class="col-md-3">
+                                        {{ Form::text('unique_number',null,['class' => 'form-control','placeholder' => 'Unique Number', 'required' => 'true']) }}                                        @if ($errors->has('unique_number'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('unique_number') }}</strong>
                                             </span>
                                         @endif
 
@@ -76,7 +86,7 @@
                                 <div class="form-group">
                                 {{  Form::label('location', 'Location', array('class'=>'control-label')) }}
                                   <div class="col-md-4">
-                                        {{ Form::select('location', array_merge(array(null => 'Select'), $location_list), Input::old('location'), array('class' => 'form-control', 'id' => 'location_id')) }}  
+                                        {{ Form::select('location', array_merge_maintain_keys(array(null => 'Select'), $location_list), Input::old('location'), array('class' => 'form-control', 'id' => 'location_id')) }}  
                                       
                                         @if ($errors->has('location'))
                                             <span class="text-danger">

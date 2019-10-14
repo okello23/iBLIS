@@ -309,7 +309,7 @@ class ReportController extends \BaseController {
 		\Log::info("....1....");		
 		// adhoc config decision
 		$template = AdhocConfig::where('name','Report')->first()->getReportTemplate();
-
+		
 		\Log::info("....2....");
 		\Log::info($patient);
 		
@@ -322,16 +322,6 @@ class ReportController extends \BaseController {
 			->with('tests', $tests)
 			
 			->withInput(Input::all());
-
-			/*$content = View::make($template)
-			->with('patient', $patient)
-			->with('tests', $tests)
-			->with('pending', $pending)
-			->with('error', $error)
-			->with('visit', $visit)
-			->with('accredited', $accredited)
-			->with('verified', $verified)
-			->withInput(Input::all());*/
 
 		ob_end_clean();
 		
@@ -551,7 +541,7 @@ class ReportController extends \BaseController {
 	/**
 	*	Function to return test types of a particular test category to fill test types dropdown
 	*/
-	public function reportsDropdown(){
+	public function show(){
 		$input = Input::get('option');
 		$testCategory = TestCategory::find($input);
 		$testTypes = $testCategory->testTypes();
@@ -768,6 +758,29 @@ class ReportController extends \BaseController {
 			}
 		}
 	}
+
+	// Reject Report Function
+	public function report($id){
+        $test = UnhlsTest::find($id);
+
+        $html = view::make('reports.patient.rejectionReport')
+            			->with('test', $test);
+
+      $test_request_information  = array(
+          'specimen' => $specimen
+          );  
+
+        $pdf = new RejeectionReportPdf;
+        $pdf->setTestRequestInformation($test_request_information);
+
+        $pdf->SetAutoPageBreak(TRUE, 15);
+        $pdf->AddPage();
+        $pdf->SetFont('', '', 10);
+        $pdf->writeHTML($html, true, false, true, false, '');
+        return $pdf->output($specimen->sample_id.'.pdf');
+    }
+
+
 	//	End Daily Log-Patient report functions
 
 	/*	Begin Aggregate reports functions	*/
@@ -2240,11 +2253,13 @@ class ReportController extends \BaseController {
 		$i = 1;
 		foreach ($isolatedOrganisms as $isolatedOrganism) {
 			$content[$i]['Patient ID'] = $isolatedOrganism->test->visit->patient->ulin;
+			$content[$i]['IPD / OPD No'] = $isolatedOrganism->test->visit->patient->patient_number;
 			$content[$i]['Sex'] = $isolatedOrganism->test->visit->patient->getGender();//sex
 			$content[$i]['Age'] = $isolatedOrganism->test->visit->patient->getAge();//age
 			$content[$i]['Hospitalized for more than 2 days (48 hours) at time of specimen collection? '] = ($isolatedOrganism->test->visit->hospitalized == 1) ? 'Yes' : 'No';//48hrs
 			$content[$i]['Specimen Date'] = $isolatedOrganism->test->specimen->time_accepted;//specimen_date
 			$content[$i]['Specimen Type'] = $isolatedOrganism->test->specimen->specimenType->name;//specimen_type
+			$content[$i]['Admission Date'] = $isolatedOrganism->test->visit->patient->admission_date;//Admission Date
 			$content[$i]['Organism'] = $isolatedOrganism->organism->name;
 
 			// put all antibiotic indexes with empty values

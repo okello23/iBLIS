@@ -153,7 +153,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							{{ Form::label('admission_date', 'Admission Date') }}
-							{{ Form::text('admission_date', $patient->microDetails->admission_date, array('class' => 'form-control standard-datepicker', 'placeholder' => 'Ignore if not admitted')) }}
+							{{ Form::text('admission_date', $patient->admission_date, array('class' => 'form-control standard-datepicker', 'placeholder' => 'Ignore if not admitted')) }}
 						</div>
 					</div>
 					<div class="col-md-6">

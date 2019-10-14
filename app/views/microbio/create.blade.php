@@ -21,7 +21,7 @@
 					{{ HTML::ul($errors->all()) }}
 				</div>
 			@endif
-			{{ Form::open(array('url' => 'microbiology', 'id' => 'form-create-micro')) }}
+			{{ Form::open(array('url' => 'microbio', 'id' => 'form-create-micro')) }}
 		<input type="hidden" name="_token" value="{{ Session::token() }}"><!--to be removed function for csrf_token -->
 				<div class="container-fluid">
 					<div class="row">
@@ -213,7 +213,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-							{{ Form::label('clinical_notes', 'Clinical Notes') }}
+							{{ Form::label('clinical_notes', 'Provisional diagnosis') }}
 							{{Form::textarea('clinical_notes', Input::old('physician'), array('class' => 'form-control', 'rows'=>'2', 'placeholder' => 'Provisional diagnosis'))}}
 							</div>
 						</div>

@@ -27,4 +27,13 @@ class RejectionReason extends Eloquent
 		return $this->hasMany('PreAnalyticSpecimenRejection', 'specimen_id');
 	}
 
+	/**
+	* Analytic Specimen Rejection Reason Relationship
+	*/
+
+	public function analyticreasons()
+	{
+		return $this->belongsTo('AnalyticSpecimenRejectionReason', 'reason_id', 'id');
+	}
+
 }

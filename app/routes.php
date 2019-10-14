@@ -12,7 +12,7 @@
 /* Routes accessible before logging in */
 Route::group(array("before" => "guest"), function()
 {
-    /*
+   /*
     |-----------------------------------------
     | API route
     |-----------------------------------------
@@ -32,6 +32,13 @@ Route::group(array("before" => "guest"), function()
     Route::post('/api/saveresults', array(
         "uses" => "InterfacerController@saveTestResults"
     ));
+    // blisurl/api/saveresults?username=???&password=???&specimen_id?=1052&measure_id=68&result=5.23&dec=0
+    Route::get('/api/saveresults/{query?}', array(
+        "uses" => "InterfacerController@saveTestResultsFromInstrument"
+    ));
+    Route::get('/api/fetchrequests/{query?}', array(
+        "uses" => "InterfacerController@getTestRequestsForInstrument"
+    ));
     Route::any('/', array(
         "as" => "user.login",
         "uses" => "UserController@loginAction"
@@ -50,7 +57,10 @@ Route::group(array("before" => "auth"), function()
         "as" => "dashboard.index",
         "uses" => "DashboardController@index"
         ));
-
+    Route::any('/dashboard', array(
+        "as" => "user.dashboard",
+        "uses" => "DashboardController@index"
+        ));
     Route::group(array("before" => "checkPerms:manage_users"), function() {
         Route::resource('user', 'UserController');
         Route::get("/user/{id}/delete", array(
@@ -70,6 +80,10 @@ Route::group(array("before" => "auth"), function()
     Route::resource('bbincidence', 'BbincidenceController'); /* Added by Justus */
 
     //Unhls patient routes start here
+    // Route::any('unhls_patients/show', array(
+    //     "as" => "unhls_patients.show",
+    //     "uses" => "UnhlsPatientController@loadPatients"
+    //     ));
     Route::resource('unhls_patient', 'UnhlsPatientController');
    
 
@@ -146,21 +160,7 @@ Route::group(array("before" => "auth"), function()
         "as"   => "unhls_test.delete",
         "uses" => "UnhlsTestController@delete"
     ));
-    Route::get("unhls_test/completed", array(
-        "as" => "unhls_test.completed",
-        "uses" => "UnhlsTestController@completed"));
-    Route::get("unhls_test/pending", array(
-        "as" => "unhls_test.pending",
-        "uses" => "UnhlsTestController@pending"));
-    Route::get("unhls_test/started", array(
-        "as" => "unhls_test.started",
-        "uses" => "UnhlsTestController@started"));
-    Route::get("unhls_test/notrecieved", array(
-        "as" => "unhls_test.notrecieved",
-        "uses" => "UnhlsTestController@notRecieved"));
-    Route::get("unhls_test/verified", array(
-        "as" => "unhls_test.verified",
-        "uses" => "UnhlsTestController@verified"));
+    
     Route::get("/unhls_test/{test}/viewdetails", array(
         "as"   => "unhls_test.viewDetails",
         "uses" => "UnhlsTestController@viewDetails"
@@ -625,7 +625,7 @@ Route::group(array("before" => "auth"), function()
         ));
         Route::get('reports/dropdown', array(
             "as"    =>  "reports.dropdown",
-            "uses"  =>  "ReportController@reportsDropdown"
+            "uses"  =>  "ReportController@show"
         ));
         Route::any("/prevalence", array(
             "as"   => "reports.aggregate.prevalence",
@@ -666,7 +666,10 @@ Route::group(array("before" => "auth"), function()
             "as"   => "reports.aggregate.hmis105",
             "uses" => "ReportController@hmis105"
         ));
-
+        Route::any("report/hmis105/{month?}", array(
+            "as"   => "report.hmis105",
+            "uses" => "HmisReportController@hmis105"
+        ));
         Route::any("/cd4", array(
             "as"   => "reports.aggregate.cd4",
             "uses" => "ReportController@cd4"
@@ -696,7 +699,11 @@ Route::group(array("before" => "auth"), function()
             "as"   => "reports.microbiology.download",
             "uses" => "ReportController@downloadMicrobiology"
         ));
-    });
+
+        Route::any("rejection/{id}/{visit}/{testId?}", [
+        "as"   => 'rejection.report',
+        'uses' => 'UnhlsTestController@rejectionReport']);
+        });
     Route::group(array("before" => "checkPerms:manage_qc"), function()
     {
         Route::resource("lot", "LotController");
@@ -1109,4 +1116,13 @@ Route::group(array("before" => "auth"), function()
         "uses" => "StockRequisitionController@fetch"
     ));
 
+    Route::any("/lookups/list", array(
+            "as"   => "lookup.index",
+            "uses" => "LookUpController@index"
+        ));
+    Route::any("/lookups/deactivate", array(
+            "as"   => "lookup.deactivate",
+            "uses" => "LookUpController@deactivate"
+        ));
+    Route::resource('lookups', 'LookUpController');
 });

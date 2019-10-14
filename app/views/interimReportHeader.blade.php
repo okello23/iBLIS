@@ -43,13 +43,15 @@
         <td width="20%"><strong>Patient's Contact</strong>:</td>
         <td width="30%">{{ $patient->phone_number}}</td>
     </tr>
-    <tr>
+     <tr>
         <td width="20%"><b>Requesting Officer</b></td>
         <td width="30%">@if(isset($tests))
             @if(!empty($tests->first()))
                 @if(!empty($tests->first()->requested_by))
                     {{$tests->first()->clinician->name}}
-                @endif
+                @elseif(!empty($tests->first()->clinician_id))
+                    {{$tests->first()->clinician_id}}
+                    @endif
             @endif
             @endif
         </td>
