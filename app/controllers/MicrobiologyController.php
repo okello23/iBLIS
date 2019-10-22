@@ -30,10 +30,14 @@ class MicrobiologyController extends \BaseController {
 		$ulinFormat = AdhocConfig::where('name','ULIN')->first()->getULINFormat();
 		$facilities = ['Select facility']+Facility::where('active', '=', 1)->lists('name', 'id');
 		// Test Category
-		$categories = ['Select Lab Section']+TestCategory::lists('name', 'id');
+		$categories = ['Select Lab Section']+TestCategory::where('test_categories.id', '=', 2)->lists('name', 'id');
 		$testpurpose = ['Select Test Purpose']+UnhlsPurpose::orderBy('name', 'ASC')->lists('name', 'id');
+		$nation = ['0' => 'National', '1' => 'Refugee', '2' => 'Foreigner'];
+		$visitType = ['0' => 'Out-patient', '1' => 'In-patient', '2' => 'Referral'];
 		return View::make('microbio.create')
 					->with('ward', $wards)
+					->with('nation', $nation)
+					->with('visitType', $visitType)
 					->with('receptionDate', $receptionDate)
 					->with('collectionDate', $collectionDate)
 					->with('antibiotics', $antibiotics)
@@ -72,7 +76,7 @@ class MicrobiologyController extends \BaseController {
 			$nation = ['0' => 'National', '1' => 'Refugee', '2' => 'Foreigner'];
 			// store
 			$patient = new UnhlsPatient;
-			//$patient->patient_number = Input::get('patient_number');
+			$patient->patient_number = Input::get('patient_number');
 			$patient->nin = Input::get('nin');
 			$patient->name = Input::get('patient_name');
 			$patient->gender = Input::get('gender');
@@ -117,7 +121,7 @@ class MicrobiologyController extends \BaseController {
 			
 			$patientdetail->save();
 
-			$visitType = ['Out-patient','In-patient', 'Referral'];
+			
 			$activeTest = array();
 
 			// On antibiotics --- Lists all antibiotics
@@ -132,6 +136,8 @@ class MicrobiologyController extends \BaseController {
 					$drug->save();
 				}
 			}
+
+			$visitType = ['0' => 'Out-patient', '1' => 'In-patient', '2' => 'Referral'];
 
 			/*
 			 * - Create a visit

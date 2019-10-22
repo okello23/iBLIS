@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAadmissionDateToUnhlsVisitsTable extends Migration {
+class AddAadmissionDateToUnhlsPatientsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,9 @@ class AddAadmissionDateToUnhlsVisitsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('unhls_patients', function(Blueprint $table){
 
-			$table->date('admission_date')->nullable();
+		DB::update('ALTER TABLE unhls_patients ADD admission_date DATE NULL DEFAULT NULL AFTER is_micro');	
 
-		});
 	}
 
 	/**

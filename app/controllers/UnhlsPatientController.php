@@ -17,13 +17,12 @@ class UnhlsPatientController extends \BaseController {
 		{
 		$search = Input::get('search');
 
-		$patients = UnhlsPatient::search($search)->orderBy('id', 'desc')->paginate(Config::get('kblis.page-items'))->appends(Input::except('_token'));
+		$patients = UnhlsPatient::search($search)->orderBy('id', 'desc')->paginate(15)->appends(Input::except('_token'));
 
 		if (count($patients) == 0) {
 		 	Session::flash('message', trans('messages.no-match'));
 		}
 		$clinicianUI = AdhocConfig::where('name','Clinician_UI')->first()->activateClinicianUI();
-
 
 		// Load the view and pass the patients
 		return View::make('unhls_patient.index')
@@ -143,8 +142,11 @@ class UnhlsPatientController extends \BaseController {
 	public function create()
 	{
 		//Create Patient
+
+		$nation = ['0' => 'National', '1' => 'Refugee', '2' => 'Foreigner'];
 		$ulinFormat = AdhocConfig::where('name','ULIN')->first()->getULINFormat();
 		return View::make('unhls_patient.create')
+						->with('nation', $nation)
 						->with('ulinFormat', $ulinFormat);
 	}
 
@@ -169,14 +171,13 @@ class UnhlsPatientController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput(Input::all());
 		} else {
 
-			$nation = ['0' => 'National', '1' => 'Refugee', '2' => 'Foreigner'];
 			// store
 			$patient = new UnhlsPatient;
 			$patient->patient_number = Input::get('patient_number');
 			$patient->nin = Input::get('nin');
 			$patient->name = Input::get('name');
 			$patient->gender = Input::get('gender');
-			$patient->nationality = $nation[Input::get('nationality')];
+			$patient->nationality = Input::get('nationality');
 			$patient->dob = Input::get('dob');
 			$patient->village_residence = Input::get('village_residence');
 			$patient->village_workplace = Input::get('village_workplace');

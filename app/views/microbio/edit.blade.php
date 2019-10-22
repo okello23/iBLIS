@@ -49,9 +49,7 @@
 					</div>
 					<div class="form-group">
 						{{ Form::label('nationality', trans('Nationality')) }}
-						{{ Form::select('nationality', [' ' => '--- Select Nationality ---',
-							'0' => trans('National'),'1' => trans('Refugee'),'2' => trans('Foreigner')], $patient->nationality,
-						array('class' => 'form-control')) }}
+						{{ Form::select('nationality', Input::('old'),array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="col-md-12">
@@ -89,16 +87,12 @@
 				<div class="col-md-6">	
 						<div class="form-group">
 							{{ Form::label('ward','Ward/Clinic/Health Unit') }}
-							{{ Form::select('ward', $ward, Input::old('ward_id'), array('class' => 'form-control')) }}
-						</div>				
+							{{ Form::select('ward', $ward, Input::get('ward_id'), array('class' => 'form-control')) }}
+						</div>
 						<div class="form-group">
-							{{ Form::label('bed_no','Bed No:', array('text-align' => 'right')) }}
-							{{ Form::text('bed_no', Input::old('bed_no'), array('class' => 'form-control')) }}
-						</div>						
-						<div class="form-group">
-							{{ Form::label('facility_lab_number','Facility Lab No:', array('text-align' => 'right')) }}
-							{{ Form::text('facility_lab_number', Input::old('facility_lab_number'), array('class' => 'form-control')) }}
-						</div>					
+							{{ Form::label('patient_number', trans('messages.patient-number')) }}
+							{{ Form::text('patient_number', Input::old('patient_number'), array('class' => 'form-control')) }}
+						</div>							
 				</div>
 			</div>
 			<div class="form-pane panel panel-default">	
