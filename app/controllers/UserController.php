@@ -44,7 +44,12 @@ class UserController extends Controller {
     }
 
     public function homeAction(){
-        return View::make("user.home");
+//        return View::make("user.home");
+
+$logger = DataLogger::orderBy('dataAdded', 'DESC')->get();
+
+                        return View::make('datalogger.index')
+                        ->with('logger', $logger);
     }
 
 	public function dashboard(){

@@ -13,6 +13,10 @@
   <div class="panel-heading ">
     <span class="glyphicon glyphicon-list"></span>
     Data Logger Info
+<div class="panel-btn">
+		
+<a href="{{ URL::to('downloadExcel/csv') }}"><button class="btn btn-success">Download CSV</button></a>
+		</div>
 
   </div>
   <div class="panel-body">
@@ -22,6 +26,7 @@
         <tr>
           <th>Test Date</th>
           <th>Sample Origin</th>
+	<th>Entry Point</th>
           <th>Sample ID</th>
           <th>Test  Result</th>
           <th>Testing Device</th>
@@ -34,6 +39,7 @@
         <tr>
           <td>{{ $value->ResultDateString}}</td>
           <td>{{ $value->SiteName}}</td>
+	<td> {{$value->SpecimenSourceString}}</td>
           <td>{{ $value->Sample}}</td>
           <td>{{ $value->ResultValue}}</td>
           <td>{{ $value->DeviceTypeString}}</td>
@@ -41,11 +47,10 @@
           <td>
 
             <!-- delete this commodity (uses the delete method found at GET /inventory/{id}/delete -->
-            <button class="btn btn-sm btn-danger delete-item-link"
-            data-toggle="modal" data-target=".confirm-delete-modal"
-            data-id="{{ URL::route('commodity.delete', array($value->id)) }}">
-            <span class="glyphicon glyphicon-trash"></span>
-            {{trans('messages.delete')}}
+            <button class="btn btn-sm btn-info delete-item-link"
+            
+            <span class="glyphicon glyphicon-edit"></span>
+            {{trans('messages.edit')}}
           </button>
         </td>
       </tr>

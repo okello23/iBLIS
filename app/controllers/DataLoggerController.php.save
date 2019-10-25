@@ -22,11 +22,11 @@ public function index(){
 
 		//$fromRedirect = Session::pull('fromRedirect');
 
-		$today = Carbon\Carbon::today()->format('Y-m-d');
+		//$today = Carbon\Carbon::today()->format('Y-m-d');
 		//$today = CURDATE();
 		$handle = curl_init();
 
-		curl_setopt($handle, CURLOPT_URL,  "https://admin.datapoint.abbott/api/v1/results/GetByDateAdded?StartDate=2019-10-09&amp");
+		curl_setopt($handle, CURLOPT_URL,  "https://admin.datapoint.abbott/api/v1/results/GetByDateAdded?StartDate=$tdy&amp");
 		curl_setopt($handle,CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($handle,CURLOPT_HTTPHEADER, array(
 			"Authorization: 4e6034b7bdbdceee66ae1e92bb1ffb3d",
@@ -38,10 +38,10 @@ public function index(){
 		curl_close($handle);
 		$content = json_decode($response, true);
 		$results = $content['Results'];
-		//print_r($results);exit();
 
 		for($i=0; $i<sizeof($results); $i++){
-
+			
+//DataLogger::truncate();
 		$d =  DataLogger::firstOrCreate([
 				'id' => $results[$i]['Id'],'dataAdded' => $results[$i]['DateAdded'],'DeviceSerialNumber' => $results[$i]['DeviceSerialNumber'],'DeviceType' => $results[$i]['DeviceSerialNumber'],'DeviceTypeString' => $results[$i]['DeviceTypeString'],'Operator' => $results[$i]['Operator'],'SiteName' => $results[$i]['SiteName'],'TestId' => $results[$i]['TestId'],'Sample' => $results[$i]['Sample'],'IsEidSample' => $results[$i]['IsEidSample'],'ResultValue' => $results[$i]['ResultValue'],'SpecimenSource' => $results[$i]['SpecimenSource'],'ResultDate' => $results[$i]['ResultDate'],'ErrorValue' => $results[$i]['ErrorValue'],'SoftwareVersion' => $results[$i]['SoftwareVersion'],'Disease' => $results[$i]['Disease'],'CatridgeType' => $results[$i]['CartridgeType'],'CatridgeId' => $results[$i]['CartridgeId'],'CatridgeLot' => $results[$i]['CartridgeLot'],'CatridgeExpiryDate' => $results[$i]['CartridgeExpiryDate'],'ResultType' => $results[$i]['ResultType'],'HasErrors' => $results[$i]['HasErrors'],'IsSuppressed' => $results[$i]['IsSuppressed'],'Qc' => $results[$i]['Qc'],'DateApproved' => $results[$i]['DateApproved'],'ApprovedBy' => $results[$i]['ApprovedBy'],'ResultStatus' => $results[$i]['ResultStatus'],'ResultStatusString' => $results[$i]['ResultStatusString'],'CatridgeLotNumberAndId' => $results[$i]['CartridgeLotNumberAndId'],'ResultDateString' => $results[$i]['ResultDateString'],'DateAddedString' => $results[$i]['DateAddedString'],'CatridgeTypeString' => $results[$i]['CartridgeTypeString'],'SpecimenSourceString' => $results[$i]['SpecimenSourceString'],'DiseaseString' => $results[$i]['DiseaseString'],'CatridgeExpiryDateString' => $results[$i]['CartridgeExpiryDateString'],'ResultTypeString' => $results[$i]['ResultTypeString']]);
 if($d->id)
@@ -96,7 +96,7 @@ if($d->id)
 		,'dataId',
 		])->toArray();
 
-		return Excel::create('Datalogger', function($excel) use ($data)
+		return Excel::create('Malaria Datalogger data', function($excel) use ($data)
 		{
 		  $excel->sheet('mySheet', function($sheet) use ($data)
 		      {
