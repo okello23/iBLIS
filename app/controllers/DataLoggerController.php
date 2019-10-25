@@ -7,17 +7,15 @@ class DataLoggerController extends \BaseController {
 	*
 	* @return Response
 	*/
+	public function index(){
 
-	public function index()
-	{
-		// code...
+		//$fromRedirect = Session::pull('fromRedirect');
 
-		$fromRedirect = Session::pull('fromRedirect');
-
-		$date2 = new DateTime();
+		$today = Carbon\Carbon::today()->format('Y-m-d');
+		//$today = CURDATE();
 		$handle = curl_init();
 
-		curl_setopt($handle, CURLOPT_URL,  "https://admin.datapoint.abbott/api/v1/results/GetByDateAdded?StartDate=2019-01-01&amp");
+		curl_setopt($handle, CURLOPT_URL,  "https://admin.datapoint.abbott/api/v1/results/GetByDateAdded?StartDate=2019-10-10&amp");
 		curl_setopt($handle,CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($handle,CURLOPT_HTTPHEADER, array(
 			"Authorization: 4e6034b7bdbdceee66ae1e92bb1ffb3d",
@@ -32,9 +30,26 @@ class DataLoggerController extends \BaseController {
 
 		for($i=0; $i<sizeof($results); $i++){
 
-			$d =  DataLogger::firstOrNew([
-				'id' => $results[$i]['Id'],'dataAdded' => $results[$i]['DateAdded'],'DeviceSerialNumber' => $results[$i]['DeviceSerialNumber'],'DeviceType' => $results[$i]['DeviceSerialNumber'],'DeviceTypeString' => $results[$i]['DeviceTypeString'],'Operator' => $results[$i]['Operator'],'SiteName' => $results[$i]['SiteName'],'TestId' => $results[$i]['TestId'],'Sample' => $results[$i]['Sample'],'IsEidSample' => $results[$i]['IsEidSample'],'ResultValue' => $results[$i]['ResultValue'],'SpecimenSource' => $results[$i]['SpecimenSource'],'ResultDate' => $results[$i]['ResultDate'],'ErrorValue' => $results[$i]['ErrorValue'],'SoftwareVersion' => $results[$i]['SoftwareVersion'],'Disease' => $results[$i]['Disease'],'CatridgeType' => $results[$i]['CartridgeType'],'CatridgeId' => $results[$i]['CartridgeId'],'CatridgeLot' => $results[$i]['CartridgeLot'],'CatridgeExpiryDate' => $results[$i]['CartridgeExpiryDate'],'ResultType' => $results[$i]['ResultType'],'HasErrors' => $results[$i]['HasErrors'],'IsSuppressed' => $results[$i]['IsSuppressed'],'Qc' => $results[$i]['Qc'],'DateApproved' => $results[$i]['DateApproved'],'ApprovedBy' => $results[$i]['ApprovedBy'],'ResultStatus' => $results[$i]['ResultStatus'],'ResultStatusString' => $results[$i]['ResultStatusString'],'CatridgeLotNumberAndId' => $results[$i]['CartridgeLotNumberAndId'],'ResultDateString' => $results[$i]['ResultDateString'],'DateAddedString' => $results[$i]['DateAddedString'],'CatridgeTypeString' => $results[$i]['CartridgeTypeString'],'SpecimenSourceString' => $results[$i]['SpecimenSourceString'],'DiseaseString' => $results[$i]['DiseaseString'],'CatridgeExpiryDateString' => $results[$i]['CartridgeExpiryDateString'],'ResultTypeString' => $results[$i]['ResultTypeString']]);
-	$d->save();
+			$d =  DataLogger::firstOrCreate([
+				'id' => $results[$i]['Id'],'dataAdded' => $results[$i]['DateAdded'],'DeviceSerialNumber' => $results[$i]['DeviceSerialNumber'],'DeviceType' => $results[$i]['DeviceSerialNumber'],'DeviceTypeString' => $results[$i]['DeviceTypeString']
+				,'Operator' => $results[$i]['Operator'],'SiteName' => $results[$i]['SiteName'],'TestId' => $results[$i]['TestId'],'Sample' => $results[$i]['Sample'],'IsEidSample' => $results[$i]['IsEidSample']
+				,'ResultValue' => $results[$i]['ResultValue'],'SpecimenSource' => $results[$i]['SpecimenSource'],'ResultDate' => $results[$i]['ResultDate'],'ErrorValue' => $results[$i]['ErrorValue'],'SoftwareVersion' => $results[$i]['SoftwareVersion']
+				,'Disease' => $results[$i]['Disease'],'CatridgeType' => $results[$i]['CartridgeType'],'CatridgeId' => $results[$i]['CartridgeId'],'CatridgeLot' => $results[$i]['CartridgeLot'],'CatridgeExpiryDate' => $results[$i]['CartridgeExpiryDate']
+				,'ResultType' => $results[$i]['ResultType'],'QcType' => $results[$i]['QcType'],'Level' => $results[$i]['Level'],'HasErrors' => $results[$i]['HasErrors'],'IsSuppressed' => $results[$i]['IsSuppressed']
+				,'Qc' => $results[$i]['Qc'],'DateApproved' => $results[$i]['DateApproved'],'ApprovedBy' => $results[$i]['ApprovedBy'],'ResultStatus' => $results[$i]['ResultStatus'],'ResultStatusString' => $results[$i]['ResultStatusString']
+				,'CatridgeLotNumberAndId' => $results[$i]['CartridgeLotNumberAndId']
+				,'VId' => $results[$i]['VId'],
+				'Age' => $results[$i]['Age']
+				,'G' =>$results[$i]['G']
+				,'SId' => $results[$i]['SId']
+				,'TProv' => $results[$i]['TProv'],
+				'Latitude' => $results[$i]['Latitude'],'Longitude' => $results[$i]['Longitude'],'ResultDateString' => $results[$i]['ResultDateString'],'DateAddedString' => $results[$i]['DateAddedString']
+				,'CatridgeTypeString' => $results[$i]['CartridgeTypeString'],'SpecimenSourceString' => $results[$i]['SpecimenSourceString'],'DiseaseString'=>$results[$i]['DiseaseString'],'CatridgeExpiryDateString'=>$results[$i]['CartridgeExpiryDateString']
+				,'ResultTypeString' => $results[$i]['ResultTypeString']]);
+
+				// print_r($d);exit();
+				$d->save();
+
 			}
 
 			$logger = DataLogger::orderBy('dataAdded', 'DESC')->get();
@@ -44,12 +59,69 @@ class DataLoggerController extends \BaseController {
 			->with('message','New Data Received');
 		}
 
-
-		public function create()
+		public function downloadExcel($type)
 		{
-			//
-		}
+			$data = DataLogger::get( [
+			'DataAdded'
+			,'DeviceSerialNumber'
+			,'DeviceType'
+			,'DeviceTypeString'
+			,'Operator'
+			,'SiteName'
+			,'TestId'
+			,'Sample'
+			,'IsEidSample'
+			,'ResultValue'
+			,'SpecimenSource'
+			,'ResultDate'
+			,'ErrorValue'
+			,'SoftwareVersion'
+			,'Disease'
+			,'CatridgeType'
+			,'CatridgeId'
+			,'CatridgeLot'
+			,'CatridgeExpiryDate'
+			,'ResultType'
 
+			,'QcType'
+			,'Level'
+
+			,'HasErrors'
+			,'IsSuppressed'
+			,'Qc'
+			,'DateApproved'
+			,'ApprovedBy'
+			,'ResultStatus'
+			,'ResultStatusString'
+			,'CatridgeLotNumberAndId'
+
+
+			,'VId'
+			,'Age'
+			,'G'
+			,'SId'
+			,'TProv'
+			,'Latitude'
+			,'Longitude'
+
+			,'ResultDateString'
+			,'ResultDateString'
+			,'DateAddedString'
+			,'CatridgeTypeString'
+			,'SpecimenSourceString'
+			,'DiseaseString'
+			,'CatridgeExpiryDateString'
+			,'ResultTypeString',
+			])->toArray();
+
+			return Excel::create('Malaria Datalogger data', function($excel) use ($data)
+			{
+				$excel->sheet('mySheet', function($sheet) use ($data)
+				{
+					$sheet->fromArray($data);
+				});
+			})->download($type);
+		}
 		public function store()
 		{
 			//

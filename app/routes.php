@@ -938,6 +938,7 @@ Route::group(array("before" => "checkPerms:request_topup"), function()
 
      // Data Logger route
      Route::resource('datalogger', 'DataLoggerController');
+  Route::get('downloadExcel/{type}', 'DataLoggerController@downloadExcel');
 
 	 Route::post("/datalogger/logger", array(
         "as"   => "data.logger",

@@ -13,6 +13,10 @@
   <div class="panel-heading ">
     <span class="glyphicon glyphicon-list"></span>
     Data Logger Info
+<div class="panel-btn">
+		
+<a href="{{ URL::to('downloadExcel/csv') }}"><button class="btn btn-success">Download CSV</button></a>
+		</div>
 
   </div>
   <div class="panel-body">
