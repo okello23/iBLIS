@@ -65,7 +65,7 @@ class UnhlsTestController extends \BaseController {
 		}
 
 		// Pagination
-		$tests = $tests->paginate(15);
+		$tests = $tests->paginate(Config::get('kblis.page-items'))->appends($input);
 
 		//	Barcode
 		$barcode = Barcode::first();
@@ -532,7 +532,7 @@ class UnhlsTestController extends \BaseController {
 		$test->test_status_id = UnhlsTest::COMPLETED;
 		$test->tested_by = Auth::user()->id;
 		$test->time_completed = date('Y-m-d H:i:s');
-		$test->equipment_id =  Input::get('equipment_id');
+		$test->equipment_id =  empty(Input::get('equipment_id')) ? Null : Input::get('equipment_id');	
 		// $test->method_used =  Input::get('method_used');
 		$test->free_text_interpretation =  Input::get('free_text_interpretation');
 

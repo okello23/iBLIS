@@ -49,7 +49,8 @@
 					</div>
 					<div class="form-group">
 						{{ Form::label('nationality', trans('Nationality')) }}
-						{{ Form::select('nationality', Input::('old'),array('class' => 'form-control')) }}
+						{{ Form::select('nationality', array_merge(array(' ' => '--- Select Nationality ---'), $nation),
+						 Input::old('nationality'),array('class' => 'form-control')) }}
 					</div>
 				</div>
 				<div class="col-md-12">

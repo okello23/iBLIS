@@ -4,7 +4,7 @@ $(document).ready(function () {
 	*Code for datatables
 	*/
 	$('#patient_visits_datatable').DataTable();
-	$('#patients_table').DataTable();
+	$('#patients_table').DataTable({ "pageLength": 15});
 
 	/**
 	* Event manager for loading dependent select/drop-down for Health Centre Units

@@ -10,7 +10,7 @@ return [
     'FACILITY_CODE' => 'JRRH',
     'FACILITY_OWNERSHIP_ID' => '1',
     'FIN_YEAR_ID' => '1',
-    'FIN_YEAR_NAME' => '2017/2018',
+    'FIN_YEAR_NAME' => '2019/2020',
     'INCOMING_STOCK_FLAG' => 'I',    
     'OUTGOING_STOCK_FLAG' => 'O',    
     'LOSSES_ADJUSTMENTS_STOCK_FLAG' => 'A',

@@ -44,15 +44,18 @@
         <td width="20%"><strong>Patient's Contact</strong>:</td>
         <td width="30%">{{ $patient->phone_number}}</td>
     </tr>
-    <tr>
+   <tr>
         <td width="20%"><b>Requesting Officer</b></td>
         <td width="30%">
-            {{ $tests->first()->clinician->name }}        
+            @if(isset($tests))
+                {{ $tests->first()->clinician == '' ? '' : $tests->first()->clinician->name }}  
+            @endif       
         </td>
-        
         <td width="20%"><b>Officer's Contact</b></td>
         <td width="30%">
-            {{ $tests->first()->clinician->phone }}             
+            @if(isset($tests))
+                {{ $tests->first()->clinician == '' ? '' : $tests->first()->clinician->phone }}  
+            @endif       
         </td>
     </tr>       
     <tr>

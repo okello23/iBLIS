@@ -46,23 +46,15 @@
     <tr>
         <td width="20%"><b>Requesting Officer</b></td>
         <td width="30%">
-            @if($patient->isMicro())
-                {{ $patient->microDetails->requested_by}}
-            @elseif($patient->isNotMicro())
-                {{ $tests->first()->requested_by }}
-            @else
-                 {{ $tests->first()->clinician->name }}
-            @endif           
+            @if(isset($tests))
+                {{ $tests->first()->clinician == '' ? '' : $tests->first()->clinician->name }}  
+            @endif       
         </td>
         <td width="20%"><b>Officer's Contact</b></td>
         <td width="30%">
-            @if($patient->isMicro())
-                {{ $patient->microDetails->clinician_contact}}
-            @elseif($patient->isNotMicro())
-                {{ '' }}
-            @else
-                 {{ $tests->first()->clinician->phone }}
-            @endif           
+            @if(isset($tests))
+                {{ $tests->first()->clinician == '' ? '' : $tests->first()->clinician->phone }}  
+            @endif       
         </td>
     </tr>       
     <tr>

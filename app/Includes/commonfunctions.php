@@ -388,4 +388,38 @@ function time_elapsed($secs){
 	$result = DB::select($query);
 	return $result[0]->reason;
  }
+
+function getIsolatedOrganismResult($isolated_organism_id, $drug_id){
+	$query = "select dsm.symbol from isolated_organisms io
+		left join drug_susceptibility ds on(io.id = ds.isolated_organism_id)
+		left join drug_susceptibility_measures dsm on (dsm.id = ds.drug_susceptibility_measure_id)
+		WHERE io.id = ".$isolated_organism_id." AND drug_id = ".$drug_id;
+
+	//\Log::info($query);
+
+	$processed_result = '';
+	if($isolated_organism_id != '' && $drug_id != '')
+	{
+		$result = DB::select($query);
+		
+		if(count($result)){
+			
+			$processed_result  = $result[0]->symbol;
+
+		}
+	}
+	//dd($query);
+	return $processed_result;
+}
+
+function countIsolatedOrganism($test_id)
+{
+	$query = "select count(organism_id) FROM isolated_organisms io WHERE io.test_id = ".$test_id;
+	$result = DB::select($query);
+	return $result;  
+
+}
+	
+
+
 ?>

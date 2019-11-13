@@ -87,11 +87,19 @@
             </td>
         </tr>
         <tr>
-			<td width="50%" style="font-size:9px">
-				<b>Rejected Date & Time</b>:{{ $test->analyticSpecimenRejections->time_rejected }}
-			</td>
-		</tr>
+        	<td><b>Rejected Date & Time:</b></td>
+       	    <td colspan="2">
+           		{{ $test->analyticSpecimenRejections->time_rejected }}
+        	</td>
+  		</tr>
     </table>
+    <table style="border-bottom: 1px solid #cecfd5; font-size:10px;font-family: 'Bookman Old Style;">
+		<thead>
+			<tr>
+				<th width="20%">Corrective Action :</th>
+			</tr>
+		</thead>
+	</table>
 
 
 	@elseif($test->testType->isCulture())
@@ -186,7 +194,7 @@
 	<tr><td></td></tr>
 	<tr>
 		<td>
-			<strong>Approved By :
+			<strong>Reviewed By :
 				
 			  @if(isset($tests))
                 @if(!empty($tests->first()))

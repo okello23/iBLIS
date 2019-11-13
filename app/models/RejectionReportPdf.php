@@ -13,7 +13,7 @@ class RejectionReportPdf extends TCPDF {
 		}*/
 
 		$this->writeHTML(View::make('rejectionReportHeader',$this->getTestRequestInformation()), true, false, true, false, '');
-		$this->SetMargins(PDF_MARGIN_LEFT, 75, PDF_MARGIN_RIGHT);
+		$this->SetMargins(PDF_MARGIN_LEFT, 84, PDF_MARGIN_RIGHT);
 		
 	}
 

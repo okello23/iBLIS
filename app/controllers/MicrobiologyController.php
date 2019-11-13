@@ -230,12 +230,14 @@ class MicrobiologyController extends \BaseController {
 		$categories = ['Select Lab Section']+TestCategory::lists('name', 'id');
 		$testpurpose = ['Select Test Purpose']+UnhlsPurpose::orderBy('name', 'ASC')->lists('name', 'id');
 		$patientAntibiotics = PatientAntibiotics::where('patient_id', $patient->id)->lists('drug_id');
+		$nation = ['0' => 'National', '1' => 'Refugee', '2' => 'Foreigner'];
 		$visits = UnhlsVisit::find($id);
 		//dd($patientAntibiotics);
 		return View::make('microbio.edit')
 					->with('patient', $patient)
 					->with('ward', $wards)
 					->with('visits', $visits)
+					->with('nation', $nation)
 					->with('receptionDate', $receptionDate)
 					->with('collectionDate', $collectionDate)
 					->with('antibiotics', $antibiotics)
@@ -351,7 +353,7 @@ class MicrobiologyController extends \BaseController {
 			$visit = UnhlsVisit::find($id);
 			$visit->patient_id = $patient->id;
 			$visit->visit_type = $visitType[Input::get('visit_type')];
-			$visit->ward_id = Input::get('ward_id');
+			$visit->ward_id = Input::get('ward');
 			$visit->bed_no = Input::get('bed_no');
 			$visit->facility_id = Input::get('facility');
 			$visit->facility_lab_number = Input::get('facility_lab_number');

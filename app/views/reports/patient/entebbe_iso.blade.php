@@ -6,7 +6,7 @@
 <table style="border-bottom: 1px solid #cecfd5; font-size:9px; font-family: Bookman Old Style;">
 	<thead>
 	    <tr>
-	            <th width="20%"><strong>Sample Type</strong></th>
+	            <th width="20%"><strong>Primary Sample Type</strong></th>
 	            <th width="20%"><strong>Date Collected</strong></th>
 	            
 	            <th width="20%"><strong>Date Received</strong></th>
@@ -111,7 +111,7 @@
 						@else
 							<tr>
 								<td width="50%" style="font-size:9px">
-									<b>Equipment Used</b>:{{ $test->getEquipement->name }}
+									<b>Equipment Used</b>:{{ $test->getEquipement == '' ? 'N/A' : $test->getEquipement->name }}
 								</td>				
 							</tr>
 							<tr>

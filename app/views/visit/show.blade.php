@@ -91,6 +91,7 @@
                         <th>{{ Lang::choice('messages.test',1) }}</th>
                         <!-- <th>Actions</th> -->
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -122,8 +123,18 @@
                                 <span class='label label-success'>
                                     {{trans('messages.verified')}}</span>
                             @endif
-
                         </td>
+                        @if($test->isPending() || $test->isStarted())
+                        <td>
+                            <a class="btn btn-sm btn-danger"
+                                href="{{ URL::route('unhls_test.delete', $test->id) }}"
+                                id="view-details-{{$test->id}}-link" 
+                                title="Delete Test">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                Delete
+                            </a>
+                        </td>
+                        @endif
                     </tr>
                 @endforeach
                 </tbody>

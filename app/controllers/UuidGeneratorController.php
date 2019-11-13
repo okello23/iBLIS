@@ -24,6 +24,7 @@ class UuidGeneratorController extends \BaseController {
 			$uuid = new UuidGenerator;
 
 			if($incrementNum > 1){
+				$uuid->truncate();
 				$uuid->id = $incrementNum;
 				$uuid->counter = $incrementNum;
 				$uuid->save();

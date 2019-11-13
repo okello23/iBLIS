@@ -26,7 +26,7 @@ class UnhlsTest extends Eloquent
 	const APPROVED = 7;//The final phase of a test. This means that all tests for this patient's visit are ready to be officially handed over
 
 	const REFERRED_IN = 8;//Changed the flags. 
-	const REFERRED_OUT = 9;//Changed the flags.
+	const REFERRED_OUT = 7;//Changed the flags.
 
 
 	/**

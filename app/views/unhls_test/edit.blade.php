@@ -128,13 +128,10 @@
                                       
                                        
                         </div>
-                         <div class="form-group">
-                                {{  Form::label('method_used', 'Method used', array('class'=>'control-label')) }}
-                                  
-                                        {{ Form::select('method_used', $test_methods, $test->method_used, array('class' => 'form-control', 'id' => 'method_used')) }}  
-                                      
-                                       
-                        </div>
+                        <!--  <div class="form-group">
+                            {{  Form::label('method_used', 'Method used', array('class'=>'control-label')) }}                                  
+                            {{ Form::select('method_used', $test_methods, $test->method_used, array('class' => 'form-control', 'id' => 'method_used')) }}                             
+                        </div> -->
 		                <div class="form-group">
 		                    {{ Form::label('interpretation', trans('messages.interpretation')) }}
 		                    {{ Form::textarea('interpretation', $test->interpretation, 

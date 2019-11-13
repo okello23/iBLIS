@@ -16,9 +16,10 @@ class AddColumnsToUnhlsEquipmentBreakdownTable extends Migration {
 			'ALTER TABLE unhls_equipment_breakdown CHANGE COLUMN created_at created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER comment');
 		DB::update('ALTER TABLE unhls_equipment_breakdown CHANGE COLUMN updated_at updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER created_at');
 		DB::update('ALTER TABLE unhls_equipment_breakdown ADD COLUMN deleted_at TIMESTAMP NULL DEFAULT NULL AFTER updated_at');
+		DB::update('ALTER TABLE unhls_equipment_breakdown ADD COLUMN intervention_authority VARCHAR(255) NULL DEFAULT NULL AFTER equipment_failure');
 
-		DB::update('ALTER TABLE unhls_equipment_breakdown 
-			CHANGE COLUMN `intervention_authorit	y` `intervention_authority` VARCHAR(255) NULL COLLATE utf8_unicode_ci AFTER reporting_officer_email');
+		// DB::update('ALTER TABLE unhls_equipment_breakdown 
+		// 	CHANGE COLUMN `intervention_authorit	y` `intervention_authority` VARCHAR(255) NULL COLLATE utf8_unicode_ci AFTER reporting_officer_email');
 
 		DB::update('ALTER TABLE unhls_equipment_breakdown ALTER COLUMN equipment_failure DROP DEFAULT');
 		DB::update('ALTER TABLE unhls_equipment_breakdown ALTER COLUMN reporting_officer DROP DEFAULT');
@@ -48,7 +49,6 @@ class AddColumnsToUnhlsEquipmentBreakdownTable extends Migration {
 		DB::update('ALTER TABLE unhls_equipment_breakdown DROP COLUMN equipment_code');
 		DB::update('ALTER TABLE unhls_equipment_breakdown DROP COLUMN equipment_type');
 
-		//DB::update('ALTER TABLE unhls_equipment_breakdown ADD COLUMN intervention_authority VARCHAR(255) NULL DEFAULT NULL AFTER equipment_failure');
 
 	}
 

@@ -43,28 +43,18 @@
         <td width="20%"><strong>Patient's Contact</strong>:</td>
         <td width="30%">{{ $patient->phone_number}}</td>
     </tr>
-     <tr>
+      <tr>
         <td width="20%"><b>Requesting Officer</b></td>
-        <td width="30%">@if(isset($tests))
-            @if(!empty($tests->first()))
-                @if(!empty($tests->first()->requested_by))
-                    {{$tests->first()->clinician->name}}
-                @elseif(!empty($tests->first()->clinician_id))
-                    {{$tests->first()->clinician_id}}
-                    @endif
-            @endif
-            @endif
+        <td width="30%">
+            @if(isset($tests))
+                {{ $tests->first()->clinician == '' ? '' : $tests->first()->clinician->name }}  
+            @endif       
         </td>
         <td width="20%"><b>Officer's Contact</b></td>
-        <td width="30%">@if(isset($tests))
-                @if(!empty($tests->first()))
-                    @if(!empty($tests->first()->therapy->contact))
-                        {{$tests->first()->therapy->contact}}
-                    @elseif(!empty($tests->first()->clinician->phone))
-                        {{$tests->first()->clinician->phone}}
-                    @endif
-                @endif
-            @endif
+        <td width="30%">
+            @if(isset($tests))
+                {{ $tests->first()->clinician == '' ? '' : $tests->first()->clinician->phone }}  
+            @endif       
         </td>
     </tr>       
     <tr>
