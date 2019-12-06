@@ -59,7 +59,7 @@ class UnhlsTest extends Eloquent
 	*/
 	public function clinician()
 	{
-		return $this->belongsTo('Clinician','clinician_id');
+		return $this->belongsTo('Clinician', 'requested_by', 'id');
 	}
 
 	public function getClinician()
@@ -213,12 +213,19 @@ class UnhlsTest extends Eloquent
 	 */
 	public function isCompleted()
 	{
-		if($this->test_status_id == UnhlsTest::COMPLETED || $this->test_status_id == UnhlsTest::VERIFIED)
+		if($this->test_status_id == UnhlsTest::COMPLETED)
 			return true;
 		else 
 			return false;
 	}
 
+	public function isCompletedVerifiedorApproved()
+	{
+		if($this->test_status_id == UnhlsTest::COMPLETED || $this->test_status_id == UnhlsTest::VERIFIED || $this->test_status_id == UnhlsTest::APPROVED)
+			return true;
+		else 
+			return false;
+	}
 	/**
 	 * Helper function: check if the Test status is VERIFIED
 	 *

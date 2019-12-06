@@ -111,12 +111,12 @@ class CreateInventoryTables extends Migration {
 	 */
 	public function down()
 	{
-        Schema::dropIfExists('issues');
-        Schema::dropIfExists('topup_requests');
-        Schema::dropIfExists('receipts');
-        Schema::dropIfExists('suppliers');
-        Schema::dropIfExists('commodities');
         Schema::dropIfExists('metrics');
+        Schema::dropIfExists('commodities');
+        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('receipts');
+        Schema::dropIfExists('topup_requests');
+        Schema::dropIfExists('issues');
 	}
 
 }
