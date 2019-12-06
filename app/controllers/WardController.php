@@ -44,7 +44,6 @@ class WardController extends \BaseController {
         //Validation
         $rules = array(
             'name' => 'required|unique:wards,name',
-            'ward_type_id' => 'required'
             );
         $validator = Validator::make(Input::all(), $rules);
     
@@ -56,7 +55,6 @@ class WardController extends \BaseController {
             $ward = new Ward;
             $ward->name = Input::get('name');
             $ward->description = Input::get('description');
-            $ward->ward_type_id = Input::get('ward_type_id');
             try{
                 $ward->save();
             
@@ -107,7 +105,7 @@ class WardController extends \BaseController {
     public function update($id)
     {
         //Validate
-        $rules = array('name' => 'required','ward_type_id'=>'required');
+        $rules = array('name' => 'required');
         $validator = Validator::make(Input::all(), $rules);
 
         // process the login
@@ -118,7 +116,6 @@ class WardController extends \BaseController {
             $ward = Ward::find($id);
             $ward->name = Input::get('name');
             $ward->description = Input::get('description');
-            $ward->ward_type_id = Input::get('ward_type_id');
             $ward->save();
 
             // redirect

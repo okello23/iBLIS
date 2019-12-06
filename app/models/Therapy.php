@@ -19,6 +19,6 @@ class Therapy extends Eloquent
 	{
 		return $this->belongsTo('Clinician','clinician_id');
 	}
-
+	
 
 }

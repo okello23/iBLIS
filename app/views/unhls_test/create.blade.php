@@ -58,32 +58,44 @@
 									<div class="panel-body inline-display-details">
 									<div class="col-md-12">
 										<div class="form-group">
-												{{ Form::label('visit_lab_number','Visit Lab No:', array('text-align' => 'right')) }}
-												{{ Form::text('visit_lab_number', Input::old('visit_lab_number'), array('class' => 'form-control')) }}
-										</div>
-										<div class="form-group">
 											{{ Form::hidden('patient_id', $patient->id) }}
 											{{ Form::label('visit_type', trans("messages.visit-type")) }}
-											{{ Form::select('visit_type', [' ' => '--- Select visit type ---','2' => trans("messages.out-patient"),'1' => trans("messages.in-patient")], null,
-												 array('class' => 'form-control','id' => 'visit_type_dropdown_id')) }}
+											{{ Form::select('visit_type', [' ' => '--- Select visit type ---',
+											'0' => trans("messages.out-patient"),'1' => trans("messages.in-patient"),'2' => trans("messages.refferrals")], null,
+												 array('class' => 'form-control')) }}
 										</div>
-										<div class="form-group">
+										<!-- <div class="form-group">
 											{{ Form::label('ward_id','Ward/Clinic/Health Unit') }}
-											{{ Form::select('ward_id', [' ' => '--- ---'], Input::get('ward_id'),
+											{{ Form::select('ward_id', [' ' => '- -'], Input::get('ward_id'),
 											array('class' => 'form-control','id'=>'ward_dropdown_id','name'=>'ward_dropdown')) }}
-										</div>
-										<!--div class="form-group">
+										</div> -->
+										<div class="form-group">
 											{{ Form::label('ward_id','Ward/Clinic/Health Unit') }}
 											{{ Form::select('ward_id', $ward, Input::get('ward_id'),
 											array('class' => 'form-control')) }}
-										</div-->
+										</div>
 										<div class="form-group">
 												{{ Form::label('bed_no','Bed No:', array('text-align' => 'right')) }}
 												{{ Form::text('bed_no', Input::old('bed_no'), array('class' => 'form-control')) }}
 										</div>
 										<div class="form-group">
-											{{ Form::label('clinical_notes','Clinical Notes',array('class' => 'required')) }}
-											{{ Form::textarea('clinical_notes', Input::old('clinical_notes'), array('class' => 'form-control')) }}
+												{{ Form::label('facility','Facility Name:') }}
+												{{ Form::select('facility', $facilities, Input::get('facility'), array('class' => 'form-control')) }}
+										</div>
+										<div class="form-group">
+												{{ Form::label('facility_lab_number','Facility Lab No:', array('text-align' => 'right')) }}
+												{{ Form::text('facility_lab_number', Input::old('facility_lab_number'), array('class' => 'form-control')) }}
+										</div>
+										<div class="form-group">
+											{{ Form::label('clinical_notes','Clinical Notes' ) }}
+											{{ Form::textarea('clinical_notes', Input::old('clinical_notes'), array('class' => 'form-control', 'rows' => '2')) }}
+										</div>
+										<div class="form-group">
+											{{ Form::label('urgency', 'Type of request') }}
+											<div>{{ Form::radio('urgency', '0', false) }}
+											<span class="input-tag">Normal</span></div>
+											<div>{{ Form::radio("urgency", '1', false) }}
+											<span class="input-tag">Emergency</span></div>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -96,9 +108,18 @@
 											{{ Form::text('current_therapy', Input::old('current_therapy'), array('class' => 'form-control')) }}
 										</div>
 										<div class="form-group">
+										
+	
+										
 											{{ Form::label('clinician', 'Test Requested By',array('class' => 'required')) }}
 											{{ Form::select('clinician', $clinicians, null,
 											array('class' => 'form-control','id'=>'clinician_dropdown_id')) }}
+										
+											{{ Form::label('intern', 'Intern Doc',array('class' => 'required')) }}
+											{{ Form::text('intern', Input::old('intern'),
+											array('class' => 'form-control')) }}
+										
+
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -118,7 +139,7 @@
 											'name'=>'clinician_email'))}}
 										</div>
 									</div>
-									<div class="col-md-6">
+									<!-- <div class="col-md-6">
 										<div class="form-group">
 											{{ Form::label('hospitalized', 'Hospitalized for more than 48 hours') }}
 											<div>{{ Form::radio('hospitalized', '1', false) }}
@@ -135,7 +156,7 @@
 											<div>{{ Form::radio("on_antibiotics", '0', false) }}
 											<span class="input-tag">No</span></div>
 										</div>
-									</div>
+									</div> -->
 									<div class="form-pane panel panel-default">
 										<div class="col-md-6">
 											<div class="form-group">

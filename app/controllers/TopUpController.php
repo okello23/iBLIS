@@ -1,6 +1,6 @@
 <?php
 
-class TopUpController extends \BaseController {
+class TopupController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,11 +9,9 @@ class TopUpController extends \BaseController {
 	 */
 	public function index()
 	{
-		$topupRequests = TopupRequest::all();
-		return View::make('topup.index')->with('topupRequests', $topupRequests);
+		$requests = Topup::all();
+		return View::make('inventory.request.index')->with('requests', $requests);
 	}
-
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -21,17 +19,12 @@ class TopUpController extends \BaseController {
 	 */
 	public function create()
 	{
-		$receipts = Receipt::all();
-		$commodities = Commodity::has('receipts')->lists('name', 'id');
-		$sections = TestCategory::all()->lists('name', 'id');
-
-		return View::make('topup.create')
-			->with('receipts', $receipts)
-			->with('sections', $sections)
-			->with('commodities', $commodities);
+		$items = Item::lists('name', 'id');
+		$testCategories = TestCategory::lists('name', 'id');
+		return View::make('inventory.request.create')
+			->with('testCategories', $testCategories)
+			->with('items', $items);
 	}
-
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -40,31 +33,35 @@ class TopUpController extends \BaseController {
 	public function store()
 	{
 		$rules = array(
-			'commodity' => 'required',
-			'lab_section' => 'required',
-			'order_quantity' => 'required'
+			'item_id' => 'required',
+			'test_category_id' => 'required',
+			'quantity_ordered' => 'required'
 		);
 		$validator = Validator::make(Input::all(), $rules);
-
 		// process the login
 		if ($validator->fails()) {
-		return Redirect::route('topup.index')->withErrors($validator);
+		return Redirect::route('inventory.request.index')->withErrors($validator);
 		} else {
 			// store
-			$labTopup = new TopupRequest;
-			$labTopup->commodity_id = Input::get('commodity');
-			$labTopup->test_category_id = Input::get('lab_section');
-			$labTopup->order_quantity = Input::get('order_quantity');
-			$labTopup->remarks = Input::get('remarks');
-			$labTopup->user_id = Auth::user()->id;
-			$labTopup->save();
+			$request = new Topup;
+			$request->item_id = Input::get('item_id');
+			$request->quantity_remaining = Input::get('quantity_remaining');
+			$request->test_category_id = Input::get('test_category_id');
+			$request->tests_done = Input::get('tests_done');
+			$request->quantity_ordered = Input::get('quantity_ordered');
+			$request->remarks = Input::get('remarks');
+			$request->user_id = Auth::user()->id;
+			try{
+				$request->save();
+				$url = Session::get('SOURCE_URL');
 
-			return Redirect::route('topup.index')
-				->with('message', 'Successfully added');
+            	return Redirect::to($url)
+					->with('message', trans('messages.record-successfully-saved')) ->with('activerequest', $request ->id);
+			}catch(QueryException $e){
+				Log::error($e);
+			}
 		}
 	}
-
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -73,10 +70,11 @@ class TopUpController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		//show a request
+		$request =Topup::find($id);
+		//show the view and pass the $request to it
+		return View::make('inventory.request.show')->with('request', $request);
 	}
-
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -85,16 +83,18 @@ class TopUpController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$topupRequest = TopupRequest::find($id);
-		$commodities = Commodity::has('receipts')->lists('name', 'id');
-		$sections = TestCategory::all()->lists('name', 'id');
-		return View::make('topup.edit')
-			->with('topupRequest', $topupRequest)
-			->with('sections', $sections)
-			->with('commodities', $commodities);
+		$request = Topup::find($id);
+		$items = Item::lists('name', 'id');
+		$item = $request->item_id;
+		$testCategories = TestCategory::lists('name', 'id');
+		$testCategory = $request->test_category_id;
+		return View::make('inventory.request.edit')
+			->with('testCategories', $testCategories)
+			->with('items', $items)
+			->with('item', $item)
+			->with('request', $request)
+			->with('testCategory', $testCategory);
 	}
-
-
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -105,24 +105,29 @@ class TopUpController extends \BaseController {
 	{
 		$rules = array(
 			'commodity' => 'required',
-			'order_quantity' => 'required',
-			'lab_section' => 'required'
+			'quantity_ordered' => 'required',
+			'test_category_id' => 'required'
 		);
 		// Update
-		$labTopup = TopupRequest::find($id);
-		$labTopup->commodity_id = Input::get('commodity');
-		$labTopup->test_category_id = Input::get('lab_section');
-		$labTopup->order_quantity = Input::get('order_quantity');
-		$labTopup->user_id = Auth::user()->id;
-		$labTopup->remarks = Input::get('remarks');
+		$request = Topup::find($id);
+		$request->item_id = Input::get('item_id');
+		$request->quantity_remaining = Input::get('quantity_remaining');
+		$request->test_category_id = Input::get('test_category_id');
+			$request->tests_done = Input::get('tests_done');
+		$request->quantity_ordered = Input::get('quantity_ordered');
+		$request->remarks = Input::get('remarks');
+		$request->user_id = Auth::user()->id;
+		try
+		{
+			$request->save();
+			$url = Session::get('SOURCE_URL');
 
-		$labTopup->save();
-
-		return Redirect::route('topup.index')
-				->with('message', 'Successfully updated');
+        	return Redirect::to($url)
+				->with('message', trans('messages.record-successfully-updated')) ->with('activerequest', $request ->id);
+		}catch(QueryException $e){
+			Log::error($e);
+		}
 	}
-
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -131,20 +136,17 @@ class TopUpController extends \BaseController {
 	 */
 	public function delete($id)
 	{
-		//Soft delete the patient
-		$commodity = TopupRequest::find($id);
-		$commodity->delete();
-
-		// redirect
-		return Redirect::route('topup.index')
-			->with('message', 'The commodity was successfully deleted!');
-	}
-
-	/**
-	* for autofilling issue form, from db data
-	*/
-	public function availableStock($id){
-		$receipt = Commodity::find($id)->available();
-		return Response::json(array('availableStock' => $receipt));
+		//Soft delete the request
+		$request = Topup::find($id);
+		if(count($request->usage)>0)
+		{
+			return Redirect::route('request.index')->with('message', trans('messages.failure-delete-record'));
+		}
+		else
+		{
+			$request->delete();
+			// redirect
+			return Redirect::route('request.index')->with('message', trans('messages.record-successfully-deleted'));
+		}
 	}
 }

@@ -8,6 +8,8 @@ class UnhlsPatient extends Eloquent
 	const FEMALE = 1;
 	const BOTH = 2;
 	const UNKNOWN = 3;
+	const MICRO = 1;
+	const NOTMICRO = 0;
 	/**
 	 * Enabling soft deletes for patient details.
 	 *
@@ -27,7 +29,14 @@ class UnhlsPatient extends Eloquent
 	 */
     public function visits()
     {
-        return $this->hasMany('UnhlsVisit');
+        return $this->hasMany('UnhlsVisit', 'patient_id');
+    }
+/**
+	 * Visits relationship
+	 */
+    public function microDetails()
+    {
+        return $this->hasOne('MicroPatientDetail', 'patient_id');
     }
 
 
@@ -37,6 +46,13 @@ class UnhlsPatient extends Eloquent
 
     	return $patients;
     }
+    /**
+	 * District relationship
+	 */
+    public function district()
+	{
+		return $this->belongsTo('District', 'id');
+	}
 
     
 	/**
@@ -51,10 +67,7 @@ class UnhlsPatient extends Eloquent
 		if(!$at)$at = new DateTime('now');
 
 		$dateOfBirth = new DateTime($this->dob);
-		$interval = $dateOfBirth->diff($at);
-		
-
-		
+		$interval = $dateOfBirth->diff($at);		
 		$age = "";
 
 		switch ($format) {
@@ -208,7 +221,12 @@ class UnhlsPatient extends Eloquent
 			}
 			return $initials.'/'.$month.'/'.$autoNum.'/'.$year;
 			// MG/12/220/17
-		}else{
+		}elseif($format == 'Rukunyu_SOP'){
+			$yearMonth = date('m/y', $registrationDate);
+			$autoNum = DB::table('uuids')->max('id')+1;
+			return $autoNum.'/'.$yearMonth;
+		}
+		else{
 			$yearMonth = date('ym', $registrationDate);
 			$autoNum = DB::table('uuids')->max('id')+1;
 			$name = preg_split("/\s+/", trim($this->name));
@@ -220,5 +238,17 @@ class UnhlsPatient extends Eloquent
 			}
 			return $facilityCode.'/'.$yearMonth.'/'.$autoNum.'/'.$initials;
 		}
+    }
+    public function isMicro(){
+    	if($this->is_micro == UnhlsPatient::MICRO)
+			return true;
+		else 
+			return false;
+    }
+    public function isNotMicro(){
+    	if($this->is_micro == UnhlsPatient::NOTMICRO)
+			return true;
+		else 
+			return false;
     }
 }

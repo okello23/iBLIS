@@ -127,15 +127,17 @@
 				<br><br>
 
 				<div class="form-group">
-					{{ Form::label('pcr_level', '1st or 2nd PCR? (Tick) :',array('class' =>'col-sm-2 required ')) }}
+					{{ Form::label('pcr_level', '1st or 2nd or 3rd PCR? (Tick) :',array('class' =>'col-sm-2 required ')) }}
 					<div class="radio-inline">{{ Form::radio('pcr_level', '1st PCR', false) }} <span class="input-tag">1st PCR</span></div>
 					<div class="radio-inline">{{ Form::radio("pcr_level", '2nd PCR', false) }} <span class="input-tag">2nd PCR</span></div>
+					<div class="radio-inline">{{ Form::radio("pcr_level", '3rd PCR', false) }} <span class="input-tag">3rd PCR</span></div>
 				</div>
 				<br>
 
-				{{ Form::label('pcr_level', 'Non Routine PCR; R1 / R2 (Tick):',array('class' =>'col-sm-2 required ')) }}
+				{{ Form::label('pcr_level', 'Non Routine PCR; R1 / R2 /R3 (Tick):',array('class' =>'col-sm-2 required ')) }}
 				<div class="radio-inline">{{ Form::radio('pcr_level', 'R1', false) }} <span class="input-tag">R1</span></div>
 				<div class="radio-inline">{{ Form::radio("pcr_level", 'R2', false) }} <span class="input-tag">R2</span></div>
+				<div class="radio-inline">{{ Form::radio("pcr_level", 'R3', false) }} <span class="input-tag">R3</span></div>
 				<br>
 				<br>
 

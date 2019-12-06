@@ -32,13 +32,20 @@ class UnhlsVisit extends Eloquent
 	{
 		return $this->belongsTo('Ward', 'ward_id');
 	}
+	/**
+	 * Refferral Facility relationship
+	 */
+	public function facility()
+	{
+		return $this->belongsTo('Facility', 'facility_id');
+	}
 
 	/**
 	 * Patient relationship
 	 */
 	public function patient()
 	{
-		return $this->belongsTo('UnhlsPatient');
+		return $this->belongsTo('UnhlsPatient', 'patient_id');
 	}
 
 	/**

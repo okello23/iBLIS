@@ -14,7 +14,7 @@
                     <div class="col-md-11">
 						<span class="glyphicon glyphicon-cog"></span>{{trans('messages.test-details')}}
 
-						@if($test->isCompleted() && $test->specimen->isAccepted())
+						@if($test->isCompletedVerifiedorApproved() && $test->specimen->isAccepted())
 						<div class="panel-btn">
 							@if(Auth::user()->can('edit_test_results'))
 								<a class="btn btn-sm btn-info" href="{{ URL::to('unhls_test/'.$test->id.'/edit') }}">
@@ -22,18 +22,17 @@
 									{{trans('messages.edit-test-results')}}
 								</a>
 							@endif
+
 							@if(Auth::user()->can('verify_test_results'))
-								@if(!$test->isVerified())
+								@if(!$test->isVerified() && !$test->isApproved())
 								<a class="btn btn-sm btn-success" href="{{ URL::route('test.verify', array($test->id)) }}">
 									<span class="glyphicon glyphicon-thumbs-up"></span>
 									{{trans('messages.verify')}}
 								</a>
-								
 								@endif
 							@endif
 
-
-							@if(Auth::user()->can('approve_test_results') )
+							@if(Auth::user()->can('approve_test_results'))
 								@if($test->isVerified())
 								
 								<a class="btn btn-sm btn-success" href="{{ URL::route('test.approve', array($test->id)) }}">
@@ -44,24 +43,42 @@
 							@endif
 						</div>
 						@endif
-						
-						<div class="panel-btn">
+                                             <div class="panel-btn">
 							@if(Auth::user()->can('view_reports'))
-							    @if($test->isApproved())
+							    @if($test->isApproved() || $test->specimenIsRejected())
 								<a class="btn btn-sm btn-default"
 								href="{{ URL::to('patient_final_report/'.$test->visit->patient->id.'/'.$test->visit->id ) }}"
 								>
 									<span class="glyphicon glyphicon-eye-open"></span>
 									{{trans('messages.view-final-report')}}
 								</a>
+								<a class="btn btn-sm btn-default" href="{{ URL::to('patientrequestform/' . $test->visit->id) }}" >
+								<span class="glyphicon glyphicon-eye-open"></span>
+								Request Form
+								</a>
 								
-								@elseif( $test->isVerified())
+								@elseif( $test->isVerified() && Auth::user()->can('verify_test_results') || $test->specimenIsRejected())
 								<a class="btn btn-sm btn-default" href="{{ URL::to('patient_interim_report/'.$test->visit->patient->id.'/'.$test->visit->id ) }}">
 									<span class="glyphicon glyphicon-eye-open"></span>
 									{{trans('messages.view-interim-report')}}
 								</a>
+								<a class="btn btn-sm btn-default" href="{{ URL::to('patientrequestform/' . $test->visit->id) }}" >
+								<span class="glyphicon glyphicon-eye-open"></span>
+								Request Form
+								</a>
 								@endif
 							@endif
+						</div>
+						<div class="panel-btn">
+							@if(Auth::user()->can('accept_test_specimen'))
+								 @if($test->isNotStarted)
+									<a class="btn btn-sm btn-default" href="{{ URL::to('unhls_test/'.$test->id.'/collectsample') }}">
+										<span class="glyphicon glyphicon-eye-open"></span>
+										{{trans('Collect Sample')}}
+									</a>
+								@endif
+							@endif
+								
 						</div>
 						
                     </div>
@@ -82,8 +99,6 @@
 								{{ $test->testType->name }}</h3>
 							<p class="view"><strong>{{trans('messages.visit-number')}}</strong>
 								{{$test->visit->id }}</p>
-							<p class="view"><strong>{{trans('messages.visit-lab-number')}}</strong>
-								{{$test->visit->visit_lab_number }}</p>
 							<p class="view"><strong>{{trans('messages.date-ordered')}}</strong>
 								{{ $test->isExternal()?$test->external()->request_date:$test->time_created }}</p>
 							<p class="view"><strong>{{trans('messages.lab-receipt-date')}}</strong>
@@ -91,7 +106,8 @@
 							<p class="view"><strong>{{trans('messages.test-status')}}</strong>
 								{{trans('messages.'.$test->testStatus->name)}}</p>
 							<p class="view-striped"><strong>{{trans('messages.physician')}}</strong>
-								{{$test->requested_by or trans('messages.unknown') }}</p>
+
+								{{$test->clinician->name or trans('messages.unknown') }}</p>
 							@if($test->testType->name = 'HIV' || $test->testType->name = 'H.I.V' )
 								<p class="view-striped"><strong>{{trans('messages.purpose')}}</strong>
 									{{$test->purpose or trans('messages.unknown') }}</p>
@@ -103,20 +119,42 @@
 									{{ $test->visit->visit_type }}
 								@endif</p>
 							<p class="view-striped"><strong>{{trans('messages.registered-by')}}</strong>
-								{{$test->createdBy->name }}</p>
+								{{$test->specimen->acceptedBy->name }}</p>
 							@if($test->isCompleted())
 							<p class="view"><strong>{{trans('messages.tested-by')}}</strong>
 								{{$test->testedBy->name}}</p>
+							@endif
+							@if($test->isApproved())
+							<p class="view"><strong>{{'Approved by'}}</strong>
+								{{$test->approvedBy->name}}</p>
 							@endif
 							@if($test->isVerified())
 							<p class="view"><strong>{{trans('messages.verified-by')}}</strong>
 								{{$test->verifiedBy->name}}</p>
 							@endif
 							@if((!$test->specimen->isRejected()) && ($test->isCompleted() || $test->isVerified()))
+
 							<!-- Not Rejected and (Verified or Completed)-->
 							<p class="view-striped"><strong>{{trans('messages.turnaround-time')}}</strong>
 								{{$test->getFormattedTurnaroundTime()}}</p>
 							@endif
+							<!-- Not Rejected and (Verified or Completed)-->
+							<p class="view-striped"><strong>{{trans('messages.turnaround-time')}}</strong>
+								<?php
+						$date1 = date_create($test->time_started);
+						$date2 = date_create($test->time_verified);
+						$date3 = new DateTime();
+						//difference between two dates
+						$diff = date_diff($date1,$date2);
+						$diff2 = date_diff($date1,$date3);
+
+						//count days
+						if ($test->time_verified != 'NULL') {
+							echo ' '.$diff->format("%h")." "."Hours"." ".$diff->format("%i")." "."Minutes"." ".$diff->format("%s")." "."Seconds";
+						}
+						else
+						echo ' '.$diff2->format("%h")." "."Hours"." ".$diff2->format("%i")." "."Minutes"." ".$diff2->format("%s")." "."Seconds";
+						?>
 							<!-- Previous therapy-->
 							<p class="view-striped"><strong>Previous Therapy</strong>
 								@if(!empty($test->therapy->previous_therapy))
@@ -137,9 +175,9 @@
 							<!-- Clinical notes-->
 							<p class="view-striped"><strong>Clinical notes</strong>
 								
-								@if(!empty($test->therapy->clinical_notes))
+								
 									{{$test->therapy->clinical_notes}}
-								@endif
+								
 
 							</p>
 							<!-- Test Requested by -->
@@ -159,7 +197,6 @@
 								@elseif(!empty($test->clinician->phone))
 		                           {{$test->clinician->phone }}
 								@endif
-
 						</div>
 					</div>
 					<div class="col-md-6">

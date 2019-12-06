@@ -13,7 +13,7 @@ class FinalReportPdf extends TCPDF {
 		}*/
 
 		$this->writeHTML(View::make('finalReportHeader',$this->getTestRequestInformation()), true, false, true, false, '');
-		$this->SetMargins(PDF_MARGIN_LEFT, 80, PDF_MARGIN_RIGHT);
+		$this->SetMargins(PDF_MARGIN_LEFT, 70, PDF_MARGIN_RIGHT);
 
 		
 	}
@@ -27,7 +27,7 @@ class FinalReportPdf extends TCPDF {
 		//Set font
 		$this->SetFont('helvetica', 'I', 8);
 		//set page number
-		$this->Cell(0, 10, 'Page '.$this->getAliasNumPage().' of '.$this->getAliasNbPages(), 0, false, 'L', 0, '', 0, false, 'T', 'M');
+		$this->Cell(0, 10, 'Page '.$this->getAliasNumPage().' of '.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
 		$this->Cell(0, 10, "Printed by: ".Auth::user()->name." Date: ".$printTime, 0, false, 'R', 0, '', 0, false, 'T', 'M');
 	}
 

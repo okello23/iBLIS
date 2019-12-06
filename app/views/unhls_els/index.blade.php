@@ -13,25 +13,31 @@
 							<h4 class="panel_heading panel_heading_first">Inventory</h4>
 							<ul>
 								<li>
-									<a href="{{ URL::route("stockcard.index")}}">
+									<a href="{{ URL::route("item.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> {{trans('messages.stock-card')}}</a>
 								</li>
+								<li>
+
+									<a href="{{ URL::route("request.index")}}">
+									<span class="glyphicon glyphicon-tag"></span>Request For Commodities</a>
+								</li>
 							<li>
-								<a href="{{ URL::route("stockrequisition.index")}}">
+								<a href="{{ URL::route("reports.inventory")}}">
 								<span class="glyphicon glyphicon-tag"></span> Stockbook</a>
 							</li>
 							<li>
-								<a href="{{ URL::route("commodity.index")}}">
+								<a href="{{ URL::route("item.index")}}">
 								<span class="glyphicon glyphicon-tag"></span> {{trans('messages.commodities')}}</a>
 							</li>
 							<li>
 								<a href="{{ URL::route("supplier.index")}}">
+
 								<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.suppliers',2)}}</a>
 							</li>
-							<li>
-								<a href="{{ URL::route("metric.index")}}">
+							<!-- <li>
+								<a href="{{ URL::route("reports.inventory")}}">
 								<span class="glyphicon glyphicon-tag"></span> {{trans('messages.metrics')}}</a>
-							</li>
+							</li> -->
 							</ul>
 							<h4 class="panel_heading">Equipment</h4>
 							<ul>

@@ -44,6 +44,7 @@ return array(
     'photo' => 'Photo',
     'role' => 'Role|Roles',
     'save' => 'Save',
+    'save-request' => 'Save and Request',
     'submit' => 'Submit',
     'save-all' => 'Save All',
     'type' => 'Type',
@@ -90,6 +91,7 @@ return array(
     'success-deleting-user' => 'The user was successfully deleted!',
     'user-details' => 'User Details',
     'user-profile-edit-success' => 'The user details were successfully updated!',
+    'sample-patient' => 'Microbiology Specimen',
 
     /** 
      *  Patient
@@ -331,6 +333,7 @@ return array(
     'fetch-test-data-title' => 'Fetch Test data from associated equipment.',
     'first-select-patient' => 'First select a patient below',
     'in-patient' => 'In Patient',
+    'refferrals' => 'Refferral',
     'interpretation' => 'Interpretation',
     'lab-receipt-date' => 'Receipt Date',
     'list-tests' => 'Test Requests',
@@ -350,7 +353,7 @@ return array(
     'start-test' => 'Analysis',
     'start-test-title' => 'Start Test',
     'started' => 'Test Started',
-    'success-creating-test' => 'Successfully created test!',
+    'success-creating-test' => 'Successfully created test! with ULIN:',
     'test' => 'Test|Tests|Test-Request',
     'test-unhls' => 'Test|List of All Test Requests', //Unhls  terminology
     'test-catalog' => 'Test Catalog',
@@ -374,6 +377,7 @@ return array(
     'visit-number' => 'Visit No.',
     'visit-lab-number' => 'Visit Lab No.',//This number is issued at each patient visit in the Lab
     'visit-type' => 'Visit Type',
+    'sample-source' => 'Sample Source',
     'visit-test-details' => 'View List of Tests',
 
 
@@ -533,6 +537,40 @@ return array(
     'stock-level-report' => 'Stock Level Report',
     'monthly-stock-level-report-title' => 'Monthly Stock Levels (Period: [FROM] - [TO])',
     'quarterly-stock-level-report-title' => 'Quarterly Stock Levels (Period: [FROM] - [TO] )',
+    'phone' => 'Phone',
+    'address' => 'Address',
+    'details' => 'Details',
+    'item' => 'Item',
+    'storage' => 'Storage',
+    'new' => 'New',
+    'log-usage' => 'Log Usage',
+    'stock' => 'Stock',
+    'lot-no' => 'Lot No',
+    'expiry' => 'Expiry',
+    'manufacturer' => 'Manufacturer',
+    'supplied' => 'Amount Supplied',
+    'cost-per-unit' => 'Cost per unit',
+    'date-received' => 'Date Received',
+    'record-successfully-saved' => 'Record successfully saved',
+    'usage' => 'Usage',
+    'record-successfully-updated' => 'Record successfully Updated',
+    'record-successfully-deleted' => 'Record successfully Deleted',
+    'available-qty' => 'Available Quantity',
+    'signed-out' => 'Signed Out',
+    'date-of-usage' => 'Date of Usage',
+    'received-by' => 'Received By',
+    'ordered-by' => 'Ordered By',
+    'request' => 'Request',
+    'issued' => 'Issued',
+    'status' => 'Status',
+    'quantity-remaining' => 'Quantity Remaining',
+    'order-quantity' => 'Quantity Ordered',
+    'not-issued' => 'Not issued',
+    'update-stock' => 'Update stock',
+    'stock-usage' => 'Stock Usage',
+    'issued-greater-than-ordered' => 'Issued greater than ordered',
+    'top-up' => 'Top Up',
+
     
  
 

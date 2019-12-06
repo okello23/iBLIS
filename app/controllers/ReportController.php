@@ -32,6 +32,21 @@ class ReportController extends \BaseController {
 		->with('patient_helper',$patient_helper);
 	}
 
+	public function loadPatientss()
+	{
+		$search = Input::get('search');
+
+		$patients = UnhlsPatient::search($search)->orderBy('id','DESC')->paginate(Config::get('kblis.page-items'));
+
+		if (count($patients) == 0) {
+		 	Session::flash('message', trans('messages.no-match'));
+		}
+
+		// Load the view and pass the patients
+		return View::make('reports.patient.merged')->with('patients', $patients)->withInput(Input::all());
+	}
+
+
 	public function viewFinalPatientReport($id, $visit = null,$testId = null){
 		$from = Input::get('start');
 		$to = Input::get('end');
@@ -375,6 +390,47 @@ class ReportController extends \BaseController {
 
 		return $pdf->output('report.pdf');
     }
+
+    public function viewPatientVisitRequestForm($visit_id){
+
+	    $tests = UnhlsTest::where('visit_id', '=', $visit_id)->get();
+		
+		$patient_json_id_instance = UnhlsVisit::select('patient_id')->where('id','=',$visit_id)->get();
+	    $patient_json_id_decoded_instance = json_decode($patient_json_id_instance,true);
+	   
+		//	Get patient details
+		$patient = UnhlsPatient::find($patient_json_id_decoded_instance[0]['patient_id']);
+		
+         
+
+		// adhoc config decision
+		//$template = AdhocConfig::where('name','Report')->first()->getReportTemplate();
+		$template = "reports.patient.request_form";
+
+		$content = View::make($template)
+			->with('patient', $patient)
+			->with('tests', $tests)
+			->withInput(Input::all());
+
+			ob_end_clean();
+
+		$test_request_information  = array(
+			'tests' => $tests, 
+			'patient'=> $patient
+			);
+		$pdf = new RequestFormPdf;
+
+		
+		$pdf->setTestRequestInformation($test_request_information);
+
+		$pdf->SetAutoPageBreak(TRUE, 15);
+		$pdf->AddPage();
+		$pdf->SetFont('times','','11');
+		$pdf->writeHTML($content, 'true', 'false', 'false', 'false', '');
+
+		return $pdf->output('report.pdf');
+    }
+
 
     private function isReportInterim($tests){
     	$isInterim = false;
@@ -848,7 +904,7 @@ class ReportController extends \BaseController {
 		}else{
 			$testTypes->add(TestType::find($testTypeID));
 		}
-
+ 
 		$options = '{
 			"chart": {
 				"type": "spline"
@@ -1461,6 +1517,28 @@ class ReportController extends \BaseController {
 			->with('tests', $tests)
 			->with('controls', $controls);
 	}
+
+	// Reject Report Function
+	public function report($id){
+        $test = UnhlsTest::find($id);
+
+        $html = view::make('reports.patient.rejectionReport')
+            			->with('test', $test);
+
+      $test_request_information  = array(
+          'specimen' => $specimen
+          );  
+
+        $pdf = new RejectionReportPdf;
+        $pdf->setTestRequestInformation($test_request_information);
+
+        $pdf->SetAutoPageBreak(TRUE, 15);
+        $pdf->AddPage();
+        $pdf->SetFont('', '', 10);
+        $pdf->writeHTML($html, true, false, true, false, '');
+        return $pdf->output($specimen->sample_id.'.pdf');
+    }
+
 
 	/**
 	* Returns qc results for a specific control page

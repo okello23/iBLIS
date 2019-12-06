@@ -19,15 +19,7 @@
                 <div class="row less-gutter">
                    
                     <div class="col-md-12">
-                        {{ $visit->patient->name.' ('.($visit->patient->getGender(true)).',
-                            '.$visit->patient->getAge('Y'). ')'}}
-
-
-                        |
-                            
-                        {{ is_null($visit->ward) ? 'N/A':$visit->ward->name }} <!--Unit -->
-
-                       
+                                             
                         
                         <a class="btn btn-sm btn-primary pull-right" href="#" onclick="window.history.back();return false;"
                             alt="{{trans('messages.back')}}" title="{{trans('messages.back')}}">

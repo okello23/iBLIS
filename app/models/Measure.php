@@ -259,4 +259,45 @@ class Measure extends Eloquent
     {
         return $this->hasOne('MeasureNameMapping');
     }
+
+    /*
+    * Returns diagnostic flags for measures --High, Normal, Low
+    *
+    */
+
+	public static function measureFlag($patient, $measureId, $result){
+    	$age = $patient->getAge('ref_range_Y');
+		// if for particular gender is zero, check for both genders
+        $rangeValidity = MeasureRange::where('measure_id', '=', $measureId)
+            ->where('age_min', '<=', $age)->where('age_max', '>=', $age)
+            ->where('gender', '=', $patient->gender);
+        $measureRange = new stdClass();
+
+        if ($rangeValidity->count()==0) {
+            $measureRange = MeasureRange::where('measure_id', '=', $measureId)
+                ->where('age_min', '<=', $age)->where('age_max', '>=', $age)
+                ->where('gender', '=', UnhlsPatient::BOTH)->first();
+            if (is_null($measureRange)) {
+                // age is outside the provided reference ranges
+                return null;
+            }
+        }else{
+            $measureRange = $rangeValidity->first();
+        }
+
+		$rangeUp = $measureRange->range_upper;
+		$rangeLow = $measureRange->range_lower;
+
+		if( $result < $rangeLow){
+			$flag = 'Low';
+		}
+		elseif ($result > $rangeUp ) {
+			$flag = 'High';
+		}
+		else{
+			$flag = 'Normal';
+		}
+
+		return $flag;
+	}
 }

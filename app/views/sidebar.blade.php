@@ -21,11 +21,23 @@
 											<span class="glyphicon glyphicon-tag"></span>
 											{{trans('messages.patient-report')}}</a>
 									</div>
+									<div>
+										<a href="{{ URL::route('reports.patient.merged')}}">
+											<span class="glyphicon glyphicon-tag"></span>
+											{{trans('Patient Report')}}
+										</a>
+									</div>
 								</li>
 								<li>
 									<div><a href="{{ URL::route('reports.daily.log')}}">
 										<span class="glyphicon glyphicon-tag"></span>
 										{{trans('messages.daily-log')}}</a>
+									</div>
+								</li>
+								<li>
+									<div><a href="{{ URL::route('reports.microbiology.search')}}">
+										<span class="glyphicon glyphicon-tag"></span>
+										Microbiology Export</a>
 									</div>
 								</li>
 							</ul>
@@ -67,8 +79,14 @@
 										{{trans('messages.user-statistics-report')}}</a>
 									</div>
 								</li>
-								<li>
+								<li class="hidden">
 									<div><a href="{{ URL::route('reports.aggregate.hmis105')}}">
+										<span class="glyphicon glyphicon-tag"></span>
+										HMIS 105</a>
+									</div>
+								</li>
+								<li>
+									<div><a href="{{ URL::route('report.hmis105')}}">
 										<span class="glyphicon glyphicon-tag"></span>
 										HMIS 105</a>
 									</div>
@@ -105,7 +123,7 @@
 							<h4 class="panel_heading panel_heading_first">Dashboard</h4>
 							<ul>
 								<li>
-									<div><a href="{{ URL::route('user.dashboard')}}">
+									<div><a href="{{ URL::route('dashboard.index')}}">
 										<span class="glyphicon glyphicon-tag"></span>
 										Dashboard</a>
 									</div>
@@ -129,10 +147,17 @@
 											<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.register-new-patient', 1)}}</a>
 									</div>
 								</li>
-																<li>
+								<li>
 									<div>
 										<a href="{{ URL::route('poc.create') }}">
 											<span class="glyphicon glyphicon-tag"></span> {{"Register EID patient"}}</a>
+									</div>
+								</li>
+
+								<li>
+									<div>
+										<a href="{{ URL::route('microbio.create') }}">
+											<span class="glyphicon glyphicon-tag"></span> {{ 'Microbiology Specimen' }}</a>
 									</div>
 								</li>
 								<li>
@@ -146,6 +171,10 @@
 
 						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px; width: 215px; display: none;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 620px; display: none;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
 					</div>
+				</li>
+				<li>
+					<a href="{{ URL::route('visit.index') }}"><span class="ion-person"></span><span class="nav_title">Visits</span>
+					</a>
 				</li>
 				<li class="nav_trigger">
 					<a href="#">
@@ -247,6 +276,10 @@
 									<a href="{{URL::route("ward.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> Health Units</a>
 								</li>
+								<!-- <li>
+									<a href="{{URL::route("referral.index")}}">
+									<span class="glyphicon glyphicon-tag"></span> Manage Referrals</a>
+								</li> -->
 								<li>
 									<a href="{{URL::route("instrument.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> {{trans('messages.instrument')}}</a>
@@ -262,6 +295,10 @@
 								<li>
 									<a href="{{ URL::route("blisclient.index") }}">
 									<span class="glyphicon glyphicon-tag"></span>{{ trans('messages.interfaced-equipment')}}</a>
+								</li>
+								<li>
+									<a href="{{ URL::route("resetulin.create") }}">
+									<span class="glyphicon glyphicon-tag"></span>{{'Reset ULIN' }}</a>
 								</li>
 							</ul>
 						</div>
@@ -304,6 +341,10 @@
 									<a href="{{URL::route("organism.index")}}">
 									<span class="glyphicon glyphicon-tag"></span>Organisms</a>
 								</li>
+								<li>
+									<a href="{{URL::route("testpurpose.index")}}">
+									<span class="glyphicon glyphicon-tag"></span>Testing Purpose</a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -322,25 +363,31 @@
 							<h4 class="panel_heading panel_heading_first">Inventory</h4>
 							<ul>
 								<li>
-									<a href="{{ URL::route("stockcard.index")}}">
+									<a href="{{ URL::route("item.index")}}">
 									<span class="glyphicon glyphicon-tag"></span> {{trans('messages.stock-card')}}</a>
 								</li>
+								<li>
+
+									<a href="{{ URL::route("request.index")}}">
+									<span class="glyphicon glyphicon-tag"></span>Request For Commodities</a>
+								</li>
 							<li>
-								<a href="{{ URL::route("stockrequisition.index")}}">
+								<a href="{{ URL::route("reports.inventory")}}">
 								<span class="glyphicon glyphicon-tag"></span> Stockbook</a>
 							</li>
 							<li>
-								<a href="{{ URL::route("commodity.index")}}">
+								<a href="{{ URL::route("item.index")}}">
 								<span class="glyphicon glyphicon-tag"></span> {{trans('messages.commodities')}}</a>
 							</li>
 							<li>
 								<a href="{{ URL::route("supplier.index")}}">
+
 								<span class="glyphicon glyphicon-tag"></span> {{Lang::choice('messages.suppliers',2)}}</a>
 							</li>
-							<li>
-								<a href="{{ URL::route("metric.index")}}">
+							<!-- <li>
+								<a href="{{ URL::route("reports.inventory")}}">
 								<span class="glyphicon glyphicon-tag"></span> {{trans('messages.metrics')}}</a>
-							</li>
+							</li> -->
 							</ul>
 							<h4 class="panel_heading">Equipment</h4>
 							<ul>
