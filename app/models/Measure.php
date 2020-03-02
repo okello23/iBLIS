@@ -180,7 +180,7 @@ class Measure extends Eloquent
 						 ->join('test_types', 'unhls_tests.test_type_id', '=', 'test_types.id')
 						 ->join('testtype_measures', 'testtype_measures.test_type_id', '=', 'test_types.id')
 						 ->where('testtype_measures.measure_id', $this->id)
-						 ->whereIn('test_status_id', [UnhlsTest::COMPLETED, UnhlsTest::VERIFIED]);
+						 ->whereIn('test_status_id', [UnhlsTest::COMPLETED, UnhlsTest::VERIFIED, UnhlsTest::APPROVED]);
 			if($to && $from){
 				$testResults = $testResults->whereBetween('time_created', [$from, $to]);
 			}

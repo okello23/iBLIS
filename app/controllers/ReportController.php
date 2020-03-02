@@ -381,6 +381,49 @@ class ReportController extends \BaseController {
 		return $pdf->output('report.pdf');
     }
 
+
+    // Print Request Form
+
+    public function viewPatientVisitRequestForm($visit_id){
+
+	    $tests = UnhlsTest::where('visit_id', '=', $visit_id)->get();
+		
+		$patient_json_id_instance = UnhlsVisit::select('patient_id')->where('id','=',$visit_id)->get();
+	    $patient_json_id_decoded_instance = json_decode($patient_json_id_instance,true);
+	   
+		//	Get patient details
+		$patient = UnhlsPatient::find($patient_json_id_decoded_instance[0]['patient_id']);
+		
+         
+
+		// adhoc config decision
+		//$template = AdhocConfig::where('name','Report')->first()->getReportTemplate();
+		$template = "reports.patient.request_form";
+
+		$content = View::make($template)
+			->with('patient', $patient)
+			->with('tests', $tests)
+			->withInput(Input::all());
+
+			ob_end_clean();
+
+		$test_request_information  = array(
+			'tests' => $tests, 
+			'patient'=> $patient
+			);
+		$pdf = new RequestFormPdf;
+
+		
+		$pdf->setTestRequestInformation($test_request_information);
+
+		$pdf->SetAutoPageBreak(TRUE, 15);
+		$pdf->AddPage();
+		$pdf->SetFont('times','','11');
+		$pdf->writeHTML($content, 'true', 'false', 'false', 'false', '');
+
+		return $pdf->output('report.pdf');
+    }
+
     private function isReportInterim($tests){
     	$isInterim = false;
     	foreach ($tests as $key => $test) {
@@ -621,50 +664,42 @@ class ReportController extends \BaseController {
 		//Begin specimen rejections
 		else if($records=='rejections')
 		{
-			$specimens = UnhlsSpecimen::where('specimen_status_id', '=', UnhlsSpecimen::REJECTED);
-			/*Filter by test category*/
-			if($testCategory&&!$testType){
-				$specimens = $specimens->join('unhls_tests', 'specimens.id', '=', 'unhls_tests.specimen_id')
-									   ->join('test_types', 'unhls_tests.test_type_id', '=', 'test_types.id')
-									   ->where('test_types.test_category_id', '=', $testCategory);
-			}
-			/*Filter by test type*/
-			if($testCategory&&$testType){
-				$specimens = $specimens->join('unhls_tests', 'specimens.id', '=', 'unhls_tests.specimen_id')
-				   					   ->where('unhls_tests.test_type_id', '=', $testType);
-			}
+			$test_specimen = UnhlsTest::where('test_status_id', [UnhlsTest::REJECTED]);
 
-			/*Filter by date*/
+			//Filter by test category/
+			if($testCategory&&!$testType){
+				$test_specimen = $test_specimen->join('test_types', 'unhls_tests.test_type_id', '=', 'test_types.id')
+							   ->where('test_types.test_category_id', '=', $testCategory);
+			}
+			//Filter by test type/
+			if($testType){
+				$test_specimen = $test_specimen->where('test_type_id', '=', $testType);
+			}
+			
+			//Get collection of tests/
+			//Filter by date/
 			if($from||$to){
 				if(strtotime($from)>strtotime($to)||strtotime($from)>strtotime($date)||strtotime($to)>strtotime($date)){
 						$error = trans('messages.check-date-range');
 				}
 				else
 				{
-					/*$specimens = $specimens->whereBetween('time_rejected',
-						array($from, $toPlusOne))->get(array('specimens.*'));*/
-
-					/*$specimens = $specimens->join('pre_analytic_specimen_rejections', 'pre_analytic_specimen_rejections.specimen_id', '=', 'specimens.id')->whereBetween('time_rejected',
-						array($from, $toPlusOne))->get(array('specimens.*'));*/
-					// analytic specimen rejection is the functional one now
-					$specimens = $specimens->join('analytic_specimen_rejections', 'analytic_specimen_rejections.specimen_id', '=', 'specimens.id')->whereBetween('time_rejected',
-						array($from, $toPlusOne))->get(array('specimens.*'));
+					$test_specimen = $test_specimen->whereBetween('time_created', array($from, $toPlusOne))->get(array('unhls_tests.*'));
 				}
 			}
 			else
 			{
-				$specimens = $specimens->where('time_rejected', 'LIKE', $date.'%')->orderBy('id')
-										->get(array('specimens.*'));
+				$test_specimen = $test_specimen->where('time_created', 'LIKE', $date.'%')->get(array('unhls_tests.*'));
 			}
 			if(Input::has('word')){
 				$date = date("Ymdhi");
-				$fileName = "daily_rejected_specimen_".$date.".doc";
+				$fileName = "daily_test_records_".$date.".doc";
 				$headers = array(
 					"Content-type"=>"text/html",
 					"Content-Disposition"=>"attachment;Filename=".$fileName
 				);
 				$content = View::make('reports.daily.exportSpecimenLog')
-								->with('specimens', $specimens)
+								->with('test_specimen', $test_specimen)
 								->with('testCategory', $testCategory)
 								->with('testType', $testType)
 								->with('accredited', $accredited)
@@ -676,11 +711,12 @@ class ReportController extends \BaseController {
 				return View::make('reports.daily.specimen')
 							->with('labSections', $labSections)
 							->with('testTypes', $testTypes)
-							->with('specimens', $specimens)
+							->with('test_specimen', $test_specimen)
+							->with('counts', $test_specimen->count())
 							->with('testCategory', $testCategory)
 							->with('testType', $testType)
-							->with('error', $error)
 							->with('accredited', $accredited)
+							->with('error', $error)
 							->withInput(Input::all());
 			}
 		}
@@ -704,11 +740,11 @@ class ReportController extends \BaseController {
 			}
 			else if($pendingOrAll=='all'){
 				$tests = $tests->whereIn('test_status_id',
-					[UnhlsTest::PENDING, UnhlsTest::STARTED, UnhlsTest::COMPLETED, UnhlsTest::VERIFIED]);
+					[UnhlsTest::PENDING, UnhlsTest::STARTED, UnhlsTest::COMPLETED, UnhlsTest::VERIFIED, UnhlsTest::APPROVED]);
 			}
 			//For Complete tests and the default.
 			else{
-				$tests = $tests->whereIn('test_status_id', [UnhlsTest::COMPLETED, UnhlsTest::VERIFIED]);
+				$tests = $tests->whereIn('test_status_id', [UnhlsTest::COMPLETED, UnhlsTest::VERIFIED, UnhlsTest::APPROVED]);
 			}
 			/*Get collection of tests*/
 			/*Filter by date*/
@@ -1077,7 +1113,8 @@ class ReportController extends \BaseController {
 			foreach (TestType::all() as $testType) {
 				$pending = $testType->countPerStatus([UnhlsTest::PENDING, UnhlsTest::STARTED], $from, $toPlusOne->format('Y-m-d H:i:s'));
 				$complete = $testType->countPerStatus([UnhlsTest::COMPLETED, UnhlsTest::VERIFIED], $from, $toPlusOne->format('Y-m-d H:i:s'));
-				$ungroupedTests[$testType->id] = ["complete"=>$complete, "pending"=>$pending];
+				$approved = $testType->countPerStatus([UnhlsTest::APPROVED, UnhlsTest::APPROVED], $from, $toPlusOne->format('Y-m-d H:i:s'));
+				$ungroupedTests[$testType->id] = ["complete"=>$complete, "pending"=>$pending, "approved"=>$approved];
 			}
 
 			// $data = $data->groupBy('test_type_id')->paginate(Config::get('kblis.page-items'));
@@ -1126,7 +1163,8 @@ class ReportController extends \BaseController {
 	*	optional @var $from, $to, $labSection, $testType
 	*/
 	public static function rawTaT($from, $to, $labSection, $testType){
-		$rawTat = DB::table('unhls_tests')->select(DB::raw('UNIX_TIMESTAMP(time_created) as timeCreated, UNIX_TIMESTAMP(time_started) as timeStarted, UNIX_TIMESTAMP(time_completed) as timeCompleted, targetTAT'))
+		$rawTat = DB::table('unhls_tests')->select(DB::raw('UNIX_TIMESTAMP(time_created) as timeCreated,
+		 UNIX_TIMESTAMP(time_started) as timeStarted, UNIX_TIMESTAMP(time_completed) as timeCompleted, targetTAT'))
 						->join('test_types', 'test_types.id', '=', 'unhls_tests.test_type_id')
 						->whereIn('test_status_id', [UnhlsTest::COMPLETED, UnhlsTest::VERIFIED]);
 						if($from && $to){
@@ -1330,48 +1368,48 @@ class ReportController extends \BaseController {
 		return $progression_val;
 	}
 
-	private static function getQuotient($numerator, $denominator){
-		if($denominator < 1)
-			return 0;
-		$quotient = $numerator/($denominator * 60);
-		return floatval(number_format($quotient,2));
-	}
+	// private static function getQuotient($numerator, $denominator){
+	// 	if($denominator < 1)
+	// 		return 0;
+	// 	$quotient = $numerator/($denominator * 60);
+	// 	return floatval(number_format($quotient,2));
+	// }
 
-	private static function getQuotientUsingTATunits($numerator, $denominator,$tat_units){
-		if($denominator < 1)
-			return 0;
-		$quotient = 0;//$numerator/($denominator * 60);
+	// private static function getQuotientUsingTATunits($numerator, $denominator,$tat_units){
+	// 	if($denominator < 1)
+	// 		return 0;
+	// 	$quotient = 0;//$numerator/($denominator * 60);
 
 
-		if(strtolower($tat_units) == 'minutes'){
-			$quotient = $numerator/($denominator * 1);
-		}elseif(strtolower($tat_units) == 'hours'){
-			$quotient = $numerator/($denominator * 60);
-		}elseif (strtolower($tat_units) == 'days') {
-			$quotient = $numerator/($denominator * 60 * 24);
-		}
-		return floatval(number_format($quotient,2));
-	}
+	// 	if(strtolower($tat_units) == 'minutes'){
+	// 		$quotient = $numerator/($denominator * 1);
+	// 	}elseif(strtolower($tat_units) == 'hours'){
+	// 		$quotient = $numerator/($denominator * 60);
+	// 	}elseif (strtolower($tat_units) == 'days') {
+	// 		$quotient = $numerator/($denominator * 60 * 24);
+	// 	}
+	// 	return floatval(number_format($quotient,2));
+	// }
 
-	public static function getTurnAroundTime($from, $to, $labSection, $testType, $interval){
-		//fetch data for the 
-		//select 
-		//where lab section, and testType
-		$result_set=[];
+	// public static function getTurnAroundTime($from, $to, $labSection, $testType, $interval){
+	// 	//fetch data for the 
+	// 	//select 
+	// 	//where lab section, and testType
+	// 	$result_set=[];
 		
-		if($interval == 'D'){
-			$result_set = self::getDailyTurnAroundTime($from, $to, $labSection, $testType, $interval);
-		}elseif ($interval == 'W') {
+	// 	if($interval == 'D'){
+	// 		$result_set = self::getDailyTurnAroundTime($from, $to, $labSection, $testType, $interval);
+	// 	}elseif ($interval == 'W') {
 			
-		}elseif ($interval == 'M') {
-			$result_set = self::getMonthlyTurnAroundTime($from, $to, $labSection, $testType, $interval);
+	// 	}elseif ($interval == 'M') {
+	// 		$result_set = self::getMonthlyTurnAroundTime($from, $to, $labSection, $testType, $interval);
 		
-		}
+	// 	}
 
 		
-		return $result_set;
+	// 	return $result_set;
 		
-	}
+	// }
 
 	/**
 	 * turnaroundTime() function returns the turnaround time blade with necessary contents
@@ -1410,7 +1448,7 @@ class ReportController extends \BaseController {
 			}
 		}
 		//$resultset = self::getTatStats($from, $to, $testCategory, $testType, $interval);
-		$new_resultset = self::getTurnAroundTime($from, $to, $testCategory, $testType, $interval);
+		$new_resultset = self::getTatStats($from, $to, $testCategory, $testType, $interval);
 		return View::make('reports.tat.index')
 					->with('labSections', $labSections)
 					->with('testTypes', $testTypes)
@@ -2524,7 +2562,7 @@ class ReportController extends \BaseController {
 		$isolatedOrganisms = UnhlsTest::selectRaw('specimens.time_accepted as Recieved, specimens.time_collected as collected, 
 			unhls_patients.patient_number as number, unhls_patients.ulin as labID,	unhls_patients.name as PatientName,unhls_patients.admission_date,
 			unhls_districts.name as DistrictofResident,unhls_visits.hospitalized, unhls_patients.gender, unhls_patients.dob as age,
-			unhls_visits.visit_type,wards.name as Ward,micro_patients_details.clinical_notes as diagnosis, specimen_types.name as SpecimenType, 
+			unhls_visits.visit_type,unhls_visits.on_antibiotics as onAntibiotics ,wards.name as Ward,micro_patients_details.clinical_notes as diagnosis, specimen_types.name as SpecimenType, 
 			unhls_tests.test_type_id, micro_patients_details.days_on_antibiotic as DonAntibiotics,unhls_tests.id as testID,
 			group_concat(distinct drugs.name) as Drugs, organisms.name as IsolatedOrganism, isolated_organisms.id as isoID' )
 
@@ -2563,13 +2601,16 @@ class ReportController extends \BaseController {
 			$content[$i]['Patient ID'] = $isolatedOrganism->number;
 			$content[$i]['Lab ID'] = $isolatedOrganism->labID;
 			$content[$i]['Patient Name'] = $isolatedOrganism->PatientName;
+			$content[$i]['Ward'] = $isolatedOrganism->Ward;
 			$content[$i]['Sex'] = ($isolatedOrganism->gender == 1) ? 'F' : 'M';//sex
 			$content[$i]['D.O.B'] = $isolatedOrganism->age;//age
 			$content[$i]['Hospitalized for more than 2 days (48 hours) at time of specimen collection? '] = ($isolatedOrganism->hospitalized == 1) ? 'Yes' : '';//48hrs
+			$content[$i]['On Antibiotics'] = ($isolatedOrganism->onAntibiotics == 1) ? 'Yes' : '';
+			$content[$i]['Days on Antibiotics'] = $isolatedOrganism->DonAntibiotics;
+			$content[$i]['List of Drugs'] = $isolatedOrganism->Drugs;
 			$content[$i]['Diagnosis'] = $isolatedOrganism->diagnosis;//specimen_date
 			$content[$i]['Specimen Type'] = $isolatedOrganism->SpecimenType;//specimen_type
 			$content[$i]['Admission Date'] = $isolatedOrganism->admission_date;//Admission Date
-			$content[$i]['List of Drugs'] = $isolatedOrganism->Drugs;
 			$content[$i]['Organism'] = $isolatedOrganism->IsolatedOrganism;
 
 			foreach ($drugs as $drug) {

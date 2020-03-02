@@ -53,7 +53,7 @@
 						<span class="input-tag">{{trans('messages.female')}}</span></div>
 					</div>
 					<div class="form-group">
-						{{ Form::label('nationality', trans('Nationality')) }}
+						{{ Form::label('nationality', trans('Nationality'), array('class' => 'required')) }}
 						{{ Form::select('nationality',  array_merge(array(' ' => '--- Select Nationality ---'), $nation), 
 						Input::get('nationality'),['class' => 'form-control'])  }}
 					</div>
@@ -88,10 +88,10 @@
 				<div class="col-md-6">	
 						<div class="form-group">
 							{{ Form::label('ward','Ward/Clinic/Health Unit') }}
-							{{ Form::select('ward', $ward, Input::get('ward_id'), array('class' => 'form-control')) }}
+							{{ Form::select('ward', $ward, Input::get('ward'), array('class' => 'form-control')) }}
 						</div>
 						<div class="form-group">
-							{{ Form::label('patient_number', trans('messages.patient-number')) }}
+							{{ Form::label('patient_number', trans('messages.patient-number'), array('class' => 'required')) }}
 							{{ Form::text('patient_number', Input::old('patient_number'), array('class' => 'form-control')) }}
 						</div>							
 				</div>
@@ -211,16 +211,16 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">{{"Specimen Details"}}</h3>
 				</div>
-						<div class="col-md-6">
+						<!-- <div class="col-md-6">
 							<div class="form-group">
 							{{ Form::label('testpurpose', 'Purpose of Test') }}
 							{{Form::select('testpurpose', $testpurpose, Input::old('testpurpose'), ['class' => 'form-control']) }}
 							</div>
-						</div>
+						</div> -->
 					<div class="form-pane panel panel-default">
 						<div class="col-md-6">
 							<div class="form-group">
-								{{Form::label('specimen_type', 'Sample Type')}}
+								{{Form::label('specimen_type', 'Sample Type', array('class' => 'required'))}}
 								{{ Form::select('specimen_type', $specimenType,
 									Input::get('specimenType'),	['class' => 'form-control specimen-type']) }}
 							</div>

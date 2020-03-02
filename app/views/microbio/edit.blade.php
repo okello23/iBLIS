@@ -88,7 +88,7 @@
 				<div class="col-md-6">	
 						<div class="form-group">
 							{{ Form::label('ward','Ward/Clinic/Health Unit') }}
-							{{ Form::select('ward', $ward, Input::get('ward_id'), array('class' => 'form-control')) }}
+							{{ Form::select('ward', $ward, Input::get('ward'), array('class' => 'form-control')) }}
 						</div>
 						<div class="form-group">
 							{{ Form::label('patient_number', trans('messages.patient-number')) }}
@@ -211,12 +211,12 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">{{"Specimen Details"}}</h3>
 				</div>
-						<div class="col-md-6">
+						<!-- <div class="col-md-6">
 							<div class="form-group">
 							{{ Form::label('testpurpose', 'Purpose of Test') }}
 							{{Form::select('testpurpose', $testpurpose, Input::old('testpurpose'), ['class' => 'form-control']) }}
 							</div>
-						</div>
+						</div> -->
 					<div class="form-pane panel panel-default">
 						<div class="col-md-6">
 							<div class="form-group">

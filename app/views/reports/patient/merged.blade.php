@@ -6,7 +6,7 @@
 		  <li class="active">{{ Lang::choice('messages.report', 2) }}</li>
 		</ol>
 	</div>
-	{{ Form::open(array('route' => array('reports.patient.index'), 'class'=>'form-inline', 'role'=>'form', 'method'=>'POST')) }}
+	{{ Form::open(array('route' => array('reports.patient.merged'), 'class'=>'form-inline', 'role'=>'form', 'method'=>'POST')) }}
 		<div class="form-group">
 
 		    {{ Form::label('search', "search", array('class' => 'sr-only')) }}
@@ -53,9 +53,9 @@
 					<td>{{ $patient->getAge() }}</td>
 					<td>
 					<!-- show the patient report(uses the show method found at GET /patient/{id} -->
-						<a class="btn btn-sm btn-info" href="{{ URL::to('patientreport/' . $patient->id) }}" >
+						<a class="btn btn-sm btn-info" href="{{ URL::to('patientvisits/' . $patient->id) }}" >
 							<span class="glyphicon glyphicon-eye-open"></span>
-							{{trans('messages.view-report')}}
+							{{trans('messages.view-visits')}}
 						</a>
 					</td>
 				</tr>

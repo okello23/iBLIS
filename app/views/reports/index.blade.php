@@ -14,7 +14,7 @@
 							<ul>
 								<li>
 									<div>
-										<a href="{{ URL::route('reports.patient.index')}}">
+										<a href="{{ URL::route('reports.patient.merged')}}">
 											<span class="glyphicon glyphicon-tag"></span>
 											{{trans('messages.patient-report')}}</a>
 									</div>

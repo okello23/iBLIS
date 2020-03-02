@@ -2,15 +2,15 @@
 
 return [
 
-    'DISTRICT_ID' => '36',
-    'DISTRICT_NAME' => 'Jinja',
+    'DISTRICT_ID' => '1',
+    'DISTRICT_NAME' => 'Kampala',
     'FACILITY_LEVEL_ID' => '1',
     'FACILITY_ID' => '1',
-    'FACILITY_NAME' => 'JINJA REGIONAL REFERRAL HOSPITAL LABORATORY',
-    'FACILITY_CODE' => 'JRRH',
+    'FACILITY_NAME' => 'Butabika National Referral Hospital',
+    'FACILITY_CODE' => 'BNRH',
     'FACILITY_OWNERSHIP_ID' => '1',
     'FIN_YEAR_ID' => '1',
-    'FIN_YEAR_NAME' => '2019/2020',
+    'FIN_YEAR_NAME' => '2016/2017',
     'INCOMING_STOCK_FLAG' => 'I',    
     'OUTGOING_STOCK_FLAG' => 'O',    
     'LOSSES_ADJUSTMENTS_STOCK_FLAG' => 'A',

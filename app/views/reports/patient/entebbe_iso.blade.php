@@ -122,11 +122,11 @@
 							</tr>	       
 							<tr>
 								<td width="50%" style="font-size:8px">
-									<b>Results Entry Date</b>:{{ $test->time_completed }}
-								</td>
-								<td width="50%">
 									<b>{{trans('messages.tested-by')}}</b>:
 									{{ $test->testedBy->name}}
+								</td>
+								<td width="50%">
+									<b>Results Entry Date</b>:{{ $test->time_completed }}
 								</td>								
 							</tr>							
 							<tr>
@@ -180,9 +180,15 @@
         <table style="border-bottom: 1px solid #cecfd5; font-size:10px;font-family: 'Courier New',Courier;">
             <tr>
               <td><b>Comment(s)</b></td>
+              @if($test->culture_observation)
               <td colspan="2">
-              {{$test->interpretation}}
+              {{ $test->culture_observation->observation }}
               </td>
+              @else
+              <td colspan="2">
+              {{ $test->interpretation }}
+              </td>
+              @endif
             </tr>
              <tr>
 				<td width="50%" style="font-size:9px">

@@ -2678,7 +2678,7 @@ h6 {
       <td class="c28" colspan="1" rowspan="2"><p class="c0"><span class="c1"></span></p>
         <p class="c6"><span class="c1">44. VDRL/ RPR</span></p></td>
       <td class="c47" colspan="1" rowspan="2"><p class="c0"><span class="c1">{{$serology_test_counts['vdrl_rrr']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="2"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['vdrl_rpr']))?$testTypeCountArray['vdrl_rpr']['positive']:''}}</span></p></td>
+      <td class="c61" colspan="1" rowspan="2"><p class="c0"><span class="c1">{{$serology_test_counts['vdrl_rrr1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">02. CBC</span></p></td>
@@ -2689,7 +2689,7 @@ h6 {
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{ $total_test_count['film_comment'] }} </span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">45. TPHA</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20">{{$serology_test_counts['tpha']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20"></span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20">{{$serology_test_counts['tpha1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">04. ESR </span></p></td>
@@ -2698,7 +2698,7 @@ h6 {
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">46. Shigella Dysentery</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20">
 {{$serology_test_counts['shigella_dysentery']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20">{{(isset($testTypeCountArray['shigella_dysentery']))?$testTypeCountArray['shigella_dysentery']['positive']:''}}</span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20">{{$serology_test_counts['shigella_dysentery1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">05. Bleeding time </span></p></td>
@@ -2706,7 +2706,7 @@ h6 {
  {{ $total_test_count['bleeding_time']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">47. Hepatitis B SAgS</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20">{{$serology_test_counts['hepatitisb_sags']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20"></span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c83 c20">{{$serology_test_counts['hepatitisb_sags1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">06. Prothrombin time </span></p></td>
@@ -2714,7 +2714,7 @@ h6 {
 {{ $total_test_count['prothrombin_time']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">48. Brucella</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['brucella']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['brucella1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">07. Clotting time </span></p></td>
@@ -2722,14 +2722,14 @@ h6 {
 {{ $total_test_count['clotting_time']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">49. Pregnancy Test (HCG)</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['pregnancy_test']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['pregnancy_test1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">08. Sickle Cell </span></p></td>
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{ $total_test_count['sickle_cell']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">50. CRAG</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['crag']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['crag1']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">09. Others </span></p></td>
@@ -2737,7 +2737,7 @@ h6 {
       <td class="c53 c65" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">51. Rheumatoid factor</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['rheumatoid_factor']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['rheumatoid_factor1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18 c23" colspan="1" rowspan="1"><p class="c6"><span class="c54">BLOOD TRANSFUSION</span><span class="c1">&nbsp;</span></p></td>
@@ -2745,7 +2745,7 @@ h6 {
       <td class="c53 c23" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">52. Hep B Core Ag</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['hepb_core_ag']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['hepb_core_ag1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">10. AHG (Comb's Test)</span></p></td>
@@ -2753,7 +2753,7 @@ h6 {
       <td class="c53 c82" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['combs']['combs']))?$testTypeCountArray['combs']['combs']['positive']:''}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">53. Hep C</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['hepc']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">TBD</span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['hepc1']}}</span></p></td>
     </tr>
     <tr class="c69">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">11. ABO Grouping</span></p></td>
@@ -2761,7 +2761,7 @@ h6 {
       <td class="c53 c65" colspan="2" rowspan="4"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">54. Hep A</span></p></td>
       <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['hepa']}}</span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$serology_test_counts['hepa1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">12. Rhesus Grouping</span></p></td>
@@ -2779,8 +2779,8 @@ h6 {
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c54">IMMUNOLOGY </span></p></td>
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">55. Auramine (FM) &nbsp;for AFBs</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['auramine_fm']}}</span></p></td> 
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['auramine_fm1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18 c23" colspan="1" rowspan="1"><p class="c6"><span class="c20 ">14. CD4 test</span></p></td>
@@ -2788,39 +2788,39 @@ h6 {
 {{$immunology_counts['cd4']}} </span></p></td>
       <td class="c53 c23" colspan="2" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">56. ZN for AFBs</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['zn_for_afb']}}</span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['zn_for_afb1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">15. Viral Load Test</span></p></td>
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$immunology_counts['hiv_viral_load']}}</span></p></td>
       <td class="c53 c65" colspan="2" rowspan="2"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">57. Leishman Stain</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['leishman_stain']}}</span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['leishman_stain1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">16. Hep B Viral Load</span></p></td>
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$immunology_counts['hepb']}}</span>
 </p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">58. Gram</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['gram']}}</span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['gram1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1"></span></p></td>
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">59. India Ink</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['india_ink']}}</span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['india_ink1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c79 c65" colspan="4" rowspan="1"><p class="c6"><span class="c20">MOLECULAR</span></p></td>
       <td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">60. Urine Microscopy</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['urine_microscopy']}}</span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['urine_microscopy1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="2"><p class="c6"><span class="c1">17. TB Genexpert </span></p>
@@ -2830,20 +2830,20 @@ h6 {
       <td class="c51" colspan="1" rowspan="1"><p class="c0"><span class="c1 c44"></span></p></td>
       <td class="c38" colspan="1" rowspan="3"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">61. Wet Preps</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['wet_prep']}}</span></p></td>
+      <td class="c61" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['wet_prep1']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c30 c65" colspan="1" rowspan="1"><p class="c6"><span class="c5">RR</span></p></td>
       <td class="c51" colspan="1" rowspan="1"><p class="c0"><span class="c1 c44"></span></p></td>
       <td class="c28 c60" colspan="1" rowspan="1"><p class="c6"><span class="c1">62. Others</span></p></td>
-      <td class="c47 c60" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47 c60" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$microbiology_test_counts['others']}}</span></p></td>
       <td class="c61 c60" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">18. Latent TB Infection test</span></p></td>
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$molecular_counts['latent_tb']}}</span></p></td>
-      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1 c44"></span></p></td>
+      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1 c44">{{$molecular_counts['latent_tb1']}}</span></p></td>
       <td class="c28 c65" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c47 c65" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c40" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
@@ -2851,7 +2851,7 @@ h6 {
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">19. TB Lamp Test</span></p></td>
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$molecular_counts['tb_lam']}}</span></p></td>
-      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$molecular_counts['tb_lam1']}}</span></p></td>
       <td class="c38" colspan="1" rowspan="23"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28 c65" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c47 c65" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
@@ -2865,8 +2865,8 @@ h6 {
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">20. Malaria Microscopy</span></p></td>
-      <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['malaria_microscopy']))?$testTypeCountArray['malaria_microscopy']['total']['under_5']:''}}</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['malaria_microscopy']))?$testTypeCountArray['malaria_microscopy']['total']['above_5']:''}}</span></p></td>
+      <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$parasitology_test_counts['malaria_microscopy']}}</span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$parasitology_test_counts['malaria_microscopy1']}}</span></p></td>
       <td class="c28 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p>
         <p class="c0"><span class="c1"></span></p></td>
       <td class="c47 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
@@ -2874,8 +2874,9 @@ h6 {
     </tr>
     <tr class="c17">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">21. Malaria RDTs</span></p></td>
-      <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['malaria_rdts']))?$testTypeCountArray['malaria_rdts']['total']['under_5']:''}}</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{(isset($testTypeCountArray['malaria_rdts']))?$testTypeCountArray['malaria_rdts']['total']['above_5']:''}}</span></p></td>
+      <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$parasitology_test_counts['malaria_rdts']}}</span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">
+      {{$parasitology_test_counts['malaria_rdts1']}}</span></p></td>
       <td class="c28 c23" colspan="1" rowspan="1"><p class="c6"><span class="c54">Renal Profile</span></p></td>
       <td class="c47 c23" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c61 c23" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
@@ -2883,34 +2884,34 @@ h6 {
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">22. Trypanosoma</span></p></td>
       <td class="c42 c82" colspan="1" rowspan="5"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$parasitology_test_counts['trypasonoma']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">63. Urea</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['urea']}}</span></p></td>
       <td class="c40" colspan="1" rowspan="5"><p class="c0"><span class="c1"></span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c20">23. Microfilaria</span></p></td>
-      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c5">{{$parasitology_test_counts['micro_filaria']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c20">64. Calcium</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$chemistry_test_counts['calcium']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c20">24. Leishmania</span></p></td>
-      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c5">{{$parasitology_test_counts['leishmania']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c20">65. Potassium</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$chemistry_test_counts['potassium']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c20">25. Trichinella</span></p></td>
-      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$parasitology_test_counts['trichinella']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">66. Sodium</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['sodium']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">26. Borrellia</span></p></td>
-      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53 c60" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$parasitology_test_counts['borrellia']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">67. Creatinine</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['creatinine']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c79 c23" colspan="4" rowspan="1"><p class="c6"><span class="c54">STOOL MICROSCOPY</span><span class="c1">&nbsp;</span></p></td>
@@ -2921,79 +2922,79 @@ h6 {
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">27. Entamoeba</span></p></td>
       <td class="c42 c23" colspan="1" rowspan="12"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['entamoeba']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">68. ALT</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['alt']}}</span></p></td>
       <td class="c40" colspan="1" rowspan="4"><p class="c0"><span class="c1"></span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">28. Giardia Lumblia</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['giardia']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">69. AST</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['ast']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">29. Cryptosporidium </span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['cryptosporidium']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">70. Albumin</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['albumin']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">30. Isospora</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['isospora']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">71. Total Protein</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['total_protein']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">31. Cyclospora</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['cyclospora']}}</span></p></td>
       <td class="c28 c23" colspan="1" rowspan="1"><p class="c6"><span class="c54">Lipid/Thyroid Profile</span><span class="c1">&nbsp;</span></p></td>
       <td class="c47 c23" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c40" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">32. Strongyloides</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['strongyloides']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">72. Triglycerides</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['triglycerides']}}</span></p></td>
       <td class="c40" colspan="1" rowspan="5"><p class="c0"><span class="c1"></span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">33. Shistosoma</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['shistosoma']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">73. Cholesterol</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['cholesterol']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">34. Taenia</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['taenia']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">74. Free T3</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['free_t3']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">35. Askaris</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['askaris']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">75. Free T4</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['free_t4']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">36. Hookworm</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['hookworm']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">76. TSH</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['tsh']}}</span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">37. Trichuris</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['trichuris']}}</span></p></td>
       <td class="c28 c23" colspan="1" rowspan="1"><p class="c6"><span class="c54">Oher Clinical Chemistry Tests</span><span class="c1">&nbsp;</span></p></td>
       <td class="c47 c23" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c40" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
     </tr>
     <tr class="c50">
       <td class="c18" colspan="1" rowspan="1"><p class="c6"><span class="c1">38. Other parasites</span></p></td>
-      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c53" colspan="2" rowspan="1"><p class="c0"><span class="c1">{{$stoolmicroscopy_test_counts['other_parasites']}}</span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">77. Alkaline Phosphate</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['alkaline_phosphate']}}</span></p></td>
       <td class="c40" colspan="1" rowspan="6"><p class="c0"><span class="c1"></span></p></td>
     </tr>
     <tr class="c7">
@@ -3001,13 +3002,13 @@ h6 {
       <td class="c42" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c53 c23" colspan="2" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">78. Amylase</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['amylase']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c79 c23" colspan="4" rowspan="1"><p class="c6"><span class="c54">Culture &amp; Sensitivity</span></p></td>
       <td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">79. Glucose&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['glucose']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c18 c60" colspan="1" rowspan="1"><p class="c6"><span class="c1">39. Blood</span></p>
@@ -3016,28 +3017,28 @@ h6 {
       <td class="c53 c23" colspan="2" rowspan="5"><p class="c0"><span class="c1"></span></p></td>
       <td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">80. Total Bilirubin</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['total_bilirubin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c18 c60" colspan="1" rowspan="1"><p class="c6"><span class="c1">40. Urine</span></p></td>
       <td class="c42 c60" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$culture_and_sensitivity_counts['urine']}}</span></p></td>
       <td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">81. Lipase</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['lipase']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c18 c60" colspan="1" rowspan="1"><p class="c6"><span class="c1">41. Stool</span></p></td>
       <td class="c42 c60" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$culture_and_sensitivity_counts['stool']}}</span></p></td>
       <td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">82.. AFP</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['afp']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c18 c60" colspan="1" rowspan="1"><p class="c6"><span class="c1">42. Swabs</span></p></td>
       <td class="c42 c60" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$culture_and_sensitivity_counts['swabs']}}</span></p></td>
       <td class="c38" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
       <td class="c28" colspan="1" rowspan="1"><p class="c6"><span class="c1">83. Others</span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$chemistry_test_counts['others']}}</span></p></td>
       <td class="c40" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
     </tr>
     <tr class="c7">
@@ -3177,20 +3178,20 @@ h6 {
     </tr>
     <tr class="c104">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">15. No. of Isolates</span></p></td>
-      <td class="c86" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c87" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c75" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c75" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c78" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c63" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c52" colspan="3" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c86" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Klebsiella_pneumoniae']}}</span></p></td>
+      <td class="c87" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Escherichia_coli']}}</span></p></td>
+      <td class="c75" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Salmonella_spp']}}</span></p></td>
+      <td class="c75" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Shigella_spp']}}</span></p></td>
+      <td class="c78" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Neisseria_gonorrhoeae']}}</span></p></td>
+      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Staphylococcus_aureus']}}</span></p></td>
+      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Streptococcus_pneumoniae']}}</span></p></td>
+      <td class="c63" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Acinetobacter_baumannii']}}</span></p></td>
+      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Vibrio_cholerae']}}</span></p></td>
+      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Enterococcus_spp']}}</span></p></td>
+      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Haemophilus_influenzae']}}</span></p></td>
+      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Neisseria_meningitides']}}</span></p></td>
+      <td class="c56" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['Campylobacter']}}</span></p></td>
+      <td class="c52" colspan="3" rowspan="1"><p class="c0"><span class="c1">{{$isolates['others']}}</span></p></td>
     </tr>
     <tr class="c90">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c5">ANTIBIOTICS</span></p></td>
@@ -3239,1219 +3240,1219 @@ h6 {
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">16.Ampicilin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ampicilin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ampicilin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ampicilin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ampicilin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ampicilin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ampicilin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ampicilin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ampicilin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ampicilin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ampicilin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ampicilin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ampicilin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ampicilin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ampicilin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ampicilin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ampicilin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ampicilin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ampicilin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">17.Azithromycin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['azithromycin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['azithromycin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['azithromycin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['azithromycin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['azithromycin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['azithromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['azithromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['azithromycin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['azithromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['azithromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['azithromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['azithromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['azithromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['azithromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['azithromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['azithromycin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['azithromycin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['azithromycin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">18.Amikacin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['amikacin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['amikacin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['amikacin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['amikacin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['amikacin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['amikacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['amikacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['amikacin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['amikacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['amikacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['amikacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['amikacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['amikacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['amikacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['amikacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['amikacin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['amikacin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['amikacin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">19.Ceftriaxone</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ceftriaxone']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ceftriaxone3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ceftriaxone2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ceftriaxone']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">20.Ceftazidime</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ceftazidime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ceftazidime3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ceftazidime2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ceftazidime']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">21.Cefotaxime</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefotaxime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefotaxime3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefotaxime2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefotaxime']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">22.Cefoxitin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefoxitin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefoxitin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefoxitin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefoxitin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">23.Cefixime</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefixime2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefixime2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefixime2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefixime2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefixime2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefixime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefixime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefixime2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefixime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefixime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefixime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefixime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefixime3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefixime2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cefixime']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefixime3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefixime2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cefixime']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">24.Cotrimoxazole</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['cotrimoxazole']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cotrimoxazole3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cotrimoxazole2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['cotrimoxazole']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">25.Ciprofloxacin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['ciprofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ciprofloxacin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ciprofloxacin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['ciprofloxacin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">26.Colistin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['colistin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['colistin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['colistin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['colistin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['colistin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['colistin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['colistin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['colistin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['colistin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['colistin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['colistin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['colistin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['colistin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['colistin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['colistin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['colistin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['colistin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['colistin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">27.Gentamicin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['gentamicin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['gentamicin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['gentamicin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['gentamicin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['gentamicin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['gentamicin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['gentamicin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['gentamicin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['gentamicin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['gentamicin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['gentamicin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['gentamicin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['gentamicin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['gentamicin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['gentamicin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['gentamicin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['gentamicin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['gentamicin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">28.Imipenem</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['imipenem2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['imipenem2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['imipenem2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['imipenem2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['imipenem2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['imipenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['imipenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['imipenem2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['imipenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['imipenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['imipenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['imipenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['imipenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['imipenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['imipenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['imipenem3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['imipenem2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['imipenem']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">29.Levofloxacin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['levofloxacin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['levofloxacin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['levofloxacin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['levofloxacin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">30.Meropenem</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['meropenem2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['meropenem2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['meropenem2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['meropenem2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['meropenem2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['meropenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['meropenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['meropenem2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['meropenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['meropenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['meropenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['meropenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['meropenem3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['meropenem2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['meropenem']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['meropenem3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['meropenem2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['meropenem']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">31.Oxacillin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['oxacillin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['oxacillin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['oxacillin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['oxacillin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['oxacillin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['oxacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['oxacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['oxacillin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['oxacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['oxacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['oxacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['oxacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['oxacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['oxacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['oxacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['oxacillin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['oxacillin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['oxacillin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">32.Penicillin G</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['penicillin_g']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['penicillin_g3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['penicillin_g2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['penicillin_g']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">33.Vancomycin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['vancomycin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['vancomycin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['vancomycin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['vancomycin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['vancomycin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['vancomycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['vancomycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['vancomycin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['vancomycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['vancomycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['vancomycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['vancomycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['vancomycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['vancomycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['vancomycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['vancomycin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['vancomycin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['vancomycin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">34. Augmentin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['augmentin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['augmentin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['augmentin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['augmentin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['augmentin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['augmentin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['augmentin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['augmentin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['augmentin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['augmentin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['augmentin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['augmentin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['augmentin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['augmentin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['augmentin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['augmentin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['augmentin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['augmentin']}}</span></p></td>
     </tr>
     <tr class="c116">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">35.Chloramphenicol</span></p>
         <p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['chloramphenicol']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['chloramphenicol3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['chloramphenicol2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['chloramphenicol']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">36.Clindamycin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['clindamycin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['clindamycin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['clindamycin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['clindamycin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['clindamycin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['clindamycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['clindamycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['clindamycin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['clindamycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['clindamycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['clindamycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['clindamycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['clindamycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['clindamycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['clindamycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['clindamycin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['clindamycin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['clindamycin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">37.Erythromycin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['erythromycin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['erythromycin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['erythromycin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['erythromycin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['erythromycin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['erythromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['erythromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['erythromycin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['erythromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['erythromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['erythromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['erythromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['erythromycin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['erythromycin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['erythromycin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['erythromycin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['erythromycin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['erythromycin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">38.Nalidixic acid</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['nalidixic_acid']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['nalidixic_acid3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['nalidixic_acid2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['nalidixic_acid']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">39.Nitrofurantoin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['nitrofurantoin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['nitrofurantoin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['nitrofurantoin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['nitrofurantoin']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">40.Piperacillin</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['piperacillin2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['piperacillin2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['piperacillin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['piperacillin2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['piperacillin2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['piperacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['piperacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['piperacillin2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['piperacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['piperacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['piperacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['piperacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['piperacillin3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['piperacillin2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['piperacillin']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['piperacillin3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['piperacillin2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['piperacillin']}}</span></p></td>
     </tr>
     <tr class="c116">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">41.Piperacillin/Tazobactam</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['piperacillin_tazobactam']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['piperacillin_tazobactam3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['piperacillin_tazobactam2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['piperacillin_tazobactam']}}</span></p></td>
     </tr>
     <tr class="c7">
       <td class="c33" colspan="1" rowspan="1"><p class="c6"><span class="c1">42.Tetracycline</span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
-      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1"></span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['tetracycline2']}}</span></p></td>
+      <td class="c11" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$KlebsiellaOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['tetracycline2']}}</span></p></td>
+      <td class="c31" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EscherichiaOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['tetracycline2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$salmonellaOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['tetracycline2']}}</span></p></td>
+      <td class="c15" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$ShigellaOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['tetracycline2']}}</span></p></td>
+      <td class="c26" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriaOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['tetracycline2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StaphylococcusOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['tetracycline2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$StreptococcusOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['tetracycline2']}}</span></p></td>
+      <td class="c32" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$AcinetobacterOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['tetracycline2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$VibrioOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['tetracycline2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$EnterococcusOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['tetracycline2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$HaemophilusOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['tetracycline2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$NeisseriamOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['tetracycline3']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['tetracycline2']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$CampylobacterOrganism['tetracycline']}}</span></p></td>
+      <td class="c4" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['tetracycline3']}}</span></p></td>
+      <td class="c21" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['tetracycline2']}}</span></p></td>
+      <td class="c45" colspan="1" rowspan="1"><p class="c0"><span class="c1">{{$OthersOrganism['tetracycline']}}</span></p></td>
     </tr>
   </tbody>
 </table>
@@ -4476,57 +4477,57 @@ h6 {
             </tr>
             <tr class="c46">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c1">01. EID</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['eid']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['eid1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['eid2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c1">02. Viral Load for HIV</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['hiv_viral_load']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['hiv_viral_load1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['hiv_viral_load2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c1">03. CD4</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['cd4']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['cd41']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['cd42']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c1">04. Sickle Cell Disease Confirmation</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['sickle_cell_confirmation']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['sickle_cell_confirmation1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['sickle_cell_confirmation2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c20">05. Histology</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['histology']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['histology1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['histology2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c20">06. Polio/</span><span class="c20 c118">&nbsp;</span><span class="c1">or Acute Flaccid Paralysis</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['polio']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['polio1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['polio2']}}</span></p></td>
             </tr>
             <tr class="c98">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c1">07. Severe Acute Respiratory Syndrome/Infection (SARS/SARI)</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['sars']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['sars1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['sars2']}}</span></p></td>
             </tr>
             <tr class="c69">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c1">08. TB Genexpert</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['tb_genexpert']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['tb_genexpert1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['tb_genexpert2']}}</span></p></td>
             </tr>
             <tr class="c98">
               <td class="c22" colspan="1" rowspan="1"><p class="c6"><span class="c1">09. DST for Multi Drug Resistance TB (MDR TB)</span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['mdr_tb']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['mdr_tb1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referral_tests['mdr_tb2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22 c23" colspan="1" rowspan="1"><p class="c6"><span class="c1">09. Microbiology</span></p></td>
@@ -4538,65 +4539,65 @@ h6 {
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_6-0 start" start="1">
                   <li class="c6 c66"><span class="c20">Typhoid Fever </span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['typhoid_fever']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['typhoid_fever1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['typhoid_fever2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_6-0" start="2">
                   <li class="c6 c66"><span class="c1">Cholera </span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['cholera']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['cholera1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['cholera2']}}</span></p></td>
             </tr>
             <tr class="c69">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_6-0" start="3">
                   <li class="c6 c66"><span class="c1">Dysentery </span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c96 c7"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c96 c7"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c96 c7"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['dysentry']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['dysentry1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['dysentry2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_6-0" start="4">
                   <li class="c6 c66"><span class="c1">Rota Virus </span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['rota_virus']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['rota_virus1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['rota_virus2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_6-0" start="5">
                   <li class="c6 c66"><span class="c1">Meningitis</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['meningitis']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['meningitis1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['meningitis2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_6-0" start="6">
                   <li class="c6 c66"><span class="c1">Neonatal tetanus</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['neonatal_tetanus']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['neonatal_tetanus1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['neonatal_tetanus2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_6-0" start="7">
                   <li class="c6 c66"><span class="c1">Plague</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['plague']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['plague1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['plague2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_6-0" start="8">
                   <li class="c6 c66"><span class="c1">Isolates</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['isolates']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['isolates1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_microbiology['isolates2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22 c23" colspan="1" rowspan="1"><p class="c6"><span class="c1">10. Virology</span></p></td>
@@ -4608,57 +4609,57 @@ h6 {
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_7-0 start" start="1">
                   <li class="c6 c66"><span class="c1">Measles or Rubella</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['measles']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['measles1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['measles2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_7-0" start="2">
                   <li class="c6 c66"><span class="c1">Viral Haemarrhagic Fevers(VHF)</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['vhf']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['vhf1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['vhf2']}}</span></p></td>
             </tr>
             <tr class="c50">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_7-0" start="3">
                   <li class="c6 c66"><span class="c1">Animal Bites (suspected rabies)</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['animal_bites']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['animal_bites1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['animal_bites2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_7-0" start="4">
                   <li class="c6 c66"><span class="c1">Suspected outbreak samples (EBOLA, Marburg, others)</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['suspected_outbreak_sample']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['suspected_outbreak_sample1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['suspected_outbreak_sample2']}}</span></p></td>
             </tr>
             <tr class="c50">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_7-0" start="5">
                   <li class="c6 c66"><span class="c1">Hepatitis B core Ag</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepbAg']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepbAg1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepbAg2']}}</span></p></td>
             </tr>
             <tr class="c50">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_7-0" start="6">
                   <li class="c6 c66"><span class="c1">Hepatitis B Viral Load </span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepb_vl']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepb_vl1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepb_vl2']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_7-0" start="7">
                   <li class="c6 c66"><span class="c1">Hepatitis C Viral load</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepc_vl']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepc_vl1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_virology['hepc_vl2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22 c23" colspan="1" rowspan="1"><p class="c6"><span class="c1">11. Parasitology</span></p></td>
@@ -4670,31 +4671,31 @@ h6 {
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_8-0 start" start="1">
                   <li class="c6 c66"><span class="c1">Hemo parasites</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['hemo_parasites']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['hemo_parasites1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['hemo_parasites2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_8-0" start="2">
                   <li class="c6 c66"><span class="c1">Intestinal parasites</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['intestinal_parasites']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['intestinal_parasites1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['intestinal_parasites2']}}</span></p></td>
             </tr>
             <tr class="c50">
               <td class="c22" colspan="1" rowspan="1"><ol class="c13 lst-kix_list_8-0" start="3">
                   <li class="c6 c66"><span class="c1">Tissue parasites</span></li>
                 </ol></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['tissue_parasites']}}</span></p></td>
+              <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['tissue_parasites1']}}</span></p></td>
+              <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$referred_parasitology['tissue_parasites2']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c22 c23" colspan="1" rowspan="1"><p class="c96"><span class="c5">Totals</span></p></td>
-              <td class="c25 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$referred_parasitology['tissue_parasites'] + $referred_parasitology['intestinal_parasites'] + $referred_parasitology['hemo_parasites'] + $referred_virology['hepc_vl'] + $referred_virology['hepb_vl'] + $referred_virology['hepbAg'] +$referred_virology['suspected_outbreak_sample'] + $referred_virology['animal_bites'] + $referred_virology['vhf'] + $referred_virology['measles'] + $referred_microbiology['isolates'] + $referred_microbiology['plague'] + $referred_microbiology['neonatal_tetanus'] + $referred_microbiology['meningitis'] + $referred_microbiology['rota_virus'] + $referred_microbiology['dysentry'] + $referred_microbiology['cholera'] + $referred_microbiology['typhoid_fever'] + $referral_tests['mdr_tb'] + $referral_tests['tb_genexpert'] + $referral_tests['sars'] + $referral_tests['polio'] + $referral_tests['histology'] + $referral_tests['sickle_cell_confirmation'] + $referral_tests['cd4'] + $referral_tests['hiv_viral_load'] + $referral_tests['eid']}}</span></p></td>
               <td class="c37 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c25 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c25 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$referred_parasitology['tissue_parasites2'] + $referred_parasitology['intestinal_parasites2'] + $referred_parasitology['hemo_parasites2'] + $referred_virology['hepc_vl2'] + $referred_virology['hepb_vl2'] + $referred_virology['hepbAg2'] +$referred_virology['suspected_outbreak_sample2'] + $referred_virology['animal_bites2'] + $referred_virology['vhf2'] + $referred_virology['measles2'] + $referred_microbiology['isolates2'] + $referred_microbiology['plague2'] + $referred_microbiology['neonatal_tetanus2'] + $referred_microbiology['meningitis2'] + $referred_microbiology['rota_virus2'] + $referred_microbiology['dysentry2'] + $referred_microbiology['cholera2'] + $referred_microbiology['typhoid_fever2'] + $referral_tests['mdr_tb2'] + $referral_tests['tb_genexpert2'] + $referral_tests['sars2'] + $referral_tests['polio2'] + $referral_tests['histology2'] + $referral_tests['sickle_cell_confirmation2'] + $referral_tests['cd42'] + $referral_tests['hiv_viral_load2'] + $referral_tests['eid2']}}</span></p></td>
             </tr>
           </tbody>
         </table>
@@ -4723,111 +4724,111 @@ h6 {
             </tr>
             <tr class="c46">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">CD4</span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['CD4']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['CD4']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['CD4']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['CD4']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['CD4']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['CD4']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['CD4']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['CD4']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['CD4']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">TB </span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['TB']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['TB']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['TB']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['TB']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['TB']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['TB']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['TB']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['TB']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['TB']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">CBC</span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['CBC']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['CBC']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['CBC']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['CBC']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['CBC']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['CBC']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['CBC']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['CBC']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['CBC']}}</span></p></td>
             </tr>
             <tr class="c68">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">Chemistry</span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['Chemistry']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['Chemistry']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['Chemistry']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['Chemistry']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['Chemistry']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['Chemistry']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['Chemistry']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['Chemistry']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['Chemistry']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">Microbiology</span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['Microbiology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['Microbiology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['Microbiology']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['Microbiology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['Microbiology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['Microbiology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['Microbiology']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['Microbiology']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['Microbiology']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">HIV screening</span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['hiv']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['hiv']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['hiv']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['hiv']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['hiv']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['hiv']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['hiv']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['hiv']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['hiv']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">VDRL</span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['VDRL']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['VDRL']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['VDRL']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['VDRL']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['VDRL']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['VDRL']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['VDRL']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['VDRL']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['VDRL']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">Haematology</span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['Haematology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['Haematology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['Haematology']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['Haematology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['Haematology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['Haematology']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['Haematology']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['Haematology']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['Haematology']}}</span></p></td>
             </tr>
             <tr class="c46">
               <td class="c88" colspan="1" rowspan="1"><p class="c6"><span class="c5">Parasitology</span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$equipment_breakdown['Parasitolog']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$reagent_stockout['Parasitolog']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$supplies_stockout['Parasitolog']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$power_outage['Parasitolog']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$no_testing_expertise['Parasitolog']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$required_equipment['Parasitolog']}}</span></p></td>
+              <td class="c16" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$confirmatory_testing['Parasitolog']}}</span></p></td>
+              <td class="c67" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$qa_retesting['Parasitolog']}}</span></p></td>
+              <td class="c77" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_referral_reasons['Parasitolog']}}</span></p></td>
             </tr>
           </tbody>
         </table>
@@ -4864,168 +4865,168 @@ h6 {
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20 c48">01. Inadequate specimen volume</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['inadequate_specimen_volume']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['inadequate_specimen_volume']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['inadequate_specimen_volume']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['inadequate_specimen_volume']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['inadequate_specimen_volume']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['inadequate_specimen_volume']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['inadequate_specimen_volume']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['inadequate_specimen_volume']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20 c48">02. Hemolyzed specimen</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['hemolyzed_specimen']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['hemolyzed_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['hemolyzed_specimen']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['hemolyzed_specimen']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['hemolyzed_specimen']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['hemolyzed_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['hemolyzed_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['hemolyzed_specimen']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20 c48">03. Specimen without lab request form</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['specimen_without_lab_request_form']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['specimen_without_lab_request_form']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['specimen_without_lab_request_form']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['specimen_without_lab_request_form']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['specimen_without_lab_request_form']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['specimen_without_lab_request_form']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['specimen_without_lab_request_form']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['specimen_without_lab_request_form']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20">04. No test specified on </span><span class="c1">lab request form accompanying specimen</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20 c48">05. Specimen without label or identifier</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Specimen_without_label_or_identifier']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Specimen_without_label_or_identifier']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Specimen_without_label_or_identifier']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Specimen_without_label_or_identifier']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Specimen_without_label_or_identifier']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Specimen_without_label_or_identifier']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Specimen_without_label_or_identifier']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Specimen_without_label_or_identifier']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c1">06. Wrong specimen label</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Wrong_specimen_label']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Wrong_specimen_label']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Wrong_specimen_label']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Wrong_specimen_label']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Wrong_specimen_label']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Wrong_specimen_label']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Wrong_specimen_label']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Wrong_specimen_label']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20">07. Unclear specimen label</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Unclear_specimen_label']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Unclear_specimen_label']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Unclear_specimen_label']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Unclear_specimen_label']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Unclear_specimen_label']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Unclear_specimen_label']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Unclear_specimen_label']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Unclear_specimen_label']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20 c48">08. Wrong specimen container</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Wrong_specimen_container']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Wrong_specimen_container']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Wrong_specimen_container']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Wrong_specimen_container']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Wrong_specimen_container']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Wrong_specimen_container']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Wrong_specimen_container']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Wrong_specimen_container']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20">09. Damaged </span><span class="c20 c48">specimen</span><span class="c1">&nbsp;container</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Damaged_specimen_container']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Damaged_specimen_container']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Damaged_specimen_container']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Damaged_specimen_container']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Damaged_specimen_container']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Damaged_specimen_container']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Damaged_specimen_container']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Damaged_specimen_container']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20">10. Too old </span><span class="c20 c48">specimen</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Too_old_specimen']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Too_old_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Too_old_specimen']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Too_old_specimen']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Too_old_specimen']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Too_old_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Too_old_specimen']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Too_old_specimen']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20">11. Date of </span><span class="c20 c48">specimen</span><span class="c1">&nbsp;collection not specified</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Date_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Date_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Date_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Date_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Date_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Date_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Date_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Date_of_specimen_collection_not_specified']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20">12. Time of </span><span class="c20 c48">specimen</span><span class="c1">&nbsp;collection not specified</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Time_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Time_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Time_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Time_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Time_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Time_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Time_of_specimen_collection_not_specified']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Time_of_specimen_collection_not_specified']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c20">13. </span><span class="c20 c48">Specimen</span><span class="c1">&nbsp;type unacceptable for required test</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Specimen_type_unacceptable_for_required_test']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Specimen_type_unacceptable_for_required_test']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Specimen_type_unacceptable_for_required_test']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Specimen_type_unacceptable_for_required_test']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Specimen_type_unacceptable_for_required_test']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Specimen_type_unacceptable_for_required_test']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Specimen_type_unacceptable_for_required_test']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Specimen_type_unacceptable_for_required_test']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c35" colspan="1" rowspan="1"><p class="c6"><span class="c1">14. Other reasons</span></p></td>
-      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$blood_specimen_rejection['Other_reasons']}}</span></p></td>
+      <td class="c47" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$stool_specimen_rejection['Other_reasons']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$urine_specimen_rejection['Other_reasons']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$sputum_specimen_rejection['Other_reasons']}}</span></p></td>
+      <td class="c25" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$pus_specimen_rejection['Other_reasons']}}</span></p></td>
+      <td class="c37" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$genital_specimen_rejection['Other_reasons']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$skin_specimen_rejection['Other_reasons']}}</span></p></td>
+      <td class="c10" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{$other_specimen_rejection['Other_reasons']}}</span></p></td>
     </tr>
     <tr class="c17">
       <td class="c99 c23" colspan="1" rowspan="1"><p class="c96"><span class="c5">Totals </span></p></td>
-      <td class="c9 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c47 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c37 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c25 c23" colspan="1" rowspan="1"><p class="c6"><span class="c5">`</span></p></td>
-      <td class="c37 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
-      <td class="c10 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5"></span></p></td>
+      <td class="c9 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$blood_specimen_rejection['inadequate_specimen_volume']+(int)$blood_specimen_rejection['hemolyzed_specimen']+(int)$blood_specimen_rejection['specimen_without_lab_request_form']+(int)$blood_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']+(int)$blood_specimen_rejection['Specimen_without_label_or_identifier']+(int)$blood_specimen_rejection['Wrong_specimen_label']+(int)$blood_specimen_rejection['Unclear_specimen_label']+(int)$blood_specimen_rejection['Wrong_specimen_container']+(int)$blood_specimen_rejection['Damaged_specimen_container']+(int)$blood_specimen_rejection['Too_old_specimen']+(int)$blood_specimen_rejection['Date_of_specimen_collection_not_specified']+(int)$blood_specimen_rejection['Time_of_specimen_collection_not_specified']+(int)$blood_specimen_rejection['Specimen_type_unacceptable_for_required_test']+(int)$blood_specimen_rejection['Other_reasons'] }}</span></p></td>
+      <td class="c47 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$stool_specimen_rejection['inadequate_specimen_volume']+(int)$stool_specimen_rejection['hemolyzed_specimen']+(int)$stool_specimen_rejection['specimen_without_lab_request_form']+(int)$stool_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']+(int)$stool_specimen_rejection['Specimen_without_label_or_identifier']+(int)$stool_specimen_rejection['Wrong_specimen_label']+(int)$stool_specimen_rejection['Unclear_specimen_label']+(int)$stool_specimen_rejection['Wrong_specimen_container']+(int)$stool_specimen_rejection['Damaged_specimen_container']+(int)$stool_specimen_rejection['Too_old_specimen']+(int)$stool_specimen_rejection['Date_of_specimen_collection_not_specified']+(int)$stool_specimen_rejection['Time_of_specimen_collection_not_specified']+(int)$stool_specimen_rejection['Specimen_type_unacceptable_for_required_test']+(int)$stool_specimen_rejection['Other_reasons'] }}</span></p></td>
+      <td class="c10 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$urine_specimen_rejection['inadequate_specimen_volume']+(int)$urine_specimen_rejection['hemolyzed_specimen']+(int)$urine_specimen_rejection['specimen_without_lab_request_form']+(int)$urine_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']+(int)$urine_specimen_rejection['Specimen_without_label_or_identifier']+(int)$urine_specimen_rejection['Wrong_specimen_label']+(int)$urine_specimen_rejection['Unclear_specimen_label']+(int)$urine_specimen_rejection['Wrong_specimen_container']+(int)$urine_specimen_rejection['Damaged_specimen_container']+(int)$urine_specimen_rejection['Too_old_specimen']+(int)$urine_specimen_rejection['Date_of_specimen_collection_not_specified']+(int)$urine_specimen_rejection['Time_of_specimen_collection_not_specified']+(int)$urine_specimen_rejection['Specimen_type_unacceptable_for_required_test']+(int)$urine_specimen_rejection['Other_reasons'] }}</span></p></td>
+      <td class="c25 c23" colspan="1" rowspan="1"><p class="c6"><span class="c5">{{(int)$sputum_specimen_rejection['inadequate_specimen_volume']+(int)$sputum_specimen_rejection['hemolyzed_specimen']+(int)$sputum_specimen_rejection['specimen_without_lab_request_form']+(int)$sputum_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']+(int)$sputum_specimen_rejection['Specimen_without_label_or_identifier']+(int)$sputum_specimen_rejection['Wrong_specimen_label']+(int)$sputum_specimen_rejection['Unclear_specimen_label']+(int)$sputum_specimen_rejection['Wrong_specimen_container']+(int)$sputum_specimen_rejection['Damaged_specimen_container']+(int)$sputum_specimen_rejection['Too_old_specimen']+(int)$sputum_specimen_rejection['Date_of_specimen_collection_not_specified']+(int)$sputum_specimen_rejection['Time_of_specimen_collection_not_specified']+(int)$sputum_specimen_rejection['Specimen_type_unacceptable_for_required_test']+(int)$sputum_specimen_rejection['Other_reasons'] }}</span></p></td>
+      <td class="c37 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$pus_specimen_rejection['inadequate_specimen_volume']+(int)$pus_specimen_rejection['hemolyzed_specimen']+(int)$pus_specimen_rejection['specimen_without_lab_request_form']+(int)$pus_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']+(int)$pus_specimen_rejection['Specimen_without_label_or_identifier']+(int)$pus_specimen_rejection['Wrong_specimen_label']+(int)$pus_specimen_rejection['Unclear_specimen_label']+(int)$pus_specimen_rejection['Wrong_specimen_container']+(int)$pus_specimen_rejection['Damaged_specimen_container']+(int)$pus_specimen_rejection['Too_old_specimen']+(int)$pus_specimen_rejection['Date_of_specimen_collection_not_specified']+(int)$pus_specimen_rejection['Time_of_specimen_collection_not_specified']+(int)$pus_specimen_rejection['Specimen_type_unacceptable_for_required_test']+(int)$pus_specimen_rejection['Other_reasons'] }}</span></p></td>
+      <td class="c10 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$genital_specimen_rejection['inadequate_specimen_volume']+(int)$genital_specimen_rejection['hemolyzed_specimen']+(int)$genital_specimen_rejection['specimen_without_lab_request_form']+(int)$genital_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']+(int)$genital_specimen_rejection['Specimen_without_label_or_identifier']+(int)$genital_specimen_rejection['Wrong_specimen_label']+(int)$genital_specimen_rejection['Unclear_specimen_label']+(int)$genital_specimen_rejection['Wrong_specimen_container']+(int)$genital_specimen_rejection['Damaged_specimen_container']+(int)$genital_specimen_rejection['Too_old_specimen']+(int)$genital_specimen_rejection['Date_of_specimen_collection_not_specified']+(int)$genital_specimen_rejection['Time_of_specimen_collection_not_specified']+(int)$genital_specimen_rejection['Specimen_type_unacceptable_for_required_test']+(int)$genital_specimen_rejection['Other_reasons'] }}</span></p></td>
+      <td class="c10 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$skin_specimen_rejection['inadequate_specimen_volume']+(int)$skin_specimen_rejection['hemolyzed_specimen']+(int)$skin_specimen_rejection['specimen_without_lab_request_form']+(int)$skin_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']+(int)$skin_specimen_rejection['Specimen_without_label_or_identifier']+(int)$skin_specimen_rejection['Wrong_specimen_label']+(int)$skin_specimen_rejection['Unclear_specimen_label']+(int)$skin_specimen_rejection['Wrong_specimen_container']+(int)$skin_specimen_rejection['Damaged_specimen_container']+(int)$skin_specimen_rejection['Too_old_specimen']+(int)$skin_specimen_rejection['Date_of_specimen_collection_not_specified']+(int)$skin_specimen_rejection['Time_of_specimen_collection_not_specified']+(int)$skin_specimen_rejection['Specimen_type_unacceptable_for_required_test']+(int)$skin_specimen_rejection['Other_reasons'] }}</span></p></td>
+      <td class="c37 c23" colspan="1" rowspan="1"><p class="c0"><span class="c5">{{(int)$other_specimen_rejection['inadequate_specimen_volume']+(int)$other_specimen_rejection['hemolyzed_specimen']+(int)$other_specimen_rejection['specimen_without_lab_request_form']+(int)$other_specimen_rejection['No_test_specified_on_lab_request_form_accompanying_specimen']+(int)$other_specimen_rejection['Specimen_without_label_or_identifier']+(int)$other_specimen_rejection['Wrong_specimen_label']+(int)$other_specimen_rejection['Unclear_specimen_label']+(int)$other_specimen_rejection['Wrong_specimen_container']+(int)$other_specimen_rejection['Damaged_specimen_container']+(int)$other_specimen_rejection['Too_old_specimen']+(int)$other_specimen_rejection['Date_of_specimen_collection_not_specified']+(int)$other_specimen_rejection['Time_of_specimen_collection_not_specified']+(int)$other_specimen_rejection['Specimen_type_unacceptable_for_required_test']+(int)$other_specimen_rejection['Other_reasons'] }}</span></p></td>
     </tr>
   </tbody>
 </table>

@@ -66,6 +66,11 @@
 									{{trans('messages.view-interim-report')}}
 								</a>
 								@endif
+							
+								<!-- <a class="btn btn-sm btn-default" href="{{ URL::to('patientrequestform/' . $test->visit->id) }}" target="_blank">
+								<span class="glyphicon glyphicon-eye-open"></span>
+								Request Form
+								</a> -->
 							@endif
 						</div>					
                     </div>

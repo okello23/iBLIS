@@ -8,7 +8,7 @@ return array(
 	|
 	*/
 
-	'name' => 'A-LIS',
+	'name' => 'ALIS',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -17,7 +17,7 @@ return array(
 	|
 	*/
 
-	'version' => 'v1.0',
+	'version' => 'v2.0',
 
 	/*
 
@@ -37,7 +37,7 @@ return array(
 	|
 	*/
 
-	'organization' => 'Laboratory Information Management System',
+	'organization' => 'BUTABIKA NATIONAL REFERRAL MENTAL HOSPITAL',
 
 
 
@@ -47,7 +47,8 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	*/
-	'address-info' => 'P.O. BOX 1408, Kamwenge<br><br>',
+	'address-info' => 'P.O. BOX 7017, KAMPALA, UGANDA.<br>
+                    GENERAL OFFICE: +256-414-504388<br>',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -231,15 +231,12 @@
                                     
                                 @endif
                             </div>
-                            @if ( $measure->isFreeText() ) 
+                            <!-- @if ( $measure->isFreeText() ) 
                                 <div class="form-group">
-                                {{  Form::label('free_text_interpretation', 'Result Interpretation', array('class'=>'control-label')) }}
-                                  
-                                        {{ Form::select('free_text_interpretation', $positive_negative, Input::old('free_text_interpretation'), array('class' => 'form-control', 'id' => 'free_text_interpretation')) }}  
-                                      
-                                       
-                        </div>
-                            @endif
+                                    {{  Form::label('free_text_interpretation', 'Result Interpretation', array('class'=>'control-label')) }}     
+                                    {{ Form::select('free_text_interpretation', $positive_negative, Input::old('free_text_interpretation'), array('class' => 'form-control', 'id' => 'free_text_interpretation')) }}        
+                                </div>
+                            @endif -->
                         @endforeach
 
                         <div class="form-group">

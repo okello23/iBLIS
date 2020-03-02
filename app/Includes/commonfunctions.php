@@ -386,7 +386,7 @@ function time_elapsed($secs){
 	LEFT JOIN rejection_reasons rr ON (asrr.reason_id = rr.id) 
 	WHERE t.id = ".$test_id;
 	$result = DB::select($query);
-	return $result[0]->reason;
+	return $result;
  }
 
 function getIsolatedOrganismResult($isolated_organism_id, $drug_id){
@@ -419,6 +419,30 @@ function countIsolatedOrganism($test_id)
 	return $result;  
 
 }
+
+
+function newAge($dateOfBirth){
+
+		$new_age = "";
+		$at = new DateTime('now');
+
+		$dateOfBirth = new DateTime($dateOfBirth);
+		$interval = $dateOfBirth->diff($at);
+
+		$days = $interval->format('%a');
+
+		if($days < 30){
+			$new_age = $days . " days";
+
+		}elseif ($days >= 30 && $days < 365) {
+			$months = round($days/12);
+			$new_age = $months . " months";
+		}else{
+			$years = round($days/365);
+			$new_age = $years . " years";
+		}
+		return $new_age;
+	}
 	
 
 

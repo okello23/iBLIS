@@ -102,7 +102,7 @@ class CliniciansController extends \BaseController {
     public function update($id)
     {
         //Validate
-        $rules = array('name' => 'required|unique:clinicians,name',
+        $rules = array('name' => 'required',
             'phone' => 'required');
         $validator = Validator::make(Input::all(), $rules);
 
@@ -121,7 +121,7 @@ class CliniciansController extends \BaseController {
             // redirect
             
             return Redirect::route('clinicians.index')
-                ->with('message', 'Clinician Successfully Updated') ->with('activeclinician', $clinician ->id);
+                ->with('message', 'Clinician Successfully Updated Clinician Info') ->with('activeclinician', $clinician ->id);
         }
     }
 

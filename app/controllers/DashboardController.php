@@ -11,6 +11,7 @@ class DashboardController extends Controller {
      */
 	public function index(){
 
+        $date = new DateTime();
         $dateFrom = date('Y-m-01');
         $dateTo =date('Y-m-d');
 
@@ -70,6 +71,16 @@ class DashboardController extends Controller {
             }
         }
 
+        $items =Item::get();
+        $stock =Stock::get();
+        foreach ($items as $key => $value) {
+            $stockout = $value->where('min_level', '<=',$value->quantity())->count();
+        }
+
+        foreach ($stock as $key => $value) {
+            $expiredItems = $value->where('quantity_ordered', '<', $value->quantity())->where('expiry_date', '<=', $date->format('Y-m-d'))->count();
+        }
+
 
         return View::make("dashboard.home")
             ->with('dateFrom', $dateFrom)
@@ -83,6 +94,9 @@ class DashboardController extends Controller {
             ->with('sampleCounts', $sampleCounts)
             ->with('samplesAccepted', $samplesAccepted)
             ->with('samplesRejected', $samplesRejected)
+            ->with('items', $items)
+            ->with('stockout', $stockout)
+            // ->with('expiredItems', $expiredItems)
             ->with('staff', $staffCount);
     }
 

@@ -12,7 +12,7 @@
 /* Routes accessible before logging in */
 Route::group(array("before" => "guest"), function()
 {
-   /*
+    /*
     |-----------------------------------------
     | API route
     |-----------------------------------------
@@ -528,6 +528,11 @@ Route::group(array("before" => "auth"), function()
         Route::any("/reportconfig/disease", array(
             "as"   => "reportconfig.disease",
             "uses" => "ReportController@disease"
+        ));
+
+        Route::any("/patientrequestform/{id}", array(
+            "as" => "reports.patient.visit.report",
+            "uses" => "ReportController@viewPatientVisitRequestForm"
         ));
 
         Route::resource("barcode", "BarcodeController");

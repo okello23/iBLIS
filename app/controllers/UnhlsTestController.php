@@ -196,6 +196,7 @@ class UnhlsTestController extends \BaseController {
 			$visit->patient_id = Input::get('patient_id');
 			$visit->visit_type = $visitType[Input::get('visit_type')];
 			$visit->ward_id = Input::get('ward_id');
+			$visit->urgency = Input::get('urgency');
 			$visit->bed_no = Input::get('bed_no');
 			$visit->facility_id = Input::get('facility');
 			$visit->facility_lab_number = Input::get('facility_lab_number');
@@ -234,6 +235,7 @@ class UnhlsTestController extends \BaseController {
                         $test->test_status_id = UnhlsTest::PENDING;
                         $test->created_by = Auth::user()->id;
                         $test->requested_by = Input::get('clinician');
+                        $test->clinician_id = Input::get('intern');
                         $test->purpose = Input::get('hiv_purpose');
                         $test->save();
 
@@ -483,8 +485,8 @@ class UnhlsTestController extends \BaseController {
 		// if the test being carried out requires a culture worksheet
 		if ($test->testType->isCulture()) {
 			return Redirect::route('culture.edit', [$test->id]);
-		}elseif ($test->testType->isGramStain()) {
-			return Redirect::route('gramstain.edit', [$test->id]);
+		// }elseif ($test->testType->isGramStain()) {
+		// 	return Redirect::route('gramstain.edit', [$test->id]);
 		}else{
 			return View::make('unhls_test.enterResults')
 			->with('equipment_list', $equipment_list)
@@ -536,23 +538,23 @@ class UnhlsTestController extends \BaseController {
 		// $test->method_used =  Input::get('method_used');
 		$test->free_text_interpretation =  Input::get('free_text_interpretation');
 
-		if ($test->testType->name == 'Gram Staining') {
-			$results = '';
-			foreach ($test->gramStainResults as $gramStainResult) {
-				$results = $results.$gramStainResult->gramStainRange->name.',';
-			}
-		}
+		// if ($test->testType->name == 'Gram Staining') {
+		// 	$results = '';
+		// 	foreach ($test->gramStainResults as $gramStainResult) {
+		// 		$results = $results.$gramStainResult->gramStainRange->name.',';
+		// 	}
+		// }
 		
 		foreach ($test->testType->measures as $measure) {
 			$testResult = UnhlsTestResult::firstOrCreate(array('test_id' => $testID, 'measure_id' => $measure->id));
-			if ($test->testType->name == 'Gram Staining') {
+			// if ($test->testType->name == 'Gram Staining') {
 
-				$testResult->result = $results;
-				$inputName = "m_".$measure->id;
-			}else{
+			// 	$testResult->result = $results;
+			// 	$inputName = "m_".$measure->id;
+			// }else{
 				$testResult->result = Input::get('m_'.$measure->id);
 				$inputName = "m_".$measure->id;
-			}
+			// }
 			$rules = array("$inputName" => 'max:255');
 
 			$validator = Validator::make(Input::all(), $rules);

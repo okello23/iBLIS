@@ -95,15 +95,17 @@
 		    <tbody>
 			    <tr>
 			    	<th>{{Lang::choice('messages.test-type',2)}}</th>
-			    	<th>{{trans('messages.complete-tests')}}</th>
 			    	<th>{{trans('messages.pending-tests')}}</th>
+			    	<th>{{trans('messages.complete-tests')}}</th>
+			    	<th>{{trans('Approved Tests')}}</th>
 			    </tr>
 			    @forelse($ungroupedTests as $key => $value)
 
 			    <tr>
 			    	<td>{{ TestType::find($key)->name }}</td>
-			    	<td>{{ $value['complete'] }}</td>
 			    	<td>{{ $value['pending'] }}</td>
+			    	<td>{{ $value['complete'] }}</td>
+			    	<td>{{ $value['approved'] }}</td>
 			    </tr>
 			    @empty
 			    <tr>

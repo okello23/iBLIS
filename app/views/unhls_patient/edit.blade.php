@@ -26,10 +26,10 @@
 					{{ Form::text('patient_number', Input::old('patient_number'), 
 						array('class' => 'form-control')) }}
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					{{ Form::label('nin', trans('messages.national-id')) }}
 					{{ Form::text('nin', Input::old('nin'), array('class' => 'form-control')) }}
-				</div>
+				</div> -->
 				<div class="form-group">
 					{{ Form::label('ulin', trans('messages.ulin'), array('class' => 'required')) }}
 					{{ Form::text('ulin', $patient->ulin,	array('class' => 'form-control', 'readonly' =>'true')) }}

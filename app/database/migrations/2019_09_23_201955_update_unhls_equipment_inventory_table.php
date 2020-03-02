@@ -14,7 +14,7 @@ class UpdateUnhlsEquipmentInventoryTable extends Migration {
 	{
 		DB::update(
 			'ALTER TABLE unhls_equipment_inventory CHANGE COLUMN created_at created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER service_contract');
-		DB::update('ALTER TABLE unhls_equipment_inventory CHANGE COLUMN updated_at updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER created_at');
+		//DB::update('ALTER TABLE unhls_equipment_inventory CHANGE COLUMN updated_at updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER created_at');
 		DB::update('ALTER TABLE unhls_equipment_inventory ADD COLUMN deleted_at TIMESTAMP NULL DEFAULT NULL AFTER created_at');
 	}
 

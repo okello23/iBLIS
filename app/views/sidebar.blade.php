@@ -16,11 +16,11 @@
 							<h4 class="panel_heading panel_heading_first">{{trans('messages.daily-reports')}}</h4>
 							<ul>
 								<li>
-									<div>
+									<!-- <div>
 										<a href="{{ URL::route('reports.patient.index')}}">
 											<span class="glyphicon glyphicon-tag"></span>
 											{{trans('messages.patient-report')}}</a>
-									</div>
+									</div> -->
 									<div>
 										<a href="{{ URL::route('reports.patient.merged')}}">
 											<span class="glyphicon glyphicon-tag"></span>
@@ -237,13 +237,13 @@
 										</a>
 									</div>
 								</li>
-								<li>
+								<!-- <li>
 									<div>
 										<a href="{{URL::route('unhls_test.importPoc')}}">
 											<span class="glyphicon glyphicon-tag" ></span>{{trans('Import POC results')}}
 										</a>
 									</div>
-								</li>
+								</li> -->
 
 								<li>
 									<div>

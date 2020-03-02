@@ -1,5 +1,18 @@
 @extends("layout")
 @section("content")
+
+<style>
+    
+    .highliht{
+    color: red;
+}
+
+.highlightedGreen{
+    color: blue;
+}
+
+</style>
+
     <div>
         <ol class="breadcrumb">
           <li><a href="{{{URL::route('user.home')}}}">{{trans('messages.home')}}</a></li>
@@ -122,7 +135,8 @@
                             '.$test->visit->patient->getAge('M'). ')'}}</td> <!--Patient Name -->
                         <!-- <td>{{ $test->getSpecimenId() }}</td>  --><!--Specimen ID -->
                         <td>{{ $test->testType->name }}</td> <!--Test-->
-                        <td>{{ $test->visit->visit_type }}</td> <!--Visit Type -->
+                        <!-- <td>{{ $test->visit->visit_type }}</td> --> <!--Visit Type -->
+                        <td class="<?php if($test->visit->urgency == 1) echo 'highliht'; else echo 'highlightedGreen';?>">{{ $test->visit->visit_type }}</td>
                         <td>{{ is_null($test->visit->ward) ? '':$test->visit->ward->name }}</td> <!--Unit -->
                         <!-- ACTION BUTTONS -->
                         <td>

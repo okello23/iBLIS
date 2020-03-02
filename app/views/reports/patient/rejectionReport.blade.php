@@ -72,8 +72,15 @@
 		<tr>			
 			<td>
 				<table style="padding: 1px;">
-					<tr>					
-						<td width="100%">{{ getRejectionReasons($test->id) }}</td>						
+					<tr>
+
+						<td width="100%">
+							<ul>
+								@foreach(getRejectionReasons($test->id) as $reason)
+								<li>{{ $reason->reason }}</li>
+								@endforeach
+							</ul>
+						</td>						
 					</tr>
 				</table>
 			</td>		

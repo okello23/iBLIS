@@ -17,10 +17,10 @@ class AddFieldsToUnhlsTestsTable extends Migration {
 			$table->integer('equipment_id')->unsigned()->nullable()->after('test_status_id');		
 			$table->integer('method_used')->unsigned()->nullable()->after('equipment_id');
 			$table->string('free_text_interpretation')->nullable()->after('method_used');
-			$table->integer('test_type_category')->unsigned()->nullable()->after('method_used');
+			$table->integer('test_type_category')->unsigned()->nullable()->after('free_text_interpretation');
 
 			$table->foreign('equipment_id')->references('id')->on('unhls_equipment_inventory');
-			$table->foreign('method_used')->references('id')->on('look_up_values');
+			//$table->foreign('method_used')->references('id')->on('look_up_values');
 		});
 
 	}

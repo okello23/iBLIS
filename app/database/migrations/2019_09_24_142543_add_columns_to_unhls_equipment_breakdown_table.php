@@ -14,7 +14,7 @@ class AddColumnsToUnhlsEquipmentBreakdownTable extends Migration {
 	{
 		DB::update(
 			'ALTER TABLE unhls_equipment_breakdown CHANGE COLUMN created_at created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER comment');
-		DB::update('ALTER TABLE unhls_equipment_breakdown CHANGE COLUMN updated_at updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER created_at');
+		//DB::update('ALTER TABLE unhls_equipment_breakdown CHANGE COLUMN updated_at updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER created_at');
 		DB::update('ALTER TABLE unhls_equipment_breakdown ADD COLUMN deleted_at TIMESTAMP NULL DEFAULT NULL AFTER updated_at');
 		DB::update('ALTER TABLE unhls_equipment_breakdown ADD COLUMN intervention_authority VARCHAR(255) NULL DEFAULT NULL AFTER equipment_failure');
 

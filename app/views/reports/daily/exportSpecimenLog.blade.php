@@ -35,16 +35,20 @@
 			<th>{{trans('messages.rejection-reason-title')}}</th>
 			<th>{{trans('messages.reject-explained-to')}}</th>
 			<th>{{trans('messages.date-rejected')}}</th>
-			@forelse($specimens as $specimen)
+			@forelse($test_specimen as $specimen)
 			<tr>
-				<td>{{ $specimen->id }}</td>
-				<td>{{ $specimen->specimenType->name }}</td>
-				<td>{{ $specimen->test->time_created }}</td>
-				<td>{{ $specimen->test->testType->name }}</td>
-				<td>{{ $specimen->test->testType->testCategory->name }}</td>
-				<td>{{ $specimen->rejectionReason->reason }}</td>
-				<td>{{ $specimen->reject_explained_to }}</td>
-				<td>{{ $specimen->time_rejected }}</td>
+				<td>{{ $specimen->getSpecimenId() }}</td>
+						<td>{{ $specimen->specimen->specimentype->name }}</td>
+						<td>{{ $specimen->specimen->time_accepted }}</td>
+						<td>{{ $specimen->testType->name }}</td>
+						<td>{{ $specimen->testType->testCategory->name }}</td>
+						<td><ul>
+								@foreach(getRejectionReasons($specimen->id) as $reason)
+								<li>{{ $reason->reason }}</li>
+								@endforeach
+								</ul></td>
+						<td>{{ $specimen->analyticSpecimenRejections->reject_explained_to }}</td>
+						<td>{{ $specimen->analyticSpecimenRejections->time_rejected }}</td>
 			</tr>
 			@empty
 			<tr><td colspan="8">{{trans('messages.no-records-found')}}</td></tr>

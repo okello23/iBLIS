@@ -23,7 +23,7 @@
 
 			{{ Form::open(array('url' => 'unhls_patient', 'id' => 'form-create-patient')) }}
 				<div class="form-group">
-					{{ Form::label('patient_number', trans('messages.patient-number')) }}
+					{{ Form::label('patient_number', trans('messages.patient-number'), array('class' => 'required')) }}
 					{{ Form::text('patient_number', Input::old('patient_number'),
 						array('class' => 'form-control')) }}
 				</div>
@@ -36,10 +36,10 @@
 						array('class' => 'form-control', 'readonly' =>'true', 'placeholder' => 'Auto generated upon succesfull save!')) }}
 					@endif
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					{{ Form::label('nin', trans('messages.national-id')) }}
 					{{ Form::text('nin', Input::old('nin'), array('class' => 'form-control')) }}
-				</div>
+				</div> -->
 				<div class="form-group">
 					{{ Form::label('name', trans('messages.names'), array('class' => 'required')) }}
 					{{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
@@ -66,8 +66,7 @@
 				</div>
 				<div class="form-group">
 					{{ Form::label('nationality', trans('Nationality')) }}
-					{{ Form::select('nationality', [' ' => '--- Select Nationality ---',
-					'0' => trans('National'),'1' => trans('Refugee'),'2' => trans('Foreigner')], null,
+					{{ Form::select('nationality', ['0' => trans('National'),'1' => trans('Refugee'),'2' => trans('Foreigner')], null,
 						array('class' => 'form-control')) }}
 				</div>
 				<div class="form-group">

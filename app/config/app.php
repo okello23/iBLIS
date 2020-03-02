@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => '/Library/WebServer/Documents/iBLIS_UGANDA/public',
+	'url' => '/var/www/iBLIS_UGANDA/public',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'sIMiyrpcbQlfoFKqkywcWY8sh8dEi9nO',
+	'key' => 'LCiZpIvv0)E<}kmqm+:T)T8%&D3UJ8OS',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -177,7 +177,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'SoftDeletingTrait'     => 'Illuminate\Database\Eloquent\SoftDeletingTrait',
 		'Entrust'         => 'Zizaco\Entrust\EntrustFacade',
-		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel',	
 	),
 
 );
