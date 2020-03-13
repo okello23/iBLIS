@@ -136,7 +136,7 @@
                         <!-- <td>{{ $test->getSpecimenId() }}</td>  --><!--Specimen ID -->
                         <td>{{ $test->testType->name }}</td> <!--Test-->
                         <!-- <td>{{ $test->visit->visit_type }}</td> --> <!--Visit Type -->
-                        <td class="<?php if($test->visit->urgency == 1) echo 'highliht'; else echo 'highlightedGreen';?>">{{ $test->visit->visit_type }}</td>
+                        <td class="<?php if($test->visit->urgency == 1) echo 'highliht';?>">{{ $test->visit->visit_type }}</td>
                         <td>{{ is_null($test->visit->ward) ? '':$test->visit->ward->name }}</td> <!--Unit -->
                         <!-- ACTION BUTTONS -->
                         <td>

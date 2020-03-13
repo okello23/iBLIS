@@ -234,8 +234,8 @@ class UnhlsTestController extends \BaseController {
                         $test->specimen_id = $specimen->id;
                         $test->test_status_id = UnhlsTest::PENDING;
                         $test->created_by = Auth::user()->id;
-                        $test->requested_by = Input::get('clinician');
-                        $test->clinician_id = Input::get('intern');
+                        $test->requested_by = Input::get('intern');
+                        $test->clinician_id = Input::get('clinician');
                         $test->purpose = Input::get('hiv_purpose');
                         $test->save();
 
@@ -710,7 +710,7 @@ class UnhlsTestController extends \BaseController {
 	public function showRefer($testid)
 	{
 		$test = UnhlsTest::find($testid);
-		$facilities = UNHLSFacility::all();
+		$facilities = Facility::all();
 		//Referral facilities
 		$referralReason = ReferralReason::all();
 		return View::make('unhls_test.refer')

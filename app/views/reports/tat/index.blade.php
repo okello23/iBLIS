@@ -141,6 +141,7 @@
 		var progressTrendsData = new Array();
 		var expectedTAT = new Array;
 		var namesArray = new Array(<?php echo '"'.trans("messages.expected-tat").'","'.trans("messages.actual-tat").'","'.trans("messages.waiting-time").'"'; ?>);
+		var labsection = new Array(<?php echo json_encode($labsection_encode); ?>);
 		var progressTrendsDataTemp = <?php echo json_encode($progressTrendsData); ?>;
 
 		var values, value1, value2;
@@ -214,6 +215,7 @@
           plotOptions: {
           	series: {
             borderWidth: 0,
+            stacking: 'normal',
             dataLabels: {
                 enabled: true
 		                // format: '{point.yshow:.1f}%'
@@ -250,6 +252,7 @@
 				});
 			}
 		}
+
 		Highcharts.setOptions({
 		    global: {
 		        useUTC: false

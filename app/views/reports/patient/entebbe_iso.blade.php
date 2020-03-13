@@ -73,7 +73,7 @@
 								<th><b>Result</b></th>
 								<th><b>Reference Interval</b></th>
 								<th><b>SI units</b></th>
-								<!--<th><b>Diagnostic Flag</b></th> Diagnostic Flag column for results-->
+								<th><b>Diagnostic Flag</b></th> <!-- Diagnostic Flag column for results -->
 							</tr>
 					</thead>
 					<tbody>
@@ -96,10 +96,13 @@
 								<td>
 									{{ Measure::getRange($test->visit->patient, $result->measure_id) }}
 								</td>
-								<td >
+								<td>
 									{{ Measure::find($result->measure_id)->unit }}
 								</td>
-								<!--<td></td> Diagnostic Flag column for results-->
+								<td>@if(!is_null(Measure::getRange($test->visit->patient, $result->measure_id)))
+										{{Measure::measureFlag($test->visit->patient, $result->measure_id, $result->result) }}
+									@endif
+								</td><!-- Diagnostic Flag column for results-->
 							</tr>
 							@endif
 						@endforeach

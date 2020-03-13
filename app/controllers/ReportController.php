@@ -1007,6 +1007,58 @@ class ReportController extends \BaseController {
 		}';
 	return $options;
 	}
+
+	public function TARchart(){
+		$chart1 = Chart::title([
+        'text' => 'Voting ballon d`or 2018',
+    ])
+    ->chart([
+        'type'     => 'line', // pie , columnt ect
+        'renderTo' => 'chart1', // render the chart into your div with id
+    ])
+    ->subtitle([
+        'text' => 'This Subtitle',
+    ])
+    ->colors([
+        '#0c2959'
+    ])
+    ->xaxis([
+        'categories' => [
+            'Alex Turner',
+            'Julian Casablancas',
+            'Bambang Pamungkas',
+            'Mbah Surip',
+        ],
+        'labels'     => [
+            'rotation'  => 15,
+            'align'     => 'top',
+            'formatter' => 'startJs:function(){return this.value + " (Footbal Player)"}:endJs', 
+            // use 'startJs:yourjavasscripthere:endJs'
+        ],
+    ])
+    ->yaxis([
+        'text' => 'This Y Axis',
+    ])
+    ->legend([
+        'layout'        => 'vertikal',
+        'align'         => 'right',
+        'verticalAlign' => 'middle',
+    ])
+    ->series(
+        [
+            [
+                'name'  => 'Voting',
+                'data'  => [43934, 52503, 57177, 69658],
+                // 'color' => '#0c2959',
+            ],
+        ]
+    )
+    ->display();
+
+    return view('reports.tat.tat', [
+        'chart1' => $chart1,
+    ]);
+	}
 	//	Begin count reports functions
 	/**
 	 * Display a test((un)grouped) and specimen((un)grouped) counts.
@@ -1428,6 +1480,8 @@ class ReportController extends \BaseController {
 		$testCategory = Input::get('section_id');
 		$testType = Input::get('test_type');
 		$labSections = TestCategory::lists('name', 'id');
+		$labsection_encode = implode(",",$labSections);
+		//dd($labsection_encode);
 		$interval = Input::get('period');
 		$error = null;
 		$accredited = array();
@@ -1451,6 +1505,7 @@ class ReportController extends \BaseController {
 		$new_resultset = self::getTatStats($from, $to, $testCategory, $testType, $interval);
 		return View::make('reports.tat.index')
 					->with('labSections', $labSections)
+					->with('labsection_encode', $labsection_encode)
 					->with('testTypes', $testTypes)
 					->with('resultset', $new_resultset)
 					->with('testCategory', $testCategory)

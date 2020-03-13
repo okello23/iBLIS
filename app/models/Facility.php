@@ -11,7 +11,7 @@ class Facility extends Eloquent
 	 */
 	protected $table = 'facilities';
 
-	public function facility()
+	public function facilities()
 	{
 		return $this->hasMany('UNHLSFacility', 'level_id', 'id');
 	}

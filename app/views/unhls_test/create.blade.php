@@ -90,6 +90,13 @@
 											{{ Form::label('clinical_notes','Clinical Notes' ) }}
 											{{ Form::textarea('clinical_notes', Input::old('clinical_notes'), array('class' => 'form-control', 'rows' => '2')) }}
 										</div>
+										<div class="form-group">
+											{{ Form::label('urgency', 'Type of request') }}
+											<div>{{ Form::radio('urgency', '0', true) }}
+											<span class="input-tag">Normal</span></div>
+											<div>{{ Form::radio("urgency", '1', false) }}
+											<span class="input-tag">Emergency</span></div>
+										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
@@ -105,6 +112,12 @@
 											{{ Form::select('clinician', $clinicians, null,
 											array('class' => 'form-control','id'=>'clinician_dropdown_id')) }}
 										</div>
+										<div class="form-group">
+											{{ Form::label('intern', 'Intern Doc') }}
+											{{ Form::text('intern', Input::old('intern'),
+											array('class' => 'form-control')) }}
+										</div>
+										
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">

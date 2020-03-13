@@ -636,6 +636,10 @@ Route::group(array("before" => "auth"), function()
             "as"   => "reports.aggregate.prevalence",
             "uses" => "ReportController@prevalenceRates"
         ));
+        Route::any("/TATgraph", array(
+            "as"   => "reports.aggregate.tat",
+            "uses" => "ReportController@TARchart"
+        ));
         Route::any("/surveillance", array(
             "as"   => "reports.aggregate.surveillance",
             "uses" => "ReportController@surveillance"

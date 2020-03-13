@@ -151,26 +151,26 @@ WHERE `v`.`created_at` LIKE '%".$month."%' ";
 	 $genital_swab_collected_in = 0; $genital_swab_collected_out = 0;
 	 $skin_collected_in = 0; $skin_collected_out = 0;
 	 $others_collected_in = 0; $others_collected_out = 0;
-	 $specimen_of_interest = array(20,13,17,21,3,14,8,5,7);
+	 $specimen_of_interest = array(22,13,26,24,14,3,16,25,7);
 	 foreach ($samples_on_visit as $sample_on_visit){
 	 	//samples in = out-patient + in-patients visit_types
 	 	//the id is the specimen_type
 	 	if(in_array($sample_on_visit->id, $specimen_of_interest)){
-		 	if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 20){
+		 	if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 22){
 		 		$blood_collected_in++;
-		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 20){
+		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 22){
 		 		$blood_collected_out++;
 		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 13){
 		 		$stool_collected_in++;
 		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 13){
 		 		$stool_collected_out++;
-		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 17){
+		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 26){
 		 		$urine_collected_in++;
-		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 17){
+		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 26){
 		 		$urine_collected_out++;
-		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 21){
+		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 24){
 		 		$sputum_collected_in++;
-		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 21){
+		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 24){
 		 		$sputum_collected_out++;
 		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 14){
 		 		$csf_collected_in++;
@@ -180,13 +180,13 @@ WHERE `v`.`created_at` LIKE '%".$month."%' ";
 		 		$biopsy_collected_in++;
 		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 3){
 		 		$biopsy_collected_out++;
-		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 8){
+		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 16){
 		 		$pus_swab_collected_in++;
-		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 8){
+		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 16){
 		 		$pus_swab_collected_out++;
-		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 5){
+		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 25){
 		 		$genital_swab_collected_in++;
-		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 5){
+		 	}else if($sample_on_visit->visit_type == 'Referral' && $sample_on_visit->id == 25){
 		 		$genital_swab_collected_out++;
 		 	}else if(($sample_on_visit->visit_type == 'Out-patient' || $sample_on_visit->visit_type == 'In-patient') && $sample_on_visit->id == 7){
 		 		$skin_collected_in++;
@@ -518,7 +518,7 @@ WHERE `v`.`created_at` LIKE '%".$month."%' ";
 	 			$test_type_counts['zn_for_afb1'] = $row->Positive;
 	 		}else if((int)$row->measure_id == $test_type_ids['gram']){
 	 			$test_type_counts['gram'] = $row->total;
-	 			$test_type_counts['gram1'] = $row->Positive;
+	 			$test_type_counts['gram1'] = $row->total;
 	 		}else if((int)$row->measure_id == $test_type_ids['india_ink']){
 	 			$test_type_counts['india_ink'] = $row->total;
 	 			$test_type_counts['india_ink1'] = $row->Positive;
@@ -4808,75 +4808,75 @@ WHERE `v`.`created_at` LIKE '%".$month."%' ";
 							[ //Input the measure_id for a test type in this section - check testtype_measure table
 							'test_category_id' => 3, //the id of the hematology - check test_categories table
 							'hb_non_automated' => 4, 
-							'vdrl_rrr' => 12,
-							'cbc' => 80,
+							'vdrl_rrr' => 97,
+							'cbc' => $measure_map,
 							'film_comment' => 59,
-							'tpha' => 36,
-							'esr' =>60, 
+							'tpha' => 68,
+							'esr' =>115, 
 							'shigella_dysentery' => 105,
 							'bleeding_time' => 100,
-							'Hepatitisb_sags' => 110,
+							'Hepatitisb_sags' => 112,
 							'prothrombin_time' => 115,
-							'brucella' => 14,
+							'brucella' => 36,
 							'clotting_time' => 120,
-							'pregnancy_test' => 42,
-							'sickle_cell' => 10,
+							'pregnancy_test' => 69,
+							'sickle_cell' => 32,
 						],
 						'serology' => [ //Input the measure_id for a test type in this section - check testtype_measure table
 							'test_category_id' => 4, //the id of the serology - check test_categories table
-							'vdrl_rrr' => 12, 
-							'tpha' => 36,
+							'vdrl_rrr' => 97, 
+							'tpha' => 68,
 							'shigella_dysentery' => 104,
-							'hepatitisb_sags' => 106,
-							'brucella' => 14,
-							'pregnancy_test' => 42,
+							'hepatitisb_sags' => 112,
+							'brucella' => 36,
+							'pregnancy_test' => 69,
 							'crag' => 108,
 							'rheumatoid_factor' => 111,
-							'hepb_core_ag' => 30,
+							'hepb_core_ag' => 112,
 							'hepa' => 114,
 							'hepc' => 116,
 						],
 						'blood_transfusion' => [ //Input the measure_id for a test type in this section - check testtype_measure table
 							'test_category_id' => 5, //the id of the serology - check test_categories table
 							'ahb_combs_test' => 8,
-							'abo_grouping' => 50,
+							'abo_grouping' => 5,
 							'rhesus_grouping' => 'N/A',
-							'cross_matching' => 51,
+							'cross_matching' => 5,
 						],
 						//test based analysis
 						'culture_and_sensitivity_specimen' => [ //Input the measure_id for a test type in this section
 							'test_type_id' => 5, //the id of the cul n sens test - check test_types table
-							'blood' => 23,
-							'urine' => 20,
-							'stool' => 16,
+							'blood' => 22,
+							'urine' => 26,
+							'stool' => 13,
 							'sputum' => 24,
-							'nosal_swab' => 6,
-							'rectal_swab' => 11,
+							'nosal_swab' => 3,
+							'rectal_swab' => 5,
 							'wound_swab' => 15,
-							'pus_swab' => 10,
-							'eye_swab' => 27,
-							'ear_swab' => 27,
-							'throat_swab' => 18,
-							'uretheral_swab' => 27,
+							'pus_swab' => 16,
+							'eye_swab' => 18,
+							'ear_swab' => 19,
+							'throat_swab' => 20,
+							'uretheral_swab' => 10,
 						],
 						'microbiology' => [ //Input the measure_id for a test type in this section - check testtype_measure table
 							'test_category_id' => 2, //the id of the serology - check test_categories table
 							'test_type_id' => 5, //the id of the microbiology test - check test_types table
 							'auramine_fm' => 20,
-							'zn_for_afb' => 20,
+							'zn_for_afb' => 89,
 							'leishman_stain' => 26,
-							'gram' => 13,
-							'india_ink' => 24,
-							'urine_microscopy' => 3,
-							'wet_prep' => 159,
+							'gram' => 83,
+							'india_ink' => 84,
+							'urine_microscopy' => 22,
+							'wet_prep' => 86,
 							//'others' => 15,
 							
 						],
 						'parasitology' => [ //Input the measure_id for a test type in this section - check testtype_measure table
 							'test_category_id' => 1, //the id of the serology - check test_categories table
 							'test_type_id' => 5, //the id of the parasitology test - check test_types table
-							'malaria_microscopy' => 1,
-							'malaria_rdts' => 109,
+							'malaria_microscopy' => 4,
+							'malaria_rdts' => 110,
 							'trypasonoma' => 13,
 							'micro_filaria' => 24,
 							'leishmania' => 3,
@@ -4903,12 +4903,12 @@ WHERE `v`.`created_at` LIKE '%".$month."%' ";
 						'immunology' => [ //Input the measure_id number for a test type in this section - check testtype_measure table
 							'test_category_id' => 7,
 							'cd4' => 47, 
-							'hiv_viral_load' => 53,
-							'hepb' => 30,
+							'hiv_viral_load' => 1,
+							'hepb' => 112,
 						],
 						'molecular' => [
 							'test_category_id' => 2,
-							'tb_genexpert' => 131, 
+							'tb_genexpert' => 108, 
 							'latent_tb' => 131,
 							'tb_lam' => 131,
 						],
